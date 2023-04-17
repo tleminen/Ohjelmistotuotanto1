@@ -15,10 +15,206 @@
             app:destination="@id/registerFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_loginFragment_to_toimipFragment"
+            app:destination="@id/toimipFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_toimip_hallintaFragment"
+            app:destination="@id/toimip_hallintaFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.oh.time4play.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_toimipFragment"
+            app:destination="@id/toimipFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toimipFragment"
+        android:name="com.oh.time4play.ToimipFragment"
+        android:label="fragment_toimip"
+        tools:layout="@layout/fragment_toimip" >
+        <action
+            android:id="@+id/action_toimipFragment_to_pvmFragment"
+            app:destination="@id/pvmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pvmFragment"
+        android:name="com.oh.time4play.pvmFragment"
+        android:label="fragment_pvm"
+        tools:layout="@layout/fragment_pvm" >
+        <action
+            android:id="@+id/action_pvmFragment_to_kenttaFragment"
+            app:destination="@id/kenttaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kenttaFragment"
+        android:name="com.oh.time4play.kenttaFragment"
+        android:label="fragment_kentta"
+        tools:layout="@layout/fragment_kentta" >
+        <action
+            android:id="@+id/action_kenttaFragment_to_pelivalineetFragment"
+            app:destination="@id/pelivalineetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pelivalineetFragment"
+        android:name="com.oh.time4play.pelivalineetFragment"
+        android:label="fragment_pelivalineet"
+        tools:layout="@layout/fragment_pelivalineet" >
+        <action
+            android:id="@+id/action_pelivalineetFragment_to_maksuikkunaFragment"
+            app:destination="@id/maksuikkunaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/maksuikkunaFragment"
+        android:name="com.oh.time4play.maksuikkunaFragment"
+        android:label="fragment_maksuikkuna"
+        tools:layout="@layout/fragment_maksuikkuna" >
+        <action
+            android:id="@+id/action_maksuikkunaFragment_to_loppuikkunaFragment"
+            app:destination="@id/loppuikkunaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loppuikkunaFragment"
+        android:name="com.oh.time4play.loppuikkunaFragment"
+        android:label="fragment_loppuikkuna"
+        tools:layout="@layout/fragment_loppuikkuna" >
+        <action
+            android:id="@+id/action_loppuikkunaFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toimip_hallintaFragment"
+        android:name="com.oh.time4play.toimip_hallintaFragment"
+        android:label="fragment_toimip_hallinta"
+        tools:layout="@layout/fragment_toimip_hallinta" >
+        <action
+            android:id="@+id/action_toimip_hallintaFragment_to_loppuikkunaFragment"
+            app:destination="@id/loppuikkunaFragment" />
+        <action
+            android:id="@+id/action_toimip_hallintaFragment_to_toimip_lisaysFragment"
+            app:destination="@id/toimip_lisaysFragment" />
+        <action
+            android:id="@+id/action_toimip_hallintaFragment_to_toimip_muokkausFragment"
+            app:destination="@id/toimip_muokkausFragment" />
+        <action
+            android:id="@+id/action_toimip_hallintaFragment_to_toimip_poistoFragment"
+            app:destination="@id/toimip_poistoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toimip_lisaysFragment"
+        android:name="com.oh.time4play.toimip_lisaysFragment"
+        android:label="fragment_toimip_lisays"
+        tools:layout="@layout/fragment_toimip_lisays" >
+        <action
+            android:id="@+id/action_toimip_lisaysFragment_to_toimip_hallintaFragment"
+            app:destination="@id/toimip_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toimip_muokkausFragment"
+        android:name="com.oh.time4play.toimip_muokkausFragment"
+        android:label="fragment_toimip_muokkaus"
+        tools:layout="@layout/fragment_toimip_muokkaus" >
+        <action
+            android:id="@+id/action_toimip_muokkausFragment_to_toimip_hallintaFragment"
+            app:destination="@id/toimip_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toimip_poistoFragment"
+        android:name="com.oh.time4play.toimip_poistoFragment"
+        android:label="fragment_toimip_poisto"
+        tools:layout="@layout/fragment_toimip_poisto" >
+        <action
+            android:id="@+id/action_toimip_poistoFragment_to_toimip_hallintaFragment"
+            app:destination="@id/toimip_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toimipisteen_hallintaFragment"
+        android:name="com.oh.time4play.toimipisteen_hallintaFragment"
+        android:label="fragment_toimipisteen_hallinta"
+        tools:layout="@layout/fragment_toimipisteen_hallinta" >
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_th_kentta_lisaysFragment"
+            app:destination="@id/th_kentta_lisaysFragment" />
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_th_pelivaline_lisaysFragment"
+            app:destination="@id/th_pelivaline_lisaysFragment" />
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_th_muokattava_kenttaFragment"
+            app:destination="@id/th_muokattava_kenttaFragment" />
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_loppuikkunaFragment"
+            app:destination="@id/loppuikkunaFragment" />
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_th_muokattava_lajiFragment"
+            app:destination="@id/th_muokattava_lajiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_kentta_lisaysFragment"
+        android:name="com.oh.time4play.th_kentta_lisaysFragment"
+        android:label="fragment_th_kentta_lisays"
+        tools:layout="@layout/fragment_th_kentta_lisays" >
+        <action
+            android:id="@+id/action_th_kentta_lisaysFragment_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_pelivaline_lisaysFragment"
+        android:name="com.oh.time4play.th_pelivaline_lisaysFragment"
+        android:label="fragment_th_pelivaline_lisays"
+        tools:layout="@layout/fragment_th_pelivaline_lisays" >
+        <action
+            android:id="@+id/action_th_pelivaline_lisaysFragment_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_kentta_muokkausFragment2"
+        android:name="com.oh.time4play.th_kentta_muokkausFragment"
+        android:label="fragment_th_kentta_muokkaus"
+        tools:layout="@layout/fragment_th_kentta_muokkaus" >
+        <action
+            android:id="@+id/action_th_kentta_muokkausFragment2_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_muokattava_kenttaFragment"
+        android:name="com.oh.time4play.th_muokattava_kenttaFragment"
+        android:label="fragment_th_muokattava_kentta"
+        tools:layout="@layout/fragment_th_muokattava_kentta" >
+        <action
+            android:id="@+id/action_th_muokattava_kenttaFragment_to_th_kentta_muokkausFragment2"
+            app:destination="@id/th_kentta_muokkausFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_muokattava_lajiFragment"
+        android:name="com.oh.time4play.th_muokattava_lajiFragment"
+        android:label="fragment_th_muokattava_laji"
+        tools:layout="@layout/fragment_th_muokattava_laji" >
+        <action
+            android:id="@+id/action_th_muokattava_lajiFragment_to_th_peliv_muutoksetFragment"
+            app:destination="@id/th_peliv_muutoksetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_peliv_muutoksetFragment"
+        android:name="com.oh.time4play.th_peliv_muutoksetFragment"
+        android:label="fragment_th_peliv_muutokset"
+        tools:layout="@layout/fragment_th_peliv_muutokset" >
+        <action
+            android:id="@+id/action_th_peliv_muutoksetFragment_to_th_pelivaline_muokkausFragment"
+            app:destination="@id/th_pelivaline_muokkausFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/th_pelivaline_muokkausFragment"
+        android:name="com.oh.time4play.th_pelivaline_muokkausFragment"
+        android:label="fragment_th_pelivaline_muokkaus"
+        tools:layout="@layout/fragment_th_pelivaline_muokkaus" >
+        <action
+            android:id="@+id/action_th_pelivaline_muokkausFragment_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
+    </fragment>
 </navigation>
