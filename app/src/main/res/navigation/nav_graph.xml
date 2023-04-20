@@ -68,8 +68,8 @@
         android:label="fragment_kentta"
         tools:layout="@layout/fragment_kentta" >
         <action
-            android:id="@+id/action_kenttaFragment_to_pelivalineetFragment"
-            app:destination="@id/pelivalineetFragment" />
+            android:id="@+id/action_kenttaFragment_to_kellonaikaValintaFragment"
+            app:destination="@id/kellonaikaValintaFragment" />
     </fragment>
     <fragment
         android:id="@+id/pelivalineetFragment"
@@ -226,5 +226,14 @@
         <action
             android:id="@+id/action_th_pelivaline_muokkausFragment_to_toimipisteen_hallintaFragment"
             app:destination="@id/toimipisteen_hallintaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kellonaikaValintaFragment"
+        android:name="com.oh.time4play.kellonaikaValintaFragment"
+        android:label="fragment_kellonaika_valinta"
+        tools:layout="@layout/fragment_kellonaika_valinta" >
+        <action
+            android:id="@+id/action_kellonaikaValintaFragment_to_pelivalineetFragment"
+            app:destination="@id/pelivalineetFragment" />
     </fragment>
 </navigation>
