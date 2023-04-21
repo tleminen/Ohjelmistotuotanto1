@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.sql.Connection;
+
 //Luokan ohjelmointi aloitettu
 public class toimip_hallintaFragment extends Fragment {
 
@@ -21,7 +23,9 @@ public class toimip_hallintaFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
 
+        Connection connection = Tietokantayhteys.yhdistaTietokantaan("ToimipisteidenHallinnoitsija","salasana");
         Toimip_hallintaMuuttujat[] dataset = Toimip_hallinta_kyselyt.getAllToimipisteet();
+        Tietokantayhteys.katkaiseYhteysTietokantaan();
         rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
         rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
 
