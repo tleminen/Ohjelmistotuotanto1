@@ -1,5 +1,25 @@
 <resources>
+
+    <!-- yleiset -->
     <string name="app_name">Time4Play</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- toimip_hallinta -->
+    <string name="bt_text_Lisaa_toimipiste">Lisää</string>
+    <string name="bt_text_Muokkaa_toimipiste">Muokkaa</string>
+    <string name="bt_text_Poista_toimipiste">Poista</string>
+    <string name="bt_text_Poistu_toimipiste">Poistu</string>
+    <string name="tw_Otsikko_toimip_hallinta">Toimipisteiden hallinnointi</string>
+
+    <!-- Login -->
+    <string name="et_text_Salasana_Login">Salasana</string>
+    <string name="et_text_syotasapo_Login">Syötä Sähköpostiosoite</string>
+    <string name="bt_text_Kirjaudu_Login">Kirjaudu</string>
+    <string name="bt_text_Rekisteroidt_Login">Salasana</string>
+
+    <!-- Register -->
+    <string name="et_text_Salasana_Register">Anna salasana</string>
+    <string name="et_text_syotasapo_Register">Anna sähköpostiosoite</string>
+    <string name="bt_text_Register_Register">Rekisteröidy</string>
+
+
 </resources>

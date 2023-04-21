@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Anna sähköpostiosoite"
+            android:hint="@string/et_text_syotasapo_Register"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textAlignment="center"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="Anna salasana"
+            android:hint="@string/et_text_Salasana_Register"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="center"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:text="Rekisteröidy"
+            android:text="@string/bt_text_Register_Register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
