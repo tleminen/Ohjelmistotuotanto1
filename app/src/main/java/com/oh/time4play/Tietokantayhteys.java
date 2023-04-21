@@ -10,7 +10,7 @@ public class Tietokantayhteys {
     /**
      * Tänne tehdään tietokantayhteyden muodostaminen
      *
-     * @return
+     * @return palauttaa tietokantayhteyden
      */
     public static Connection yhdistaTietokantaan(String Kayttajatunnus, String Salasana) {
 
@@ -18,10 +18,18 @@ public class Tietokantayhteys {
     }
 
     /**
+     * tänne tehdään System-käyttäjän yhdistäminen tietokantaan
+     * SystemKäyttäjä voi lisätä uusia käyttäjiä ja hakea laskutustietoja
+     * @return palauttaa tietokantayhteyden
+     */
+    public static Connection yhdistaSystemTietokantaan() {
+        return null;
+    }
+
+    /**
      * Tänne tehdään tietokantayhteyden katkaiseminen
      */
     public static void katkaiseYhteysTietokantaan() {
-
 
     }
 }

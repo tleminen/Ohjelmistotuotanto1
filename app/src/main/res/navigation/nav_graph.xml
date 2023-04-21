@@ -52,6 +52,12 @@
         <action
             android:id="@+id/action_toimipFragment_to_pvmFragment"
             app:destination="@id/pvmFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/pvmFragment"
@@ -115,6 +121,12 @@
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_poistoFragment"
             app:destination="@id/toimip_poistoFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/toimip_lisaysFragment"
@@ -163,6 +175,8 @@
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_th_muokattava_lajiFragment"
             app:destination="@id/th_muokattava_lajiFragment" />
+        <argument android:name="KirjautunutKayttaja" />
+        <argument android:name="KirjautunutSalasana" />
     </fragment>
     <fragment
         android:id="@+id/th_kentta_lisaysFragment"

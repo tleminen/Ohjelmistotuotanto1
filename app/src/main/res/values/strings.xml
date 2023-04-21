@@ -20,6 +20,7 @@
     <string name="et_text_Salasana_Register">Anna salasana</string>
     <string name="et_text_syotasapo_Register">Anna sähköpostiosoite</string>
     <string name="bt_text_Register_Register">Rekisteröidy</string>
+    <string name="et_text_Anna_Osoite">Anna osoitteesi</string>
 
 
 </resources>

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -22,10 +23,14 @@ public class toimip_hallintaFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
+        String kayttajatunnus = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
+        String salasana = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
 
-        Connection connection = Tietokantayhteys.yhdistaTietokantaan("ToimipisteidenHallinnoitsija","salasana");
-        Toimip_hallintaMuuttujat[] dataset = new Toimip_hallintaMuuttujat[0];
+        Connection connection = Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana);
+        Toimip_hallintaMuuttujat[] dataset;
         try {
             dataset = Toimip_hallinta_kyselyt.getAllToimipisteet(connection);
         } catch (SQLException e) {
