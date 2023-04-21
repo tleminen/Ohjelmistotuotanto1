@@ -14,7 +14,7 @@
     <string name="et_text_Salasana_Login">Salasana</string>
     <string name="et_text_syotasapo_Login">Syötä Sähköpostiosoite</string>
     <string name="bt_text_Kirjaudu_Login">Kirjaudu</string>
-    <string name="bt_text_Rekisteroidt_Login">Salasana</string>
+    <string name="bt_text_Rekisteroidt_Login">Rekisteröidy</string>
 
     <!-- Register -->
     <string name="et_text_Salasana_Register">Anna salasana</string>

@@ -12,7 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 //Ohjelmointi kesken
-/*
+
 public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter>.ViewHolder {
     Toimip_hallintaMuuttujat[] localDataset;
     Bundle bundle = new Bundle();
@@ -23,8 +23,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
-            bundle.putString("Paikkakunta", String.valueOf(localDataset[position].Paikkakunta));
-            bundle.putString("Nimi"), String.valueOf(localDataset[position].Nimi);
+            bundle.putString("Toimipisteen tiedot", String.valueOf(localDataset[position].Paikkakunta) + String.valueOf(localDataset[position].Paikkakunta));
         }
     };
 
@@ -62,4 +61,3 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         }
     }
 }
-*/
