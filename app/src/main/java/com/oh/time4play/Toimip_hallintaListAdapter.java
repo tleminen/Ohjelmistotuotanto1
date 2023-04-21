@@ -13,7 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 //Ohjelmointi kesken
 
-public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter>.ViewHolder {
+public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
     Toimip_hallintaMuuttujat[] localDataset;
     Bundle bundle = new Bundle();
 

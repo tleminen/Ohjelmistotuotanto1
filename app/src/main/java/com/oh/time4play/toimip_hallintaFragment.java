@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 //Luokan ohjelmointi aloitettu
 public class toimip_hallintaFragment extends Fragment {
@@ -24,7 +25,12 @@ public class toimip_hallintaFragment extends Fragment {
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
 
         Connection connection = Tietokantayhteys.yhdistaTietokantaan("ToimipisteidenHallinnoitsija","salasana");
-        Toimip_hallintaMuuttujat[] dataset = Toimip_hallinta_kyselyt.getAllToimipisteet();
+        Toimip_hallintaMuuttujat[] dataset = new Toimip_hallintaMuuttujat[0];
+        try {
+            dataset = Toimip_hallinta_kyselyt.getAllToimipisteet(connection);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         Tietokantayhteys.katkaiseYhteysTietokantaan();
         rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
         rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
