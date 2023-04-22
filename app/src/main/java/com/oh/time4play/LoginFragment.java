@@ -37,11 +37,13 @@ public class LoginFragment extends Fragment {
         EditText etSalasana = view.findViewById(R.id.etSalasana);
 
         btLogin.setOnClickListener(e -> {
+            System.out.println("Button login painettu");
             String kayttaja = etKayttajatunnus.getText().toString();
             String salasana = etSalasana.getText().toString();
 
             //Ensin kokeillaan onko rooli asiakas ja jos on niin siirrytään toimip-fragmenttiin
             try {
+                System.out.println("Kokeillaan asiakasrooli");
                 rooli = KirjautumisKyselyt.getOnkoRooliAsiakas(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
                 Tietokantayhteys.katkaiseYhteysTietokantaan();
             } catch (SQLException ex) {
@@ -54,6 +56,7 @@ public class LoginFragment extends Fragment {
 
             //Seuraavaksi kokeillaan onko rooli toimipistevastaava, ja jos on niin siirrytään toimipisteen hallintaan
             try {
+                System.out.println("Kokeillaan rooli toimipistevastaava");
                 rooli = KirjautumisKyselyt.getOnkoRooliToimipistevastaava(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
                 Tietokantayhteys.katkaiseYhteysTietokantaan();
             } catch (SQLException ex) {
@@ -66,6 +69,7 @@ public class LoginFragment extends Fragment {
 
             //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija ja jos on niin siirrytään toimip_hallinta fragmenttiin
             try {
+                System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
                 rooli = KirjautumisKyselyt.getOnkoRooliToimipisteidenHallinnoitsija(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana), kayttaja);
                 Tietokantayhteys.katkaiseYhteysTietokantaan();
             } catch (SQLException ex) {
@@ -79,6 +83,7 @@ public class LoginFragment extends Fragment {
 
         //Rekisteröidy buttonin toiminta
         btRegister.setOnClickListener(e -> {
+            System.out.println("Register painettu...");
             Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment);
         });
 
