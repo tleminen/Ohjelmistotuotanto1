@@ -39,7 +39,12 @@ public class LoginFragment extends Fragment {
         btLogin.setOnClickListener(e -> {
             String kayttaja = etKayttajatunnus.getText().toString();
             String salasana = etSalasana.getText().toString();
-            Connection connection = Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana);
+            Connection connection = null;
+            try {
+                connection = Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
 
             //Ensin kokeillaan onko rooli asiakas ja jos on niin siirrytään toimip-fragmenttiin
             try {
@@ -49,9 +54,7 @@ public class LoginFragment extends Fragment {
                 throw new RuntimeException(ex);
             }
             if (rooli) {
-                com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipFragment action = (com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipFragment) LoginFragmentDirections.actionLoginFragmentToToimipFragment();
-                action.setKirjautunutKayttaja(kayttaja);
-                action.setKirjautunutSalasana(salasana);
+                com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipFragment action = LoginFragmentDirections.actionLoginFragmentToToimipFragment(kayttaja,salasana);
             Navigation.findNavController(view).navigate(action);
             }
 
@@ -63,9 +66,7 @@ public class LoginFragment extends Fragment {
                 throw new RuntimeException(ex);
             }
             if (rooli) {
-                com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipisteenHallintaFragment action = (com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipisteenHallintaFragment) LoginFragmentDirections.actionLoginFragmentToToimipisteenHallintaFragment();
-                action.setKirjautunutKayttaja(kayttaja);
-                action.setKirjautunutSalasana(salasana);
+                com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipisteenHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipisteenHallintaFragment(kayttaja,salasana);
                 Navigation.findNavController(view).navigate(action);
             }
 
@@ -77,9 +78,7 @@ public class LoginFragment extends Fragment {
                 throw new RuntimeException(ex);
             }
             if (rooli) {
-                com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipHallintaFragment action = (com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipHallintaFragment) LoginFragmentDirections.actionLoginFragmentToToimipFragment();
-                action.setKirjautunutKayttaja(kayttaja);
-                action.setKirjautunutSalasana(salasana);
+                com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipHallintaFragment(kayttaja,salasana);
                 Navigation.findNavController(view).navigate(action);
             }
         });

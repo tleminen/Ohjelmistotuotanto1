@@ -15,10 +15,10 @@ public class Tietokantayhteys {
      *
      * @return palauttaa tietokantayhteyden
      */
-    public static Connection yhdistaTietokantaan() throws SQLException {
+    public static Connection yhdistaTietokantaan(String kayttajatunnus,String salasana) throws SQLException {
          yhteys = DriverManager.getConnection(
                 "jdbc:mariadb://localhost:3306/varausjarjestelma",
-                "ToimipisteidenHallinnoitsija", "salasana"
+                kayttajatunnus, salasana
         );
          return yhteys;
     }
@@ -28,8 +28,12 @@ public class Tietokantayhteys {
      * SystemKäyttäjä voi lisätä uusia käyttäjiä ja hakea laskutustietoja
      * @return palauttaa tietokantayhteyden
      */
-    public static Connection yhdistaSystemTietokantaan() {
-        return null;
+    public static Connection yhdistaSystemTietokantaan() throws SQLException {
+        yhteys = DriverManager.getConnection(
+                "jdbc:mariadb://localhost:3306/varausjarjestelma",
+                "SystemUser", "SysSalasana"
+        );
+        return yhteys;
     }
 
     /**

@@ -2,6 +2,8 @@
 
     <!-- yleiset -->
     <string name="app_name">Time4Play</string>
+    <string name="hello_blank_fragment">Tyhja Fragmentti</string>
+
 
     <!-- toimip_hallinta -->
     <string name="bt_text_Lisaa_toimipiste">Lisää</string>
@@ -21,6 +23,7 @@
     <string name="et_text_syotasapo_Register">Anna sähköpostiosoite</string>
     <string name="bt_text_Register_Register">Rekisteröidy</string>
     <string name="et_text_Anna_Osoite">Anna osoitteesi</string>
+
 
 
 </resources>

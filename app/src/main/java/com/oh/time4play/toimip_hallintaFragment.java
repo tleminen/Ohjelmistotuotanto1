@@ -29,14 +29,23 @@ public class toimip_hallintaFragment extends Fragment {
 
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
 
-        Connection connection = Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana);
+        Connection connection = null;
+        try {
+            connection = Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         Toimip_hallintaMuuttujat[] dataset;
         try {
             dataset = Toimip_hallinta_kyselyt.getAllToimipisteet(connection);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Tietokantayhteys.katkaiseYhteysTietokantaan();
+        try {
+            Tietokantayhteys.katkaiseYhteysTietokantaan();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
         rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
 
