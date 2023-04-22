@@ -2,19 +2,25 @@ package com.oh.time4play;
 
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Tietokantayhteyden muodostaminen
  */
 public class Tietokantayhteys {
+    private static Connection yhteys;
     /**
      * Tänne tehdään tietokantayhteyden muodostaminen
      *
      * @return palauttaa tietokantayhteyden
      */
-    public static Connection yhdistaTietokantaan(String Kayttajatunnus, String Salasana) {
-
-        return null;
+    public static Connection yhdistaTietokantaan() throws SQLException {
+         yhteys = DriverManager.getConnection(
+                "jdbc:mariadb://localhost:3306/varausjarjestelma",
+                "ToimipisteidenHallinnoitsija", "salasana"
+        );
+         return yhteys;
     }
 
     /**
@@ -29,7 +35,7 @@ public class Tietokantayhteys {
     /**
      * Tänne tehdään tietokantayhteyden katkaiseminen
      */
-    public static void katkaiseYhteysTietokantaan() {
-
+    public static void katkaiseYhteysTietokantaan() throws SQLException {
+        yhteys.close();
     }
 }
