@@ -21,7 +21,7 @@ public class Tietokantayhteys {
                 "jdbc:mariadb://192.168.1.107:3306/varausjarjestelma",
                 kayttajatunnus, salasana
         );
-        System.out.println("Tietokantayhteys muodostaminen yritetty"+yhteys.isValid(5));
+        System.out.println("\tTietokantayhteys muodostaminen onnistui: "+yhteys.isValid(5));
          return yhteys;
     }
 
@@ -42,6 +42,8 @@ public class Tietokantayhteys {
      * Tänne tehdään tietokantayhteyden katkaiseminen
      */
     public static void katkaiseYhteysTietokantaan() throws SQLException {
+        System.out.println("\tTietokantayhteys katkaistaan...");
         yhteys.close();
+        System.out.println("\n\tTietokantayhteys muodostettu: "+yhteys.isValid(5));
     }
 }

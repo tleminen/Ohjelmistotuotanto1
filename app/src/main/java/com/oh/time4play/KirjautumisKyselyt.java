@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class KirjautumisKyselyt {
+    public static int rooli = 0;
 
-    static boolean getOnkoRooliAsiakas(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
+    static void getOnkoRooliAsiakas(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
         System.out.println("Lukee dataa..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
                 SELECT AsiakasID
@@ -16,16 +17,14 @@ public class KirjautumisKyselyt {
                 """)) {
             statement.setString(1,LoginTunnus);
             ResultSet resultSet = statement.executeQuery();
-            boolean RooliAsiakas = false;
             while (resultSet.next()) {
-                RooliAsiakas = true;
+                rooli = 1;
             }
             statement.close();
-            return RooliAsiakas;
         }
     }
 
-    static boolean getOnkoRooliToimipistevastaava(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
+    static void getOnkoRooliToimipistevastaava(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
         System.out.println("Lukee dataa..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
                 SELECT toimipisteID
@@ -34,31 +33,28 @@ public class KirjautumisKyselyt {
                 """)) {
             statement.setString(1,LoginTunnus);
             ResultSet resultSet = statement.executeQuery();
-            boolean RooliToimipistevastaava = false;
             while (resultSet.next()) {
-                RooliToimipistevastaava = true;
+                rooli = 2;
             }
             statement.close();
-            return RooliToimipistevastaava;
         }
     }
 
-    static boolean getOnkoRooliToimipisteidenHallinnoitsija(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
+    static void getOnkoRooliToimipisteidenHallinnoitsija(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
         System.out.println("Lukee dataa..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT AsiakasID
+                SELECT *
                 FROM asiakas
                 WHERE email LIKE ?
                 AND rooli LIKE "TpLuoja"
                 """)) {
             statement.setString(1,LoginTunnus);
             ResultSet resultSet = statement.executeQuery();
-            boolean RooliTpLuoja= false;
             while (resultSet.next()) {
-                RooliTpLuoja = true;
+                rooli = 3;
+                System.out.println("Kyllä täällä oli dataa");
             }
             statement.close();
-            return RooliTpLuoja;
         }
     }
 }
