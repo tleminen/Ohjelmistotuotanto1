@@ -41,40 +41,62 @@ public class LoginFragment extends Fragment {
             String kayttaja = etKayttajatunnus.getText().toString();
             String salasana = etSalasana.getText().toString();
 
+
             //Ensin kokeillaan onko rooli asiakas ja jos on niin siirrytään toimip-fragmenttiin
-            try {
-                System.out.println("Kokeillaan asiakasrooli");
-                rooli = KirjautumisKyselyt.getOnkoRooliAsiakas(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
-                Tietokantayhteys.katkaiseYhteysTietokantaan();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            System.out.println("Kokeillaan asiakasrooli");
+            new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    try {
+                        rooli = KirjautumisKyselyt.getOnkoRooliAsiakas(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
+                        Tietokantayhteys.katkaiseYhteysTietokantaan();
+                    }
+                    catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }).start();
+
             if (rooli) {
                 com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipFragment action = LoginFragmentDirections.actionLoginFragmentToToimipFragment(kayttaja,salasana);
             Navigation.findNavController(view).navigate(action);
             }
 
             //Seuraavaksi kokeillaan onko rooli toimipistevastaava, ja jos on niin siirrytään toimipisteen hallintaan
-            try {
-                System.out.println("Kokeillaan rooli toimipistevastaava");
-                rooli = KirjautumisKyselyt.getOnkoRooliToimipistevastaava(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
-                Tietokantayhteys.katkaiseYhteysTietokantaan();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            System.out.println("Kokeillaan rooli toimipistevastaava");
+            new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    try {
+                        rooli = KirjautumisKyselyt.getOnkoRooliToimipistevastaava(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
+                        Tietokantayhteys.katkaiseYhteysTietokantaan();
+                    }
+                    catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }).start();
+
             if (rooli) {
                 com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipisteenHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipisteenHallintaFragment(kayttaja,salasana);
                 Navigation.findNavController(view).navigate(action);
             }
 
             //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija ja jos on niin siirrytään toimip_hallinta fragmenttiin
-            try {
-                System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
-                rooli = KirjautumisKyselyt.getOnkoRooliToimipisteidenHallinnoitsija(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana), kayttaja);
-                Tietokantayhteys.katkaiseYhteysTietokantaan();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
+            new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    try {
+                        rooli = KirjautumisKyselyt.getOnkoRooliToimipisteidenHallinnoitsija(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana), kayttaja);
+                        Tietokantayhteys.katkaiseYhteysTietokantaan();
+                    }
+                    catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }).start();
+
             if (rooli) {
                 com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipHallintaFragment(kayttaja,salasana);
                 Navigation.findNavController(view).navigate(action);
