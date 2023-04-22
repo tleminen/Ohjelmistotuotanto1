@@ -39,16 +39,10 @@ public class LoginFragment extends Fragment {
         btLogin.setOnClickListener(e -> {
             String kayttaja = etKayttajatunnus.getText().toString();
             String salasana = etSalasana.getText().toString();
-            Connection connection = null;
-            try {
-                connection = Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana);
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
 
             //Ensin kokeillaan onko rooli asiakas ja jos on niin siirrytään toimip-fragmenttiin
             try {
-                rooli = KirjautumisKyselyt.getOnkoRooliAsiakas(connection,kayttaja);
+                rooli = KirjautumisKyselyt.getOnkoRooliAsiakas(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
                 Tietokantayhteys.katkaiseYhteysTietokantaan();
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
@@ -60,7 +54,7 @@ public class LoginFragment extends Fragment {
 
             //Seuraavaksi kokeillaan onko rooli toimipistevastaava, ja jos on niin siirrytään toimipisteen hallintaan
             try {
-                rooli = KirjautumisKyselyt.getOnkoRooliToimipistevastaava(connection,kayttaja);
+                rooli = KirjautumisKyselyt.getOnkoRooliToimipistevastaava(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana),kayttaja);
                 Tietokantayhteys.katkaiseYhteysTietokantaan();
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
@@ -72,7 +66,7 @@ public class LoginFragment extends Fragment {
 
             //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija ja jos on niin siirrytään toimip_hallinta fragmenttiin
             try {
-                rooli = KirjautumisKyselyt.getOnkoRooliToimipisteidenHallinnoitsija(connection, kayttaja);
+                rooli = KirjautumisKyselyt.getOnkoRooliToimipisteidenHallinnoitsija(Tietokantayhteys.yhdistaTietokantaan(kayttaja, salasana), kayttaja);
                 Tietokantayhteys.katkaiseYhteysTietokantaan();
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
