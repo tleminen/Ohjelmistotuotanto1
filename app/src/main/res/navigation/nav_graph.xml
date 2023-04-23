@@ -67,6 +67,15 @@
         <action
             android:id="@+id/action_pvmFragment_to_kenttaFragment"
             app:destination="@id/kenttaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="ValittuToimipiste"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/kenttaFragment"
@@ -106,6 +115,9 @@
         <action
             android:id="@+id/action_loppuikkunaFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="MistaTanneTultiin"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/toimip_hallintaFragment"

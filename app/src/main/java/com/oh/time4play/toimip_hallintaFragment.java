@@ -15,14 +15,10 @@ import android.widget.EditText;
 
 import java.sql.SQLException;
 
-//Luokan ohjelmointi aloitettu
+//Luokan ohjelmointi valmis paitsi asiakkaan poistaminen
 public class toimip_hallintaFragment extends Fragment {
 
     static String valittuToimipiste = "";
-
-    public static String getValittuToimipiste() {
-        return valittuToimipiste;
-    }
 
     public static void setValittuToimipiste(String valittuToimipiste) {
         toimip_hallintaFragment.valittuToimipiste = valittuToimipiste;
@@ -80,9 +76,12 @@ public class toimip_hallintaFragment extends Fragment {
         rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
         rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        /**
-         * Siirtymä toimipisteen lisäykseen
-         */
+        //Asiakas hallinta (Asiakkaan poistaminen)
+        btPoistaAsiakas.setOnClickListener(e -> {
+            etPoistettavaAsiakas.getText().toString();
+        });
+
+        //Siirtymät nappuloiden mukaan
         btLisaaTp.setOnClickListener(e -> Navigation.findNavController(view).navigate(R.id.action_toimip_hallintaFragment_to_toimip_lisaysFragment));
 
         btMuokkaaTp.setOnClickListener(e -> {
@@ -92,6 +91,11 @@ public class toimip_hallintaFragment extends Fragment {
 
         btPoistaTp.setOnClickListener(e -> {
             com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste);
+            Navigation.findNavController(view).navigate(action);
+        });
+
+        btPoistuTp.setOnClickListener(e -> {
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToLoppuikkunaFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToLoppuikkunaFragment("Toimipisteen hallitsija");
             Navigation.findNavController(view).navigate(action);
         });
 

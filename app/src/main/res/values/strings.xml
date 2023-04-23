@@ -28,7 +28,12 @@
     <string name="et_tpMuokkausVastaava">ToimipisteVastaava</string>
     <string name="bt_tpMuutoksetNappi">Vahvista muutokset</string>
 
-
+    <!-- th_kentta_lisays -->
+    <string name="tw_otsikko_kenttaLisays">Lisää uusi kenttä</string>
+    <string name="et_text_lajitunnus_kenttaLisays">Lajitunnus</string>
+    <string name="et_text_tuntihinta_kenttaLisays">Tuntihinta</string>
+    <string name="et_text_kentanNimi_kenttaLisays">Kentän nimi</string>
+    <string name="bt_text_kenttaLisays_LisaaKentta">Lisää kenttä</string>
 
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
