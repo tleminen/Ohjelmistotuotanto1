@@ -76,6 +76,9 @@
         <action
             android:id="@+id/action_kenttaFragment_to_kellonaikaValintaFragment"
             app:destination="@id/kellonaikaValintaFragment" />
+        <argument
+            android:name="ValittuPvm"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/pelivalineetFragment"
@@ -114,7 +117,9 @@
             app:destination="@id/loppuikkunaFragment" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_lisaysFragment"
-            app:destination="@id/toimip_lisaysFragment" />
+            app:destination="@id/toimip_lisaysFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_muokkausFragment"
             app:destination="@id/toimip_muokkausFragment" />

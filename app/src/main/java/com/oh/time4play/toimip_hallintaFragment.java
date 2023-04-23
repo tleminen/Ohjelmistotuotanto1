@@ -13,14 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.oh.time4play.toimip_hallintaFragmentDirections;
-
 import java.sql.SQLException;
 
 //Luokan ohjelmointi aloitettu
 public class toimip_hallintaFragment extends Fragment {
 
-    static String valittuToimipiste;
+    static String valittuToimipiste = "";
 
     public static String getValittuToimipiste() {
         return valittuToimipiste;
@@ -88,7 +86,12 @@ public class toimip_hallintaFragment extends Fragment {
         btLisaaTp.setOnClickListener(e -> Navigation.findNavController(view).navigate(R.id.action_toimip_hallintaFragment_to_toimip_lisaysFragment));
 
         btMuokkaaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment();
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(valittuToimipiste);
+            Navigation.findNavController(view).navigate(action);
+        });
+
+        btPoistaTp.setOnClickListener(e -> {
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste);
             Navigation.findNavController(view).navigate(action);
         });
 

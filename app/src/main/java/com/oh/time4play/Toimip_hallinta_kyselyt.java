@@ -11,7 +11,7 @@ public class Toimip_hallinta_kyselyt {
         System.out.println("Lukee dataa.. getAllToimipisteet:");
         Toimip_hallintaMuuttujat[] toimipaikat = new Toimip_hallintaMuuttujat[10];
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT Kaupunki, Nimi
+                SELECT Kaupunki, Nimi, ToimipisteID
                 FROM toimipiste
                 ORDER BY Kaupunki
                 """)) {
@@ -20,8 +20,9 @@ public class Toimip_hallinta_kyselyt {
             int i = 0;
             while (resultSet.next()) {
                 Toimip_hallintaMuuttujat toimipaikka = new Toimip_hallintaMuuttujat();
-                toimipaikka.Paikkakunta = resultSet.getString("Kaupunki");
+                toimipaikka.Kaupunki = resultSet.getString("Kaupunki");
                 toimipaikka.Nimi = resultSet.getString("Nimi");
+                toimipaikka.ToimipisteID = resultSet.getString("ToimipisteID");
                 toimipaikat[i] = toimipaikka;
                 i ++;
             }
