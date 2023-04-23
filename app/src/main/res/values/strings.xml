@@ -55,5 +55,13 @@
     <string name="rb_PVM_Sulkapallo">Sulkapallo</string>
     <string name="bt_PVM_VahvistaNappi">Vahvista</string>
 
+    <!-- toimipisteen_hallinta -->
+    <string name="tv_toimipisteenHallinta_otsikko">Toimipisteen hallinta</string>
+    <string name="bt_toimipisteenHallinta_lisaaKentta">Lisää kenttä</string>
+    <string name="bt_toimipisteenHallinta_muokkaaKenttaa">Muokkaa kenttää</string>
+    <string name="bt_toimipisteenHallinta_uusiPelivaline">Uusi peliväline</string>
+    <string name="bt_toimipisteenHallinta_muokkaaPelivalineita">Muokkaa pelivälineitä</string>
+    <string name="bt_toimipisteenHallinta_poistu">Poistu</string>
+
 
 </resources>
