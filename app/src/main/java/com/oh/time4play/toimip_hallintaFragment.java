@@ -5,19 +5,30 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
-import java.sql.Connection;
+import com.oh.time4play.toimip_hallintaFragmentDirections;
+
 import java.sql.SQLException;
 
 //Luokan ohjelmointi aloitettu
 public class toimip_hallintaFragment extends Fragment {
+
+    static String valittuToimipiste;
+
+    public static String getValittuToimipiste() {
+        return valittuToimipiste;
+    }
+
+    public static void setValittuToimipiste(String valittuToimipiste) {
+        toimip_hallintaFragment.valittuToimipiste = valittuToimipiste;
+    }
 
     Toimip_hallintaMuuttujat[] dataset;
 
@@ -28,10 +39,21 @@ public class toimip_hallintaFragment extends Fragment {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
         String kayttajatunnus = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String salasana = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
-        System.out.println("\t\t\t\t!!Tänne päästiin!!");
 
+        Button btLisaaTp = view.findViewById(R.id.btLisaaToimipiste);
+
+        Button btMuokkaaTp = view.findViewById(R.id.btMuokkaaToimipiste);
+
+        Button btPoistaTp = view.findViewById(R.id.btPoistaToimipiste);
+
+        Button btPoistuTp = view.findViewById(R.id.btPoistuToimip_hallinta);
+
+
+        Button btPoistaAsiakas = view.findViewById(R.id.bt_tpHal_poistaAsiakas);
+        EditText etPoistettavaAsiakas = view.findViewById(R.id.et_tpHal_poistettavaAsiakas);
+
+        //RecycleView Toimipisteiden listaamiseen
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
-
         new Thread(new Runnable(){
             @Override
             public void run() {
@@ -52,15 +74,23 @@ public class toimip_hallintaFragment extends Fragment {
                 }
             }
         }).start();
-
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
         rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
         rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        /**
+         * Siirtymä toimipisteen lisäykseen
+         */
+        btLisaaTp.setOnClickListener(e -> Navigation.findNavController(view).navigate(R.id.action_toimip_hallintaFragment_to_toimip_lisaysFragment));
+
+        btMuokkaaTp.setOnClickListener(e -> {
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment();
+            Navigation.findNavController(view).navigate(action);
+        });
 
         super.onViewCreated(view, savedInstanceState);
     }

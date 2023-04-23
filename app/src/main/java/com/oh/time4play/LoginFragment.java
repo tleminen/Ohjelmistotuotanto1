@@ -10,11 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.ThemedSpinnerAdapter;
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class LoginFragment extends Fragment {
 
@@ -35,6 +30,9 @@ public class LoginFragment extends Fragment {
         EditText etKayttajatunnus = view.findViewById(R.id.etSahkoposti);
         EditText etSalasana = view.findViewById(R.id.etSalasana);
 
+        /**
+         * Login-painikkeen painaminen
+         */
         btLogin.setOnClickListener(e -> {
             btLogin.setEnabled(false);
             System.out.println("Button login painettu");

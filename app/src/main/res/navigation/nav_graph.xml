@@ -145,6 +145,9 @@
         <action
             android:id="@+id/action_toimip_muokkausFragment_to_toimip_hallintaFragment"
             app:destination="@id/toimip_hallintaFragment" />
+        <argument
+            android:name="MuokattavaToimipiste"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/toimip_poistoFragment"
@@ -154,6 +157,9 @@
         <action
             android:id="@+id/action_toimip_poistoFragment_to_toimip_hallintaFragment"
             app:destination="@id/toimip_hallintaFragment" />
+        <argument
+            android:name="PoistettavaToimipiste"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/toimipisteen_hallintaFragment"
