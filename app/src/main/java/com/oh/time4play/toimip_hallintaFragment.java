@@ -26,6 +26,7 @@ public class toimip_hallintaFragment extends Fragment {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
         String kayttajatunnus = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String salasana = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+        System.out.println("\t\t\t\t!!Tänne päästiin!!");
 
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
 
