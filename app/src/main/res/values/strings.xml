@@ -11,6 +11,8 @@
     <string name="bt_text_Poista_toimipiste">Poista</string>
     <string name="bt_text_Poistu_toimipiste">Poistu</string>
     <string name="tw_Otsikko_toimip_hallinta">Toimipisteiden hallinnointi</string>
+    <string name="et_anna_poistettava_asiakas">Poistettava asiakas</string>
+    <string name="bt_poista_asiakas">Poista</string>
 
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
