@@ -10,11 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.ThemedSpinnerAdapter;
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class LoginFragment extends Fragment {
 
@@ -35,6 +30,7 @@ public class LoginFragment extends Fragment {
         EditText etKayttajatunnus = view.findViewById(R.id.etSahkoposti);
         EditText etSalasana = view.findViewById(R.id.etSalasana);
 
+        //Painetaan login:
         btLogin.setOnClickListener(e -> {
             btLogin.setEnabled(false);
             System.out.println("Button login painettu");
@@ -42,7 +38,7 @@ public class LoginFragment extends Fragment {
             String salasana = etSalasana.getText().toString();
 
 
-            //Ensin kokeillaan onko rooli asiakas ja jos on niin siirrytään toimip-fragmenttiin
+            //Ensin kokeillaan onko rooli asiakas
             System.out.println("Kokeillaan asiakasrooli");
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
             new Thread(new Runnable(){
@@ -59,7 +55,7 @@ public class LoginFragment extends Fragment {
             }).start();
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
-            //Seuraavaksi kokeillaan onko rooli toimipistevastaava, ja jos on niin siirrytään toimipisteen hallintaan
+            //Seuraavaksi kokeillaan onko rooli toimipistevastaava
             System.out.println("Kokeillaan rooli toimipistevastaava");
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
             new Thread(new Runnable(){
@@ -76,7 +72,7 @@ public class LoginFragment extends Fragment {
             }).start();
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
-            //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija ja jos on niin siirrytään toimip_hallinta fragmenttiin
+            //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija
             System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
             new Thread(new Runnable(){

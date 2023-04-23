@@ -59,7 +59,6 @@ public class KirjautumisKyselyt {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 rooli = 3;
-                System.out.println("Kyllä täällä oli dataa");
             }
         }
     }
