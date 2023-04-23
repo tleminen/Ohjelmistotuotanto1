@@ -47,6 +47,13 @@
     <string name="bt_text_Register_Register">Rekisteröidy</string>
     <string name="et_text_Anna_Osoite">Anna osoitteesi</string>
 
+    <!-- Päivämäärä -->
+    <string name="tw_PVM_Teksti">Valitse päivä</string>
+    <string name="cv_PVM_Kalenteri">Kalenteri</string>
+    <string name="tw_PVM_TekstiLajiValinta">Valitse pelattava laji</string>
+    <string name="rb_PVM_Tennis">Tennis</string>
+    <string name="rb_PVM_Sulkapallo">Sulkapallo</string>
+    <string name="bt_PVM_VahvistaNappi">Vahvista</string>
 
 
 </resources>
