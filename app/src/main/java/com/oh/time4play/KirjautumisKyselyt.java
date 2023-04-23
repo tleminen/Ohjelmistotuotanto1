@@ -18,6 +18,7 @@ public class KirjautumisKyselyt {
                 SELECT AsiakasID
                 FROM asiakas
                 WHERE email LIKE ?
+                AND rooli NOT LIKE "TpLuoja"
                 """)) {
             statement.setString(1,LoginTunnus);
             ResultSet resultSet = statement.executeQuery();

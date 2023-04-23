@@ -19,6 +19,8 @@ import java.sql.SQLException;
 //Luokan ohjelmointi aloitettu
 public class toimip_hallintaFragment extends Fragment {
 
+    Toimip_hallintaMuuttujat[] dataset;
+
     public toimip_hallintaFragment() {super(R.layout.fragment_toimip_hallinta);}
 
     @Override
@@ -30,23 +32,33 @@ public class toimip_hallintaFragment extends Fragment {
 
         RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
 
-        Connection connection = null;
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    try {
+                        dataset = Toimip_hallinta_kyselyt.getAllToimipisteet(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana));
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        Tietokantayhteys.katkaiseYhteysTietokantaan();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
+
         try {
-            connection = Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana);
-        } catch (SQLException e) {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        Toimip_hallintaMuuttujat[] dataset;
-        try {
-            dataset = Toimip_hallinta_kyselyt.getAllToimipisteet(connection);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            Tietokantayhteys.katkaiseYhteysTietokantaan();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
         rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
         rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
 
