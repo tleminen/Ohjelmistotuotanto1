@@ -21,6 +21,14 @@
     <string name="et_tpVastaava">ToimipisteVastaava</string>
     <string name="bt_tpLisaaNappi">Lisää toimipiste</string>
 
+    <!-- toimp_muokkaus -->
+    <string name="tw_tpTiedotTeksti_Muokkaus">Valitse toimipiste, jonka tietoja haluat muokata</string>
+    <string name="et_tpMuokkausNimi">Toimipiste nimi</string>
+    <string name="et_tpMuokkausKaupunki">Toimipiste kaupunki</string>
+    <string name="et_tpMuokkausVastaava">ToimipisteVastaava</string>
+    <string name="bt_tpMuutoksetNappi">Vahvista muutokset</string>
+
+
 
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
