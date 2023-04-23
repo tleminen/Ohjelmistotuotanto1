@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Toimip_hallinta_kyselyt {
 
     static Toimip_hallintaMuuttujat[] getAllToimipisteet(Connection tietokantayhteys) throws SQLException {
-        System.out.println("Lukee dataa..:");
+        System.out.println("Lukee dataa.. getAllToimipisteet:");
         Toimip_hallintaMuuttujat[] toimipaikat = new Toimip_hallintaMuuttujat[10];
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
                 SELECT Kaupunki, Nimi
@@ -19,9 +19,10 @@ public class Toimip_hallinta_kyselyt {
 
             int i = 0;
             while (resultSet.next()) {
-                Toimip_hallintaMuuttujat toimipaikka = toimipaikat[i];
+                Toimip_hallintaMuuttujat toimipaikka = new Toimip_hallintaMuuttujat();
                 toimipaikka.Paikkakunta = resultSet.getString("Kaupunki");
                 toimipaikka.Nimi = resultSet.getString("Nimi");
+                toimipaikat[i] = toimipaikka;
                 i ++;
             }
             Toimip_hallintaMuuttujat.maara = i;

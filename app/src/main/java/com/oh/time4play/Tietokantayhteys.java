@@ -33,7 +33,7 @@ public class Tietokantayhteys {
     public static Connection yhdistaSystemTietokantaan() throws SQLException {
         yhteys = DriverManager.getConnection(
                 "jdbc:mariadb://192.168.1.107:3306/varausjarjestelma",
-                "SystemUser", "SysSalasana"
+                "SystemUser", "salasanaSys"
         );
         return yhteys;
     }

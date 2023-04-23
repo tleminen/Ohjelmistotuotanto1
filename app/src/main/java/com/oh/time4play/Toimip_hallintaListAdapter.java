@@ -23,7 +23,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
-            bundle.putString("Toimipisteen tiedot", String.valueOf(localDataset[position].Paikkakunta) + String.valueOf(localDataset[position].Paikkakunta));
+            bundle.putString("Toimipisteen tiedot", localDataset[position].Paikkakunta + localDataset[position].Paikkakunta);
         }
     };
 

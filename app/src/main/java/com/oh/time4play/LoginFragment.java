@@ -99,14 +99,17 @@ public class LoginFragment extends Fragment {
             }
             switch (KirjautumisKyselyt.getRooli()) {
                 case 1 -> {
+                    KirjautumisKyselyt.setRooli(0);
                     com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipFragment action = LoginFragmentDirections.actionLoginFragmentToToimipFragment(kayttaja,salasana);
                     Navigation.findNavController(view).navigate(action);
                 }
                 case 2 -> {
+                    KirjautumisKyselyt.setRooli(0);
                     com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipisteenHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipisteenHallintaFragment(kayttaja,salasana);
                     Navigation.findNavController(view).navigate(action);
                 }
                 case 3 -> {
+                    KirjautumisKyselyt.setRooli(0);
                     com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipHallintaFragment(kayttaja,salasana);
                     Navigation.findNavController(view).navigate(action);
                 }

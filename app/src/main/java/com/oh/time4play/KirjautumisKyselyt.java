@@ -10,6 +10,10 @@ public class KirjautumisKyselyt {
         return rooli;
     }
 
+    public static void setRooli(int rooli) {
+        KirjautumisKyselyt.rooli = rooli;
+    }
+
     public static int rooli = 0;
 
     static void getOnkoRooliAsiakas(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
