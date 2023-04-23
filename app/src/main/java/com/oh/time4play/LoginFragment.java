@@ -36,6 +36,7 @@ public class LoginFragment extends Fragment {
         EditText etSalasana = view.findViewById(R.id.etSalasana);
 
         btLogin.setOnClickListener(e -> {
+            btLogin.setEnabled(false);
             System.out.println("Button login painettu");
             String kayttaja = etKayttajatunnus.getText().toString();
             String salasana = etSalasana.getText().toString();
@@ -113,11 +114,11 @@ public class LoginFragment extends Fragment {
                     com.oh.time4play.LoginFragmentDirections.ActionLoginFragmentToToimipHallintaFragment action = LoginFragmentDirections.actionLoginFragmentToToimipHallintaFragment(kayttaja,salasana);
                     Navigation.findNavController(view).navigate(action);
                 }
-                case 0 -> System.out.println("Login failed... Tee tänne errorMessage homma");
+                case 0 -> {
+                    System.out.println("Login failed... Tee tänne errorMessage homma");
+                    btLogin.setEnabled(true);
+                }
             }
-
-
-
         });
 
         //Rekisteröidy buttonin toiminta
