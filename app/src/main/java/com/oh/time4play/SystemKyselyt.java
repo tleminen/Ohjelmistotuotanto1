@@ -23,41 +23,87 @@ public class SystemKyselyt {
             statement.setString(1,loginTunnus);
             statement.setString(2,osoite);
             muutettu = statement.executeUpdate();
-            System.out.println(muutettu);
+            System.out.println("Lisätty asiakas tietokantaan\nSuoritettu vaihe: " + muutettu);
             tietokantayhteys.close();
 
             //Luodaan käyttäjälle kirjautumistiedot
-            System.out.printf("Luodaan käyttäjälle kirjautumistiedot... ");
+            System.out.println("Luodaan käyttäjälle kirjautumistiedot... ");
             try(PreparedStatement statement1 = tietokantayhteys.prepareStatement("""
-                    CREATE USER ? IDENTIFIED BY ?
+                    CREATE OR REPLACE USER ? IDENTIFIED BY ?
                     """)) {
-                statement1.setString(1,loginTunnus);
+                statement1.setString(1,loginTunnus+ "@OHi-Syli");
                 statement1.setString(2,salasana);
                 muutettu += statement1.executeUpdate();
                 System.out.println(muutettu);
             }
 
-            //Lisätään rooli uudelle asiakkaalle
+            //Annetaan käyttöoikeudet uudelle asiakkaalle
             System.out.println("Lisätään rooli uudelle asiakkaalle...");
             try (PreparedStatement statement2 = tietokantayhteys.prepareStatement("""
-                    GRANT asiakasRooli TO ?
+                    GRANT SELECT ON kentat TO ?
                     """)) {
-                statement2.setString(1,loginTunnus + "@localhost");
+                statement2.setString(1,loginTunnus + "@OHi-Syli");
                 muutettu += statement2.executeUpdate();
                 System.out.println(muutettu);
             }
 
-            //Asetetaan rooli uudelle asiakkaalle
-            System.out.println("Asetetaan rooli uudelle asiakkaalle...");
+            System.out.println("Lisätään rooli uudelle asiakkaalle...");
             try (PreparedStatement statement3 = tietokantayhteys.prepareStatement("""
-                    SET DEFAULT ROLE asiakasRooli FOR ?
+                    GRANT SELECT ON toimipiste TO ?
                     """)) {
-                statement3.setString(1,loginTunnus+"@localhost");
+                statement3.setString(1,loginTunnus + "@OHi-Syli");
                 muutettu += statement3.executeUpdate();
                 System.out.println(muutettu);
             }
 
-            if (muutettu == 4) {
+            System.out.println("Lisätään rooli uudelle asiakkaalle...");
+            try (PreparedStatement statement4 = tietokantayhteys.prepareStatement("""
+                    GRANT SELECT, INSERT ON varaus TO ?
+                    """)) {
+                statement4.setString(1,loginTunnus + "@OHi-Syli");
+                muutettu += statement4.executeUpdate();
+                System.out.println(muutettu);
+            }
+
+            System.out.println("Lisätään rooli uudelle asiakkaalle...");
+            try (PreparedStatement statement5 = tietokantayhteys.prepareStatement("""
+                    GRANT SELECT ON asiakas TO ?
+                    """)) {
+                statement5.setString(1,loginTunnus + "@OHi-Syli");
+                muutettu += statement5.executeUpdate();
+                System.out.println(muutettu);
+            }
+
+            System.out.println("Lisätään rooli uudelle asiakkaalle...");
+            try (PreparedStatement statement6 = tietokantayhteys.prepareStatement("""
+                    GRANT SELECT ON pelivalineet TO ?
+                    """)) {
+                statement6.setString(1,loginTunnus + "@OHi-Syli");
+                muutettu += statement6.executeUpdate();
+                System.out.println(muutettu);
+            }
+
+            System.out.println("Lisätään rooli uudelle asiakkaalle...");
+            try (PreparedStatement statement7 = tietokantayhteys.prepareStatement("""
+                    GRANT SELECT ON saatavilla TO ?
+                    """)) {
+                statement7.setString(1,loginTunnus + "@OHi-Syli");
+                muutettu += statement7.executeUpdate();
+                System.out.println(muutettu);
+            }
+
+
+            //Asetetaan rooli uudelle asiakkaalle
+            System.out.println("Asetetaan rooli uudelle asiakkaalle...");
+            try (PreparedStatement statement8 = tietokantayhteys.prepareStatement("""
+                    SET DEFAULT ROLE asiakasRooli FOR ?
+                    """)) {
+                statement8.setString(1,loginTunnus + "@OHi-Syli");
+                muutettu += statement8.executeUpdate();
+                System.out.println(muutettu);
+            }
+
+            if (muutettu == 8) {
                 muutosOnnistui = true;
             }
             return muutosOnnistui;
