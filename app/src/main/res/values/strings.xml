@@ -21,12 +21,19 @@
     <string name="et_tpVastaava">ToimipisteVastaava</string>
     <string name="bt_tpLisaaNappi">Lisää toimipiste</string>
 
-    <!-- toimp_muokkaus -->
+    <!-- toimip_muokkaus -->
     <string name="tw_tpTiedotTeksti_Muokkaus">Valitse toimipiste, jonka tietoja haluat muokata</string>
     <string name="et_tpMuokkausNimi">Toimipiste nimi</string>
     <string name="et_tpMuokkausKaupunki">Toimipiste kaupunki</string>
     <string name="et_tpMuokkausVastaava">ToimipisteVastaava</string>
     <string name="bt_tpMuutoksetNappi">Vahvista muutokset</string>
+
+    <!-- toimip_poisto -->
+    <string name="tw_tpHaluatkoPoistaaTeksti">Haluatko varmasti poistaa toimipisteen</string>
+    <string name="bt_tpPoistoKylla">Kyllä</string>
+    <string name="bt_tpPoistoEn">En</string>
+    <string name="bt_tpPoistoPalaaAlkuIkkuna">Palaa takaisin</string>
+
 
     <!-- th_kentta_lisays -->
     <string name="tw_otsikko_kenttaLisays">Lisää uusi kenttä</string>
