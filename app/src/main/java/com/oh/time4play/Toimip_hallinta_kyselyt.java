@@ -30,4 +30,14 @@ public class Toimip_hallinta_kyselyt {
         }
         return toimipaikat;
     }
+
+    static void setLisaaUusiToimipiste(Connection tietokantayhteys, Toimip_hallintaMuuttujat toimipTiedot) throws SQLException {
+        System.out.println("Lisätään uusi toimipiste");
+        try (PreparedStatement statement2 = tietokantayhteys.prepareStatement("""
+                INSERT
+                """)) {
+            statement2.executeUpdate();
+        }
+    }
+
 }

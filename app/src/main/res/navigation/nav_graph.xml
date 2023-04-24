@@ -153,6 +153,12 @@
         <action
             android:id="@+id/action_toimip_lisaysFragment_to_toimip_hallintaFragment"
             app:destination="@id/toimip_hallintaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/toimip_muokkausFragment"

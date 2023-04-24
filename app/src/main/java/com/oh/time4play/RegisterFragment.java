@@ -15,7 +15,11 @@ import com.oh.time4play.RegisterFragmentDirections;
 
 import java.sql.SQLException;
 
-//Kesken
+/**
+ * Toteuttaa uuden asiakkaan rekisteröitymisen
+ * Puuttuu vieä tarkistus, että kaikissa kentissä on syötetty dataa ja, että asiakas on varmasti uusi!
+ * V0.8
+ */
 public class RegisterFragment extends Fragment {
     boolean muutettu = false;
 
