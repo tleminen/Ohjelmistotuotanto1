@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.oh.time4play.toimip_lisaysFragmentDirections;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -40,6 +42,12 @@ public class toimip_lisaysFragment extends Fragment {
         EditText tpSalasana = view.findViewById(R.id.et_tpLisays_Sal);
 
         Button lisaatp = view.findViewById(R.id.bt_tpLisaysToimipiste);
+        Button palaatp = view.findViewById(R.id.btPaluu_toimipLisays);
+
+        palaatp.setOnClickListener(e -> {
+            com.oh.time4play.toimip_lisaysFragmentDirections.ActionToimipLisaysFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_lisaysFragmentDirections.actionToimipLisaysFragmentToToimipHallintaFragment(kayttajatunnus,salasana);
+            Navigation.findNavController(view).navigate(action);
+        });
 
         lisaatp.setOnClickListener(e -> {
             String nimi = tpNimi.getText().toString();

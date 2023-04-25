@@ -21,6 +21,7 @@
     <string name="et_tpVastaava">Toimipistevastaava</string>
     <string name="et_tpLisaysSalasana">Uusi salasana</string>
     <string name="bt_tpLisaaNappi">Lisää toimipiste</string>
+    <string name="bt_tpLisaysPaluu">Paluu</string>
 
     <!-- toimip_muokkaus -->
     <string name="tw_tpTiedotTeksti_Muokkaus">Valitse toimipiste, jonka tietoja haluat muokata</string>

@@ -75,22 +75,32 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/bt_tpLisaysToimipiste"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tw_tpTekstiTiedot"
-            app:layout_constraintVertical_bias="0.63" />
+            app:layout_constraintTop_toBottomOf="@+id/tw_tpTekstiTiedot" />
 
         <Button
             android:id="@+id/bt_tpLisaysToimipiste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
             android:minHeight="48dp"
             android:text="@string/bt_tpLisaaNappi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_tpLisaysVastaava"
+            app:layout_constraintVertical_bias="0.47000003" />
+
+        <Button
+            android:id="@+id/btPaluu_toimipLisays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:hint="@string/bt_tpLisaysPaluu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
