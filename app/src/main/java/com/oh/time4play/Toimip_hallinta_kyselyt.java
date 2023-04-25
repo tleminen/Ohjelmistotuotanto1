@@ -61,16 +61,48 @@ public class Toimip_hallinta_kyselyt {
         //Annetaan käyttöoikeudet uudelle toimipistevastaavalle
         System.out.println("Lisätään oikeudet kenttiin..");
         try (PreparedStatement statement2 = tietokantayhteys.prepareStatement("""
-                GRANT ALL ON kentat TO ?
+                GRANT SELECT, INSERT, UPDATE, DELETE ON kentat TO ?
                 """)) {
             statement2.setString(1, toimipTiedot.ToimipisteVastaava);
+            statement2.executeUpdate();
+            System.out.println("Oikeudet kenttiin lisätty");
         }
 
         System.out.println("Lisätään oikeudet pelivalineisiin..");
         try (PreparedStatement statement3 = tietokantayhteys.prepareStatement("""
-                GRANT ALL ON pelivalineet TO ?
+                GRANT SELECT, INSERT, UPDATE, DELETE ON pelivalineet TO ?
                 """)) {
             statement3.setString(1, toimipTiedot.ToimipisteVastaava);
+            statement3.executeUpdate();
+            System.out.println("Oikeudet pelivälineisiin lisätty");
         }
+
+        System.out.println("Lisätään oikeudet välitauluun..");
+        try (PreparedStatement statement4 = tietokantayhteys.prepareStatement("""
+                GRANT SELECT, INSERT, UPDATE, DELETE ON saatavilla TO ?
+                """)) {
+            statement4.setString(1, toimipTiedot.ToimipisteVastaava);
+            statement4.executeUpdate();
+            System.out.println("Oikeudet välitauluun lisätty");
+        }
+
+        System.out.println("Lisätään oikeudet kyselyihin kirjautumista varten..");
+        try (PreparedStatement statement5 = tietokantayhteys.prepareStatement("""
+                GRANT SELECT ON asiakas TO ?
+                """)) {
+            statement5.setString(1, toimipTiedot.ToimipisteVastaava);
+            statement5.executeUpdate();
+            System.out.println("SELECT asiakas ok.");
+        }
+
+        System.out.println("...Lisätään oikeudet kyselyihin kirjautumista varten..");
+        try (PreparedStatement statement6 = tietokantayhteys.prepareStatement("""
+                GRANT SELECT ON toimipiste TO ?
+                """)) {
+            statement6.setString(1, toimipTiedot.ToimipisteVastaava);
+            statement6.executeUpdate();
+            System.out.println("SELECT toimipiste ok.");
+        }
+
     }
 }

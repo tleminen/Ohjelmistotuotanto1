@@ -46,7 +46,7 @@ public class toimip_lisaysFragment extends Fragment {
             String uusiSalasana = tpSalasana.getText().toString();
             String kaupunki = tpKaupunki.getText().toString();
             String vastaava = tpVastaava.getText().toString();
-            Toimip_hallintaMuuttujat lisattavaTp = new Toimip_hallintaMuuttujat(nimi,uusiSalasana,kaupunki,vastaava);
+            Toimip_hallintaMuuttujat lisattavaTp = new Toimip_hallintaMuuttujat(nimi,kaupunki,vastaava,uusiSalasana);
 
             Thread t1 = new Thread(new Runnable() {
                 @Override
@@ -60,6 +60,7 @@ public class toimip_lisaysFragment extends Fragment {
                 }
             });
             try {
+                t1.start();
                 t1.join();
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
