@@ -18,7 +18,7 @@ public class Tietokantayhteys {
     public static Connection yhdistaTietokantaan(String kayttajatunnus,String salasana) throws SQLException {
         System.out.println("Yritetään muodostaa tietokantayhteys...");
          yhteys = DriverManager.getConnection(
-                "jdbc:mariadb://192.168.1.107:3306/varausjarjestelma",
+                "jdbc:mariadb://10.143.134.40:3306/varausjarjestelma",
                 kayttajatunnus, salasana
         );
         System.out.println("\tTietokantayhteys muodostaminen onnistui: "+yhteys.isValid(5));
@@ -32,7 +32,7 @@ public class Tietokantayhteys {
      */
     public static Connection yhdistaSystemTietokantaan() throws SQLException {
         yhteys = DriverManager.getConnection(
-                "jdbc:mariadb://192.168.1.107:3306/varausjarjestelma",
+                "jdbc:mariadb://10.143.134.40:3306/varausjarjestelma",
                 "SystemUser", "salasanaSys"
         );
         return yhteys;
