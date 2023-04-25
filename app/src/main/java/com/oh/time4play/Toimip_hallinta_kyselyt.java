@@ -24,7 +24,7 @@ public class Toimip_hallinta_kyselyt {
                 toimipaikka.Nimi = resultSet.getString("Nimi");
                 toimipaikka.ToimipisteID = resultSet.getString("ToimipisteID");
                 toimipaikat[i] = toimipaikka;
-                i ++;
+                i++;
             }
             Toimip_hallintaMuuttujat.maara = i;
         }
@@ -32,12 +32,45 @@ public class Toimip_hallinta_kyselyt {
     }
 
     static void setLisaaUusiToimipiste(Connection tietokantayhteys, Toimip_hallintaMuuttujat toimipTiedot) throws SQLException {
-        System.out.println("Lisätään uusi toimipiste");
+
+        //TODO Tähän tehdään vielä testi onko jo toimipistettä olemassa
+
+        System.out.println("Lisätään uusi toimipiste tietokantaan...");
         try (PreparedStatement statement2 = tietokantayhteys.prepareStatement("""
-                INSERT
+                INSERT INTO `varausjarjestelma`.`toimipiste` (`Kaupunki`, `Nimi`, `Toimipistevastaava`)
+                VALUES (?, ?, ?);
                 """)) {
+            statement2.setString(1, toimipTiedot.Kaupunki);
+            statement2.setString(2, toimipTiedot.Nimi);
+            statement2.setString(3, toimipTiedot.ToimipisteVastaava);
             statement2.executeUpdate();
+            System.out.println("Toimipisteen tiedot lisätty tietokantaan.");
+        }
+
+        //Luodaan käyttäjälle kirjautumistiedot
+        System.out.println("Luodaan toimipistevastaavalle kirjautumistiedot... ");
+        try (PreparedStatement statement1 = tietokantayhteys.prepareStatement("""
+                CREATE OR REPLACE USER ? IDENTIFIED BY ?
+                """)) {
+            statement1.setString(1, toimipTiedot.ToimipisteVastaava);
+            statement1.setString(2, toimipTiedot.Salasana);
+            statement1.executeUpdate();
+            System.out.println("Toimipistevastaavan kirjautumistiedot luotu!");
+        }
+
+        //Annetaan käyttöoikeudet uudelle toimipistevastaavalle
+        System.out.println("Lisätään oikeudet kenttiin..");
+        try (PreparedStatement statement2 = tietokantayhteys.prepareStatement("""
+                GRANT ALL ON kentat TO ?
+                """)) {
+            statement2.setString(1, toimipTiedot.ToimipisteVastaava);
+        }
+
+        System.out.println("Lisätään oikeudet pelivalineisiin..");
+        try (PreparedStatement statement3 = tietokantayhteys.prepareStatement("""
+                GRANT ALL ON pelivalineet TO ?
+                """)) {
+            statement3.setString(1, toimipTiedot.ToimipisteVastaava);
         }
     }
-
 }

@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.oh.time4play.toimip_lisaysFragmentDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -32,26 +30,29 @@ public class toimip_lisaysFragment extends Fragment {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
         String kayttajatunnus = toimip_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String salasana = toimip_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_toimip_lisays, container, false);
 
         EditText tpNimi = view.findViewById(R.id.et_tpLisaysNimi);
         EditText tpKaupunki = view.findViewById(R.id.et_tpLisaysKaupunki);
         EditText tpVastaava = view.findViewById(R.id.et_tpLisaysVastaava);
+        EditText tpSalasana = view.findViewById(R.id.et_tpLisays_Sal);
 
         Button lisaatp = view.findViewById(R.id.bt_tpLisaysToimipiste);
 
         lisaatp.setOnClickListener(e -> {
             String nimi = tpNimi.getText().toString();
+            String uusiSalasana = tpSalasana.getText().toString();
             String kaupunki = tpKaupunki.getText().toString();
             String vastaava = tpVastaava.getText().toString();
-            Toimip_hallintaMuuttujat lisattavaTp = new Toimip_hallintaMuuttujat(nimi,kaupunki,vastaava);
+            Toimip_hallintaMuuttujat lisattavaTp = new Toimip_hallintaMuuttujat(nimi,uusiSalasana,kaupunki,vastaava);
 
             Thread t1 = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        Connection connection = Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana);
+                        Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
                         Toimip_hallinta_kyselyt.setLisaaUusiToimipiste(connection, lisattavaTp);
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);

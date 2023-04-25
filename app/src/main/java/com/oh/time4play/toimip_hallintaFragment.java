@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.oh.time4play.toimip_hallintaFragmentDirections;
+
 import java.sql.SQLException;
 
 //Luokan ohjelmointi valmis paitsi asiakkaan poistaminen
@@ -82,7 +84,10 @@ public class toimip_hallintaFragment extends Fragment {
         });
 
         //Siirtymät nappuloiden mukaan
-        btLisaaTp.setOnClickListener(e -> Navigation.findNavController(view).navigate(R.id.action_toimip_hallintaFragment_to_toimip_lisaysFragment));
+        btLisaaTp.setOnClickListener(e -> {
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipLisaysFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipLisaysFragment(kayttajatunnus,salasana);
+            Navigation.findNavController(view).navigate(action);
+        });
 
         btMuokkaaTp.setOnClickListener(e -> {
             com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(valittuToimipiste);
