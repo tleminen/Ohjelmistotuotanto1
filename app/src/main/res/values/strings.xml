@@ -33,8 +33,7 @@
     <!-- toimip_poisto -->
     <string name="tw_tpHaluatkoPoistaaTeksti">Haluatko varmasti poistaa toimipisteen</string>
     <string name="bt_tpPoistoKylla">Kyllä</string>
-    <string name="bt_tpPoistoEn">En</string>
-    <string name="bt_tpPoistoPalaaAlkuIkkuna">Palaa takaisin</string>
+    <string name="bt_tpPoistoPalaaAlkuIkkuna">Palaa poistamatta</string>
 
 
     <!-- th_kentta_lisays -->

@@ -20,9 +20,9 @@ import java.sql.SQLException;
 //Luokan ohjelmointi valmis paitsi asiakkaan poistaminen
 public class toimip_hallintaFragment extends Fragment {
 
-    static String valittuToimipiste = "";
+    static int valittuToimipiste;
 
-    public static void setValittuToimipiste(String valittuToimipiste) {
+    public static void setValittuToimipiste(int valittuToimipiste) {
         toimip_hallintaFragment.valittuToimipiste = valittuToimipiste;
     }
 
@@ -90,12 +90,12 @@ public class toimip_hallintaFragment extends Fragment {
         });
 
         btMuokkaaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(valittuToimipiste);
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(valittuToimipiste,kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 
         btPoistaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste);
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste,kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 

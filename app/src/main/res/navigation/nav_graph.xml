@@ -169,7 +169,12 @@
             android:id="@+id/action_toimip_muokkausFragment_to_toimip_hallintaFragment"
             app:destination="@id/toimip_hallintaFragment" />
         <argument
-            android:name="MuokattavaToimipiste"
+            android:name="MuokattavaToimipisteID"
+            app:argType="integer" />
+        <argument android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
             app:argType="string" />
     </fragment>
     <fragment
@@ -181,7 +186,13 @@
             android:id="@+id/action_toimip_poistoFragment_to_toimip_hallintaFragment"
             app:destination="@id/toimip_hallintaFragment" />
         <argument
-            android:name="PoistettavaToimipiste"
+            android:name="PoistettavaToimipisteID"
+            app:argType="integer" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
             app:argType="string" />
     </fragment>
     <fragment

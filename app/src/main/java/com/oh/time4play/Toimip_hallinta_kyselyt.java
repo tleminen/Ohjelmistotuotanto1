@@ -22,7 +22,7 @@ public class Toimip_hallinta_kyselyt {
                 Toimip_hallintaMuuttujat toimipaikka = new Toimip_hallintaMuuttujat();
                 toimipaikka.Kaupunki = resultSet.getString("Kaupunki");
                 toimipaikka.Nimi = resultSet.getString("Nimi");
-                toimipaikka.ToimipisteID = resultSet.getString("ToimipisteID");
+                toimipaikka.ToimipisteID = resultSet.getInt("ToimipisteID");
                 toimipaikat[i] = toimipaikka;
                 i++;
             }
@@ -104,5 +104,18 @@ public class Toimip_hallinta_kyselyt {
             System.out.println("SELECT toimipiste ok.");
         }
 
+    }
+
+    //TODO Lisää käyttöoikeuksien poisto tänne
+    public static void poistaToimipiste(Connection connection, int poistettavaID) {
+        System.out.println("Poistetaan toimipiste ID: " + poistettavaID);
+        try (PreparedStatement statement7 = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`toimipiste` WHERE  `ToimipisteID`=?; 
+                """)) {
+            statement7.setInt(1,poistettavaID);
+            statement7.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
