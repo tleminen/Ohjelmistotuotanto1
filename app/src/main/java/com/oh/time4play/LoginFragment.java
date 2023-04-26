@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * Login fragment sisältää kirjautumisnäkymän
+ * V1.0
+ */
 public class LoginFragment extends Fragment {
 
     public LoginFragment() {
@@ -41,7 +45,8 @@ public class LoginFragment extends Fragment {
             //Ensin kokeillaan onko rooli asiakas
             System.out.println("Kokeillaan asiakasrooli");
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
-            new Thread(new Runnable(){
+
+            Thread t1 = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -52,13 +57,15 @@ public class LoginFragment extends Fragment {
                         ex.printStackTrace();
                     }
                 }
-            }).start();
+            });
+            t1.start();
+
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
             //Seuraavaksi kokeillaan onko rooli toimipistevastaava
             System.out.println("Kokeillaan rooli toimipistevastaava");
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
-            new Thread(new Runnable(){
+            Thread t2 = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -69,13 +76,15 @@ public class LoginFragment extends Fragment {
                         ex.printStackTrace();
                     }
                 }
-            }).start();
+            });
+            t2.start();
+
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
             //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija
             System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
-            new Thread(new Runnable(){
+            Thread t3 = new Thread(new Runnable(){
                 @Override
                 public void run() {
                     try {
@@ -86,14 +95,19 @@ public class LoginFragment extends Fragment {
                         ex.printStackTrace();
                     }
                 }
-            }).start();
+            });
+            t3.start();
+
             System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
             try {
-                Thread.sleep(1000);
+                t1.join();
+                t2.join();
+                t3.join();
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
+
             switch (KirjautumisKyselyt.getRooli()) {
                 case 1 -> {
                     KirjautumisKyselyt.setRooli(0);
