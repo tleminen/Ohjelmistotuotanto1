@@ -78,8 +78,14 @@
     <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
     <string name="tv_LoppuikkunaSinutOhjataanTakas">Sinut ohjataan takaisin kirjautumisikkunaan</string>
 
-    <!-- th_kentta_muokkaus -->
+    <!-- th_kentta_muokkattava -->
     <string name="tv_thMuokkausKenttaOtsikko">Valitse kenttä, jota haluat muokata</string>
 
-
+    <!-- th kenttää muokataan -->
+    <string name="tv_thMuokattavaKenttaTeksti">Kentän muokkaus</string>
+    <string name="et_thMuokattavaKenttaLajitunnus">Lajitunnus</string>
+    <string name="et_thMuokattavaKenttaTuntihinta">Tuntihinta</string>
+    <string name="et_thMuokattavaKenttaNimi">Kentän nimi</string>
+    <string name="bt_thMuokkausKenttaPoista">Poista kenttä</string>
+    <string name="bt_thMuokkausKenttaVahvista">Vahvista</string>
 </resources>
