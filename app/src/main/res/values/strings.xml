@@ -78,4 +78,8 @@
     <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
     <string name="tv_LoppuikkunaSinutOhjataanTakas">Sinut ohjataan takaisin kirjautumisikkunaan</string>
 
+    <!-- th_kentta_muokkaus -->
+    <string name="tv_thMuokkausKenttaOtsikko">Valitse kenttä, jota haluat muokata</string>
+
+
 </resources>
