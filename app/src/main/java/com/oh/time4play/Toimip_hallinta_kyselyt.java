@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//kesken
+
+
 public class Toimip_hallinta_kyselyt {
 
+    //TODO #717 vika varmaankin tässä?
+    //Eli recycle viewissä näkyy vain yksi toimipiste
     static Toimip_hallintaMuuttujat[] getAllToimipisteet(Connection tietokantayhteys) throws SQLException {
         System.out.println("Lukee dataa.. getAllToimipisteet:");
         Toimip_hallintaMuuttujat[] toimipaikat = new Toimip_hallintaMuuttujat[10];
@@ -26,7 +29,8 @@ public class Toimip_hallinta_kyselyt {
                 toimipaikat[i] = toimipaikka;
                 i++;
             }
-            Toimip_hallintaMuuttujat.maara = i;
+            Toimip_hallintaMuuttujat.setMaara(i);
+            System.out.println(Toimip_hallintaMuuttujat.getMaara());
         }
         return toimipaikat;
     }
@@ -106,13 +110,26 @@ public class Toimip_hallinta_kyselyt {
 
     }
 
-    //TODO Lisää käyttöoikeuksien poisto tänne
+    //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
     public static void poistaToimipiste(Connection connection, int poistettavaID) {
         System.out.println("Poistetaan toimipiste ID: " + poistettavaID);
         try (PreparedStatement statement7 = connection.prepareStatement("""
                 DELETE FROM `varausjarjestelma`.`toimipiste` WHERE  `ToimipisteID`=?; 
                 """)) {
             statement7.setInt(1,poistettavaID);
+            statement7.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
+    public static void poistaAsiakas(Connection connection, String asiakkaanTunnus) {
+        System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus);
+        try (PreparedStatement statement7 = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`asiakas` WHERE  `email`= ?; 
+                """)) {
+            statement7.setString(1,asiakkaanTunnus);
             statement7.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
