@@ -74,5 +74,10 @@
     <string name="bt_toimipisteenHallinta_muokkaaPelivalineita">Muokkaa pelivälineitä</string>
     <string name="bt_toimipisteenHallinta_poistu">Poistu</string>
 
+    <!-- Loppuikkuna -->
+    <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
+    <string name="tv_LoppuikkunaSinutOhjataanTakas">Sinut ohjataan takaisin kirjautumisikkunaan</string>
+
+
 
 </resources>
