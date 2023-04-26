@@ -240,6 +240,12 @@
         <action
             android:id="@+id/action_th_pelivaline_lisaysFragment_to_toimipisteen_hallintaFragment"
             app:destination="@id/toimipisteen_hallintaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/th_kentta_muokkausFragment2"
@@ -249,6 +255,12 @@
         <action
             android:id="@+id/action_th_kentta_muokkausFragment2_to_toimipisteen_hallintaFragment"
             app:destination="@id/toimipisteen_hallintaFragment" />
+        <argument
+            android:name="KirjautunuKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/th_muokattava_kenttaFragment"
@@ -258,6 +270,15 @@
         <action
             android:id="@+id/action_th_muokattava_kenttaFragment_to_th_kentta_muokkausFragment2"
             app:destination="@id/th_kentta_muokkausFragment2" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="MuokattavaKentta"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/th_muokattava_lajiFragment"
@@ -267,6 +288,15 @@
         <action
             android:id="@+id/action_th_muokattava_lajiFragment_to_th_peliv_muutoksetFragment"
             app:destination="@id/th_peliv_muutoksetFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="MuokattavaLaji"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/th_peliv_muutoksetFragment"
@@ -276,6 +306,11 @@
         <action
             android:id="@+id/action_th_peliv_muutoksetFragment_to_th_pelivaline_muokkausFragment"
             app:destination="@id/th_pelivaline_muokkausFragment" />
+        <argument android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/th_pelivaline_muokkausFragment"
@@ -285,6 +320,12 @@
         <action
             android:id="@+id/action_th_pelivaline_muokkausFragment_to_toimipisteen_hallintaFragment"
             app:destination="@id/toimipisteen_hallintaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunuSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/kellonaikaValintaFragment"

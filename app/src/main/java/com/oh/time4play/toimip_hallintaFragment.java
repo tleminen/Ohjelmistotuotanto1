@@ -34,7 +34,6 @@ public class toimip_hallintaFragment extends Fragment {
     public toimip_hallintaFragment() {super(R.layout.fragment_toimip_hallinta);}
 
     @SuppressLint("SetTextI18n")
-    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
         String kayttajatunnus = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
