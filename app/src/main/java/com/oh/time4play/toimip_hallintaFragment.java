@@ -115,7 +115,7 @@ public class toimip_hallintaFragment extends Fragment {
         });
 
         btMuokkaaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(valittuToimipiste,kayttajatunnus,salasana);
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus,salasana,valittuToimipiste);
             Navigation.findNavController(view).navigate(action);
         });
 

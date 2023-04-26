@@ -11,6 +11,7 @@ public class Toimip_hallinta_kyselyt {
     //TODO #717 vika varmaankin tässä?
     //Eli recycle viewissä näkyy vain yksi toimipiste
     static Toimip_hallintaMuuttujat[] getAllToimipisteet(Connection tietokantayhteys) throws SQLException {
+        Toimip_hallintaMuuttujat toimipaikka = new Toimip_hallintaMuuttujat();
         System.out.println("Lukee dataa.. getAllToimipisteet:");
         Toimip_hallintaMuuttujat[] toimipaikat = new Toimip_hallintaMuuttujat[10];
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
@@ -22,7 +23,6 @@ public class Toimip_hallinta_kyselyt {
 
             int i = 0;
             while (resultSet.next()) {
-                Toimip_hallintaMuuttujat toimipaikka = new Toimip_hallintaMuuttujat();
                 toimipaikka.Kaupunki = resultSet.getString("Kaupunki");
                 toimipaikka.Nimi = resultSet.getString("Nimi");
                 toimipaikka.ToimipisteID = resultSet.getInt("ToimipisteID");
@@ -134,5 +134,26 @@ public class Toimip_hallinta_kyselyt {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    //TODO KESKEN!!!
+    public static Toimip_hallintaMuuttujat getToimipiste(Connection connection, int muokattavaToimipisteID) {
+        Toimip_hallintaMuuttujat pyydetty = new Toimip_hallintaMuuttujat();
+        System.out.println("Haetaan pyydetyn toimipisteen tiedot...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                
+                """)) {
+            statement.setInt(1,muokattavaToimipisteID);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                pyydetty.Kaupunki = resultSet.getString("Kaupunki");
+                pyydetty.Nimi = resultSet.getString("Nimi");
+                pyydetty.ToimipisteID = resultSet.getInt("ToimipisteID");
+                pyydetty.ToimipisteVastaava = resultSet.getString("Toimipistevastaava");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return pyydetty;
     }
 }
