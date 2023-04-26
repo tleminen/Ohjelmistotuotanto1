@@ -20,7 +20,7 @@ import com.oh.time4play.toimip_hallintaFragmentDirections;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-//Luokan ohjelmointi valmis paitsi asiakkaan poistaminen
+
 public class toimip_hallintaFragment extends Fragment {
 
     static int valittuToimipiste;
