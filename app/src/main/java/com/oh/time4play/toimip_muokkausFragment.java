@@ -3,12 +3,16 @@ package com.oh.time4play;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.oh.time4play.toimip_muokkausFragmentDirections;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -38,6 +42,8 @@ public class toimip_muokkausFragment extends Fragment {
         EditText tpKaupunki = view.findViewById(R.id.et_tpMuokkausKaupunki);
         EditText tpVastaava = view.findViewById(R.id.et_tpMuokkausVastaava);
 
+        Button tpVahvistaMuutos = view.findViewById(R.id.bt_tpMuokkausNappula);
+
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -56,6 +62,34 @@ public class toimip_muokkausFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
+        tpNimi.setHint(muokattavanTiedot.Nimi);
+        tpKaupunki.setHint(muokattavanTiedot.Kaupunki);
+        tpVastaava.setHint(muokattavanTiedot.ToimipisteVastaava);
+
+        tpVahvistaMuutos.setOnClickListener(e ->{
+            muokattavanTiedot.setNimi(tpNimi.getText().toString());
+            muokattavanTiedot.setKaupunki(tpKaupunki.getText().toString());
+            muokattavanTiedot.setToimipisteVastaava(tpVastaava.getText().toString());
+            Thread t2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Connection connection = Tietokantayhteys.yhdistaTietokantaan(kirjautunutKayttaja,kirjautunutSalasana);
+                        Toimip_hallinta_kyselyt.updateToimipiste(connection,muokattavanTiedot);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
+            t2.start();
+            try {
+                t2.join();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+            com.oh.time4play.toimip_muokkausFragmentDirections.ActionToimipMuokkausFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_muokkausFragmentDirections.actionToimipMuokkausFragmentToToimipHallintaFragment(kirjautunutKayttaja,kirjautunutSalasana);
+            Navigation.findNavController(view).navigate(action);
+        });
 
         return view;
     }

@@ -31,7 +31,8 @@ public class ToimipFragment extends Fragment {
         String kayttajatunnus = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String salasana = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
 
-        Button btVahvista = view.findViewById(R.id.btToimipVahvista);
+        Button btVahvista = view.findViewById(R.id.btVahvista_toimipFrag);
+
 
         btVahvista.setOnClickListener(e -> {
             com.oh.time4play.ToimipFragmentDirections.ActionToimipFragmentToPvmFragment action = com.oh.time4play.ToimipFragmentDirections.actionToimipFragmentToPvmFragment(kayttajatunnus,salasana,"testi");

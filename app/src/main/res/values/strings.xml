@@ -3,6 +3,9 @@
     <!-- yleiset -->
     <string name="app_name">Time4Play</string>
     <string name="hello_blank_fragment">Tyhja Fragmentti</string>
+
+    <!-- fragment_toimip -->
+    <string name="bt_vahvista_tpvalinta">Vahvista</string>
     
     <!-- Toimipisteen hallinta -->
     <string name="tv_th_Otsikko">Valitse toimipiste</string>

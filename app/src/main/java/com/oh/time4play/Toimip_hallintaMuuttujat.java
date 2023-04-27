@@ -17,7 +17,6 @@ public class Toimip_hallintaMuuttujat {
     public String Nimi = "-";
     public String Salasana = "";
     public String Kaupunki = "-";
-    public int ToimipisteID;
     public String ToimipisteVastaava = "";
 
     public String getToimipisteVastaava() {
@@ -52,11 +51,4 @@ public class Toimip_hallintaMuuttujat {
         Kaupunki = kaupunki;
     }
 
-    public int getToimipisteID() {
-        return ToimipisteID;
-    }
-
-    public void setToimipisteID(int toimipisteID) {
-        ToimipisteID = toimipisteID;
-    }
 }
