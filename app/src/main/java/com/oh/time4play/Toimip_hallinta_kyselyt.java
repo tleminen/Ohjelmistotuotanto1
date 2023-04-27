@@ -15,7 +15,7 @@ public class Toimip_hallinta_kyselyt {
         System.out.println("Lukee dataa.. getAllToimipisteet:");
         Toimip_hallintaMuuttujat[] toimipaikat = new Toimip_hallintaMuuttujat[10];
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT Kaupunki, Nimi, ToimipisteID
+                SELECT Kaupunki, Nimi
                 FROM toimipiste
                 ORDER BY Kaupunki
                 """)) {
@@ -25,7 +25,6 @@ public class Toimip_hallinta_kyselyt {
             while (resultSet.next()) {
                 toimipaikka.Kaupunki = resultSet.getString("Kaupunki");
                 toimipaikka.Nimi = resultSet.getString("Nimi");
-                toimipaikka.ToimipisteID = resultSet.getInt("ToimipisteID");
                 toimipaikat[i] = toimipaikka;
                 i++;
             }
@@ -141,19 +140,35 @@ public class Toimip_hallinta_kyselyt {
         Toimip_hallintaMuuttujat pyydetty = new Toimip_hallintaMuuttujat();
         System.out.println("Haetaan pyydetyn toimipisteen tiedot...");
         try (PreparedStatement statement = connection.prepareStatement("""
-                
+                SELECT Kaupunki, Nimi, Toimipistevastaava
+                FROM toimipiste
+                WHERE Nimi=?
                 """)) {
             statement.setInt(1,muokattavaToimipisteID);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 pyydetty.Kaupunki = resultSet.getString("Kaupunki");
                 pyydetty.Nimi = resultSet.getString("Nimi");
-                pyydetty.ToimipisteID = resultSet.getInt("ToimipisteID");
                 pyydetty.ToimipisteVastaava = resultSet.getString("Toimipistevastaava");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return pyydetty;
+    }
+
+    public static void updateToimipiste(Connection connection, Toimip_hallintaMuuttujat muokattavanTiedot) throws SQLException {
+        System.out.println("Päivitetään toimipistettä, ID: " + muokattavanTiedot.Nimi + "...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                UPDATE toimipiste
+                SET Kaupunki = ?, Nimi = ?, Toimipistevastaava = ?
+                WHERE Nimi=?
+                """)){
+            statement.setString(1,muokattavanTiedot.Kaupunki);
+            statement.setString(2,muokattavanTiedot.Nimi);
+            statement.setString(3,muokattavanTiedot.ToimipisteVastaava);
+            statement.setString(4,muokattavanTiedot.Nimi);
+
+        }
     }
 }
