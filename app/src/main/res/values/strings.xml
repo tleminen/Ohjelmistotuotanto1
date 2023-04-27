@@ -49,6 +49,13 @@
     <string name="et_text_kentanNimi_kenttaLisays">Kentän nimi</string>
     <string name="bt_text_kenttaLisays_LisaaKentta">Lisää kenttä</string>
 
+    <!-- th_muokattava_laji -->
+    <string name="tv_otsikko_th_muokattava_laji">Valitse laji, jonka pelivälineitä haluat muokata</string>
+    <string name="rb_tennis_th_muokattava_laji">Tennis</string>
+    <string name="rb_sulkapallo_th_muokattava_laji">Sulkapallo</string>
+    <string name="bt_vahvista_th_muokattava_laji">Vahvista</string>
+
+    <!-- th_peliv_muokkaukset -->
     <string name="tv_otsikko_th_peliv_muutokset">Valitse peliväline, johon haluat tehdä muutoksia</string>
 
     <!-- th_pelivaline_muokkaus -->
