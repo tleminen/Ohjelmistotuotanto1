@@ -136,15 +136,15 @@ public class Toimip_hallinta_kyselyt {
     }
 
     //TODO KESKEN!!!
-    public static Toimip_hallintaMuuttujat getToimipiste(Connection connection, String muokattavaToimipisteNimi) {
+    public static Toimip_hallintaMuuttujat getToimipiste(Connection connection, String muokattavaToimipisteVastaava) {
         Toimip_hallintaMuuttujat pyydetty = new Toimip_hallintaMuuttujat();
         System.out.println("Haetaan pyydetyn toimipisteen tiedot...");
         try (PreparedStatement statement = connection.prepareStatement("""
                 SELECT Kaupunki, Nimi, Toimipistevastaava
                 FROM toimipiste
-                WHERE Nimi=?
+                WHERE Toimipistevastaava = ?
                 """)) {
-            statement.setString(1, muokattavaToimipisteNimi);
+            statement.setString(1, muokattavaToimipisteVastaava);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 pyydetty.Kaupunki = resultSet.getString("Kaupunki");
@@ -158,16 +158,16 @@ public class Toimip_hallinta_kyselyt {
     }
 
     public static void updateToimipiste(Connection connection, Toimip_hallintaMuuttujat muokattavanTiedot) throws SQLException {
-        System.out.println("Päivitetään toimipistettä, ID: " + muokattavanTiedot.Nimi + "...");
+        System.out.println("Päivitetään toimipistettä, nimi: " + muokattavanTiedot.Nimi + "...");
         try (PreparedStatement statement = connection.prepareStatement("""
                 UPDATE toimipiste
                 SET Kaupunki = ?, Nimi = ?, Toimipistevastaava = ?
-                WHERE Nimi=?
+                WHERE Toimipistevastaava = ?
                 """)){
             statement.setString(1,muokattavanTiedot.Kaupunki);
             statement.setString(2,muokattavanTiedot.Nimi);
             statement.setString(3,muokattavanTiedot.ToimipisteVastaava);
-            statement.setString(4,muokattavanTiedot.Nimi);
+            statement.setString(4,muokattavanTiedot.ToimipisteVastaava);
 
         }
     }
