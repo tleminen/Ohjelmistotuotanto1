@@ -110,12 +110,12 @@ public class Toimip_hallinta_kyselyt {
     }
 
     //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
-    public static void poistaToimipiste(Connection connection, int poistettavaID) {
-        System.out.println("Poistetaan toimipiste ID: " + poistettavaID);
+    public static void poistaToimipiste(Connection connection, String poistettavaNimi) {
+        System.out.println("Poistetaan toimipiste ID: " + poistettavaNimi);
         try (PreparedStatement statement7 = connection.prepareStatement("""
-                DELETE FROM `varausjarjestelma`.`toimipiste` WHERE  `ToimipisteID`=?; 
+                DELETE FROM `varausjarjestelma`.`toimipiste` WHERE Nimi =?;
                 """)) {
-            statement7.setInt(1,poistettavaID);
+            statement7.setString(1,poistettavaNimi);
             statement7.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -136,7 +136,7 @@ public class Toimip_hallinta_kyselyt {
     }
 
     //TODO KESKEN!!!
-    public static Toimip_hallintaMuuttujat getToimipiste(Connection connection, int muokattavaToimipisteID) {
+    public static Toimip_hallintaMuuttujat getToimipiste(Connection connection, String muokattavaToimipisteNimi) {
         Toimip_hallintaMuuttujat pyydetty = new Toimip_hallintaMuuttujat();
         System.out.println("Haetaan pyydetyn toimipisteen tiedot...");
         try (PreparedStatement statement = connection.prepareStatement("""
@@ -144,7 +144,7 @@ public class Toimip_hallinta_kyselyt {
                 FROM toimipiste
                 WHERE Nimi=?
                 """)) {
-            statement.setInt(1,muokattavaToimipisteID);
+            statement.setString(1, muokattavaToimipisteNimi);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 pyydetty.Kaupunki = resultSet.getString("Kaupunki");
