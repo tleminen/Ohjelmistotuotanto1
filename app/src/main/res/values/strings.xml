@@ -88,4 +88,9 @@
     <string name="et_thMuokattavaKenttaNimi">Kentän nimi</string>
     <string name="bt_thMuokkausKenttaPoista">Poista kenttä</string>
     <string name="bt_thMuokkausKenttaVahvista">Vahvista</string>
+    
+    <!-- kentta -->
+    <string name="tv_kenttaValitse">Valitse kenttä</string>
+    <string name="bt_kenttaVahvista">Vahvista</string>
+
 </resources>
