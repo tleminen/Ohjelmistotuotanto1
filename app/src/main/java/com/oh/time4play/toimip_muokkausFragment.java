@@ -31,7 +31,7 @@ public class toimip_muokkausFragment extends Fragment {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen, salasanan ja muokattavan toimipisteen ID:n
         String kirjautunutKayttaja = toimip_muokkausFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String kirjautunutSalasana = toimip_muokkausFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
-        int muokattavaToimipisteID = toimip_muokkausFragmentArgs.fromBundle(getArguments()).getMuokattavaToimipisteID();
+        String muokattavatoimipisteNimi = toimip_muokkausFragmentArgs.fromBundle(getArguments()).getMuokattavaToimipisteNimi();
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_toimip_muokkaus, container, false);
@@ -49,7 +49,7 @@ public class toimip_muokkausFragment extends Fragment {
             public void run() {
                 try {
                     Connection connection = Tietokantayhteys.yhdistaTietokantaan(kirjautunutKayttaja,kirjautunutSalasana);
-                    muokattavanTiedot = Toimip_hallinta_kyselyt.getToimipiste(connection, muokattavaToimipisteID);
+                    muokattavanTiedot = Toimip_hallinta_kyselyt.getToimipiste(connection, muokattavatoimipisteNimi);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

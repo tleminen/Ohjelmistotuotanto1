@@ -24,9 +24,10 @@
 
         <Button
             android:id="@+id/bt_LisaaKentta_toimipisteen_hallinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_width="111dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="92dp"
+            android:background="@drawable/btn_teema2"
             android:text="@string/bt_toimipisteenHallinta_lisaaKentta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,9 +35,10 @@
 
         <Button
             android:id="@+id/bt_muokkaaKenttaa_toimipisteen_hallinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/btn_teema2"
             android:text="@string/bt_toimipisteenHallinta_muokkaaKenttaa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,9 +46,10 @@
 
         <Button
             android:id="@+id/bt_uusiPelivaline_toimipisteen_hallinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="133dp"
+            android:layout_height="50dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/btn_teema2"
             android:text="@string/bt_toimipisteenHallinta_uusiPelivaline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,11 +57,13 @@
 
         <Button
             android:id="@+id/bt_muokkaaPelivalineita_toimipisteen_hallinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_width="177dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/btn_teema2"
             android:text="@string/bt_toimipisteenHallinta_muokkaaPelivalineita"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_uusiPelivaline_toimipisteen_hallinta" />
 
@@ -68,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/btn_teema"
             android:text="@string/bt_toimipisteenHallinta_poistu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

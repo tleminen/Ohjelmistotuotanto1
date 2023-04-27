@@ -19,7 +19,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
-            toimip_hallintaFragment.setValittuToimipiste(localDataset[position].ToimipisteID);
+            toimip_hallintaFragment.setValittuToimipiste(localDataset[position].Nimi);
         }
     };
 
