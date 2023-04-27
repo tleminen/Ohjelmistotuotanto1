@@ -14,7 +14,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
     Bundle bundle = new Bundle();
 
     public Toimip_hallintaListAdapter(Toimip_hallintaMuuttujat[] dataset) {localDataset=dataset;}
-
+//TODO valinta ei rekisteröidy
     View.OnClickListener Toimip_hallintaListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
