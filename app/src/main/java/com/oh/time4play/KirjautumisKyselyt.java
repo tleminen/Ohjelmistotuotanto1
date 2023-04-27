@@ -19,7 +19,7 @@ public class KirjautumisKyselyt {
     static void getOnkoRooliAsiakas(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
         System.out.println("Lukee dataa..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT AsiakasID
+                SELECT email
                 FROM asiakas
                 WHERE email LIKE ?
                 AND rooli NOT LIKE "TpLuoja"
@@ -35,7 +35,7 @@ public class KirjautumisKyselyt {
     static void getOnkoRooliToimipistevastaava(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
         System.out.println("Lukee dataa..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT toimipisteID
+                SELECT email
                 FROM toimipiste
                 WHERE toimipistevastaava LIKE ?
                 """)) {
