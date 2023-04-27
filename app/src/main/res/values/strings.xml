@@ -4,6 +4,9 @@
     <string name="app_name">Time4Play</string>
     <string name="hello_blank_fragment">Tyhja Fragmentti</string>
 
+    <!-- Toimipisteen hallinta -->
+    <string name="tv_th_Otsikko">Valitse toimipiste</string>
+
 
     <!-- toimip_hallinta -->
     <string name="bt_text_Lisaa_toimipiste">Lisää</string>
@@ -12,21 +15,29 @@
     <string name="bt_text_Poistu_toimipiste">Poistu</string>
     <string name="tw_Otsikko_toimip_hallinta">Toimipisteiden hallinnointi</string>
     <string name="et_anna_poistettava_asiakas">Poistettava asiakas</string>
-    <string name="bt_poista_asiakas">Poista</string>
-    
+    <string name="bt_poista_asiakas">Poista asiakas</string>
+
     <!-- toimp_lisays -->
     <string name="tw_tpTiedotTeksti">Anna uuden toimipisteen tiedot</string>
-    <string name="et_tpLisaysNimi">Toimipiste Nimi</string>
-    <string name="et_tpKaupunki">Toimipiste kaupunki</string>
-    <string name="et_tpVastaava">ToimipisteVastaava</string>
+    <string name="et_tpLisaysNimi">Toimipisteen Nimi</string>
+    <string name="et_tpKaupunki">Toimipisteen kaupunki</string>
+    <string name="et_tpVastaava">Toimipistevastaava</string>
+    <string name="et_tpLisaysSalasana">Uusi salasana</string>
     <string name="bt_tpLisaaNappi">Lisää toimipiste</string>
+    <string name="bt_tpLisaysPaluu">Paluu</string>
 
-    <!-- toimp_muokkaus -->
+    <!-- toimip_muokkaus -->
     <string name="tw_tpTiedotTeksti_Muokkaus">Valitse toimipiste, jonka tietoja haluat muokata</string>
     <string name="et_tpMuokkausNimi">Toimipiste nimi</string>
     <string name="et_tpMuokkausKaupunki">Toimipiste kaupunki</string>
     <string name="et_tpMuokkausVastaava">ToimipisteVastaava</string>
     <string name="bt_tpMuutoksetNappi">Vahvista muutokset</string>
+
+    <!-- toimip_poisto -->
+    <string name="tw_tpHaluatkoPoistaaTeksti">Haluatko varmasti poistaa toimipisteen</string>
+    <string name="bt_tpPoistoKylla">Kyllä</string>
+    <string name="bt_tpPoistoPalaaAlkuIkkuna">Palaa poistamatta</string>
+
 
     <!-- th_kentta_lisays -->
     <string name="tw_otsikko_kenttaLisays">Lisää uusi kenttä</string>
@@ -63,5 +74,18 @@
     <string name="bt_toimipisteenHallinta_muokkaaPelivalineita">Muokkaa pelivälineitä</string>
     <string name="bt_toimipisteenHallinta_poistu">Poistu</string>
 
+    <!-- Loppuikkuna -->
+    <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
+    <string name="tv_LoppuikkunaSinutOhjataanTakas">Sinut ohjataan takaisin kirjautumisikkunaan</string>
 
+    <!-- th_kentta_muokkattava -->
+    <string name="tv_thMuokkausKenttaOtsikko">Valitse kenttä, jota haluat muokata</string>
+
+    <!-- th kenttää muokataan -->
+    <string name="tv_thMuokattavaKenttaTeksti">Kentän muokkaus</string>
+    <string name="et_thMuokattavaKenttaLajitunnus">Lajitunnus</string>
+    <string name="et_thMuokattavaKenttaTuntihinta">Tuntihinta</string>
+    <string name="et_thMuokattavaKenttaNimi">Kentän nimi</string>
+    <string name="bt_thMuokkausKenttaPoista">Poista kenttä</string>
+    <string name="bt_thMuokkausKenttaVahvista">Vahvista</string>
 </resources>
