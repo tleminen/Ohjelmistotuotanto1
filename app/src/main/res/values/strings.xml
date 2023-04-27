@@ -86,6 +86,9 @@
     <string name="rb_PVM_Sulkapallo">Sulkapallo</string>
     <string name="bt_PVM_VahvistaNappi">Vahvista</string>
 
+    <!-- pelivalineet -->
+    <string name="tv_otsikko_pelivalineet">Pelivälineiden osto tai vuokraus</string>
+
     <!-- toimipisteen_hallinta -->
     <string name="tv_toimipisteenHallinta_otsikko">Toimipisteen hallinta</string>
     <string name="bt_toimipisteenHallinta_lisaaKentta">Lisää kenttä</string>
