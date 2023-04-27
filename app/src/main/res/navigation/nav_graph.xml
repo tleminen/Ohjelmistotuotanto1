@@ -174,8 +174,8 @@
             android:name="KirjautunutSalasana"
             app:argType="string" />
         <argument
-            android:name="MuokattavaToimipisteID"
-            app:argType="integer" />
+            android:name="MuokattavaToimipisteNimi"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/toimip_poistoFragment"
@@ -186,8 +186,8 @@
             android:id="@+id/action_toimip_poistoFragment_to_toimip_hallintaFragment"
             app:destination="@id/toimip_hallintaFragment" />
         <argument
-            android:name="PoistettavaToimipisteID"
-            app:argType="integer" />
+            android:name="PoistettavaToimipisteNimi"
+            app:argType="string" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
