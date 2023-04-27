@@ -39,7 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_kenttaVahvistanappi"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_kenttaValitseKenttaTeksti" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_kenttaValitseKenttaTeksti"
+            app:layout_constraintVertical_bias="0.16000003" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
