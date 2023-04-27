@@ -29,7 +29,7 @@ public class toimip_poistoFragment extends Fragment {
 
         String kayttajatunnus = toimip_poistoFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String salasana = toimip_poistoFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
-        int poistettava = toimip_poistoFragmentArgs.fromBundle(getArguments()).getPoistettavaToimipisteID();
+        String poistettava = toimip_poistoFragmentArgs.fromBundle(getArguments()).getPoistettavaToimipisteNimi();
 
         Button poista = view.findViewById(R.id.bt_PoistoKylla);
         Button palaa = view.findViewById(R.id.bt_PoistoTakaisinNappi);

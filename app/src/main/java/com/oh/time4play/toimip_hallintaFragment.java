@@ -23,9 +23,9 @@ import java.sql.SQLException;
 
 public class toimip_hallintaFragment extends Fragment {
 
-    static int valittuToimipiste;
+    static String valittuToimipiste;
 
-    public static void setValittuToimipiste(int valittuToimipiste) {
+    public static void setValittuToimipiste(String valittuToimipiste) {
         toimip_hallintaFragment.valittuToimipiste = valittuToimipiste;
     }
 
