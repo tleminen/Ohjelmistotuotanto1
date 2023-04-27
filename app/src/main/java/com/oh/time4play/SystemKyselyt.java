@@ -6,14 +6,21 @@ import java.sql.SQLException;
 
 public class SystemKyselyt {
 
-    //pitäisi toimia, ei testattu
+    /**
+     * Seuraavassa luodaan uusi asiakas ja sen käyttöoikeudet
+     * @param loginTunnus Asiakkaan kirjautumistunnus ja sähköpostiosoite
+     * @param salasana Asiakkaan salasana
+     * @param osoite Asiakkaan osoite
+     * @return palauttaa True jos muutos onnistui, tosin ehkä poistetaan vielä tää return
+     * @throws SQLException Sisältää sql kyselyitä
+     */
     public static boolean setUusiAsiakas(String loginTunnus, String salasana, String osoite) throws SQLException {
         boolean muutosOnnistui = false;
         int muutettu;
 
         Connection tietokantayhteys = Tietokantayhteys.yhdistaSystemTietokantaan();
 
-        //Tähän lisätään tarkastus onko asiakasta jo olemassa
+        //TODO Tähän lisätään tarkastus onko asiakasta jo olemassa
         // KirjautumisKyselyt.getOnkoRooliAsiakas(tietokantayhteys,loginTunnus);
 
         System.out.println("Lisätään asiakkaan tiedot tietokantaan..:");
@@ -99,4 +106,5 @@ public class SystemKyselyt {
          tietokantayhteys.close();
          return muutosOnnistui;
     }
+
 }

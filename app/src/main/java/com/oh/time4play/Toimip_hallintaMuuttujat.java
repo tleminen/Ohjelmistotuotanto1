@@ -6,16 +6,17 @@ public class Toimip_hallintaMuuttujat {
 
     }
 
-    public Toimip_hallintaMuuttujat(String nimi, String kaupunki, String toimipisteVastaava) {
+    public Toimip_hallintaMuuttujat(String nimi, String kaupunki, String toimipisteVastaava, String salasana) {
         Nimi = nimi;
         Kaupunki = kaupunki;
         ToimipisteVastaava = toimipisteVastaava;
+        Salasana = salasana;
     }
 
     public static int maara = 0;
     public String Nimi = "-";
+    public String Salasana = "";
     public String Kaupunki = "-";
-    public String ToimipisteID = "";
     public String ToimipisteVastaava = "";
 
     public String getToimipisteVastaava() {
@@ -50,11 +51,4 @@ public class Toimip_hallintaMuuttujat {
         Kaupunki = kaupunki;
     }
 
-    public String getToimipisteID() {
-        return ToimipisteID;
-    }
-
-    public void setToimipisteID(String toimipisteID) {
-        ToimipisteID = toimipisteID;
-    }
 }

@@ -34,17 +34,17 @@
 
         <EditText
             android:id="@+id/et_tpHal_poistettavaAsiakas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/et_anna_poistettava_asiakas"
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintBottom_toTopOf="@+id/bt_tpHal_poistaAsiakas"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
@@ -93,12 +93,12 @@
             android:id="@+id/bt_tpHal_poistaAsiakas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
             android:text="@string/bt_poista_asiakas"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_tpHal_poistettavaAsiakas" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+            app:layout_constraintVertical_bias="0.89" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

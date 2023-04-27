@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-//Ohjelmointi kesken
 
 public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
     Toimip_hallintaMuuttujat[] localDataset;
@@ -20,8 +19,6 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
-            //seuraava yksi rivi varmaan turha..
-            bundle.putString("Toimipisteen tiedot", localDataset[position].Kaupunki + localDataset[position].Nimi);
             toimip_hallintaFragment.setValittuToimipiste(localDataset[position].ToimipisteID);
         }
     };
