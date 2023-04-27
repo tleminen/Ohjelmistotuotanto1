@@ -46,6 +46,14 @@
     <string name="et_text_kentanNimi_kenttaLisays">Kentän nimi</string>
     <string name="bt_text_kenttaLisays_LisaaKentta">Lisää kenttä</string>
 
+    <!-- th_pelivaline_muokkaus -->
+    <string name="tv_otsikko_th_pelivaline_muokkaus">Pelivälineen muokkaus</string>
+    <string name="tv_valitunPelivNimi_th_pelivaline_muokkaus"></string>
+    <string name="et_pelivNimi_th_pelivaline_muokkaus">Nimi</string>
+    <string name="et_pelivHinta_th_pelivaline_muokkaus">Hinta</string>
+    <string name="bt_poistaPeliv_th_pelivaline_muokkaus">Poista peliväline</string>
+    <string name="bt_vahvista_th_pelivaline_muokkaus">Vahvista</string>
+
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
     <string name="et_text_syotasapo_Login">Syötä Sähköpostiosoite</string>
