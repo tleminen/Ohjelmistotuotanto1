@@ -4,6 +4,9 @@
     <string name="app_name">Time4Play</string>
     <string name="hello_blank_fragment">Tyhja Fragmentti</string>
 
+    <!-- fragment_toimip -->
+    <string name="bt_vahvista_tpvalinta">Vahvista</string>
+    
     <!-- Toimipisteen hallinta -->
     <string name="tv_th_Otsikko">Valitse toimipiste</string>
 
@@ -16,7 +19,7 @@
     <string name="tw_Otsikko_toimip_hallinta">Toimipisteiden hallinnointi</string>
     <string name="et_anna_poistettava_asiakas">Poistettava asiakas</string>
     <string name="bt_poista_asiakas">Poista asiakas</string>
-
+    
     <!-- toimp_lisays -->
     <string name="tw_tpTiedotTeksti">Anna uuden toimipisteen tiedot</string>
     <string name="et_tpLisaysNimi">Toimipisteen Nimi</string>
@@ -45,6 +48,14 @@
     <string name="et_text_tuntihinta_kenttaLisays">Tuntihinta</string>
     <string name="et_text_kentanNimi_kenttaLisays">Kentän nimi</string>
     <string name="bt_text_kenttaLisays_LisaaKentta">Lisää kenttä</string>
+
+    <!-- th_pelivaline_muokkaus -->
+    <string name="tv_otsikko_th_pelivaline_muokkaus">Pelivälineen muokkaus</string>
+    <string name="tv_valitunPelivNimi_th_pelivaline_muokkaus"></string>
+    <string name="et_pelivNimi_th_pelivaline_muokkaus">Nimi</string>
+    <string name="et_pelivHinta_th_pelivaline_muokkaus">Hinta</string>
+    <string name="bt_poistaPeliv_th_pelivaline_muokkaus">Poista peliväline</string>
+    <string name="bt_vahvista_th_pelivaline_muokkaus">Vahvista</string>
 
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
