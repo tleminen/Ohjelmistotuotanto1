@@ -35,7 +35,7 @@ public class KirjautumisKyselyt {
     static void getOnkoRooliToimipistevastaava(Connection tietokantayhteys, String LoginTunnus) throws SQLException {
         System.out.println("Lukee dataa..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT email
+                SELECT Toimipistevastaava
                 FROM toimipiste
                 WHERE toimipistevastaava LIKE ?
                 """)) {

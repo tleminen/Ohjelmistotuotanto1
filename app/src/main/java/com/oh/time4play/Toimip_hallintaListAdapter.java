@@ -1,6 +1,5 @@
 package com.oh.time4play;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +8,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
-    Toimip_hallintaMuuttujat[] localDataset;
-    Bundle bundle = new Bundle();
+import java.util.ArrayList;
 
-    public Toimip_hallintaListAdapter(Toimip_hallintaMuuttujat[] dataset) {localDataset=dataset;}
-//TODO valinta ei rekisteröidy
+public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
+    static ArrayList<Toimip_hallintaMuuttujat> localDataset;
+
+    public Toimip_hallintaListAdapter(ArrayList<Toimip_hallintaMuuttujat> dataset) {localDataset=dataset;}
+//TODO valinta ei rekisteröidy, valinta kyllä tapahtuu eli localDataset.get(position).ToimipisteVastaava ei toimi
     View.OnClickListener Toimip_hallintaListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
-            toimip_hallintaFragment.setValittuToimipiste(localDataset[position].ToimipisteVastaava);
+            System.out.println(position);
+            toimip_hallintaFragment.setValittuToimipiste(localDataset.get(position).ToimipisteVastaava);
         }
     };
 
@@ -37,12 +38,12 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Toimip_hallintaListener);
 
-        holder.textView.setText(localDataset[position].Kaupunki);
-        holder.textView2.setText(localDataset[position].Nimi);
+        holder.textView.setText(localDataset.get(position).Kaupunki);
+        holder.textView2.setText(localDataset.get(position).Nimi);
     }
 
     @Override
-    public int getItemCount() {return localDataset.length;}
+    public int getItemCount() {return localDataset.size();}
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 

@@ -30,6 +30,10 @@
         <action
             android:id="@+id/action_loginFragment_to_toimipisteen_hallintaFragment"
             app:destination="@id/toimipisteen_hallintaFragment" />
+        <argument
+            android:name="tultiinLopusta"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

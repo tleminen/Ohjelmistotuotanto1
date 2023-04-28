@@ -3,52 +3,54 @@ package com.oh.time4play;
 public class Toimip_hallintaMuuttujat {
 
     public Toimip_hallintaMuuttujat() {
-
     }
 
     public Toimip_hallintaMuuttujat(String nimi, String kaupunki, String toimipisteVastaava, String salasana) {
-        Nimi = nimi;
-        Kaupunki = kaupunki;
-        ToimipisteVastaava = toimipisteVastaava;
-        Salasana = salasana;
+        this.Nimi = nimi;
+        this.Kaupunki = kaupunki;
+        this.ToimipisteVastaava = toimipisteVastaava;
+        this.Salasana = salasana;
     }
-
-    public static int maara = 0;
     public String Nimi = "-";
     public String Salasana = "";
     public String Kaupunki = "-";
     public String ToimipisteVastaava = "";
 
+    public Toimip_hallintaMuuttujat(String kaupunki, String nimi) {
+        this.Kaupunki = kaupunki;
+        this.Nimi = nimi;
+    }
+
     public String getToimipisteVastaava() {
         return ToimipisteVastaava;
-    }
-
-    public void setToimipisteVastaava(String toimipisteVastaava) {
-        ToimipisteVastaava = toimipisteVastaava;
-    }
-
-    public static int getMaara() {
-        return maara;
-    }
-
-    public static void setMaara(int maara) {
-        Toimip_hallintaMuuttujat.maara = maara;
     }
 
     public String getNimi() {
         return Nimi;
     }
 
-    public void setNimi(String nimi) {
-        Nimi = nimi;
+    public String getSalasana() {
+        return Salasana;
     }
 
     public String getKaupunki() {
         return Kaupunki;
     }
 
+    public void setNimi(String nimi) {
+        Nimi = nimi;
+    }
+
+    public void setSalasana(String salasana) {
+        Salasana = salasana;
+    }
+
     public void setKaupunki(String kaupunki) {
         Kaupunki = kaupunki;
     }
 
+    public void setToimipisteVastaava(String toimipisteVastaava) {
+        ToimipisteVastaava = toimipisteVastaava;
+    }
 }
+

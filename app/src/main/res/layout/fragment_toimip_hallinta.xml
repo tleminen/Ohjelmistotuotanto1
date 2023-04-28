@@ -10,26 +10,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/twOtsikko_toimip_hallinta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/tw_Otsikko_toimip_hallinta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="214dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:gravity="center|top"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/twOtsikko_toimip_hallinta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tw_Otsikko_toimip_hallinta" />
+            app:layout_constraintTop_toBottomOf="@+id/twOtsikko_toimip_hallinta">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rwToimipisteidenHallinnointi"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <EditText

@@ -19,17 +19,22 @@ import com.oh.time4play.toimip_hallintaFragmentDirections;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class toimip_hallintaFragment extends Fragment {
+    private ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 
-    static String valittuToimipiste;
+    public static String valittuToimipiste;
+
+    public static String getValittuToimipiste() {
+        return valittuToimipiste;
+    }
 
     public static void setValittuToimipiste(String valittuToimipiste) {
         toimip_hallintaFragment.valittuToimipiste = valittuToimipiste;
+        System.out.println(valittuToimipiste);
     }
-
-    Toimip_hallintaMuuttujat[] dataset;
 
     public toimip_hallintaFragment() {super(R.layout.fragment_toimip_hallinta);}
 
@@ -52,24 +57,23 @@ public class toimip_hallintaFragment extends Fragment {
         EditText etPoistettavaAsiakas = view.findViewById(R.id.et_tpHal_poistettavaAsiakas);
 
         //RecycleView Toimipisteiden listaamiseen
-        RecyclerView rvItemList = view.findViewById(R.id.rwToimipisteidenHallinnointi);
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
+        RecyclerView myRecycleView = view.findViewById(R.id.rwToimipisteidenHallinnointi);
+
+        Thread t1 = new Thread(() -> {
+            try {
                 try {
-                    try {
-                        dataset = Toimip_hallinta_kyselyt.getAllToimipisteet(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana));
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                    try {
-                        Tietokantayhteys.katkaiseYhteysTietokantaan();
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                } catch (RuntimeException e) {
+                    itemArrayList = Toimip_hallinta_kyselyt.getAllToimipisteet(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana));
+
+                } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+                try {
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (RuntimeException e) {
+                throw new RuntimeException(e);
             }
         });
 
@@ -80,8 +84,11 @@ public class toimip_hallintaFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
-        rvItemList.setAdapter(new Toimip_hallintaListAdapter(dataset));
-        rvItemList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        myRecycleView.setAdapter(new Toimip_hallintaListAdapter(itemArrayList));
+        myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        itemArrayList = new ArrayList<Toimip_hallintaMuuttujat>();
 
         //Asiakas hallinta (Asiakkaan poistaminen)
         btPoistaAsiakas.setOnClickListener(e -> {
@@ -114,13 +121,13 @@ public class toimip_hallintaFragment extends Fragment {
         });
 
         btMuokkaaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus,salasana,valittuToimipiste);
-            System.out.println("seuraavaan fragmenttiin menee: " + valittuToimipiste);
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus,salasana,getValittuToimipiste());
+            System.out.println("seuraavaan fragmenttiin menee: " + getValittuToimipiste());
             Navigation.findNavController(view).navigate(action);
         });
 
         btPoistaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste,kayttajatunnus,salasana);
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(getValittuToimipiste(),kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 

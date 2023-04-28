@@ -4,34 +4,27 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class Toimip_hallinta_kyselyt {
 
     //TODO #717 vika varmaankin tässä?
     //Eli recycle viewissä näkyy vain yksi toimipiste
-    static Toimip_hallintaMuuttujat[] getAllToimipisteet(Connection tietokantayhteys) throws SQLException {
-        Toimip_hallintaMuuttujat toimipaikka = new Toimip_hallintaMuuttujat();
+    static ArrayList<Toimip_hallintaMuuttujat> getAllToimipisteet(Connection tietokantayhteys) throws SQLException {
+        ArrayList<Toimip_hallintaMuuttujat> itemArrayList = new ArrayList<>();
         System.out.println("Lukee dataa.. getAllToimipisteet:");
-        Toimip_hallintaMuuttujat[] toimipaikat = new Toimip_hallintaMuuttujat[10];
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
                 SELECT Kaupunki, Nimi
                 FROM toimipiste
                 ORDER BY Kaupunki
                 """)) {
             ResultSet resultSet = statement.executeQuery();
-
-            int i = 0;
             while (resultSet.next()) {
-                toimipaikka.Kaupunki = resultSet.getString("Kaupunki");
-                toimipaikka.Nimi = resultSet.getString("Nimi");
-                toimipaikat[i] = toimipaikka;
-                i++;
+                itemArrayList.add(new Toimip_hallintaMuuttujat(resultSet.getString("Kaupunki"), resultSet.getString("Nimi")));
             }
-            Toimip_hallintaMuuttujat.setMaara(i);
-            System.out.println(Toimip_hallintaMuuttujat.getMaara());
+            return itemArrayList;
         }
-        return toimipaikat;
     }
 
     static void setLisaaUusiToimipiste(Connection tietokantayhteys, Toimip_hallintaMuuttujat toimipTiedot) throws SQLException {

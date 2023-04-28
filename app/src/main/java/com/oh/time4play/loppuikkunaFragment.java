@@ -22,7 +22,7 @@ public class loppuikkunaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_loppuikkuna, container, false);
+        View view = inflater.inflate(R.layout.fragment_loppuikkuna,container,false);
 
         String tultiin = loppuikkunaFragmentArgs.fromBundle(getArguments()).getMistaTanneTultiin();
 
@@ -30,7 +30,8 @@ public class loppuikkunaFragment extends Fragment {
 
         textView.setText("Nähdään " +tultiin + "!");
 
-        Navigation.findNavController(view).navigate(R.id.action_loppuikkunaFragment_to_loginFragment);
+        com.oh.time4play.loppuikkunaFragmentDirections.ActionLoppuikkunaFragmentToLoginFragment action = com.oh.time4play.loppuikkunaFragmentDirections.actionLoppuikkunaFragmentToLoginFragment();
+        Navigation.findNavController(view).navigate(action);
         return view;
     }
 }
