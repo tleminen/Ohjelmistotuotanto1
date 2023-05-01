@@ -31,9 +31,13 @@ public class Toimip_hallinta_kyselyt {
         }
     }
 
+    /**
+     * Lisää uuden toimipisteen ja luo toimipisteelle kirjautumistunnukset
+     * @param tietokantayhteys Tarvitsee tietokantayhteyden, jolla oikeus INSERT toimipistetauluun ja GRANT oikeuksia.
+     * @param toimipTiedot Uuden toimipisteen tiedot Toimip_hallintaMuuttujat -oliona
+     * @throws SQLException Sql kyselyitä
+     */
     static void setLisaaUusiToimipiste(Connection tietokantayhteys, Toimip_hallintaMuuttujat toimipTiedot) throws SQLException {
-
-        //TODO Tähän tehdään vielä testi onko jo toimipistettä olemassa
 
         System.out.println("Lisätään uusi toimipiste tietokantaan...");
         try (PreparedStatement statement2 = tietokantayhteys.prepareStatement("""
@@ -106,6 +110,11 @@ public class Toimip_hallinta_kyselyt {
 
     }
 
+    /**
+     * Poistaa toimipisteen
+     * @param connection Tarvitsee yhteyden, jolla on DELETE oikeus toimipiste -tauluun
+     * @param poistettavaNimi Poistettavan toimipisteen Toimipistevastaava
+     */
     //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
     public static void poistaToimipiste(Connection connection, String poistettavaNimi) {
         System.out.println("Poistetaan toimipiste jonka Toimipistevastaava: " + poistettavaNimi);
@@ -119,7 +128,13 @@ public class Toimip_hallinta_kyselyt {
         }
     }
 
-    //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
+    //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN ja myös varmistus onko avoimia laskuja vois olla ok.
+
+    /**
+     * Poistaa asiakkaan
+     * @param connection Tarvitsee yhteyden jolla on DELETE oikeus asiakas -tauluun
+     * @param asiakkaanTunnus Saa parametrikseen poistettavan asiakkaan sähköpostiosoitteen.
+     */
     public static void poistaAsiakas(Connection connection, String asiakkaanTunnus) {
         System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus);
         try (PreparedStatement statement7 = connection.prepareStatement("""
@@ -132,7 +147,12 @@ public class Toimip_hallinta_kyselyt {
         }
     }
 
-    //TODO KESKEN!!!
+    /**
+     * PaLauttaa yhden toimipisteen tiedot
+     * @param connection Tarvitsee yhteyden jolla SELECT oikeus toimipisteeseen
+     * @param muokattavaToimipisteVastaava Valittavan toimipisteen toimipistevastaava
+     * @return Palauttaa Toimip_hallintaMuuttujat -olion jolla kentät Kaupunki, Nimi ja Toimipistevastaava
+     */
     public static Toimip_hallintaMuuttujat getToimipiste(Connection connection, String muokattavaToimipisteVastaava) {
         Toimip_hallintaMuuttujat pyydetty = new Toimip_hallintaMuuttujat();
         System.out.println("Haetaan pyydetyn toimipisteen tiedot...");
@@ -154,6 +174,12 @@ public class Toimip_hallinta_kyselyt {
         return pyydetty;
     }
 
+    /**
+     * Päivittää toimipisteen tiedot.
+     * @param connection Tarvitsee yhteyden jolla oikeus UPDATE toimipiste
+     * @param muokattavanTiedot Saa parametrikseen olion, jolla Kaupunki, Toimipistevastaava ja Nimi
+     * @throws SQLException SQL kyselyitä
+     */
     public static void updateToimipiste(Connection connection, Toimip_hallintaMuuttujat muokattavanTiedot) throws SQLException {
         System.out.println("Päivitetään toimipistettä, nimi: " + muokattavanTiedot.Nimi + "...");
         System.out.println("Kaupunki: " + muokattavanTiedot.Kaupunki);
