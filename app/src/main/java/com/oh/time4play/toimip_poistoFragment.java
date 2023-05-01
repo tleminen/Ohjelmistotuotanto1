@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.oh.time4play.toimip_poistoFragmentDirections;
 
@@ -33,6 +34,10 @@ public class toimip_poistoFragment extends Fragment {
 
         Button poista = view.findViewById(R.id.bt_PoistoKylla);
         Button palaa = view.findViewById(R.id.bt_PoistoTakaisinNappi);
+
+        TextView poistettavanNimi = view.findViewById(R.id.tvPoistettavanNimi);
+
+        poistettavanNimi.setText(poistettava);
 
         poista.setOnClickListener(e -> {
             Thread t1 = new Thread(new Runnable() {
@@ -63,8 +68,6 @@ public class toimip_poistoFragment extends Fragment {
             com.oh.time4play.toimip_poistoFragmentDirections.ActionToimipPoistoFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_poistoFragmentDirections.actionToimipPoistoFragmentToToimipHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
-
-
 
         return view;
     }

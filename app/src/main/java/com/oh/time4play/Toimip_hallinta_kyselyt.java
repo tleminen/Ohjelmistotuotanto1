@@ -9,19 +9,23 @@ import java.util.ArrayList;
 
 public class Toimip_hallinta_kyselyt {
 
-    //TODO #717 vika varmaankin tässä?
-    //Eli recycle viewissä näkyy vain yksi toimipiste
+    /**
+     * Palauttaa kaikkien toimipisteiden tiedot
+     * @param tietokantayhteys tietokantayhteys, pitää olla SELECT oikeudet toimipisteelle.
+     * @return palauttaa ArrayListin Toimip_hallintaMuuttujat
+     * @throws SQLException Sisältää SQL komentoja
+     */
     static ArrayList<Toimip_hallintaMuuttujat> getAllToimipisteet(Connection tietokantayhteys) throws SQLException {
         ArrayList<Toimip_hallintaMuuttujat> itemArrayList = new ArrayList<>();
         System.out.println("Lukee dataa.. getAllToimipisteet:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                SELECT Kaupunki, Nimi
+                SELECT Kaupunki, Nimi, Toimipistevastaava
                 FROM toimipiste
                 ORDER BY Kaupunki
                 """)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                itemArrayList.add(new Toimip_hallintaMuuttujat(resultSet.getString("Kaupunki"), resultSet.getString("Nimi")));
+                itemArrayList.add(new Toimip_hallintaMuuttujat(resultSet.getString("Kaupunki"), resultSet.getString("Nimi"), resultSet.getString("ToimipisteVastaava")));
             }
             return itemArrayList;
         }
@@ -104,9 +108,9 @@ public class Toimip_hallinta_kyselyt {
 
     //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
     public static void poistaToimipiste(Connection connection, String poistettavaNimi) {
-        System.out.println("Poistetaan toimipiste ID: " + poistettavaNimi);
+        System.out.println("Poistetaan toimipiste jonka Toimipistevastaava: " + poistettavaNimi);
         try (PreparedStatement statement7 = connection.prepareStatement("""
-                DELETE FROM `varausjarjestelma`.`toimipiste` WHERE Nimi =?;
+                DELETE FROM `varausjarjestelma`.`toimipiste` WHERE Toimipistevastaava =?;
                 """)) {
             statement7.setString(1,poistettavaNimi);
             statement7.executeUpdate();

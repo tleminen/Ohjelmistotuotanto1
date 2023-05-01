@@ -16,9 +16,10 @@ public class Toimip_hallintaMuuttujat {
     public String Kaupunki = "-";
     public String ToimipisteVastaava = "";
 
-    public Toimip_hallintaMuuttujat(String kaupunki, String nimi) {
+    public Toimip_hallintaMuuttujat(String kaupunki, String nimi, String toimipisteVastaava) {
         this.Kaupunki = kaupunki;
         this.Nimi = nimi;
+        this.ToimipisteVastaava = toimipisteVastaava;
     }
 
     public String getToimipisteVastaava() {

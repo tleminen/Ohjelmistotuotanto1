@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 
 public class toimip_hallintaFragment extends Fragment {
-    private ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
+    public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 
     public static String valittuToimipiste;
 
@@ -88,7 +88,7 @@ public class toimip_hallintaFragment extends Fragment {
         myRecycleView.setAdapter(new Toimip_hallintaListAdapter(itemArrayList));
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        itemArrayList = new ArrayList<Toimip_hallintaMuuttujat>();
+        //itemArrayList = new ArrayList<Toimip_hallintaMuuttujat>();
 
         //Asiakas hallinta (Asiakkaan poistaminen)
         btPoistaAsiakas.setOnClickListener(e -> {

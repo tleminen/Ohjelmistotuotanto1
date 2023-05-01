@@ -44,6 +44,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_PoistoKylla"
             app:layout_constraintVertical_bias="0.26" />
+
+        <TextView
+            android:id="@+id/tvPoistettavanNimi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/bt_PoistoKylla"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tw_PoistoTeksti"
+            app:layout_constraintVertical_bias="0.110000014" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -11,16 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
-    static ArrayList<Toimip_hallintaMuuttujat> localDataset;
+    public static ArrayList<Toimip_hallintaMuuttujat> localDataset;
 
     public Toimip_hallintaListAdapter(ArrayList<Toimip_hallintaMuuttujat> dataset) {localDataset=dataset;}
-//TODO valinta ei rekisteröidy, valinta kyllä tapahtuu eli localDataset.get(position).ToimipisteVastaava ei toimi
+
     View.OnClickListener Toimip_hallintaListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
             System.out.println(position);
-            toimip_hallintaFragment.setValittuToimipiste(localDataset.get(position).ToimipisteVastaava);
+            toimip_hallintaFragment.setValittuToimipiste(Toimip_hallintaListAdapter.localDataset.get(position).ToimipisteVastaava);
+            System.out.println("valittu: "+ localDataset.get(position).ToimipisteVastaava);
         }
     };
 
