@@ -36,11 +36,11 @@ public class toimip_muokkausFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_toimip_muokkaus, container, false);
 
-        TextView muokattavaTeksti = view.findViewById(R.id.tw_tpMuokkausTeksti);
+        TextView muokattavanNimi = view.findViewById(R.id.tvMuokattavanToimipNimi);
+
 
         EditText tpNimi = view.findViewById(R.id.et_tpMuokkausNimi);
         EditText tpKaupunki = view.findViewById(R.id.et_tpMuokkausKaupunki);
-        EditText tpVastaava = view.findViewById(R.id.et_tpMuokkausVastaava);
 
         Button tpVahvistaMuutos = view.findViewById(R.id.bt_tpMuokkausNappula);
 
@@ -64,12 +64,11 @@ public class toimip_muokkausFragment extends Fragment {
 
         tpNimi.setHint(muokattavanTiedot.Nimi);
         tpKaupunki.setHint(muokattavanTiedot.Kaupunki);
-        tpVastaava.setHint(muokattavanTiedot.ToimipisteVastaava);
+        muokattavanNimi.setText(muokattavanTiedot.ToimipisteVastaava);
 
         tpVahvistaMuutos.setOnClickListener(e ->{
             muokattavanTiedot.setNimi(tpNimi.getText().toString());
             muokattavanTiedot.setKaupunki(tpKaupunki.getText().toString());
-            muokattavanTiedot.setToimipisteVastaava(tpVastaava.getText().toString());
             Thread t2 = new Thread(new Runnable() {
                 @Override
                 public void run() {

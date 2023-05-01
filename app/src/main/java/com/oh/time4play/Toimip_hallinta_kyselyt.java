@@ -156,16 +156,17 @@ public class Toimip_hallinta_kyselyt {
 
     public static void updateToimipiste(Connection connection, Toimip_hallintaMuuttujat muokattavanTiedot) throws SQLException {
         System.out.println("Päivitetään toimipistettä, nimi: " + muokattavanTiedot.Nimi + "...");
+        System.out.println("Kaupunki: " + muokattavanTiedot.Kaupunki);
+        System.out.println("TpVastaava: " + muokattavanTiedot.ToimipisteVastaava);
         try (PreparedStatement statement = connection.prepareStatement("""
-                UPDATE toimipiste
-                SET Kaupunki = ?, Nimi = ?, Toimipistevastaava = ?
-                WHERE Toimipistevastaava = ?
+                UPDATE `varausjarjestelma`.`toimipiste` 
+                SET `Kaupunki`= ?, `Nimi`= ? 
+                WHERE  `Toimipistevastaava`= ?;
                 """)){
             statement.setString(1,muokattavanTiedot.Kaupunki);
             statement.setString(2,muokattavanTiedot.Nimi);
             statement.setString(3,muokattavanTiedot.ToimipisteVastaava);
-            statement.setString(4,muokattavanTiedot.ToimipisteVastaava);
-
+            statement.executeUpdate();
         }
     }
 }

@@ -27,15 +27,16 @@
             android:id="@+id/et_tpMuokkausNimi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
             android:ems="10"
             android:hint="@string/et_tpMuokkausNimi"
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/bt_tpMuokkausNappula"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tw_tpMuokkausTeksti" />
+            app:layout_constraintTop_toBottomOf="@+id/tw_tpMuokkausTeksti"
+            app:layout_constraintVertical_bias="0.45" />
 
         <EditText
             android:id="@+id/et_tpMuokkausKaupunki"
@@ -51,32 +52,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_tpMuokkausNimi" />
 
-        <EditText
-            android:id="@+id/et_tpMuokkausVastaava"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="@string/et_tpMuokkausVastaava"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_tpMuokkausKaupunki" />
-
         <Button
             android:id="@+id/bt_tpMuokkausNappula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="32dp"
             android:minHeight="48dp"
             android:text="@string/bt_tpMuutoksetNappi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMuokattavanToimipNimi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/et_tpMuokkausNimi"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_tpMuokkausVastaava" />
+            app:layout_constraintTop_toBottomOf="@+id/tw_tpMuokkausTeksti"
+            app:layout_constraintVertical_bias="0.26" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
