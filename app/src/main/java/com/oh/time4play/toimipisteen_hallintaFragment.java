@@ -14,13 +14,6 @@ import com.oh.time4play.toimipisteen_hallintaFragmentDirections;
 
 
 public class toimipisteen_hallintaFragment extends Fragment {
-    static int valittuKentta;
-
-    public static void setValittuKentta(int valittuKentta) {
-        toimipisteen_hallintaFragment.valittuKentta = valittuKentta;
-    }
-
-    Kentan_valintamuuttujat[] dataset;
 
     public toimipisteen_hallintaFragment() {super(R.layout.fragment_toimipisteen_hallinta);}
 
@@ -51,12 +44,12 @@ public class toimipisteen_hallintaFragment extends Fragment {
         });
 
         thMuokkaaKentta.setOnClickListener(e -> {
-            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToThMuokattavaKenttaFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToThMuokattavaKenttaFragment(kayttajatunnus,salasana,valittuKentta);
+            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToThMuokattavaKenttaFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToThMuokattavaKenttaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 
         thMuokkaaPelivaline.setOnClickListener(e -> {
-            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToThMuokattavaLajiFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToThMuokattavaLajiFragment(kayttajatunnus,salasana,valittuKentta);
+            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToThMuokattavaLajiFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToThMuokattavaLajiFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 

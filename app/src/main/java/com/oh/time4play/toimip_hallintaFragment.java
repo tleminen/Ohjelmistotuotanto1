@@ -88,7 +88,6 @@ public class toimip_hallintaFragment extends Fragment {
         myRecycleView.setAdapter(new Toimip_hallintaListAdapter(itemArrayList));
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //itemArrayList = new ArrayList<Toimip_hallintaMuuttujat>();
 
         //Asiakas hallinta (Asiakkaan poistaminen)
         btPoistaAsiakas.setOnClickListener(e -> {
@@ -121,13 +120,13 @@ public class toimip_hallintaFragment extends Fragment {
         });
 
         btMuokkaaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus,salasana,getValittuToimipiste());
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus,salasana,valittuToimipiste);
             System.out.println("seuraavaan fragmenttiin menee: " + getValittuToimipiste());
             Navigation.findNavController(view).navigate(action);
         });
 
         btPoistaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(getValittuToimipiste(),kayttajatunnus,salasana);
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste,kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 

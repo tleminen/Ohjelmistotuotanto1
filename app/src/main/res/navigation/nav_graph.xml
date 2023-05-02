@@ -219,8 +219,10 @@
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_th_muokattava_lajiFragment"
             app:destination="@id/th_muokattava_lajiFragment" />
-        <argument android:name="KirjautunutKayttaja" />
-        <argument android:name="KirjautunutSalasana" />
+        <argument android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/th_kentta_lisaysFragment"
@@ -265,6 +267,9 @@
         <argument
             android:name="KirjautunutSalasana"
             app:argType="string" />
+        <argument
+            android:name="ValittuKenttaID"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/th_muokattava_kenttaFragment"
@@ -280,9 +285,6 @@
         <argument
             android:name="KirjautunutSalasana"
             app:argType="string" />
-        <argument
-            android:name="MuokattavaKentta"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/th_muokattava_lajiFragment"
@@ -298,9 +300,6 @@
         <argument
             android:name="KirjautunutSalasana"
             app:argType="string" />
-        <argument
-            android:name="MuokattavaLaji"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/th_peliv_muutoksetFragment"
@@ -314,6 +313,9 @@
             app:argType="string" />
         <argument
             android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="ValittuLaji"
             app:argType="string" />
     </fragment>
     <fragment
@@ -330,6 +332,9 @@
         <argument
             android:name="KirjautunuSalasana"
             app:argType="string" />
+        <argument
+            android:name="ValittuPelivalineID"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/kellonaikaValintaFragment"

@@ -10,6 +10,14 @@ public class Kentta_Muuttujat {
         this.toimipistevastaava = kayttajaTunnus;
     }
 
+    public Kentta_Muuttujat(int kenttaID, String nimi, String lajitunnus, String kentanHinta, String toimipistevastaava) {
+        this.kenttaID = kenttaID;
+        this.nimi = nimi;
+        this.lajitunnus = lajitunnus;
+        this.kentanHinta = kentanHinta;
+        this.toimipistevastaava = toimipistevastaava;
+    }
+
     protected int kenttaID;
     protected String nimi;
     protected String lajitunnus;

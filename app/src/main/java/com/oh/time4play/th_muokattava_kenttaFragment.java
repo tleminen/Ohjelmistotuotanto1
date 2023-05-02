@@ -2,63 +2,88 @@ package com.oh.time4play;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link th_muokattava_kenttaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.oh.time4play.th_muokattava_kenttaFragmentDirections;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+
 public class th_muokattava_kenttaFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    public ArrayList<Kentta_Muuttujat> itemArrayList; //
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public static int valittuKentta;
 
-    public th_muokattava_kenttaFragment() {
-        // Required empty public constructor
+    public static int getValittuKentta() {
+        return valittuKentta;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment th_muokattava_kenttaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static th_muokattava_kenttaFragment newInstance(String param1, String param2) {
-        th_muokattava_kenttaFragment fragment = new th_muokattava_kenttaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static void setValittuKentta(int valinta) {
+        th_muokattava_kenttaFragment.valittuKentta = valinta;
+        System.out.println(valinta);
     }
+
+    public th_muokattava_kenttaFragment() {super(R.layout.fragment_th_muokattava_kentta);}
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
+        String kayttajatunnus = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
+        String salasana = toimip_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+
+        Button seuraava = view.findViewById(R.id.bt_seuraava_thKenttaMuok);
+
+        //RecycleView Toimipisteiden listaamiseen
+        RecyclerView myRecycleView = view.findViewById(R.id.rv_thMuokattavaKentta);
+
+        //tasta
+        Thread t1 = new Thread(() -> {
+            try {
+                try {
+                    itemArrayList = th_kyselyt.getAllKentat(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana), kayttajatunnus);
+
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (RuntimeException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_th_muokattava_kentta, container, false);
+
+        myRecycleView.setAdapter(new th_kentta_muokkaus_ListAdapter(itemArrayList));
+        myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        seuraava.setOnClickListener(e -> {
+            com.oh.time4play.th_muokattava_kenttaFragmentDirections.ActionThMuokattavaKenttaFragmentToThKenttaMuokkausFragment2 action = com.oh.time4play.th_muokattava_kenttaFragmentDirections.actionThMuokattavaKenttaFragmentToThKenttaMuokkausFragment2(kayttajatunnus,salasana,valittuKentta);
+            System.out.println("seuraavaan fragmenttiin menee: " + getValittuKentta());
+            Navigation.findNavController(view).navigate(action);
+        });
+
+        super.onViewCreated(view, savedInstanceState);
     }
 }

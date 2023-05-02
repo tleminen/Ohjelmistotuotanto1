@@ -2,7 +2,9 @@ package com.oh.time4play;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class th_kyselyt {
     public static void setLisaaUusiKentta(Connection connection, Kentta_Muuttujat lisattavaKe) {
@@ -19,6 +21,24 @@ public class th_kyselyt {
             System.out.println("Toimipisteen tiedot lisätty tietokantaan.");
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Kentta_Muuttujat> getAllKentat(Connection yhdistaTietokantaan, String vastaava) throws SQLException {
+        ArrayList<Kentta_Muuttujat> itemArrayList = new ArrayList<>();
+        System.out.println("Lukee dataa... getAllKentat");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT LajiTunnus, KenttaID, KenttaHinta, Kenttanimi, Toimipistevastaava
+                FROM kentat
+                WHERE  `toimipistevastaava`= ?;
+                ORDER BY LajiTunnus
+                """)) {
+            statement.setString(1, vastaava);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                itemArrayList.add(new Kentta_Muuttujat(resultSet.getInt("KenttaID"), resultSet.getString("Kenttanimi"), resultSet.getString("LajiTunnus"), resultSet.getString("KenttaHinta"), resultSet.getString("Toimipistevastaava")));
+            }
+            return itemArrayList;
         }
     }
 }

@@ -103,6 +103,7 @@
 
     <!-- th_kentta_muokkattava -->
     <string name="tv_thMuokkausKenttaOtsikko">Valitse kenttä, jota haluat muokata</string>
+    <string name="bt_thMuokkausKenttaSeuraava">Seuraava</string>
 
     <!-- th kenttää muokataan -->
     <string name="tv_thMuokattavaKenttaTeksti">Kentän muokkaus</string>
