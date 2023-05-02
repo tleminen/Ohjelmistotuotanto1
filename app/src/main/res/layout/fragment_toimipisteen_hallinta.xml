@@ -25,7 +25,8 @@
         <Button
             android:id="@+id/bt_LisaaKentta_toimipisteen_hallinta"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
             android:background="@drawable/btn_teema2"
             android:padding="10dp"
             android:text="@string/bt_toimipisteenHallinta_lisaaKentta"
@@ -38,7 +39,8 @@
         <Button
             android:id="@+id/bt_muokkaaKenttaa_toimipisteen_hallinta"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_teema2"
             android:padding="10dp"
@@ -50,7 +52,8 @@
         <Button
             android:id="@+id/bt_uusiPelivaline_toimipisteen_hallinta"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_teema2"
             android:padding="10dp"
@@ -62,7 +65,8 @@
         <Button
             android:id="@+id/bt_muokkaaPelivalineita_toimipisteen_hallinta"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_teema2"
             android:padding="10dp"
@@ -76,18 +80,20 @@
             android:id="@+id/bt_poistu_toimipisteen_hallinta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/btn_teema"
+            android:background="@drawable/btn_teema3"
             android:text="@string/bt_toimipisteenHallinta_poistu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/bt_raportti_toimipisteen_hallinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="126dp"
+            android:layout_height="48dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/btn_teema2"
             android:minHeight="48dp"
             android:text="@string/bt_toimipisteenhallinta_raportti"
             app:layout_constraintEnd_toEndOf="parent"

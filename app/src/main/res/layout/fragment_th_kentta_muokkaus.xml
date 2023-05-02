@@ -13,9 +13,10 @@
 
         <Button
             android:id="@+id/bt_thKenttaMuokkausPoista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
             android:layout_marginTop="80dp"
+            android:background="@drawable/btn_teema4"
             android:minHeight="48dp"
             android:text="@string/bt_thMuokkausKenttaPoista"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +27,8 @@
             android:id="@+id/bt_thKenttaMuokkausVahvista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@drawable/btn_teema2"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/bt_thMuokkausKenttaVahvista"

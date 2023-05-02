@@ -27,6 +27,8 @@
             android:id="@+id/bt_PoistoKylla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@drawable/btn_teema4"
             android:text="@string/bt_tpPoistoKylla"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +38,10 @@
 
         <Button
             android:id="@+id/bt_PoistoTakaisinNappi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="158dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:background="@drawable/btn_teema3"
             android:text="@string/bt_tpPoistoPalaaAlkuIkkuna"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

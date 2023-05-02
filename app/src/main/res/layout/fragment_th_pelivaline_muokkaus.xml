@@ -13,9 +13,11 @@
 
         <Button
             android:id="@+id/bt_poistaPeliv_th_pelivaline_muokkaus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="50dp"
+            android:minHeight="48dp"
+            android:background="@drawable/btn_teema4"
             android:text="@string/bt_poistaPeliv_th_pelivaline_muokkaus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,8 @@
             android:id="@+id/bt_vahvista_th_pelivaline_muokkaus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_teema2"
+            android:minHeight="48dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:text="@string/bt_vahvista_th_pelivaline_muokkaus"
@@ -34,20 +38,23 @@
         <EditText
             android:id="@+id/et_pelivNimi_th_pelivaline_muokkaus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:ems="10"
             android:hint="@string/et_pelivNimi_th_pelivaline_muokkaus"
             android:inputType="text"
             android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="83dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.144" />
 
         <EditText
             android:id="@+id/et_pelivHinta_th_pelivaline_muokkaus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
             android:ems="10"
             android:hint="@string/et_pelivHinta_th_pelivaline_muokkaus"
             android:inputType="text"

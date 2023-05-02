@@ -66,6 +66,8 @@
                 android:id="@+id/btLisaaToimipiste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/btn_teema"
                 android:layout_marginHorizontal="2dp"
                 android:text="@string/bt_text_Lisaa_toimipiste" />
 
@@ -73,6 +75,8 @@
                 android:id="@+id/btMuokkaaToimipiste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/btn_teema2"
                 android:layout_marginHorizontal="2dp"
                 android:padding="10dp"
                 android:text="@string/bt_text_Muokkaa_toimipiste" />
@@ -81,6 +85,8 @@
                 android:id="@+id/btPoistaToimipiste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/btn_teema4"
                 android:layout_marginHorizontal="2dp"
                 android:text="@string/bt_text_Poista_toimipiste" />
 
@@ -88,6 +94,8 @@
                 android:id="@+id/btPoistuToimip_hallinta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/btn_teema3"
                 android:layout_marginHorizontal="2dp"
                 android:text="@string/bt_text_Poistu_toimipiste" />
 
@@ -95,8 +103,10 @@
 
         <Button
             android:id="@+id/bt_tpHal_poistaAsiakas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="124dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:background="@drawable/btn_teema4"
             android:text="@string/bt_poista_asiakas"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
