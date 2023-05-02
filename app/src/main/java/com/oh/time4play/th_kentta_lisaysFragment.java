@@ -3,62 +3,70 @@ package com.oh.time4play;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link th_kentta_lisaysFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.oh.time4play.th_kentta_lisaysFragmentDirections;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+
 public class th_kentta_lisaysFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public th_kentta_lisaysFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment th_kentta_lisaysFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static th_kentta_lisaysFragment newInstance(String param1, String param2) {
-        th_kentta_lisaysFragment fragment = new th_kentta_lisaysFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        String kayttajatunnus = toimip_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
+        String salasana = toimip_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_th_kentta_lisays, container, false);
+        View view = inflater.inflate(R.layout.fragment_th_kentta_lisays, container, false);
+
+        EditText keNimi = view.findViewById(R.id.etKentanNimi_kenttaLisa);
+        EditText keLajitunnus = view.findViewById(R.id.etLajitunnus_kenttaLisa);
+        EditText keHinta = view.findViewById(R.id.etTuntihinta_kenttaLisa);
+
+        Button lisaaKentta = view.findViewById(R.id.btLisaaKentta);
+
+        lisaaKentta.setOnClickListener(e -> {
+            String nimi = keNimi.getText().toString();
+            String lajitunnus = keLajitunnus.getText().toString();
+            String hinta = keHinta.getText().toString();
+            Kentta_Muuttujat lisattavaKe = new Kentta_Muuttujat(nimi,lajitunnus,hinta,kayttajatunnus);
+
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                        th_kyselyt.setLisaaUusiKentta(connection, lisattavaKe);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
+            try {
+                t1.start();
+                t1.join();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+            com.oh.time4play.th_kentta_lisaysFragmentDirections.ActionThKenttaLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_lisaysFragmentDirections.actionThKenttaLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
+            Navigation.findNavController(view).navigate(action);
+        });
+
+
+        return view;
     }
 }
