@@ -90,6 +90,19 @@
     <!-- pelivalineet -->
     <string name="tv_otsikko_pelivalineet">Pelivälineiden osto tai vuokraus</string>
 
+    <!-- maksuikkuna -->
+    <string name="tv_otsikko_maksuikkuna">Miten haluat maksaa?</string>
+    <string name="tv_yhteensaTeksti_maksuikkuna">Yhteensä:</string>
+    <string name="tv_summa_maksuikkuna"></string>
+    <string name="rb_sahkopostiValinta_maksuikkuna">Sähköinen lasku (sähköpostiin)</string>
+    <string name="rb_paperilaskuValinta_maksuikkuna">Paperilasku postitse</string>
+    <string name="tv_sahkopostiAsiakkaan_maksuikkuna"></string>
+    <string name="pt_nimiAsiakkaan_maksuikkuna">Nimi</string>
+    <string name="pt_osoiteAsiakkaan_maksuikkuna">Osoite</string>
+    <string name="tv_vahvistuksenTeksti_maksuikkuna">Painamalla "vahvista" vakuutat tietojen olevan oikein.</string>
+    <string name="bt_vahvistaPainike_maksuikkuna">Vahvista</string>
+    <string name="bt_vahvistaNappulaUudetTiedot_maksuikkuna">Vahvista ja päivitä tiedot</string>
+
     <!-- toimipisteen_hallinta -->
     <string name="tv_toimipisteenHallinta_otsikko">Toimipisteen hallinta</string>
     <string name="bt_toimipisteenHallinta_lisaaKentta">Lisää kenttä</string>
