@@ -119,14 +119,18 @@ public class toimip_hallintaFragment extends Fragment {
         });
 
         btMuokkaaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus,salasana,valittuToimipiste);
-            System.out.println("seuraavaan fragmenttiin menee: " + getValittuToimipiste());
-            Navigation.findNavController(view).navigate(action);
+            if (valittuToimipiste != null) {
+                com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipMuokkausFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipMuokkausFragment(kayttajatunnus, salasana, valittuToimipiste);
+                System.out.println("seuraavaan fragmenttiin menee: " + getValittuToimipiste());
+                Navigation.findNavController(view).navigate(action);
+            }
         });
 
         btPoistaTp.setOnClickListener(e -> {
-            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste,kayttajatunnus,salasana);
-            Navigation.findNavController(view).navigate(action);
+            if (valittuToimipiste != null) {
+                com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipPoistoFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipPoistoFragment(valittuToimipiste, kayttajatunnus, salasana);
+                Navigation.findNavController(view).navigate(action);
+            }
         });
 
         btPoistuTp.setOnClickListener(e -> {
