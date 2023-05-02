@@ -23,7 +23,7 @@
             android:textColorHint="#787878"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+            app:layout_constraintTop_toBottomOf="@+id/etNimi_Register" />
 
         <EditText
             android:id="@+id/etAnnaSalasana"
@@ -69,7 +69,7 @@
             app:layout_constraintVertical_bias="0.963" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/etNimi_Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
