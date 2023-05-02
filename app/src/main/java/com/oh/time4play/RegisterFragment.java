@@ -37,17 +37,19 @@ public class RegisterFragment extends Fragment {
         EditText etkayttajatunnus = view.findViewById(R.id.etAnnaSahkopostiosoite);
         EditText etsalasana = view.findViewById(R.id.etAnnaSalasana);
         EditText etosoite = view.findViewById(R.id.etAnnaOsoitteesi);
+        EditText etNimi = view.findViewById(R.id.etNimi_Register);
 
         Rekisteroidy.setOnClickListener(e -> {
             String kayttaja = etkayttajatunnus.getText().toString();
             String salasana = etsalasana.getText().toString();
             String osoite = etosoite.getText().toString();
+            String nimi = etNimi.getText().toString();
             Thread t1 = new Thread(new Runnable(){
                 @Override
                 public void run() {
                     try {
                         try {
-                            muutettu = SystemKyselyt.setUusiAsiakas(kayttaja,salasana,osoite);
+                            muutettu = SystemKyselyt.setUusiAsiakas(kayttaja,salasana,osoite,nimi);
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
                         }

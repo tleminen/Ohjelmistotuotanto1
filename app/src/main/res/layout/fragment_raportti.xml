@@ -4,85 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".Raportti">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/etAnnaSahkopostiosoite"
+        <TextView
+            android:id="@+id/tv_raportti_otsikko"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="@string/et_text_syotasapo_Register"
-            android:inputType="textEmailAddress"
+            android:layout_marginTop="4dp"
             android:minHeight="48dp"
+            android:text="@string/tv_raportti_Otsikko"
             android:textAlignment="center"
-            android:textColorHint="#787878"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNimi_Register" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/etAnnaSalasana"
+            android:id="@+id/et_raporttiAsetaPVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="@string/et_text_Salasana_Register"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:textAlignment="center"
-            android:textColorHint="#787878"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etAnnaSahkopostiosoite" />
-
-        <EditText
-            android:id="@+id/etAnnaOsoitteesi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="@string/et_text_Anna_Osoite"
+            android:hint="@string/et_raportti_PVMAlku"
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
-            android:textColorHint="#787878"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etAnnaSalasana" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_raportti_otsikko" />
+
+        <EditText
+            android:id="@+id/et_raporttiLoppuPVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/et_raportti_PVMAlku"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_raporttiAsetaPVM"
+            tools:hint="@string/et_raportti_PVMLoppu" />
 
         <Button
-            android:id="@+id/btTeeRekisterointi"
-            android:layout_width="125dp"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_teema"
-            android:text="@string/bt_text_Register_Register"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.886"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.963" />
-
-        <EditText
-            android:id="@+id/etNimi_Register"
+            android:id="@+id/bt_raportti_Vahvista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_text_Nimi_Register"
-            android:inputType="text"
+            android:layout_marginTop="100dp"
             android:minHeight="48dp"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/bt_raportti_Vahvista"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintTop_toBottomOf="@+id/et_raporttiLoppuPVM" />
 
-
+        <Button
+            android:id="@+id/bt_raportti_Loppu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:minHeight="48dp"
+            android:text="@string/bt_raportti_Paluu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_raportti_Vahvista" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -110,6 +110,8 @@
     <string name="bt_toimipisteenHallinta_uusiPelivaline">Uusi peliväline</string>
     <string name="bt_toimipisteenHallinta_muokkaaPelivalineita">Muokkaa pelivälineitä</string>
     <string name="bt_toimipisteenHallinta_poistu">Poistu</string>
+    <string name="bt_toimipisteenhallinta_raportti">Pyydä raportti</string>
+    
 
     <!-- Loppuikkuna -->
     <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
@@ -130,5 +132,13 @@
     <!-- kentta -->
     <string name="tv_kenttaValitse">Valitse kenttä</string>
     <string name="bt_kenttaVahvista">Vahvista</string>
+    
+    <!-- raportti -->
+    <string name="tv_raportti_Otsikko">Raportti</string>
+    <string name="et_raportti_PVMAlku">Aseta aloituspäivämäärä</string>
+    <string name="et_raportti_PVMLoppu">Aseta lopetuspäivämäärä</string>
+    <string name="bt_raportti_Vahvista">Vahvista</string>
+    <string name="bt_raportti_Paluu">Palaa takaisin</string>
+
 
 </resources>

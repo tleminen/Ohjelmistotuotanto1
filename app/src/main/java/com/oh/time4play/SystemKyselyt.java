@@ -14,7 +14,7 @@ public class SystemKyselyt {
      * @return palauttaa True jos muutos onnistui, tosin ehkä poistetaan vielä tää return
      * @throws SQLException Sisältää sql kyselyitä
      */
-    public static boolean setUusiAsiakas(String loginTunnus, String salasana, String osoite) throws SQLException {
+    public static boolean setUusiAsiakas(String loginTunnus, String salasana, String osoite, String nimi) throws SQLException {
         boolean muutosOnnistui = false;
         int muutettu;
 
@@ -25,11 +25,12 @@ public class SystemKyselyt {
 
         System.out.println("Lisätään asiakkaan tiedot tietokantaan..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
-                INSERT INTO asiakas (email, osoite)
-                VALUES (?,?)
+                INSERT INTO asiakas (email, osoite, Asiakasnimi)
+                VALUES (?,?, ?)
                 """)) {
             statement.setString(1, loginTunnus);
             statement.setString(2, osoite);
+            statement.setString(3,nimi);
             muutettu = statement.executeUpdate();
             System.out.println("Lisätty asiakas tietokantaan\nSuoritettu vaihe: " + muutettu);
         }
