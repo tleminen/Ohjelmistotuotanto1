@@ -20,7 +20,7 @@
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textAlignment="center"
-            android:textColorHint="#787878"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etNimi_Register" />
@@ -35,7 +35,7 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="center"
-            android:textColorHint="#787878"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAnnaSahkopostiosoite" />
@@ -50,7 +50,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
-            android:textColorHint="#787878"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAnnaSalasana" />
@@ -77,6 +77,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

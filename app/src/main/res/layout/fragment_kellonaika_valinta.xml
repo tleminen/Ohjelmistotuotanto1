@@ -17,6 +17,9 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:text="Valitse kellonaika"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textAlignment="center" />
 
         <LinearLayout
