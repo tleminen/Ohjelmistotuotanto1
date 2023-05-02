@@ -235,7 +235,7 @@
         <argument android:name="KirjautunutKayttaja"
             app:argType="string" />
         <argument
-            android:name="KirjautunuSalasana"
+            android:name="KirjautunutSalasana"
             app:argType="string" />
     </fragment>
     <fragment

@@ -60,11 +60,9 @@ public class LoginFragment extends Fragment {
             });
             t1.start();
 
-            System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
             //Seuraavaksi kokeillaan onko rooli toimipistevastaava
             System.out.println("Kokeillaan rooli toimipistevastaava");
-            System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
             Thread t2 = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -79,11 +77,9 @@ public class LoginFragment extends Fragment {
             });
             t2.start();
 
-            System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
             //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija
             System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
-            System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
             Thread t3 = new Thread(new Runnable(){
                 @Override
                 public void run() {
@@ -98,7 +94,6 @@ public class LoginFragment extends Fragment {
             });
             t3.start();
 
-            System.out.println("Roolin tila: " + KirjautumisKyselyt.getRooli());
 
             try {
                 t1.join();

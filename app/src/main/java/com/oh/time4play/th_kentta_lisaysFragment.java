@@ -16,9 +16,7 @@ import com.oh.time4play.th_kentta_lisaysFragmentDirections;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-
 public class th_kentta_lisaysFragment extends Fragment {
-
 
     public th_kentta_lisaysFragment() {
         // Required empty public constructor
@@ -27,8 +25,8 @@ public class th_kentta_lisaysFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        String kayttajatunnus = toimip_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
-        String salasana = toimip_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+        String kayttajatunnus = th_kentta_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
+        String salasana = th_kentta_lisaysFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_th_kentta_lisays, container, false);
@@ -65,7 +63,6 @@ public class th_kentta_lisaysFragment extends Fragment {
             com.oh.time4play.th_kentta_lisaysFragmentDirections.ActionThKenttaLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_lisaysFragmentDirections.actionThKenttaLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
-
 
         return view;
     }

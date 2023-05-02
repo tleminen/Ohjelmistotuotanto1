@@ -30,7 +30,7 @@ public class th_kyselyt {
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
                 SELECT LajiTunnus, KenttaID, KenttaHinta, Kenttanimi, Toimipistevastaava
                 FROM kentat
-                WHERE  `toimipistevastaava`= ?;
+                WHERE  `toimipistevastaava` LIKE ?
                 ORDER BY LajiTunnus
                 """)) {
             statement.setString(1, vastaava);

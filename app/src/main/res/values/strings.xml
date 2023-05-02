@@ -77,6 +77,7 @@
     <string name="et_text_syotasapo_Register">Anna sähköpostiosoite</string>
     <string name="bt_text_Register_Register">Rekisteröidy</string>
     <string name="et_text_Anna_Osoite">Anna osoitteesi</string>
+    <string name="et_text_Nimi_Register">Anna nimesi</string>
 
     <!-- Päivämäärä -->
     <string name="tw_PVM_Teksti">Valitse päivä</string>

@@ -23,8 +23,8 @@ public class toimipisteen_hallintaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_toimipisteen_hallinta, container, false);
 
-        String kayttajatunnus = toimip_poistoFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
-        String salasana = toimip_poistoFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
+        String kayttajatunnus = toimipisteen_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
+        String salasana = toimipisteen_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
 
         Button thLisaaKentta = view.findViewById(R.id.bt_LisaaKentta_toimipisteen_hallinta);
         Button thMuokkaaKentta = view.findViewById(R.id.bt_muokkaaKenttaa_toimipisteen_hallinta);
