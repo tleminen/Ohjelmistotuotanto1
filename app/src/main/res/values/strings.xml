@@ -66,6 +66,13 @@
     <string name="bt_poistaPeliv_th_pelivaline_muokkaus">Poista peliväline</string>
     <string name="bt_vahvista_th_pelivaline_muokkaus">Vahvista</string>
 
+    <!-- th_pelivaline_lisays -->
+    <string name="tv_otsikko_th_pelivaline_lisays">Lisää uusi peliväline</string>
+    <string name="et_valineNimi_th_pelivaline_lisays">Nimi</string>
+    <string name="et_valineHinta_th_pelivaline_lisays">Hinta</string>
+    <string name="bt_lisaaPelivalinePainike_th_pelivaline_lisays">Lisää peliväline</string>
+    <string name="bt_poistuPainike_th_pelivaline_lisays">Poistu</string>
+
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
     <string name="et_text_syotasapo_Login">Syötä Sähköpostiosoite</string>
