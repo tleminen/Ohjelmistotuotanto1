@@ -20,6 +20,9 @@
             android:minHeight="48dp"
             android:text="@string/tw_tpTiedotTeksti"
             android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +37,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/et_tpLisays_Sal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -48,6 +52,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/et_tpLisaysKaupunki"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -61,6 +66,7 @@
             android:hint="@string/et_tpKaupunki"
             android:inputType="text"
             android:minHeight="48dp"
+            android:textColorHint="@color/black"
             android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/et_tpLisaysVastaava"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +81,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
