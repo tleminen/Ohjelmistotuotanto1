@@ -52,7 +52,6 @@ public class toimip_hallintaFragment extends Fragment {
 
         Button btPoistuTp = view.findViewById(R.id.btPoistuToimip_hallinta);
 
-
         Button btPoistaAsiakas = view.findViewById(R.id.bt_tpHal_poistaAsiakas);
         EditText etPoistettavaAsiakas = view.findViewById(R.id.et_tpHal_poistettavaAsiakas);
 

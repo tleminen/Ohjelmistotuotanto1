@@ -26,6 +26,7 @@ public class toimipisteen_hallintaFragment extends Fragment {
         String kayttajatunnus = toimipisteen_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutKayttaja();
         String salasana = toimipisteen_hallintaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
 
+        Button btRaportti = view.findViewById(R.id.bt_raportti_toimipisteen_hallinta);
         Button thLisaaKentta = view.findViewById(R.id.bt_LisaaKentta_toimipisteen_hallinta);
         Button thMuokkaaKentta = view.findViewById(R.id.bt_muokkaaKenttaa_toimipisteen_hallinta);
         Button thUusiPelivaline = view.findViewById(R.id.bt_uusiPelivaline_toimipisteen_hallinta);
@@ -58,6 +59,10 @@ public class toimipisteen_hallintaFragment extends Fragment {
             Navigation.findNavController(view).navigate(action);
         });
 
+        btRaportti.setOnClickListener(e -> {
+            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToRaportti action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToRaportti(kayttajatunnus,salasana);
+            Navigation.findNavController(view).navigate(action);
+        });
 
         // Inflate the layout for this fragment
         return view;

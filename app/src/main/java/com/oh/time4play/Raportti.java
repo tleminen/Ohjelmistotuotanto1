@@ -66,6 +66,7 @@ public class Raportti extends Fragment {
                 throw new RuntimeException(ex);
             }
 
+            //TODO TÄÄ EI PELAA TÄÄ CHARSEQUENCE! TEE SIIHEN JOKU STRINGBUILDINGHOMMA
             tvRaporttiTeksti.setText((CharSequence) itemArrayList);
 
         });
