@@ -24,7 +24,7 @@ public class th_kyselyt {
         }
     }
 
-    public static ArrayList<Kentta_Muuttujat> getAllKentat(Connection yhdistaTietokantaan, String vastaava) throws SQLException {
+    static ArrayList<Kentta_Muuttujat> getAllKentat(Connection yhdistaTietokantaan, String vastaava) throws SQLException {
         ArrayList<Kentta_Muuttujat> itemArrayList = new ArrayList<>();
         System.out.println("Lukee dataa... getAllKentat");
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
