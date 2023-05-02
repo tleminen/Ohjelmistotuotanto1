@@ -27,7 +27,7 @@
             android:id="@+id/et_raporttiAsetaPVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="@string/et_raportti_PVMAlku"
             android:inputType="text"
@@ -41,7 +41,7 @@
             android:id="@+id/et_raporttiLoppuPVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/et_raportti_PVMAlku"
             android:inputType="text"
@@ -57,7 +57,7 @@
             android:id="@+id/bt_raportti_Vahvista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:minHeight="48dp"
             android:text="@string/bt_raportti_Vahvista"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,10 +68,19 @@
             android:id="@+id/bt_raportti_Loppu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginBottom="16dp"
             android:minHeight="48dp"
             android:text="@string/bt_raportti_Paluu"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_raporttiTulostus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="-"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_raportti_Vahvista" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -223,6 +223,9 @@
             app:argType="string" />
         <argument android:name="KirjautunutSalasana"
             app:argType="string" />
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_raportti"
+            app:destination="@id/raportti" />
     </fragment>
     <fragment
         android:id="@+id/th_kentta_lisaysFragment"
@@ -344,5 +347,20 @@
         <action
             android:id="@+id/action_kellonaikaValintaFragment_to_pelivalineetFragment"
             app:destination="@id/pelivalineetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/raportti"
+        android:name="com.oh.time4play.Raportti"
+        android:label="fragment_raportti"
+        tools:layout="@layout/fragment_raportti" >
+        <action
+            android:id="@+id/action_raportti_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
     </fragment>
 </navigation>
