@@ -59,7 +59,7 @@
             android:id="@+id/btTeeRekisterointi"
             android:layout_width="125dp"
             android:layout_height="48dp"
-            android:background="@drawable/btn_teema"
+            android:background="@drawable/btn_teema5"
             android:text="@string/bt_text_Register_Register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
