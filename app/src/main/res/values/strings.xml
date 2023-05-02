@@ -134,7 +134,7 @@
     <string name="et_thMuokattavaKenttaTuntihinta">Tuntihinta</string>
     <string name="et_thMuokattavaKenttaNimi">Kentän nimi</string>
     <string name="bt_thMuokkausKenttaPoista">Poista kenttä</string>
-    <string name="bt_thMuokkausKenttaVahvista">Vahvista</string>
+    <string name="bt_thMuokkausKenttaVahvista">Vahvista muutokset</string>
 
     <!-- kentta -->
     <string name="tv_kenttaValitse">Valitse kenttä</string>

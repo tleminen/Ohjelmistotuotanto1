@@ -41,4 +41,45 @@ public class th_kyselyt {
             return itemArrayList;
         }
     }
+
+    /**
+     * Poistaa kentän
+     * @param connection Tietokantayhteysolio jolla oikeus DELETE taululle "kentat"
+     * @param poistettavaKenttaID Poistettavan kentan KenttaID
+     */
+    public static void poistaKentta(Connection connection, int poistettavaKenttaID) {
+        System.out.println("Poistetaan toimipiste jonka kenttaID: " + poistettavaKenttaID + "...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`kentat` WHERE KenttaID =?;
+                """)) {
+            statement.setInt(1,poistettavaKenttaID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Päivittää kentän tiedot
+     * @param connection Tietokantayhteysolio jolla oikeus UPDATE tauluun "kentat"
+     * @param muokattavanTiedot Muokattavan kentän uudet tiedot. KenttaID:tä ei voi vaihtaa
+     * @throws SQLException Sql kysely
+     */
+    public static void updateKentta(Connection connection, Kentta_Muuttujat muokattavanTiedot) throws SQLException {
+        System.out.println("Päivitetään toimipistettä, kenttaID: " + muokattavanTiedot.kenttaID + "...");
+        System.out.println("Lajitunnus: " + muokattavanTiedot.lajitunnus);
+        System.out.println("Uusi hinta: " + muokattavanTiedot.kentanHinta);
+        try (PreparedStatement statement = connection.prepareStatement("""
+                UPDATE `varausjarjestelma`.`kentat` 
+                SET `LajiTunnus`= ?, `KenttaHinta`= ?, `Kenttanimi`= ? 
+                WHERE  `KenttaID`= ?;
+                """)){
+            statement.setString(1,muokattavanTiedot.lajitunnus);
+            statement.setString(2,muokattavanTiedot.kentanHinta);
+            statement.setString(3,muokattavanTiedot.nimi);
+            statement.setInt(4,muokattavanTiedot.kenttaID);
+            statement.executeUpdate();
+        }
+    }
+
 }

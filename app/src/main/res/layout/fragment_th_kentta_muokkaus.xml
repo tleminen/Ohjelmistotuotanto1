@@ -15,39 +15,38 @@
             android:id="@+id/bt_thKenttaMuokkausPoista"
             android:layout_width="120dp"
             android:layout_height="48dp"
-            android:layout_marginTop="80dp"
             android:background="@drawable/btn_teema4"
             android:minHeight="48dp"
             android:text="@string/bt_thMuokkausKenttaPoista"
+            app:layout_constraintBottom_toTopOf="@+id/bt_thKenttaMuokkausVahvista"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_thKenttaMuokkausNimi" />
+            app:layout_constraintTop_toBottomOf="@+id/et_thKenttaMuokkausNimi"
+            app:layout_constraintVertical_bias="0.36" />
 
         <Button
             android:id="@+id/bt_thKenttaMuokkausVahvista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/btn_teema2"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:minHeight="48dp"
             android:text="@string/bt_thMuokkausKenttaVahvista"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_thKenttaMuokkausPoista" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/et_thKenttaMuokkausNimi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="@string/et_thMuokattavaKenttaNimi"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="@color/black"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_thKenttaMuokkausTuntihinta" />
@@ -56,13 +55,13 @@
             android:id="@+id/et_thKenttaMuokkausTuntihinta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="@string/et_thMuokattavaKenttaTuntihinta"
             android:inputType="text"
-            android:textColorHint="@color/black"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_thKenttaMuokkausLaji" />
@@ -71,16 +70,17 @@
             android:id="@+id/et_thKenttaMuokkausLaji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
             android:ems="10"
             android:hint="@string/et_thMuokattavaKenttaLajitunnus"
             android:inputType="text"
-            android:textColorHint="@color/black"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_thKenttaMuokkausTeksti" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
 
         <TextView
             android:id="@+id/tv_thKenttaMuokkausTeksti"
