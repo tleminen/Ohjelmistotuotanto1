@@ -34,9 +34,9 @@
             android:ems="10"
             android:hint="@string/et_raportti_PVMAlku"
             android:inputType="text"
-            android:textColorHint="@color/black"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_raportti_otsikko" />
@@ -91,5 +91,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_raportti_Vahvista" />
+
+        <TextView
+            android:id="@+id/tv_raportti_AlkutekstiPVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="11dp"
+            android:text="@string/tv_raportti_Alku"
+            app:layout_constraintEnd_toStartOf="@+id/et_raporttiAsetaPVM"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="87dp" />
+
+        <TextView
+            android:id="@+id/tv_raportti_LopputekstiPVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:text="@string/tv_raportti_Loppu"
+            app:layout_constraintEnd_toStartOf="@+id/et_raporttiLoppuPVM"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_raportti_AlkutekstiPVM" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
