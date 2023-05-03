@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class Raportti extends Fragment {
 
-    public ArrayList<Varaus_Raportti_Muuttujat> itemArrayList;
+    public String raportti;
 
     public Raportti() {
         // Required empty public constructor
@@ -48,11 +48,11 @@ public class Raportti extends Fragment {
             String loppupvm = etloppupvm.getText().toString();
 
             Thread t1 = new Thread(() -> {
-                Connection connection = null;
+                Connection connection;
                 try {
                     connection = Tietokantayhteys.yhdistaSystemTietokantaan();
-                    itemArrayList = Raportti_kyselyt.getLocalVarausraportti(connection, kayttajatunnus, alkupvm, loppupvm);
-                    connection.close();
+                    raportti = Raportti_kyselyt.getLocalVarausraportti(connection, kayttajatunnus, alkupvm, loppupvm);
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -64,14 +64,8 @@ public class Raportti extends Fragment {
                 throw new RuntimeException(ex);
             }
 
-            //TODO TÄÄ EI PELAA TÄÄ CHARSEQUENCE! TEE SIIHEN JOKU STRINGBUILDINGHOMMA
-            StringBuilder builder = new StringBuilder();
-            String str;
-            for (Varaus_Raportti_Muuttujat character: itemArrayList){
-                builder.append(character);
-            }
-            str = builder.toString();
-            tvRaporttiTeksti.setText(str);
+            //lisää tähän
+            tvRaporttiTeksti.setText(raportti);
 
         });
 

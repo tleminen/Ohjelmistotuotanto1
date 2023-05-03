@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class Raportti_kyselyt {
 
-    public static ArrayList<Varaus_Raportti_Muuttujat> getLocalVarausraportti(Connection connection, String kayttajatunnus, String alkupvm, String loppupvm) throws SQLException {
-        ArrayList<Varaus_Raportti_Muuttujat> itemArrayList = new ArrayList<>();
+    public static String getLocalVarausraportti(Connection connection, String kayttajatunnus, String alkupvm, String loppupvm) throws SQLException {
+        String raportti = "";
         System.out.println("Luodaan varausraportti...");
         try (PreparedStatement statement = connection.prepareStatement("""
                 SELECT VarausID, VarauksenPVM, VarauksenAika, varaus.KenttaID, email
@@ -22,10 +22,12 @@ public class Raportti_kyselyt {
             statement.setString(2,alkupvm);
             statement.setString(3,loppupvm);
             ResultSet resultSet = statement.executeQuery();
+            System.out.println("Varausrapostti luotu");
             while (resultSet.next()) {
-                itemArrayList.add(new Varaus_Raportti_Muuttujat(resultSet.getInt("VarausID"), resultSet.getString("VarauksenPVM"), resultSet.getString("VarauksenAika"), resultSet.getString("varaus.KenttaID"), resultSet.getString("email")));
+                System.out.println("Oli resultsetissä raporttia");
+                raportti += resultSet.getInt("VarausID") + "\t" + resultSet.getString("VarauksenPVM") + "\t" + resultSet.getString("VarauksenAika") + "\t" + resultSet.getString("varaus.KenttaID") + "\t" + resultSet.getString("email") + "\n";
             }
-            return itemArrayList;
+            return raportti;
 
         }
     }
