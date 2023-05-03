@@ -3,21 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".kentta_items">
+    tools:context=".kentta_item">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/kellonaika_valintaTekstiKellonaika"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="Valitse kenttä"
-            android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -34,7 +26,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="48dp"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
                     android:text="00:00"
                     android:textAlignment="center" />
 
@@ -43,7 +36,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="48dp"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
                     android:text="01:00"
                     android:textAlignment="center" />
 
@@ -52,8 +46,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="48dp"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
                     android:text="02:00"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/kellonaikaKLO3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
+                    android:text="03:00"
                     android:textAlignment="center" />
             </LinearLayout>
 
@@ -61,15 +66,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/kellonaikaKLO3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="48dp"
-                    android:text="03:00"
-                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/kellonaikaKLO4"
@@ -88,12 +84,6 @@
                     android:minHeight="48dp"
                     android:text="05:00"
                     android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO6"
@@ -112,6 +102,12 @@
                     android:minHeight="48dp"
                     android:text="07:00"
                     android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO8"
@@ -121,12 +117,6 @@
                     android:minHeight="48dp"
                     android:text="08:00"
                     android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO9"
@@ -162,7 +152,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO13"
+                    android:id="@+id/kellonaikaKLO12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -187,12 +177,6 @@
                     android:minHeight="48dp"
                     android:text="14:00"
                     android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO15"
@@ -202,6 +186,12 @@
                     android:minHeight="48dp"
                     android:text="15:00"
                     android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO16"
@@ -220,12 +210,6 @@
                     android:minHeight="48dp"
                     android:text="17:00"
                     android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO18"
@@ -244,6 +228,12 @@
                     android:minHeight="48dp"
                     android:text="19:00"
                     android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO20"
@@ -253,12 +243,6 @@
                     android:minHeight="48dp"
                     android:text="20:00"
                     android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/kellonaikaKLO21"
@@ -287,6 +271,7 @@
                     android:text="23:00"
                     android:textAlignment="center" />
             </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 
