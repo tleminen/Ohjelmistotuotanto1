@@ -90,7 +90,16 @@
             android:id="@+id/action_kenttaFragment_to_kellonaikaValintaFragment"
             app:destination="@id/kellonaikaValintaFragment" />
         <argument
-            android:name="ValittuPvm"
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="ValittuToimipiste"
+            app:argType="string" />
+        <argument
+            android:name="ValittuPVM"
             app:argType="string" />
     </fragment>
     <fragment
@@ -101,6 +110,24 @@
         <action
             android:id="@+id/action_pelivalineetFragment_to_maksuikkunaFragment"
             app:destination="@id/maksuikkunaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="ValittuToimipiste"
+            app:argType="string" />
+        <argument
+            android:name="ValittuPVM"
+            app:argType="string" />
+        <argument
+            android:name="ValittuKentta"
+            app:argType="integer" />
+        <argument
+            android:name="ValittuKellonaika"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/maksuikkunaFragment"
@@ -110,6 +137,27 @@
         <action
             android:id="@+id/action_maksuikkunaFragment_to_loppuikkunaFragment"
             app:destination="@id/loppuikkunaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="ValittuToimipiste"
+            app:argType="string" />
+        <argument
+            android:name="ValittuPVM"
+            app:argType="string" />
+        <argument
+            android:name="ValittuKentta"
+            app:argType="integer" />
+        <argument
+            android:name="ValittuKellonaika"
+            app:argType="integer" />
+        <argument
+            android:name="ValitutLisapalvelutIntArray"
+            app:argType="integer[]" />
     </fragment>
     <fragment
         android:id="@+id/loppuikkunaFragment"
@@ -347,6 +395,21 @@
         <action
             android:id="@+id/action_kellonaikaValintaFragment_to_pelivalineetFragment"
             app:destination="@id/pelivalineetFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+        <argument
+            android:name="ValittuToimipiste"
+            app:argType="string" />
+        <argument
+            android:name="ValittuPVM"
+            app:argType="string" />
+        <argument
+            android:name="ValittuKentta"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/raportti"
