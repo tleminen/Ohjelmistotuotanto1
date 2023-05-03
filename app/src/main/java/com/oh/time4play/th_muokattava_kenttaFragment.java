@@ -20,7 +20,7 @@ public class th_muokattava_kenttaFragment extends Fragment {
 
     public ArrayList<Kentta_Muuttujat> itemArrayList; //
 
-    public static int valittuKentta;
+    private static int valittuKentta;
 
     public static int getValittuKentta() {
         return valittuKentta;
@@ -41,10 +41,9 @@ public class th_muokattava_kenttaFragment extends Fragment {
 
         Button seuraava = view.findViewById(R.id.bt_seuraava_thKenttaMuok);
 
-        //RecycleView Toimipisteiden listaamiseen
+        //RecycleView kenttien listaamiseen
         RecyclerView myRecycleView = view.findViewById(R.id.rv_thMuokattavaKentta);
 
-        //tasta
         Thread t1 = new Thread(() -> {
             try {
                 try {
@@ -70,12 +69,11 @@ public class th_muokattava_kenttaFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
-
         myRecycleView.setAdapter(new th_muokattava_kentta_ListAdapter(itemArrayList));
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         seuraava.setOnClickListener(e -> {
-            com.oh.time4play.th_muokattava_kenttaFragmentDirections.ActionThMuokattavaKenttaFragmentToThKenttaMuokkausFragment2 action = com.oh.time4play.th_muokattava_kenttaFragmentDirections.actionThMuokattavaKenttaFragmentToThKenttaMuokkausFragment2(kayttajatunnus,salasana,valittuKentta);
+            com.oh.time4play.th_muokattava_kenttaFragmentDirections.ActionThMuokattavaKenttaFragmentToThKenttaMuokkausFragment2 action = com.oh.time4play.th_muokattava_kenttaFragmentDirections.actionThMuokattavaKenttaFragmentToThKenttaMuokkausFragment2(kayttajatunnus,salasana,getValittuKentta());
             System.out.println("seuraavaan fragmenttiin menee: " + getValittuKentta());
             Navigation.findNavController(view).navigate(action);
         });

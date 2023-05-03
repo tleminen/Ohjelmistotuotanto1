@@ -82,4 +82,22 @@ public class th_kyselyt {
         }
     }
 
+    public static ArrayList<Pelivaline_muuttujat> getLajinPelivalineet(Connection yhdistaTietokantaan, String valittuLaji) throws SQLException {
+        ArrayList<Pelivaline_muuttujat> itemArrayList = new ArrayList<>();
+        System.out.println("Lukee dataa... getAllKentat");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT pelivalineet.PelivalineID, ValineNimi, ValineHinta
+                    FROM pelivalineet, saatavilla, kentat
+                    WHERE LajiTunnus LIKE ?
+                    AND kentat.KenttaID = saatavilla.KenttaID
+                    AND saatavilla.PelivalineID = pelivalineet.PelivalineID
+                """)) {
+            statement.setString(1, valittuLaji);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                itemArrayList.add(new Pelivaline_muuttujat(resultSet.getInt("pelivalineet.PelivalineID"), resultSet.getString("ValineNimi"), resultSet.getString("ValineHinta")));
+            }
+            return itemArrayList;
+        }
+    }
 }

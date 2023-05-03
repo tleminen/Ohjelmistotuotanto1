@@ -57,6 +57,7 @@
 
     <!-- th_peliv_muokkaukset -->
     <string name="tv_otsikko_th_peliv_muutokset">Valitse peliväline, johon haluat tehdä muutoksia</string>
+    <string name="bt_text_Seuraava_th_peliv_muutokset">Seuraava</string>
 
     <!-- th_pelivaline_muokkaus -->
     <string name="tv_otsikko_th_pelivaline_muokkaus">Pelivälineen muokkaus</string>
