@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -67,7 +65,13 @@ public class Raportti extends Fragment {
             }
 
             //TODO TÄÄ EI PELAA TÄÄ CHARSEQUENCE! TEE SIIHEN JOKU STRINGBUILDINGHOMMA
-            tvRaporttiTeksti.setText((CharSequence) itemArrayList);
+            StringBuilder builder = new StringBuilder();
+            String str;
+            for (Varaus_Raportti_Muuttujat character: itemArrayList){
+                builder.append(character);
+            }
+            str = builder.toString();
+            tvRaporttiTeksti.setText(str);
 
         });
 
