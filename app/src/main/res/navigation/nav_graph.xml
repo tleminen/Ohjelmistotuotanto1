@@ -101,6 +101,9 @@
         <argument
             android:name="ValittuPVM"
             app:argType="string" />
+        <argument
+            android:name="ValittuLaji"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/pelivalineetFragment"
@@ -128,6 +131,9 @@
         <argument
             android:name="ValittuKellonaika"
             app:argType="integer" />
+        <argument
+            android:name="ValittuLaji"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/maksuikkunaFragment"
@@ -157,7 +163,7 @@
             app:argType="integer" />
         <argument
             android:name="ValitutLisapalvelutIntArray"
-            app:argType="integer[]" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/loppuikkunaFragment"
@@ -410,6 +416,9 @@
         <argument
             android:name="ValittuKentta"
             app:argType="integer" />
+        <argument
+            android:name="ValittuLaji"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/raportti"

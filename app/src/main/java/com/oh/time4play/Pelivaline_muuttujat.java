@@ -4,6 +4,7 @@ public class Pelivaline_muuttujat {
     protected int pelivalineID;
     protected String pelivalineNimi;
     protected String valineHinta;
+    protected boolean valittu = false;
 
     public Pelivaline_muuttujat(){}
 

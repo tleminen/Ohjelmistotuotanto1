@@ -46,6 +46,7 @@ public class kenttaFragment extends Fragment {
         String salasana = kenttaFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
         String valittuToimipiste = kenttaFragmentArgs.fromBundle(getArguments()).getValittuToimipiste();
         String valittuPVM = kenttaFragmentArgs.fromBundle(getArguments()).getValittuPVM();
+        String valittuLaji = kenttaFragmentArgs.fromBundle(getArguments()).getValittuLaji();
 
         Button btSeuraava = view.findViewById(R.id.bt_kenttaVahvistanappi);
 
@@ -85,7 +86,7 @@ public class kenttaFragment extends Fragment {
 
         btSeuraava.setOnClickListener(e -> {
             if (valittuKentta != -1) {
-                com.oh.time4play.kenttaFragmentDirections.ActionKenttaFragmentToKellonaikaValintaFragment action = com.oh.time4play.kenttaFragmentDirections.actionKenttaFragmentToKellonaikaValintaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta);
+                com.oh.time4play.kenttaFragmentDirections.ActionKenttaFragmentToKellonaikaValintaFragment action = com.oh.time4play.kenttaFragmentDirections.actionKenttaFragmentToKellonaikaValintaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuLaji);
                 Navigation.findNavController(view).navigate(action);
             }
         });
