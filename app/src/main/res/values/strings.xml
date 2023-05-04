@@ -110,7 +110,7 @@
     <string name="tv_sahkopostiAsiakkaan_maksuikkuna"></string>
     <string name="pt_nimiAsiakkaan_maksuikkuna">Nimi</string>
     <string name="pt_osoiteAsiakkaan_maksuikkuna">Osoite</string>
-    <string name="tv_vahvistuksenTeksti_maksuikkuna">Painamalla "vahvista" vakuutat tietojen olevan oikein.</string>
+    <string name="tv_vahvistuksenTeksti_maksuikkuna">Painamalla \"vahvista\" vakuutat tietojen olevan oikein.</string>
     <string name="bt_vahvistaPainike_maksuikkuna">Vahvista</string>
     <string name="bt_vahvistaNappulaUudetTiedot_maksuikkuna">Vahvista ja päivitä tiedot</string>
 

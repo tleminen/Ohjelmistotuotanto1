@@ -29,13 +29,14 @@ public class kellonaikaValintaFragment extends Fragment {
     private String valittuPVM;
     private int valittuKentta;
     private String valittuLaji;
+    private String kentanHinta;
 
     public kellonaikaValintaFragment() {
         // Required empty public constructor
     }
 
     private void navigoi(View v) {
-        com.oh.time4play.kellonaikaValintaFragmentDirections.ActionKellonaikaValintaFragmentToPelivalineetFragment action = com.oh.time4play.kellonaikaValintaFragmentDirections.actionKellonaikaValintaFragmentToPelivalineetFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuAika,valittuLaji);
+        com.oh.time4play.kellonaikaValintaFragmentDirections.ActionKellonaikaValintaFragmentToPelivalineetFragment action = com.oh.time4play.kellonaikaValintaFragmentDirections.actionKellonaikaValintaFragmentToPelivalineetFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuAika,valittuLaji,kentanHinta);
         Navigation.findNavController(v).navigate(action);
     }
 
@@ -51,6 +52,7 @@ public class kellonaikaValintaFragment extends Fragment {
         valittuPVM = kellonaikaValintaFragmentArgs.fromBundle(getArguments()).getValittuPVM();
         valittuKentta = kellonaikaValintaFragmentArgs.fromBundle(getArguments()).getValittuKentta();
         valittuLaji = kellonaikaValintaFragmentArgs.fromBundle(getArguments()).getValittuLaji();
+        kentanHinta = kellonaikaValintaFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
 
         TextView t0 = view.findViewById(R.id.tv_KellonAikaValKLO0);
         TextView t1 = view.findViewById(R.id.tv_KellonAikaValKLO1);
@@ -240,5 +242,4 @@ public class kellonaikaValintaFragment extends Fragment {
 
         return view;
     }
-
 }

@@ -86,7 +86,7 @@ public class kenttaFragment extends Fragment {
 
         btSeuraava.setOnClickListener(e -> {
             if (valittuKentta != -1) {
-                com.oh.time4play.kenttaFragmentDirections.ActionKenttaFragmentToKellonaikaValintaFragment action = com.oh.time4play.kenttaFragmentDirections.actionKenttaFragmentToKellonaikaValintaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuLaji);
+                com.oh.time4play.kenttaFragmentDirections.ActionKenttaFragmentToKellonaikaValintaFragment action = com.oh.time4play.kenttaFragmentDirections.actionKenttaFragmentToKellonaikaValintaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuLaji,itemArrayList.get(valittuKentta).kentanHinta);
                 Navigation.findNavController(view).navigate(action);
             }
         });

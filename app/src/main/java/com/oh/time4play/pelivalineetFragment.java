@@ -37,6 +37,7 @@ public class pelivalineetFragment extends Fragment {
         String valittuPvm = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuPVM();
         int valittuKentta = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuKentta();
         int valittuAika = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuKellonaika();
+        String kentanHinta = pelivalineetFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
 
 
         Button btSeuraava = view.findViewById(R.id.bt_Pelivaline_Seuraava);
@@ -75,13 +76,13 @@ public class pelivalineetFragment extends Fragment {
         btSeuraava.setOnClickListener(e -> {
             for (Pelivaline_muuttujat valine: PelivalineetListAdapter.localDataset) {
                 if (valine.valittu) {
-                    valitutPelivalineet += valine.pelivalineID + "+";
+                    valitutPelivalineet += "*" + valine.pelivalineNimi + "^"+ valine.valineHinta + "€";
                 }
             }
             if (valitutPelivalineet.length() == 0) {
                 valitutPelivalineet = "-";
             }
-            com.oh.time4play.pelivalineetFragmentDirections.ActionPelivalineetFragmentToMaksuikkunaFragment action = com.oh.time4play.pelivalineetFragmentDirections.actionPelivalineetFragmentToMaksuikkunaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPvm,valittuKentta,valittuAika,valitutPelivalineet);
+            com.oh.time4play.pelivalineetFragmentDirections.ActionPelivalineetFragmentToMaksuikkunaFragment action = com.oh.time4play.pelivalineetFragmentDirections.actionPelivalineetFragmentToMaksuikkunaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPvm,valittuKentta,valittuAika,valitutPelivalineet,kentanHinta);
             Navigation.findNavController(view).navigate(action);
         });
 
