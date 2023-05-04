@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,18 +10,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/kellonaika_valintaTekstiKellonaika"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
+            android:paddingBottom="40dp"
             android:text="Valitse kellonaika"
-            android:textSize="22sp"
-            android:textStyle="bold"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textAlignment="center" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +39,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO0"
+                    android:id="@+id/tv_KellonAikaValKLO0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -42,7 +48,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO1"
+                    android:id="@+id/tv_KellonAikaValKLO1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -51,7 +57,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO2"
+                    android:id="@+id/tv_KellonAikaValKLO2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -66,7 +72,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO3"
+                    android:id="@+id/tv_KellonAikaValKLO3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -75,7 +81,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO4"
+                    android:id="@+id/tv_KellonAikaValKLO4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -84,7 +90,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO5"
+                    android:id="@+id/tv_KellonAikaValKLO5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -99,7 +105,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO6"
+                    android:id="@+id/tv_KellonAikaValKLO6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -108,7 +114,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO7"
+                    android:id="@+id/tv_KellonAikaValKLO7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -117,7 +123,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO8"
+                    android:id="@+id/tv_KellonAikaValKLO8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -132,7 +138,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO9"
+                    android:id="@+id/tv_KellonAikaValKLO9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -141,7 +147,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO10"
+                    android:id="@+id/tv_KellonAikaValKLO10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -150,7 +156,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO11"
+                    android:id="@+id/tv_KellonAikaValKLO11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -165,7 +171,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO12"
+                    android:id="@+id/tv_KellonAikaValKLO12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -174,7 +180,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kentta_itemsKLO13"
+                    android:id="@+id/tv_KellonAikaValKLO13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -183,7 +189,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO14"
+                    android:id="@+id/tv_KellonAikaValKLO14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -198,7 +204,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO15"
+                    android:id="@+id/tv_KellonAikaValKLO15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -207,7 +213,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO16"
+                    android:id="@+id/tv_KellonAikaValKLO16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -216,7 +222,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO17"
+                    android:id="@+id/tv_KellonAikaValKLO17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -231,7 +237,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO18"
+                    android:id="@+id/tv_KellonAikaValKLO18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -240,7 +246,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO19"
+                    android:id="@+id/tv_KellonAikaValKLO19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -249,7 +255,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO20"
+                    android:id="@+id/tv_KellonAikaValKLO20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -264,7 +270,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO21"
+                    android:id="@+id/tv_KellonAikaValKLO21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -273,7 +279,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO22"
+                    android:id="@+id/tv_KellonAikaValKLO22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -282,7 +288,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO23"
+                    android:id="@+id/tv_KellonAikaValKLO23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -293,4 +299,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,10 @@ public class VarausAjat {
         this.varausAika = varattuAika;
     }
 
+    public VarausAjat(int varauksenAika) {
+        this.varausAika = varauksenAika;
+    }
+
     public int getKenttaID() {
         return kenttaID;
     }

@@ -121,4 +121,24 @@ public class th_kyselyt {
             return itemArrayList;
         }
     }
+
+    public static ArrayList<VarausAjat> getKenttaVarausAjat(Connection yhdistaTietokantaan, String valittuToimipiste, String valittuPVM) throws SQLException {
+        ArrayList<VarausAjat> itemArrayList = new ArrayList<>();
+        System.out.println("getKenttaVarausAjat Lukee dataa... ");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT VarauksenAika
+                	FROM varaus, toimipiste, kentat
+                	WHERE VarauksenPVM LIKE ?
+                	AND kentat.KenttaID LIKE ?
+                	AND varaus.KenttaID = kentat.KenttaID
+                """)) {
+            statement.setString(1, valittuPVM);
+            statement.setString(2, valittuToimipiste);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                itemArrayList.add(new VarausAjat(resultSet.getInt("VarauksenAika")));
+            }
+            return itemArrayList;
+        }
+    }
 }
