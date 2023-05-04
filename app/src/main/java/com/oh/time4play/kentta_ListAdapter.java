@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.compose.ui.graphics.Color;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,6 +15,14 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
 
     public static ArrayList<Kentta_Muuttujat> localDataset;
     public kentta_ListAdapter(ArrayList<Kentta_Muuttujat> dataset) {localDataset = dataset;}
+
+    private int variValinta(int aika) {
+        if (aika == 0) {
+            return 0xFF00FF00;
+        } else {
+            return 0xFF883200;
+        }
+    }
 
     View.OnClickListener Kentta_Listener = new View.OnClickListener() {
         @Override
@@ -39,9 +48,30 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Kentta_Listener);
 
-        //TÄNNE JOTENKI PITÄIS SAADA SE KELLONAIKOJEN VÄRITYS ja se onnistunee ton localDatasetin kautta kun annetaan sinne kaikille kellon arvot onko varausta
-        holder.t0.setBackgroundColor(Integer.parseInt(localDataset.get(position).lajitunnus));
-        holder.t1.setText(localDataset.get(position).nimi);
+        holder.t0.setBackgroundColor(variValinta(localDataset.get(position).getKlo00()));
+        holder.t1.setBackgroundColor(variValinta(localDataset.get(position).getKlo01()));
+        holder.t2.setBackgroundColor(variValinta(localDataset.get(position).getKlo02()));
+        holder.t3.setBackgroundColor(variValinta(localDataset.get(position).getKlo03()));
+        holder.t4.setBackgroundColor(variValinta(localDataset.get(position).getKlo04()));
+        holder.t5.setBackgroundColor(variValinta(localDataset.get(position).getKlo05()));
+        holder.t6.setBackgroundColor(variValinta(localDataset.get(position).getKlo06()));
+        holder.t7.setBackgroundColor(variValinta(localDataset.get(position).getKlo07()));
+        holder.t8.setBackgroundColor(variValinta(localDataset.get(position).getKlo08()));
+        holder.t9.setBackgroundColor(variValinta(localDataset.get(position).getKlo09()));
+        holder.t10.setBackgroundColor(variValinta(localDataset.get(position).getKlo10()));
+        holder.t11.setBackgroundColor(variValinta(localDataset.get(position).getKlo11()));
+        holder.t12.setBackgroundColor(variValinta(localDataset.get(position).getKlo12()));
+        holder.t13.setBackgroundColor(variValinta(localDataset.get(position).getKlo13()));
+        holder.t14.setBackgroundColor(variValinta(localDataset.get(position).getKlo14()));
+        holder.t15.setBackgroundColor(variValinta(localDataset.get(position).getKlo15()));
+        holder.t16.setBackgroundColor(variValinta(localDataset.get(position).getKlo16()));
+        holder.t17.setBackgroundColor(variValinta(localDataset.get(position).getKlo17()));
+        holder.t18.setBackgroundColor(variValinta(localDataset.get(position).getKlo18()));
+        holder.t19.setBackgroundColor(variValinta(localDataset.get(position).getKlo19()));
+        holder.t20.setBackgroundColor(variValinta(localDataset.get(position).getKlo20()));
+        holder.t21.setBackgroundColor(variValinta(localDataset.get(position).getKlo21()));
+        holder.t22.setBackgroundColor(variValinta(localDataset.get(position).getKlo22()));
+        holder.t23.setBackgroundColor(variValinta(localDataset.get(position).getKlo23()));
     }
 
     @Override

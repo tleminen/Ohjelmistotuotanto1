@@ -42,6 +42,7 @@ public class th_kyselyt {
         }
     }
 
+
     /**
      * Poistaa kentän
      * @param connection Tietokantayhteysolio jolla oikeus DELETE taululle "kentat"
@@ -96,6 +97,26 @@ public class th_kyselyt {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 itemArrayList.add(new Pelivaline_muuttujat(resultSet.getInt("pelivalineet.PelivalineID"), resultSet.getString("ValineNimi"), resultSet.getString("ValineHinta")));
+            }
+            return itemArrayList;
+        }
+    }
+
+    public static ArrayList<VarausAjat> getAllVarausAjat(Connection yhdistaTietokantaan, String valittuToimipiste, String valittuPVM) throws SQLException {
+        ArrayList<VarausAjat> itemArrayList = new ArrayList<>();
+        System.out.println("getAllVarausAjat Lukee dataa... ");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT varaus.KenttaID, VarauksenAika
+                	FROM varaus, toimipiste, kentat
+                	WHERE VarauksenPVM LIKE ?
+                	AND kentat.Toimipistevastaava LIKE ?
+                	AND varaus.KenttaID = kentat.KenttaID
+                """)) {
+            statement.setString(1, valittuPVM);
+            statement.setString(2,valittuToimipiste);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                itemArrayList.add(new VarausAjat(resultSet.getInt("varaus.KenttaID"), resultSet.getInt("VarauksenAika")));
             }
             return itemArrayList;
         }
