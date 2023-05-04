@@ -126,7 +126,7 @@
 
     <!-- Loppuikkuna -->
     <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
-    <string name="tv_LoppuikkunaSinutOhjataanTakas">Sinut ohjataan takaisin kirjautumisikkunaan</string>
+    <string name="tv_LoppuikkunaSinutOhjataanTakas">Palaa kirjautumisikkunaan painamalla tästä</string>
 
     <!-- th_kentta_muokkattava -->
     <string name="tv_thMuokkausKenttaOtsikko">Valitse kenttä, jota haluat muokata</string>

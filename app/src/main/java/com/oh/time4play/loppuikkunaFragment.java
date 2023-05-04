@@ -9,6 +9,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class loppuikkunaFragment extends Fragment {
@@ -30,8 +31,13 @@ public class loppuikkunaFragment extends Fragment {
 
         textView.setText("Nähdään " +tultiin + "!");
 
-        com.oh.time4play.loppuikkunaFragmentDirections.ActionLoppuikkunaFragmentToLoginFragment action = com.oh.time4play.loppuikkunaFragmentDirections.actionLoppuikkunaFragmentToLoginFragment();
-        Navigation.findNavController(view).navigate(action);
+        view.setOnClickListener(onClickListener);
+
         return view;
     }
+
+    View.OnClickListener onClickListener = v -> {
+        com.oh.time4play.loppuikkunaFragmentDirections.ActionLoppuikkunaFragmentToLoginFragment action = com.oh.time4play.loppuikkunaFragmentDirections.actionLoppuikkunaFragmentToLoginFragment();
+        Navigation.findNavController(v).navigate(action);
+    };
 }
