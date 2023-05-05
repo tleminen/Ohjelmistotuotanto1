@@ -156,7 +156,21 @@ public class th_kyselyt {
         }
     }
 
-    public static Kentta_Muuttujat getKentta(Connection yhdistaTietokantaan, int valittukentta) {
-        return null;
+    public static Kentta_Muuttujat getKentta(Connection yhdistaTietokantaan, int valittukentta) throws SQLException {
+        Kentta_Muuttujat palautettavaKentta = new Kentta_Muuttujat();
+        System.out.println("Lukee dataa... getAllKentat");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT LajiTunnus, KenttaID, KenttaHinta, Kenttanimi, Toimipistevastaava
+                FROM kentat
+                WHERE  `KenttaID` LIKE ?
+                ORDER BY LajiTunnus
+                """)) {
+            statement.setInt(1, valittukentta);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                palautettavaKentta = new Kentta_Muuttujat(resultSet.getInt("KenttaID"), resultSet.getString("Kenttanimi"), resultSet.getString("LajiTunnus"), resultSet.getString("KenttaHinta"), resultSet.getString("Toimipistevastaava"));
+            }
+            return palautettavaKentta;
+        }
     }
 }

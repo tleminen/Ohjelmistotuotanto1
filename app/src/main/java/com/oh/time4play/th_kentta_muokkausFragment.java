@@ -94,6 +94,9 @@ public class th_kentta_muokkausFragment extends Fragment {
         });
 
         btVahvista.setOnClickListener(e -> {
+            kentta.kentanHinta = tuntihinta.getText().toString();
+            kentta.lajitunnus = et_lajitunnus.getText().toString();
+            kentta.nimi = kentannimi.getText().toString();
             Thread t3 = new Thread(() -> {
                 try {
                     try {
