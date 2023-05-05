@@ -172,11 +172,10 @@ public class maksuikkunaFragment extends Fragment {
 
     }
 
-    //TODO TEHTÄVÄ TÄÄ LASKURI LOPPUSUMMALLE
-    private int laskeKokonaisSumma() {
+    private String laskeKokonaisSumma() {
         int summa = 0;
         summa += Integer.parseInt(kenttaHinta);
         summa += lisapalveluTotHinta;
-        return summa;
+        return String.valueOf(summa);
     }
 }
