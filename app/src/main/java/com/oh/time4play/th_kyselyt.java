@@ -155,4 +155,8 @@ public class th_kyselyt {
             throw new RuntimeException(e);
         }
     }
+
+    public static Kentta_Muuttujat getKentta(Connection yhdistaTietokantaan, int valittukentta) {
+        return null;
+    }
 }
