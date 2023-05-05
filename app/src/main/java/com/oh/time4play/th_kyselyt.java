@@ -42,6 +42,26 @@ public class th_kyselyt {
         }
     }
 
+    static ArrayList<Kentta_Muuttujat> getAllKentatLajilla(Connection yhdistaTietokantaan, String vastaava, String laji) throws SQLException {
+        ArrayList<Kentta_Muuttujat> itemArrayList = new ArrayList<>();
+        System.out.println("Lukee dataa... getAllKentat");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT LajiTunnus, KenttaID, KenttaHinta, Kenttanimi, Toimipistevastaava
+                FROM kentat
+                WHERE  `toimipistevastaava` LIKE ?
+                AND LajiTunnus LIKE ?
+                ORDER BY LajiTunnus
+                """)) {
+            statement.setString(1, vastaava);
+            statement.setString(2,laji);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                itemArrayList.add(new Kentta_Muuttujat(resultSet.getInt("KenttaID"), resultSet.getString("Kenttanimi"), resultSet.getString("LajiTunnus"), resultSet.getString("KenttaHinta"), resultSet.getString("Toimipistevastaava")));
+            }
+            return itemArrayList;
+        }
+    }
+
 
     /**
      * Poistaa kentän

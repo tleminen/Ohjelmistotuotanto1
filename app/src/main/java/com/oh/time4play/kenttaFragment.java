@@ -62,7 +62,7 @@ public class kenttaFragment extends Fragment {
         Thread t1 = new Thread(() -> {
             try {
                 try {
-                    itemArrayList = th_kyselyt.getAllKentat(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus, salasana), valittuToimipiste);
+                    itemArrayList = th_kyselyt.getAllKentatLajilla(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus, salasana), valittuToimipiste, valittuLaji);
                     varatutAjatList = th_kyselyt.getAllVarausAjat(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana),valittuToimipiste,valittuPVM);
 
                 } catch (SQLException e) {
