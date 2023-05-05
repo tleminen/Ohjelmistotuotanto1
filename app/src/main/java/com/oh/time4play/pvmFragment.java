@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.RadioButton;
 
 public class pvmFragment extends Fragment {
@@ -32,12 +31,13 @@ public class pvmFragment extends Fragment {
         String salasana = pvmFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
         String valittuToimipiste = pvmFragmentArgs.fromBundle(getArguments()).getValittuToimipiste();
 
-        DatePicker Alkupvm = view.findViewById(R.id.cv_PVM);
+        DatePicker Alkupvm = view.findViewById(R.id.datePicker_PVM);
         RadioButton TennisNappula = view.findViewById(R.id.rb_PVM_Tennis);
         RadioButton SulkapalloNappula = view.findViewById(R.id.rb_PVM_Sulkapallo);
         Button Vahvista = view.findViewById(R.id.bt_PVM_VahvistaNappi);
 
         Vahvista.setOnClickListener(e->{
+
             valittupvm = String.valueOf(Alkupvm.getYear()+"-"+ Alkupvm.getMonth()+"-"+ Alkupvm.getDayOfMonth());
             if (TennisNappula.isSelected() | SulkapalloNappula.isSelected()) {
                 if (TennisNappula.isSelected()){
