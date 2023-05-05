@@ -53,6 +53,9 @@ public class th_pelivaline_lisaysFragment extends Fragment {
                 throw new RuntimeException(ex);
             }
 
+        });
+
+        poistu.setOnClickListener(e->{
             th_pelivaline_lisaysFragmentDirections.ActionThPelivalineLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_pelivaline_lisaysFragmentDirections.actionThPelivalineLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
