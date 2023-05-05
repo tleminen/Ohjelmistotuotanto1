@@ -37,6 +37,7 @@
             android:id="@+id/bt_Pelivaline_Seuraava"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_teema5"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:text="@string/bt_seuraava_pelivalineet"
