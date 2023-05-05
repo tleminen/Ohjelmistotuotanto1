@@ -128,8 +128,6 @@ public class th_kentta_muokkausFragment extends Fragment {
             Navigation.findNavController(view).navigate(action);
         });
 
-
-
         return view;
     }
 }
