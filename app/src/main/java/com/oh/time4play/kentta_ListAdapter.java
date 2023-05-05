@@ -30,6 +30,7 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
             int position = (int) v.getTag();
             System.out.println(position);
             kenttaFragment.setValittuKentta(kentta_ListAdapter.localDataset.get(position).kenttaID);
+            kenttaFragment.setValitunKentanHinta(kentta_ListAdapter.localDataset.get(position).kentanHinta);
             System.out.println("valittu: "+ localDataset.get(position).kenttaID);
         }
     };

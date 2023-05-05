@@ -12,15 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <DatePicker
-            android:id="@+id/datePicker_PVM"
+        <CalendarView
+            android:id="@+id/cvPVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:endYear="2050"
-            android:startYear="2023"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tw_PVM_KalenteriValinta"></DatePicker>
+            app:layout_constraintTop_toBottomOf="@+id/tw_PVM_KalenteriValinta" />
 
         <TextView
             android:id="@+id/tw_PVM_KalenteriValinta"
@@ -47,9 +46,11 @@
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/datePicker_PVM" />
+            app:layout_constraintTop_toBottomOf="@+id/cvPVM"
+            app:layout_constraintVertical_bias="0.06999999" />
 
         <RadioGroup
             android:id="@+id/rg_lajinValinta_pvm"
@@ -82,9 +83,9 @@
             android:id="@+id/bt_PVM_VahvistaNappi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/btn_teema5"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="12dp"
             android:minHeight="48dp"
             android:text="@string/bt_PVM_VahvistaNappi"
             app:layout_constraintBottom_toBottomOf="parent"

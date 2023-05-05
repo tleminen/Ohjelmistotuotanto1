@@ -21,6 +21,8 @@ import java.util.ArrayList;
 
 public class kenttaFragment extends Fragment {
 
+    private static String valitunKentanHinta;
+
     public kenttaFragment() {
         super(R.layout.fragment_kentta);
     }
@@ -38,6 +40,10 @@ public class kenttaFragment extends Fragment {
     public static void setValittuKentta(int valinta) {
         kenttaFragment.valittuKentta = valinta;
         System.out.println(valinta);
+    }
+
+    public static void setValitunKentanHinta(String kentanHinta) {
+        kenttaFragment.valitunKentanHinta = kentanHinta;
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -86,7 +92,7 @@ public class kenttaFragment extends Fragment {
 
         btSeuraava.setOnClickListener(e -> {
             if (valittuKentta != -1) {
-                com.oh.time4play.kenttaFragmentDirections.ActionKenttaFragmentToKellonaikaValintaFragment action = com.oh.time4play.kenttaFragmentDirections.actionKenttaFragmentToKellonaikaValintaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuLaji,itemArrayList.get(valittuKentta).kentanHinta);
+                com.oh.time4play.kenttaFragmentDirections.ActionKenttaFragmentToKellonaikaValintaFragment action = com.oh.time4play.kenttaFragmentDirections.actionKenttaFragmentToKellonaikaValintaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuLaji,valitunKentanHinta);
                 Navigation.findNavController(view).navigate(action);
             }
         });
