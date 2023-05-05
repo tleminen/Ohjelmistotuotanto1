@@ -77,6 +77,7 @@ public class pelivalineetFragment extends Fragment {
             for (Pelivaline_muuttujat valine: PelivalineetListAdapter.localDataset) {
                 if (valine.valittu) {
                     valitutPelivalineet += "*" + valine.pelivalineNimi + "^"+ valine.valineHinta + "€";
+                    System.out.println("Lisätään siirrettäväksi rivi: " + valitutPelivalineet);
                 }
             }
             if (valitutPelivalineet.length() == 0) {

@@ -141,26 +141,36 @@ public class maksuikkunaFragment extends Fragment {
     }
 
     private void puraLisapalvelut(String valitutPelivalineet) {
+        System.out.println("Lisäpalvelujen String purkuun tuli: " + valitutLisapalvelut);
         boolean readValine = false;
         boolean readHinta = false;
         String hinta = "";
+        String valine = "";
         int total = 0;
 
         for (int i = 0; i < valitutPelivalineet.length(); i++) {
             switch (valitutLisapalvelut.charAt(i)) {
-                case '*' -> readValine = true;
+                case '*' -> {
+                    readValine = true;
+                }
                 case '^' -> {
                     readValine = false;
                     readHinta = true;
+                    System.out.println("Lisäpalvelun nimi: " + valine);
+                    valine = "";
                 }
                 case '€' -> {
                     readHinta = false;
+                    System.out.println("Lisäpalvelun hinta: " + hinta);
                     total += Integer.parseInt(hinta);
                     hinta = "";
                 }
                 default -> {
                     if (readHinta) {
-                        hinta += i;
+                        hinta += valitutLisapalvelut.charAt(i);
+                    }
+                    if (readValine) {
+                        valine += valitutLisapalvelut.charAt(i);
                     }
                 }
             }

@@ -25,7 +25,7 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
             } else {
                 checkBox.setChecked(true);
             }
-            th_peliv_muutoksetListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
+            PelivalineetListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
         }
     };
 
@@ -43,7 +43,8 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
         holder.itemView.setOnClickListener(pelivListener);
 
         holder.textView.setText(localDataset.get(position).pelivalineNimi);
-        holder.textView2.setText(localDataset.get(position).valineHinta);
+        String teksti = localDataset.get(position).valineHinta + "€";
+        holder.textView2.setText(teksti);
 
     }
 
