@@ -141,4 +141,8 @@ public class th_kyselyt {
             return itemArrayList;
         }
     }
+
+    public static Kentta_Muuttujat getKentta(Connection yhdistaTietokantaan, int valittukentta) {
+        return null;
+    }
 }

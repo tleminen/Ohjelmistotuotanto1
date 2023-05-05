@@ -3,6 +3,7 @@ package com.oh.time4play;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class th_kentta_muokkausFragment extends Fragment {
 
         Button btPoista = view.findViewById(R.id.bt_thKenttaMuokkausPoista);
         Button btVahvista = view.findViewById(R.id.bt_thKenttaMuokkausVahvista);
+        Button btPalaa = view.findViewById(R.id.btPaluu_KentanMuokkaus);
 
         Thread t1 = new Thread(() -> {
             try {
@@ -87,6 +89,8 @@ public class th_kentta_muokkausFragment extends Fragment {
             } catch (InterruptedException e2) {
                 throw new RuntimeException(e2);
             }
+            th_kentta_muokkausFragmentDirections.ActionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_muokkausFragmentDirections.actionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+            Navigation.findNavController(view).navigate(action);
         });
 
         btVahvista.setOnClickListener(e -> {
@@ -112,7 +116,16 @@ public class th_kentta_muokkausFragment extends Fragment {
             } catch (InterruptedException e3) {
                 throw new RuntimeException(e3);
             }
+            th_kentta_muokkausFragmentDirections.ActionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_muokkausFragmentDirections.actionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+            Navigation.findNavController(view).navigate(action);
         });
+
+        btPalaa.setOnClickListener(e -> {
+            th_kentta_muokkausFragmentDirections.ActionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_muokkausFragmentDirections.actionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+            Navigation.findNavController(view).navigate(action);
+        });
+
+
 
         return view;
     }
