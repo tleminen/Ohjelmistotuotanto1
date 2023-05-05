@@ -141,4 +141,18 @@ public class th_kyselyt {
             return itemArrayList;
         }
     }
+    public static void setLisaaUusiPelivaline(Connection connection, Pelivaline_muuttujat lisattavaValine) {
+        System.out.println("Lisätään uusi kenttä tietokantaan...");
+        try (PreparedStatement statement2 = connection.prepareStatement("""
+                INSERT INTO `varausjarjestelma`.`Pelivalineet` (`ValineNimi`, `ValineHinta`)
+                VALUES (?, ?);
+                """)) {
+            statement2.setString(1, lisattavaValine.pelivalineNimi);
+            statement2.setString(2, lisattavaValine.valineHinta);
+            statement2.executeUpdate();
+            System.out.println("Toimipisteen tiedot lisätty tietokantaan.");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -13,4 +13,9 @@ public class Pelivaline_muuttujat {
         this.pelivalineNimi = pelivalineNimi;
         this.valineHinta = valineHinta;
     }
+
+    public Pelivaline_muuttujat(String nimi, String hinta) {
+        this.pelivalineNimi = nimi;
+        this.valineHinta = hinta;
+    }
 }
