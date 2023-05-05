@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 public class Maksun_Kyselyt {
+
     public static Asiakas_Muuttujat getAsiakas(Connection yhdistaTietokantaan, String kayttajatunnus) throws SQLException {
         Asiakas_Muuttujat asiakasMuuttuja = new Asiakas_Muuttujat();
         System.out.println("Lukee dataa... getAsiakas");
@@ -24,7 +26,6 @@ public class Maksun_Kyselyt {
 
     //TODO TEE TÄNNE VARAUKSEN TEKEMINEN JA PALUU ETTÄ JOS ONNISTUU NIIN MENNÄÄN MAKSAMAAN
     public static boolean teeVaraus(Connection yhdistaSystemTietokantaan, String valittuPVM, int valittuAika, int valittuKentta, String kayttajatunnus) {
-
 
         return true;
     }

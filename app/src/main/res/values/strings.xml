@@ -98,6 +98,7 @@
     <!-- pelivalineet -->
     <string name="tv_otsikko_pelivalineet">Pelivälineiden osto tai vuokraus</string>
     <string name="bt_seuraava_pelivalineet">Seuraava</string>
+
     <!-- pelivalineet_item -->
     <string name="cb_osta">Osta</string>
 
@@ -139,6 +140,7 @@
     <string name="et_thMuokattavaKenttaNimi">Kentän nimi</string>
     <string name="bt_thMuokkausKenttaPoista">Poista kenttä</string>
     <string name="bt_thMuokkausKenttaVahvista">Vahvista muutokset</string>
+    <string name="bt_thKentta_MuokkausPalaa">Paluu</string>
 
     <!-- kentta -->
     <string name="tv_kenttaValitse">Valitse kenttä</string>
