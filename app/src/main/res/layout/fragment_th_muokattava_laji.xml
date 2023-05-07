@@ -12,14 +12,14 @@
 
         <TextView
             android:id="@+id/tv_otsikko_th_muokattava_laji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="381dp"
+            android:layout_height="62dp"
             android:layout_marginTop="32dp"
             android:text="@string/tv_otsikko_th_muokattava_laji"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,16 +61,6 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="88dp"
-            android:layout_height="63dp"
-            android:layout_marginStart="84dp"
-            android:layout_marginTop="280dp"
-            android:src="@drawable/Sulkapallo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_muokattava_laji" />
-
-        <ImageView
             android:id="@+id/imageView2"
             android:layout_width="104dp"
             android:layout_height="69dp"
@@ -79,6 +69,16 @@
             app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
             app:layout_constraintHorizontal_bias="0.56"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_muokattava_laji" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="86dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="272dp"
+            android:layout_marginEnd="84dp"
+            android:src="@drawable/sulkapallo"
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
             app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_muokattava_laji" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

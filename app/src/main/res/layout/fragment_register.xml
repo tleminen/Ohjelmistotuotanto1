@@ -66,10 +66,10 @@
             android:text="@string/bt_text_Register_Register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.886"
+            app:layout_constraintHorizontal_bias="0.881"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.963" />
+            app:layout_constraintVertical_bias="0.951" />
 
         <EditText
             android:id="@+id/etNimi_Register"
@@ -86,13 +86,13 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.351" />
+            app:layout_constraintVertical_bias="0.319" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="325dp"
             android:layout_height="235dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="32dp"
             android:src="@drawable/pelaajat"
             app:layout_constraintBottom_toBottomOf="@+id/etNimi_Register"
             app:layout_constraintEnd_toEndOf="parent"

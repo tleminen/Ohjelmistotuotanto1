@@ -18,14 +18,15 @@
             android:minHeight="48dp"
             android:text="@string/tv_loppuikkunaKiitosTeksti"
             android:textAlignment="center"
+            android:textColor="#187C21"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="#FFB13D"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35000002" />
+            app:layout_constraintVertical_bias="0.459" />
 
         <TextView
             android:id="@+id/tv_LoppuikkunaSinutOhj"
@@ -34,28 +35,40 @@
             android:minHeight="48dp"
             android:text="@string/tv_LoppuikkunaSinutOhjataanTakas"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_LoppuikkunaKiitosTeksti"
-            app:layout_constraintVertical_bias="0.58000004" />
+            app:layout_constraintVertical_bias="0.707" />
 
         <TextView
             android:id="@+id/tvkenelleTervehdys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#187C21"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="#FFB13D"
             app:layout_constraintBottom_toTopOf="@+id/tv_LoppuikkunaSinutOhj"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_LoppuikkunaKiitosTeksti"
             app:layout_constraintVertical_bias="0.19999999" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="390dp"
+            android:layout_height="284dp"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/pelaajat"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_LoppuikkunaKiitosTeksti"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
