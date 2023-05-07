@@ -234,12 +234,12 @@ public class maksuikkunaFragment extends Fragment {
     //TODO MÄÄRITTELE SÄHKÖPOSTIPALVELIN JNE. JA TESTAA TOKI TOIMINTA MYÖS
     private void teeLasku(LaskuMuuttujat valittuLasku) throws MessagingException {
         String laskunSisalto = "Sisältö";
-        laskunSisalto = "Hyvä " + valittuLasku.getAsiakkaanNimi() + " tässä laskunne koskien varausta toimipisteessämme: " + valittuLasku.getToimipisteenNimi() + "\nTervetuloa pelaamaan " + valittuLasku.getVarauksenAjankohta() + "\nVaraukseen kuuluu: \n\t" +
-                "" + valittuLasku.getKentanNimi() + "\n\t" + valittuLasku.getValitutLisapalvelut() + "\n\nTilausken loppusumma on " +
-                ": " + valittuLasku.getLoppuSumma() + "\n\nVoitte maksaa sen tilinumerollemme 1234567\n\nTerveisin,\nPallopojulit Oy";
+        laskunSisalto = "Hyvä " + valittuLasku.getAsiakkaanNimi() + " tässä laskunne koskien varausta toimipisteessämme: " + valittuLasku.getToimipisteenNimi() + "\nTervetuloa pelaamaan "
+                + valittuLasku.getVarauksenAjankohta() + "\nVaraukseen kuuluu: \n\t" + valittuLasku.getKentanNimi() + "\n\t" + valittuLasku.getValitutLisapalvelut() + "\n\nTilausken loppusumma on: "
+                + valittuLasku.getLoppuSumma() + "\n\nOlkaa hyvä ja maksakaa se tilinumerollemme FI12 3456 7890 1234 56\tmaksuaika 14vrk\tviite: "+ valittuLasku.getAsiakkaanNimi() + "\n\nTerveisin,\nPallopojulit Oy";
 
         Authenticator auth = new EmailServices.UserPassAuthenticator("yourUser", "yourPass");
-        List to = List.of(new InternetAddress("to@example.com"));
+        List to = List.of(new InternetAddress(valittuLasku.getAsiakkaanEmail()));
         Address from = new InternetAddress("from@example.com");
         EmailServices.Email email = new EmailServices.Email(auth, to, from, "Lasku", laskunSisalto);
         EmailServices emailService = new EmailServices("yourSmtpServer", 587);
