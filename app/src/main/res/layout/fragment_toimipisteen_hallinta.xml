@@ -29,15 +29,15 @@
             android:id="@+id/bt_LisaaKentta_toimipisteen_hallinta"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:minHeight="48dp"
             android:background="@drawable/btn_teema2"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:text="@string/bt_toimipisteenHallinta_lisaaKentta"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_otsikko_toimipisteen_hallinta"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintVertical_bias="0.175" />
 
         <Button
             android:id="@+id/bt_muokkaaKenttaa_toimipisteen_hallinta"
@@ -103,6 +103,17 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_muokkaaPelivalineita_toimipisteen_hallinta" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="286dp"
+            android:layout_height="199dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/pelaajat2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_raportti_toimipisteen_hallinta" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
