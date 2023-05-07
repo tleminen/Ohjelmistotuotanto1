@@ -74,8 +74,15 @@ public class pelivalineetFragment extends Fragment {
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         btSeuraava.setOnClickListener(e -> {
+            int[] iit = new int[10];
+            int a = 0;
+            for (int i = 0; i < 10; i++) {
+                iit[i] = 0;
+            }
             for (Pelivaline_muuttujat valine: PelivalineetListAdapter.localDataset) {
                 if (valine.valittu) {
+                    iit[a] = valine.pelivalineID;
+                    a++;
                     valitutPelivalineet += "*" + valine.pelivalineNimi + "^"+ valine.valineHinta + "€";
                     System.out.println("Lisätään siirrettäväksi rivi: " + valitutPelivalineet);
                 }
@@ -83,7 +90,7 @@ public class pelivalineetFragment extends Fragment {
             if (valitutPelivalineet.length() == 0) {
                 valitutPelivalineet = "-";
             }
-            com.oh.time4play.pelivalineetFragmentDirections.ActionPelivalineetFragmentToMaksuikkunaFragment action = com.oh.time4play.pelivalineetFragmentDirections.actionPelivalineetFragmentToMaksuikkunaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPvm,valittuKentta,valittuAika,valitutPelivalineet,kentanHinta);
+            com.oh.time4play.pelivalineetFragmentDirections.ActionPelivalineetFragmentToMaksuikkunaFragment action = com.oh.time4play.pelivalineetFragmentDirections.actionPelivalineetFragmentToMaksuikkunaFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPvm,valittuKentta,valittuAika,valitutPelivalineet,kentanHinta,iit);
             Navigation.findNavController(view).navigate(action);
         });
 

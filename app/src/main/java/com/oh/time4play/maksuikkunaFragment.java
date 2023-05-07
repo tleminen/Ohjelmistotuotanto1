@@ -3,6 +3,7 @@ package com.oh.time4play;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,16 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.oh.time4play.maksuikkunaFragmentDirections;
+
 import java.sql.SQLException;
 
 
 public class maksuikkunaFragment extends Fragment {
 
     Asiakas_Muuttujat asiakas;
+    LaskuMuuttujat lasku;
+
 
     private String kayttajatunnus;
     private String salasana;
@@ -25,12 +30,13 @@ public class maksuikkunaFragment extends Fragment {
     private String valittuPVM;
     private int valittuKentta;
     private int valittuAika;
-    private int valittuLaskutyyppi;
     private boolean varausOnnistui;
     private String valitutLisapalvelut;
+    private String lisaPalvelutLaskulle = "";
+    private String loppuSumma;
     private String kenttaHinta;
     private int lisapalveluTotHinta;
-
+    private int [] pelivalineIDt;
     public maksuikkunaFragment() {
         // Required empty public constructor
     }
@@ -47,6 +53,7 @@ public class maksuikkunaFragment extends Fragment {
         valittuAika = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValittuKellonaika();
         valitutLisapalvelut = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitutLisapalvelut();
         kenttaHinta = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
+        pelivalineIDt = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitutPelivalineIDt();
 
         View view = inflater.inflate(R.layout.fragment_maksuikkuna, container, false);
 
@@ -94,23 +101,28 @@ public class maksuikkunaFragment extends Fragment {
         //Asetetaan kokonaissumma näkyville
 
         puraLisapalvelut(valitutLisapalvelut);
-        tvSumma.setText(laskeKokonaisSumma());
+        loppuSumma = laskeKokonaisSumma();
+        tvSumma.setText(loppuSumma);
         tvEmailOsoite.setText(kayttajatunnus);
 
+        //Muodostetaan LaskuMuuttujat
+        laskunMuodostus();
 
         btVahvista.setOnClickListener(e -> {
             if (rbPaperilasku.isSelected() | rbSahkopostiLasku.isSelected()) {
                 if (rbPaperilasku.isSelected()) {
-                    valittuLaskutyyppi = 1;
+                    lasku.setValittuMaksutapa(1);
                 } else if (rbSahkopostiLasku.isSelected()) {
-                    valittuLaskutyyppi = 2;
+                    lasku.setValittuMaksutapa(2);
                 }
                 Thread t2 = new Thread(() -> {
                     try {
                         try {
-                            varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus);
+                            varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt);
                             if (varausOnnistui) {
-                                teeLasku(valittuLaskutyyppi);
+                                teeLasku(lasku);
+                                com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
+                                Navigation.findNavController(view).navigate(action);
                             } else {
                                 System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
                             }
@@ -139,6 +151,35 @@ public class maksuikkunaFragment extends Fragment {
         return view;
     }
 
+    private void laskunMuodostus() {
+        lasku.setAsiakkaanNimi(asiakas.getAsiakasNimi());
+        lasku.setLoppuSumma(loppuSumma);
+        lasku.setValitutLisapalvelut(lisaPalvelutLaskulle);
+        lasku.setAsiakkaanEmail(kayttajatunnus);
+        lasku.setAsiakkaanOsoite(asiakas.getOsoite());
+
+        Thread t3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Kentta_Muuttujat kentta = th_kyselyt.getKentta(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana),valittuKentta);
+                    Toimip_hallintaMuuttujat tp = Toimip_hallinta_kyselyt.getToimipiste(Tietokantayhteys.yhdistaSystemTietokantaan(),valittuToimipiste);
+
+                    lasku.setKentanNimi(kentta.nimi);
+                    lasku.setToimipisteenNimi(tp.Nimi);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        t3.start();
+        try {
+            t3.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void puraLisapalvelut(String valitutPelivalineet) {
         System.out.println("Lisäpalvelujen String purkuun tuli: " + valitutLisapalvelut);
         boolean readValine = false;
@@ -156,11 +197,13 @@ public class maksuikkunaFragment extends Fragment {
                     readValine = false;
                     readHinta = true;
                     System.out.println("Lisäpalvelun nimi: " + valine);
+                    lisaPalvelutLaskulle += valine + " ";
                     valine = "";
                 }
                 case '€' -> {
                     readHinta = false;
                     System.out.println("Lisäpalvelun hinta: " + hinta);
+                    lisaPalvelutLaskulle += hinta + "€\n";
                     total += Integer.parseInt(hinta);
                     hinta = "";
                 }
@@ -177,7 +220,7 @@ public class maksuikkunaFragment extends Fragment {
         lisapalveluTotHinta = total;
     }
 
-    private void teeLasku(int valittuLaskutyyppi) {
+    private void teeLasku(LaskuMuuttujat valittuLasku) {
 
     }
 

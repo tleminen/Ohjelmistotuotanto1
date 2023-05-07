@@ -170,6 +170,9 @@
         <argument
             android:name="ValitunKentanHinta"
             app:argType="string" />
+        <argument
+            android:name="ValitutPelivalineIDt"
+            app:argType="integer[]" />
     </fragment>
     <fragment
         android:id="@+id/loppuikkunaFragment"
