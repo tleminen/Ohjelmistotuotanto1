@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
+            android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/bt_vahvista_th_muokattava_laji"
@@ -58,5 +59,26 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="88dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="280dp"
+            android:src="@drawable/Sulkapallo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_muokattava_laji" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="104dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="220dp"
+            android:src="@drawable/tennispallo"
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
+            app:layout_constraintHorizontal_bias="0.56"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_muokattava_laji" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
