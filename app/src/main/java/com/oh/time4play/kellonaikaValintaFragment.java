@@ -105,8 +105,6 @@ public class kellonaikaValintaFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
-        //TODO JATKA TÄHÄN TOTA SETCLICKABLE JOS SE TOIMII!
-
         for (VarausAjat i: kentanVaraukset) {
             switch (i.getVarausAika()) {
                 case 0 -> {

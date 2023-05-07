@@ -1,5 +1,6 @@
 package com.oh.time4play;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,10 +43,11 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(pelivListener);
 
+        holder.checkBox.setClickable(false);
+
         holder.textView.setText(localDataset.get(position).pelivalineNimi);
         String teksti = localDataset.get(position).valineHinta + "€";
         holder.textView2.setText(teksti);
-
     }
 
     @Override
@@ -56,6 +58,8 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
         public final TextView textView;
         public final TextView textView2;
         public final ImageView imageView;
+        public final CheckBox checkBox;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -63,6 +67,7 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
             textView = (TextView) itemView.findViewById(R.id.tv_pelivaline_pelivalineet);
             textView2 = (TextView) itemView.findViewById(R.id.tv_pelivaline_valineHinta);
             imageView = (ImageView) itemView.findViewById(R.id.iv_pelivaline_kuva);
+            checkBox = (CheckBox) itemView.findViewById(R.id.cbOsta_pelivaline_items);
         }
     }
 }

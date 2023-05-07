@@ -48,12 +48,13 @@
             android:id="@+id/imageView7"
             android:layout_width="219dp"
             android:layout_height="270dp"
-            android:layout_marginBottom="116dp"
             android:src="@drawable/sulkapallo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.859"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_pelivalineet"
+            app:layout_constraintVertical_bias="0.36" />
 
         <ImageView
             android:id="@+id/imageView8"

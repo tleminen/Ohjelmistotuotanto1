@@ -96,7 +96,6 @@ public class kenttaFragment extends Fragment {
                 Navigation.findNavController(view).navigate(action);
             }
         });
-
     }
 
     private void lisaaVarauksetKenttiin(ArrayList<Kentta_Muuttujat> itemArrayList, ArrayList<VarausAjat> varatutAjatList) {

@@ -38,7 +38,7 @@ public class pelivalineetFragment extends Fragment {
         int valittuKentta = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuKentta();
         int valittuAika = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuKellonaika();
         String kentanHinta = pelivalineetFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
-
+        valitutPelivalineet = "";
 
         Button btSeuraava = view.findViewById(R.id.bt_Pelivaline_Seuraava);
 

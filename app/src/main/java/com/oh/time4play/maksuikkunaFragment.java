@@ -112,7 +112,6 @@ public class maksuikkunaFragment extends Fragment {
                             if (varausOnnistui) {
                                 teeLasku(valittuLaskutyyppi);
                             } else {
-
                                 System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
                             }
                         } catch (SQLException e1) {
