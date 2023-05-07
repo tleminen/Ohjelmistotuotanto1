@@ -101,8 +101,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="282dp"
-            android:layout_height="259dp"
+            android:layout_width="302dp"
+            android:layout_height="275dp"
             android:layout_marginBottom="32dp"
             android:src="@drawable/pelaajat"
             app:layout_constraintBottom_toTopOf="@+id/etSahkoposti"

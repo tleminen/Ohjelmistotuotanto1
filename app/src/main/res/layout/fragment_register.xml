@@ -14,7 +14,7 @@
             android:id="@+id/etAnnaSahkopostiosoite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="@string/et_text_syotasapo_Register"
             android:inputType="textEmailAddress"
@@ -22,6 +22,7 @@
             android:textAlignment="center"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etNimi_Register" />
 
@@ -37,6 +38,7 @@
             android:textAlignment="center"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAnnaSahkopostiosoite" />
 
@@ -52,6 +54,7 @@
             android:textAlignment="center"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAnnaSalasana" />
 
@@ -80,9 +83,20 @@
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.351" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="325dp"
+            android:layout_height="235dp"
+            android:layout_marginBottom="28dp"
+            android:src="@drawable/pelaajat"
+            app:layout_constraintBottom_toBottomOf="@+id/etNimi_Register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
