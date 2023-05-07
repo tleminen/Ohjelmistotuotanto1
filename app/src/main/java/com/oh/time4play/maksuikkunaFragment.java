@@ -16,6 +16,15 @@ import android.widget.TextView;
 import com.oh.time4play.maksuikkunaFragmentDirections;
 
 import java.sql.SQLException;
+import java.util.List;
+
+import javax.mail.Address;
+import javax.mail.Authenticator;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+import kotlinx.coroutines.GlobalScope;
 
 
 public class maksuikkunaFragment extends Fragment {
@@ -128,6 +137,8 @@ public class maksuikkunaFragment extends Fragment {
                             }
                         } catch (SQLException e1) {
                             throw new RuntimeException(e1);
+                        } catch (MessagingException ex) {
+                            throw new RuntimeException(ex);
                         }
                         try {
                             Tietokantayhteys.katkaiseYhteysTietokantaan();
@@ -220,8 +231,19 @@ public class maksuikkunaFragment extends Fragment {
         lisapalveluTotHinta = total;
     }
 
-    private void teeLasku(LaskuMuuttujat valittuLasku) {
+    //TODO MÄÄRITTELE SÄHKÖPOSTIPALVELIN JNE. JA TESTAA TOKI TOIMINTA MYÖS
+    private void teeLasku(LaskuMuuttujat valittuLasku) throws MessagingException {
+        String laskunSisalto = "Sisältö";
+        laskunSisalto = "Hyvä " + valittuLasku.getAsiakkaanNimi() + " tässä laskunne koskien varausta toimipisteessämme: " + valittuLasku.getToimipisteenNimi() + "\nTervetuloa pelaamaan " + valittuLasku.getVarauksenAjankohta() + "\nVaraukseen kuuluu: \n\t" +
+                "" + valittuLasku.getKentanNimi() + "\n\t" + valittuLasku.getValitutLisapalvelut() + "\n\nTilausken loppusumma on " +
+                ": " + valittuLasku.getLoppuSumma() + "\n\nVoitte maksaa sen tilinumerollemme 1234567\n\nTerveisin,\nPallopojulit Oy";
 
+        Authenticator auth = new EmailServices.UserPassAuthenticator("yourUser", "yourPass");
+        List to = List.of(new InternetAddress("to@example.com"));
+        Address from = new InternetAddress("from@example.com");
+        EmailServices.Email email = new EmailServices.Email(auth, to, from, "Lasku", laskunSisalto);
+        EmailServices emailService = new EmailServices("yourSmtpServer", 587);
+        emailService.send(email);
     }
 
     private String laskeKokonaisSumma() {
