@@ -17,10 +17,10 @@
             android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="@string/et_text_Salasana_Login"
-            android:textColorHint="@color/black"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,16 +32,16 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/et_text_syotasapo_Login"
-            android:textColorHint="@color/black"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.251" />
+            app:layout_constraintVertical_bias="0.402" />
 
         <Button
             android:id="@+id/btKirjaudu"
@@ -74,13 +74,15 @@
             android:layout_height="wrap_content"
             android:text="Kirjaudu sisään:"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/etSahkoposti"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.764" />
 
         <TextView
             android:id="@+id/_login_uusikayttaja"
@@ -88,14 +90,25 @@
             android:layout_height="wrap_content"
             android:text="Uusi käyttäjä?"
             android:textAlignment="center"
-            android:textStyle="bold"
             android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btRekisteroidy"
             app:layout_constraintHorizontal_bias="0.962"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.928" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="282dp"
+            android:layout_height="259dp"
+            android:layout_marginBottom="32dp"
+            android:src="@drawable/pelaajat"
+            app:layout_constraintBottom_toTopOf="@+id/etSahkoposti"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
