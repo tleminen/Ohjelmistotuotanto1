@@ -36,28 +36,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tw_PVM_LajiValinta"
-            android:layout_width="220dp"
-            android:layout_height="44dp"
-            android:minHeight="48dp"
-            android:text="@string/tw_PVM_TekstiLajiValinta"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cvPVM"
-            app:layout_constraintVertical_bias="0.06999999" />
-
         <RadioGroup
             android:id="@+id/rg_lajinValinta_pvm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tw_PVM_LajiValinta">
 
@@ -77,6 +62,7 @@
                 android:minHeight="48dp"
                 android:text="@string/rb_PVM_Sulkapallo"
                 android:textAlignment="center" />
+
         </RadioGroup>
 
         <Button
@@ -90,6 +76,42 @@
             android:text="@string/bt_PVM_VahvistaNappi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_PVM_LajiValinta"
+            android:layout_width="220dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="360dp"
+            android:minHeight="48dp"
+            android:text="@string/tw_PVM_TekstiLajiValinta"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cvPVM" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="85dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginEnd="88dp"
+            android:src="@drawable/Sulkapallo"
+            app:layout_constraintEnd_toEndOf="@+id/rg_lajinValinta_pvm"
+            app:layout_constraintTop_toBottomOf="@+id/cvPVM" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="112dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="68dp"
+            android:src="@drawable/tennispallo"
+            app:layout_constraintEnd_toEndOf="@+id/rg_lajinValinta_pvm"
+            app:layout_constraintTop_toBottomOf="@+id/cvPVM" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
