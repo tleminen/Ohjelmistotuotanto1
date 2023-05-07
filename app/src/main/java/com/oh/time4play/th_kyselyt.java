@@ -142,7 +142,7 @@ public class th_kyselyt {
         }
     }
 
-    public static ArrayList<VarausAjat> getKenttaVarausAjat(Connection yhdistaTietokantaan, String valittuToimipiste, String valittuPVM) throws SQLException {
+    public static ArrayList<VarausAjat> getKenttaVarausAjat(Connection yhdistaTietokantaan, int valittuKentta, String valittuPVM) throws SQLException {
         ArrayList<VarausAjat> itemArrayList = new ArrayList<>();
         System.out.println("getKenttaVarausAjat Lukee dataa... ");
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
@@ -153,10 +153,11 @@ public class th_kyselyt {
                 	AND varaus.KenttaID = kentat.KenttaID
                 """)) {
             statement.setString(1, valittuPVM);
-            statement.setString(2, valittuToimipiste);
+            statement.setInt(2, valittuKentta);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 itemArrayList.add(new VarausAjat(resultSet.getInt("VarauksenAika")));
+                System.out.println("kenttaVarausAjat sisältää dataa!");
             }
             return itemArrayList;
         }

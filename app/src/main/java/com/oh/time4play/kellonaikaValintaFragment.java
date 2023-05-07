@@ -36,6 +36,7 @@ public class kellonaikaValintaFragment extends Fragment {
     }
 
     private void navigoi(View v) {
+        System.out.println("Valittu aika: " + valittuAika);
         com.oh.time4play.kellonaikaValintaFragmentDirections.ActionKellonaikaValintaFragmentToPelivalineetFragment action = com.oh.time4play.kellonaikaValintaFragmentDirections.actionKellonaikaValintaFragmentToPelivalineetFragment(kayttajatunnus,salasana,valittuToimipiste,valittuPVM,valittuKentta,valittuAika,valittuLaji,kentanHinta);
         Navigation.findNavController(v).navigate(action);
     }
@@ -82,7 +83,7 @@ public class kellonaikaValintaFragment extends Fragment {
         Thread th1 = new Thread(() -> {
             try {
                 try {
-                    kentanVaraukset = th_kyselyt.getKenttaVarausAjat(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana),valittuToimipiste,valittuPVM);
+                    kentanVaraukset = th_kyselyt.getKenttaVarausAjat(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana),valittuKentta,valittuPVM);
 
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
@@ -105,41 +106,105 @@ public class kellonaikaValintaFragment extends Fragment {
         }
 
         //TODO JATKA TÄHÄN TOTA SETCLICKABLE JOS SE TOIMII!
+
         for (VarausAjat i: kentanVaraukset) {
             switch (i.getVarausAika()) {
                 case 0 -> {
                     t0.setBackgroundColor(varattuVari);
-                    t0.setClickable(false);
+                    t0.setEnabled(false);
                 }
                 case 1 -> {
                     t1.setBackgroundColor(varattuVari);
-                    t1.setClickable(false);
+                    t1.setEnabled(false);
                 }
                 case 2 -> {
                     t2.setBackgroundColor(varattuVari);
-                    t2.setClickable(false);
+                    t2.setEnabled(false);
                 }
-                case 3 -> t3.setBackgroundColor(varattuVari);
-                case 4 -> t4.setBackgroundColor(varattuVari);
-                case 5 -> t5.setBackgroundColor(varattuVari);
-                case 6 -> t6.setBackgroundColor(varattuVari);
-                case 7 -> t7.setBackgroundColor(varattuVari);
-                case 8 -> t8.setBackgroundColor(varattuVari);
-                case 9 -> t9.setBackgroundColor(varattuVari);
-                case 10 -> t10.setBackgroundColor(varattuVari);
-                case 11 -> t11.setBackgroundColor(varattuVari);
-                case 12 -> t12.setBackgroundColor(varattuVari);
-                case 13 -> t13.setBackgroundColor(varattuVari);
-                case 14 -> t14.setBackgroundColor(varattuVari);
-                case 15 -> t15.setBackgroundColor(varattuVari);
-                case 16 -> t16.setBackgroundColor(varattuVari);
-                case 17 -> t17.setBackgroundColor(varattuVari);
-                case 18 -> t18.setBackgroundColor(varattuVari);
-                case 19 -> t19.setBackgroundColor(varattuVari);
-                case 20 -> t20.setBackgroundColor(varattuVari);
-                case 21 -> t21.setBackgroundColor(varattuVari);
-                case 22 -> t22.setBackgroundColor(varattuVari);
-                case 23 -> t23.setBackgroundColor(varattuVari);
+                case 3 -> {
+                    t3.setBackgroundColor(varattuVari);
+                    t3.setEnabled(false);
+                }
+                case 4 -> {
+                    t4.setBackgroundColor(varattuVari);
+                    t4.setEnabled(false);
+                }
+                case 5 -> {
+                    t5.setBackgroundColor(varattuVari);
+                    t5.setEnabled(false);
+                }
+                case 6 -> {
+                    t6.setBackgroundColor(varattuVari);
+                    t6.setEnabled(false);
+                }
+                case 7 -> {
+                    t7.setBackgroundColor(varattuVari);
+                    t7.setEnabled(false);
+                }
+                case 8 -> {
+                    t8.setBackgroundColor(varattuVari);
+                    t8.setEnabled(false);
+                }
+                case 9 -> {
+                    t9.setBackgroundColor(varattuVari);
+                    t9.setEnabled(false);
+                }
+                case 10 -> {
+                    t10.setBackgroundColor(varattuVari);
+                    t10.setEnabled(false);
+                }
+                case 11 -> {
+                    t11.setBackgroundColor(varattuVari);
+                    t11.setEnabled(false);
+                }
+                case 12 -> {
+                    t12.setBackgroundColor(varattuVari);
+                    t12.setEnabled(false);
+                }
+                case 13 -> {
+                    t13.setBackgroundColor(varattuVari);
+                    t13.setEnabled(false);
+                }
+                case 14 -> {
+                    t14.setBackgroundColor(varattuVari);
+                    t14.setEnabled(false);
+                }
+                case 15 -> {
+                    t15.setBackgroundColor(varattuVari);
+                    t15.setEnabled(false);
+                }
+                case 16 -> {
+                    t16.setBackgroundColor(varattuVari);
+                    t16.setEnabled(false);
+                }
+                case 17 -> {
+                    t17.setBackgroundColor(varattuVari);
+                    t17.setEnabled(false);
+                }
+                case 18 -> {
+                    t18.setBackgroundColor(varattuVari);
+                    t18.setEnabled(false);
+                }
+                case 19 -> {
+                    t19.setBackgroundColor(varattuVari);
+                    t19.setEnabled(false);
+                }
+                case 20 -> {
+                    t20.setBackgroundColor(varattuVari);
+                    t20.setEnabled(false);
+                }
+                case 21 -> {
+                    t21.setBackgroundColor(varattuVari);
+                    t21.setEnabled(false);
+                }
+                case 22 -> {
+                    t22.setBackgroundColor(varattuVari);
+                    t22.setEnabled(false);
+                }
+                case 23 -> {
+                    t23.setBackgroundColor(varattuVari);
+                    t23.setEnabled(false);
+                }
             }
         }
 
