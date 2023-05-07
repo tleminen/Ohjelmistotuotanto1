@@ -42,9 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/tv_otsikko_maksuikkuna"
-            android:textSize="22sp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="#187C21"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,9 +55,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/tv_yhteensaTeksti_maksuikkuna"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="#187C21"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_maksuikkuna" />
@@ -68,6 +68,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="summa"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_yhteensaTeksti_maksuikkuna" />
@@ -78,6 +81,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="sPosti"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
