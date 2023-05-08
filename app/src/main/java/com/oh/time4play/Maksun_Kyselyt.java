@@ -24,17 +24,18 @@ public class Maksun_Kyselyt {
             }
     }
 
-    public static boolean teeVaraus(Connection yhdistaSystemTietokantaan, String valittuPVM, int valittuAika, int valittuKentta, String kayttajatunnus, int[] pelivalineIDt) throws SQLException {
+    public static boolean teeVaraus(Connection yhdistaSystemTietokantaan, String valittuPVM, int valittuAika, int valittuKentta, String kayttajatunnus, int[] pelivalineIDt, int valittuMaksutapa) throws SQLException {
         System.out.println("Lisätään uusi varaus...");
         int muutettu = 0;
         try (PreparedStatement statement = yhdistaSystemTietokantaan.prepareStatement("""
-                INSERT INTO `varausjarjestelma`.`varaus` (`VarauksenPVM`, `VarauksenAika`, `KenttaID`, `email`) 
-                    VALUES (?, ?, ?, ?)
+                INSERT INTO `varausjarjestelma`.`varaus` (`VarauksenPVM`, `VarauksenAika`, `KenttaID`, `email`, `Maksuntila`) 
+                    VALUES (?, ?, ?, ?, ?)
                 """)) {
             statement.setString(1,valittuPVM);
             statement.setInt(2,valittuAika);
             statement.setInt(3,valittuKentta);
             statement.setString(4,kayttajatunnus);
+            statement.setInt(5,valittuMaksutapa);
             muutettu = statement.executeUpdate();
             System.out.printf("Muutettu on: " + muutettu);
         }

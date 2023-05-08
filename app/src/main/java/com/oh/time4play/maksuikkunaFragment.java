@@ -114,14 +114,14 @@ public class maksuikkunaFragment extends Fragment {
             if (rbPaperilasku.isChecked() || rbSahkopostiLasku.isChecked()) {
                 System.out.println("Lasku valittu");
                 if (rbPaperilasku.isChecked()) {
-                    lasku.setValittuMaksutapa(1);
-                } else if (rbSahkopostiLasku.isChecked()) {
                     lasku.setValittuMaksutapa(2);
+                } else if (rbSahkopostiLasku.isChecked()) {
+                    lasku.setValittuMaksutapa(3);
                 }
                 Thread t2 = new Thread(() -> {
                     try {
                         try {
-                            varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt);
+                            varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt,lasku.getValittuMaksutapa());
                         } catch (SQLException e1) {
                             throw new RuntimeException(e1);
                         }

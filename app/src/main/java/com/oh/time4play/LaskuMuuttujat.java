@@ -1,17 +1,44 @@
 package com.oh.time4play;
 
 public class LaskuMuuttujat {
+    private int varausID;
     private String asiakkaanNimi;
     private String valitutLisapalvelut;
+    private int lisapalveluHinta = 0;
     private String loppuSumma;
     private int valittuMaksutapa;
     private String asiakkaanEmail;
     private String asiakkaanOsoite;
     private String toimipisteenNimi;
+    private int kentanHinta;
     private String kentanNimi;
     private String varauksenAjankohta;
 
     public LaskuMuuttujat() {
+    }
+
+    public int getVarausID() {
+        return varausID;
+    }
+
+    public void setVarausID(int varausID) {
+        this.varausID = varausID;
+    }
+
+    public int getKentanHinta() {
+        return kentanHinta;
+    }
+
+    public void setKentanHinta(int kentanHinta) {
+        this.kentanHinta = kentanHinta;
+    }
+
+    public LaskuMuuttujat(int varausID, String varauksenPVM, int varauksenAika, String email, String kenttaHinta, String kenttanimi) {
+        this.varausID = varausID;
+        this.varauksenAjankohta = varauksenPVM + " klo: " + varauksenAika;
+        this.asiakkaanEmail = email;
+        this.kentanHinta = Integer.parseInt(kenttaHinta);
+        this.kentanNimi = kenttanimi;
     }
 
     public String getToimipisteenNimi() {
@@ -53,7 +80,9 @@ public class LaskuMuuttujat {
     public void setValitutLisapalvelut(String valitutLisapalvelut) {
         this.valitutLisapalvelut = valitutLisapalvelut;
     }
-
+    public void addValitutLisapalvelut(String valitutLisapalvelut) {
+        this.valitutLisapalvelut += valitutLisapalvelut;
+    }
     public String getLoppuSumma() {
         return loppuSumma;
     }
@@ -84,5 +113,13 @@ public class LaskuMuuttujat {
 
     public void setAsiakkaanOsoite(String asiakkaanOsoite) {
         this.asiakkaanOsoite = asiakkaanOsoite;
+    }
+
+    public void addLisapalveluHinta(String valineHinta) {
+        this.lisapalveluHinta += Integer.parseInt(valineHinta);
+    }
+
+    public int getLaskutettavaSumma() {
+        return kentanHinta + lisapalveluHinta;
     }
 }

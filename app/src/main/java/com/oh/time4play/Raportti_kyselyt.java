@@ -32,4 +32,41 @@ public class Raportti_kyselyt {
 
         }
     }
+
+    public static ArrayList<LaskuMuuttujat> getLocalSahkopostiLaskut(Connection connection, String kayttajatunnus) throws SQLException {
+        ArrayList<LaskuMuuttujat> laskut = new ArrayList<>();
+        System.out.println("Haetaan sähköpostilla laskutettavat varaukset...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT varaus.VarauksenPVM, varaus.VarauksenAika, varaus.VarausID, varaus.email, kentat.KenttaHinta, kentat.Kenttanimi
+                    FROM varaus, kentat
+                    WHERE Maksuntila = 3
+                    AND Toimipistevastaava LIKE ?
+                    AND varaus.KenttaID = kentat.KenttaID
+                    ORDER BY VarauksenPVM, VarauksenAika
+                """)) {
+            statement.setString(1,kayttajatunnus);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),resultSet.getString("kenttaHinta"),resultSet.getString("Kenttanimi")));
+            }
+        }
+
+        for (LaskuMuuttujat lasku: laskut) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    SELECT ValineNimi, ValineHinta
+                        FROM pelivalineet, kuuluu
+                        WHERE VarausID = ?
+                        AND kuuluu.PelivalineID = pelivalineet.PelivalineID
+                    """)) {
+                statement.setInt(1,lasku.getVarausID());
+                ResultSet resultSet = statement.executeQuery();
+                lasku.setValitutLisapalvelut("\n\tLisäpalvelut:\n");
+                while (resultSet.next()) {
+                    lasku.addLisapalveluHinta(resultSet.getString("ValineHinta"));
+                    lasku.addValitutLisapalvelut(resultSet.getString("ValineNimi") + " " + resultSet.getString("ValineHinta") + "€\n");
+                }
+            }
+        }
+        return laskut;
+    }
 }
