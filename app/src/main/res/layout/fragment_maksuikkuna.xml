@@ -42,9 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/tv_otsikko_maksuikkuna"
+            android:textColor="#187C21"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="#187C21"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,14 +53,14 @@
             android:id="@+id/tv_yhteensaTeksti_maksuikkuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:text="@string/tv_yhteensaTeksti_maksuikkuna"
+            android:textColor="#187C21"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#187C21"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_maksuikkuna" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/tv_summa_maksuikkuna"
@@ -153,6 +153,15 @@
             android:text="@string/bt_vahvistaNappulaUudetTiedot_maksuikkuna"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_maksuikkuna" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

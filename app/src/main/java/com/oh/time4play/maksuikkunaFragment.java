@@ -118,13 +118,6 @@ public class maksuikkunaFragment extends Fragment {
                     try {
                         try {
                             varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt);
-                            if (varausOnnistui) {
-                                System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
-                                com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
-                                Navigation.findNavController(view).navigate(action);
-                            } else {
-                                System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
-                            }
                         } catch (SQLException e1) {
                             throw new RuntimeException(e1);
                         }
@@ -143,6 +136,13 @@ public class maksuikkunaFragment extends Fragment {
                     t2.join();
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
+                }
+                if (varausOnnistui) {
+                    System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
+                    Navigation.findNavController(view).navigate(action);
+                } else {
+                    System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
                 }
             }
         });
