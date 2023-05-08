@@ -106,7 +106,6 @@
         <EditText
             android:id="@+id/pt_osoiteAsiakkaan_maksuikkuna"
             android:layout_width="342dp"
-            android:layout_height="43dp"
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="@string/pt_osoiteAsiakkaan_maksuikkuna"
