@@ -54,7 +54,7 @@
                 android:layout_marginTop="10dp"
                 android:minHeight="48dp"
                 android:text="@string/rb_PVM_Tennis"
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
 
             <RadioButton
                 android:id="@+id/rb_PVM_Sulkapallo"
@@ -71,8 +71,8 @@
             android:id="@+id/bt_PVM_VahvistaNappi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="68dp"
             android:background="@drawable/btn_teema5"
             android:minHeight="48dp"
             android:text="@string/bt_PVM_VahvistaNappi"
@@ -83,7 +83,7 @@
             android:id="@+id/tw_PVM_LajiValinta"
             android:layout_width="220dp"
             android:layout_height="44dp"
-            android:layout_marginTop="360dp"
+            android:layout_marginTop="348dp"
             android:minHeight="48dp"
             android:text="@string/tw_PVM_TekstiLajiValinta"
             android:textAlignment="center"
@@ -99,7 +99,7 @@
             android:id="@+id/imageView6"
             android:layout_width="101dp"
             android:layout_height="75dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="64dp"
             android:src="@drawable/tennispallo"
             app:layout_constraintEnd_toEndOf="@+id/rg_lajinValinta_pvm"
@@ -109,11 +109,21 @@
             android:id="@+id/imageView12"
             android:layout_width="101dp"
             android:layout_height="72dp"
-            android:layout_marginTop="124dp"
+            android:layout_marginTop="104dp"
             android:layout_marginEnd="80dp"
             android:src="@drawable/sulkapallo"
             app:layout_constraintEnd_toEndOf="@+id/rg_lajinValinta_pvm"
             app:layout_constraintTop_toBottomOf="@+id/cvPVM" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="418dp"
+            android:layout_height="91dp"
+            android:src="@drawable/progressbar2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_PVM_VahvistaNappi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -14,8 +14,8 @@
             android:id="@+id/bt_kenttaVahvistanappi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="68dp"
             android:background="@drawable/btn_teema5"
             android:minHeight="48dp"
             android:text="@string/bt_kenttaVahvista"
@@ -46,8 +46,22 @@
             android:paddingBottom="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_kenttaValitseKenttaTeksti" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_kenttaValitseKenttaTeksti"
+            app:layout_constraintVertical_bias="0.286" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="414dp"
+            android:layout_height="92dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/progressbar3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_kenttaVahvistanappi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
