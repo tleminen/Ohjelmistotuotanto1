@@ -37,6 +37,31 @@
             app:layout_constraintTop_toBottomOf="@+id/et_thKenttaMuokkausNimi"
             app:layout_constraintVertical_bias="0.74" />
 
+        <RadioGroup
+            android:id="@+id/radioGroup4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_thKenttaMuokkausTeksti"
+            app:layout_constraintVertical_bias="0.04000002">
+
+            <RadioButton
+                android:id="@+id/rbTennis_th_kentta_muokkaus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/rb_tennis_th_muokattava_laji" />
+
+            <RadioButton
+                android:id="@+id/rbSulkapallo_th_kentta_muokkaus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/rb_sulkapallo_th_muokattava_laji" />
+        </RadioGroup>
+
         <EditText
             android:id="@+id/et_thKenttaMuokkausNimi"
             android:layout_width="wrap_content"
@@ -65,23 +90,7 @@
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_thKenttaMuokkausLaji" />
-
-        <EditText
-            android:id="@+id/et_thKenttaMuokkausLaji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_thMuokattavaKenttaLajitunnus"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textAlignment="center"
-            android:textColorHint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
 
         <TextView
             android:id="@+id/tv_thKenttaMuokkausTeksti"
@@ -107,6 +116,7 @@
             android:text="@string/bt_thKentta_MuokkausPalaa"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

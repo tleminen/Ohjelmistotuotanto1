@@ -74,9 +74,9 @@ public class pelivalineetFragment extends Fragment {
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         btSeuraava.setOnClickListener(e -> {
-            int[] iit = new int[10];
+            int[] iit = new int[30];
             int a = 0;
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 30; i++) {
                 iit[i] = 0;
             }
             for (Pelivaline_muuttujat valine: PelivalineetListAdapter.localDataset) {

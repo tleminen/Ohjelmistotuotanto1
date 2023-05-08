@@ -55,7 +55,7 @@ public class th_kyselyt {
         }};
 
 
-    public static void setLisaaUusiKentta(Connection connection, Kentta_Muuttujat lisattavaKe) {
+    public static void setLisaaUusiKentta(Connection connection, Kentta_Muuttujat lisattavaKe) throws SQLException {
         System.out.println("Lisätään uusi kenttä tietokantaan...");
         try (PreparedStatement statement2 = connection.prepareStatement("""
                 INSERT INTO `varausjarjestelma`.`kentat` (`Lajitunnus`, `KenttaHinta`, `Kenttanimi`, `Toimipistevastaava`)
@@ -67,9 +67,55 @@ public class th_kyselyt {
             statement2.setString(4, lisattavaKe.toimipistevastaava);
             statement2.executeUpdate();
             System.out.println("Toimipisteen tiedot lisätty tietokantaan.");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
+
+        System.out.println("Haetaan lisätyn kentän kenttaID...");
+        int uusiKenttaID = 0;
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT KenttaID
+                    FROM kentat
+                    WHERE Lajitunnus LIKE ?
+                    AND KenttaHinta LIKE ?
+                    AND Kenttanimi LIKE ?
+                    AND Toimipistevastaava LIKE ?
+                """)) {
+            statement.setString(1,lisattavaKe.lajitunnus);
+            statement.setString(2,lisattavaKe.kentanHinta);
+            statement.setString(3,lisattavaKe.nimi);
+            statement.setString(4,lisattavaKe.toimipistevastaava);
+            ResultSet resultSet4 = statement.executeQuery();
+            while (resultSet4.next()) {
+                uusiKenttaID = resultSet4.getInt("KenttaID");
+            }
+        }
+
+        System.out.println("Haetaan tietokannasta pelivälineet jotka liittyvät lajiin...");
+        ArrayList<Integer> linkitettavatPelivalineIDt = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT PelivalineID
+                    FROM pelivalineet
+                    WHERE LajiTunnus LIKE ?
+                """)) {
+            statement.setString(1,lisattavaKe.lajitunnus);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                linkitettavatPelivalineIDt.add(resultSet.getInt("PelivalineID"));
+                System.out.println("Linkitettävä peliväline löytyi!");
+            }
+        }
+
+        System.out.println("Lisätään kentälle järjestelmässä jo valmiiksi olevat lajitunnuksen pelivälineet");
+        for (int i: linkitettavatPelivalineIDt) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                INSERT INTO `varausjarjestelma`.`saatavilla` (`KenttaID`, `PelivalineID`) 
+                            VALUES (?, ?)   
+                """)) {
+                statement.setInt(1,uusiKenttaID);
+                statement.setInt(2,i);
+                statement.executeUpdate();
+            }
+        }
+
     }
 
     static ArrayList<Kentta_Muuttujat> getAllKentat(Connection yhdistaTietokantaan, String vastaava) throws SQLException {
@@ -157,7 +203,7 @@ public class th_kyselyt {
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
                 SELECT pelivalineet.PelivalineID, ValineNimi, ValineHinta
                     FROM pelivalineet, saatavilla, kentat
-                    WHERE LajiTunnus LIKE ?
+                    WHERE kentat.LajiTunnus LIKE ?
                     AND kentat.KenttaID = saatavilla.KenttaID
                     AND saatavilla.PelivalineID = pelivalineet.PelivalineID
                 """)) {
@@ -213,11 +259,12 @@ public class th_kyselyt {
     public static void setLisaaUusiPelivaline(Connection connection, Pelivaline_muuttujat lisattavaValine) throws SQLException {
         System.out.println("Lisätään uusi peliväline tietokantaan...");
         try (PreparedStatement statement2 = connection.prepareStatement("""
-                INSERT INTO `varausjarjestelma`.`Pelivalineet` (`ValineNimi`, `ValineHinta`)
-                VALUES (?, ?);
+                INSERT INTO `varausjarjestelma`.`Pelivalineet` (`ValineNimi`, `ValineHinta`, `LajiTunnus`)
+                VALUES (?, ?, ?);
                 """)) {
             statement2.setString(1, lisattavaValine.pelivalineNimi);
             statement2.setString(2, lisattavaValine.valineHinta);
+            statement2.setString(3, lisattavaValine.lajiTunnus);
             statement2.executeUpdate();
             System.out.println("Toimipisteen tiedot lisätty tietokantaan.");
         }
@@ -227,10 +274,12 @@ public class th_kyselyt {
                 SELECT PelivalineID
                     FROM Pelivalineet
                     WHERE ValineNimi LIKE ?
-                    AND ValineHinta LIKE ?                
+                    AND ValineHinta LIKE ? 
+                    AND Lajitunnus LIKE ?               
                 """)) {
             statement.setString(1,lisattavaValine.pelivalineNimi);
             statement.setString(2,lisattavaValine.valineHinta);
+            statement.setString(3,lisattavaValine.lajiTunnus);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 lisattavaValine.pelivalineID = resultSet.getInt("PelivalineID");

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import com.oh.time4play.th_kentta_lisaysFragmentDirections;
 
@@ -32,36 +33,46 @@ public class th_kentta_lisaysFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_th_kentta_lisays, container, false);
 
         EditText keNimi = view.findViewById(R.id.etKentanNimi_kenttaLisa);
-        EditText keLajitunnus = view.findViewById(R.id.etLajitunnus_kenttaLisa);
         EditText keHinta = view.findViewById(R.id.etTuntihinta_kenttaLisa);
+
+        RadioButton rbTennis = view.findViewById(R.id.rbTennis_KenttaLisays);
+        RadioButton rbSulkapallo = view.findViewById(R.id.rb_Sulkapallo_kentta_lisays);
 
         Button lisaaKentta = view.findViewById(R.id.btLisaaKentta);
 
         lisaaKentta.setOnClickListener(e -> {
-            String nimi = keNimi.getText().toString();
-            String lajitunnus = keLajitunnus.getText().toString();
-            String hinta = keHinta.getText().toString();
-            Kentta_Muuttujat lisattavaKe = new Kentta_Muuttujat(nimi,lajitunnus,hinta,kayttajatunnus);
-
-            Thread t1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
-                        th_kyselyt.setLisaaUusiKentta(connection, lisattavaKe);
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
-                    }
+            if (rbSulkapallo.isChecked() | rbTennis.isChecked()) {
+                String lajitunnus = "";
+                if(rbSulkapallo.isChecked()) {
+                    lajitunnus = "Sulkapallo";
+                } else if (rbTennis.isChecked()) {
+                    lajitunnus = "Tennis";
                 }
-            });
-            try {
-                t1.start();
-                t1.join();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
+                String nimi = keNimi.getText().toString();
+
+                String hinta = keHinta.getText().toString();
+                Kentta_Muuttujat lisattavaKe = new Kentta_Muuttujat(nimi, lajitunnus, hinta, kayttajatunnus);
+
+                Thread t1 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                            th_kyselyt.setLisaaUusiKentta(connection, lisattavaKe);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                });
+                try {
+                    t1.start();
+                    t1.join();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+                com.oh.time4play.th_kentta_lisaysFragmentDirections.ActionThKenttaLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_lisaysFragmentDirections.actionThKenttaLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+                Navigation.findNavController(view).navigate(action);
             }
-            com.oh.time4play.th_kentta_lisaysFragmentDirections.ActionThKenttaLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_lisaysFragmentDirections.actionThKenttaLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
-            Navigation.findNavController(view).navigate(action);
         });
 
         return view;

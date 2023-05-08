@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import java.sql.SQLException;
+import java.util.Objects;
 
 
 public class th_kentta_muokkausFragment extends Fragment {
@@ -32,9 +34,11 @@ public class th_kentta_muokkausFragment extends Fragment {
         String salasana = th_kentta_muokkausFragmentArgs.fromBundle(getArguments()).getKirjautunutSalasana();
         int valittukentta = th_kentta_muokkausFragmentArgs.fromBundle(getArguments()).getValittuKenttaID();
 
-        EditText et_lajitunnus = view.findViewById(R.id.et_thKenttaMuokkausLaji);
         EditText tuntihinta = view.findViewById(R.id.et_thKenttaMuokkausTuntihinta);
         EditText kentannimi = view.findViewById(R.id.et_thKenttaMuokkausNimi);
+
+        RadioButton rbTennis = view.findViewById(R.id.rbTennis_th_kentta_muokkaus);
+        RadioButton rbSulkapallo = view.findViewById(R.id.rbSulkapallo_th_kentta_muokkaus);
 
         Button btPoista = view.findViewById(R.id.bt_thKenttaMuokkausPoista);
         Button btVahvista = view.findViewById(R.id.bt_thKenttaMuokkausVahvista);
@@ -62,7 +66,11 @@ public class th_kentta_muokkausFragment extends Fragment {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        et_lajitunnus.setText(kentta.lajitunnus);
+        if (Objects.equals(kentta.lajitunnus, "Sulkapallo")) {
+            rbSulkapallo.setChecked(true);
+        } else if (Objects.equals(kentta.lajitunnus, "Tennis")) {
+            rbTennis.setChecked(true);
+        }
         tuntihinta.setText(kentta.kentanHinta);
         kentannimi.setText(kentta.nimi);
 
@@ -94,33 +102,37 @@ public class th_kentta_muokkausFragment extends Fragment {
         });
 
         btVahvista.setOnClickListener(e -> {
-            kentta.kentanHinta = tuntihinta.getText().toString();
-            kentta.lajitunnus = et_lajitunnus.getText().toString();
-            kentta.nimi = kentannimi.getText().toString();
-            Thread t3 = new Thread(() -> {
+            if (rbSulkapallo.isChecked() | rbTennis.isChecked()) {
+                kentta.kentanHinta = tuntihinta.getText().toString();
+                if (rbSulkapallo.isChecked()) {
+                    kentta.lajitunnus = "Sulkapallo";
+                } else kentta.lajitunnus = "Tennis";
+                kentta.nimi = kentannimi.getText().toString();
+                Thread t3 = new Thread(() -> {
+                    try {
+                        try {
+                            th_kyselyt.updateKentta(Tietokantayhteys.yhdistaSystemTietokantaan(), kentta);
+                        } catch (SQLException e3) {
+                            throw new RuntimeException(e3);
+                        }
+                        try {
+                            Tietokantayhteys.katkaiseYhteysTietokantaan();
+                        } catch (SQLException e3) {
+                            throw new RuntimeException(e3);
+                        }
+                    } catch (RuntimeException e3) {
+                        throw new RuntimeException(e3);
+                    }
+                });
+                t3.start();
                 try {
-                    try {
-                        th_kyselyt.updateKentta(Tietokantayhteys.yhdistaSystemTietokantaan(), kentta);
-                    } catch (SQLException e3) {
-                        throw new RuntimeException(e3);
-                    }
-                    try {
-                        Tietokantayhteys.katkaiseYhteysTietokantaan();
-                    } catch (SQLException e3) {
-                        throw new RuntimeException(e3);
-                    }
-                } catch (RuntimeException e3) {
+                    t3.join();
+                } catch (InterruptedException e3) {
                     throw new RuntimeException(e3);
                 }
-            });
-            t3.start();
-            try {
-                t3.join();
-            } catch (InterruptedException e3) {
-                throw new RuntimeException(e3);
+                th_kentta_muokkausFragmentDirections.ActionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_muokkausFragmentDirections.actionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+                Navigation.findNavController(view).navigate(action);
             }
-            th_kentta_muokkausFragmentDirections.ActionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment action = com.oh.time4play.th_kentta_muokkausFragmentDirections.actionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment(kayttajatunnus, salasana);
-            Navigation.findNavController(view).navigate(action);
         });
 
         btPalaa.setOnClickListener(e -> {
