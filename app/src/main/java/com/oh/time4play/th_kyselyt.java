@@ -7,6 +7,54 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class th_kyselyt {
+
+    public static void updatePelivaline(Connection connection, Pelivaline_muuttujat muokattavanTiedot) throws SQLException {
+        System.out.println("Päivitetään toimipistettä, pelivalineID: " + muokattavanTiedot.pelivalineID + "...");
+        System.out.println("Välinenimi: " + muokattavanTiedot.pelivalineNimi);
+        System.out.println("Uusi hinta: " + muokattavanTiedot.valineHinta);
+        try (PreparedStatement statement = connection.prepareStatement("""
+                UPDATE `varausjarjestelma`.`pelivalineet` 
+                SET `Valinenimi`= ?, `ValineHinta`= ?'
+                WHERE  `PelivalineID`= ?;
+                """)){
+            statement.setString(1,muokattavanTiedot.pelivalineNimi);
+            statement.setString(2,muokattavanTiedot.valineHinta);
+            statement.setInt(3,muokattavanTiedot.pelivalineID);
+            statement.executeUpdate();
+        }
+    }
+
+    public static void poistaPelivaline(Connection connection, int poistettavaPelivalineID) {
+        System.out.println("Poistetaan peliväline jonka PelivalineID: " + poistettavaPelivalineID + "...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`pelivalineet` WHERE PelivalineID =?;
+                """)) {
+            statement.setInt(1,poistettavaPelivalineID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Pelivaline_muuttujat getPelivaline(Connection yhdistaTietokantaan, int valittuPelivaline) throws SQLException {
+        Pelivaline_muuttujat palautettavaPelivaline = new Pelivaline_muuttujat();
+        System.out.println("Lukee dataa... getPelivaline");
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT PelivalineID, ValineNimi, ValineHinta
+                FROM pelivalineet
+                WHERE  `PelivalineID` LIKE ?
+                ORDER BY ValineNimi
+                """)) {
+            statement.setInt(1, valittuPelivaline);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                palautettavaPelivaline = new Pelivaline_muuttujat(resultSet.getInt("PelivalineID"), resultSet.getString("ValineNimi"), resultSet.getString("ValineHinta"));
+            }
+            return palautettavaPelivaline;
+
+        }};
+
+
     public static void setLisaaUusiKentta(Connection connection, Kentta_Muuttujat lisattavaKe) {
         System.out.println("Lisätään uusi kenttä tietokantaan...");
         try (PreparedStatement statement2 = connection.prepareStatement("""

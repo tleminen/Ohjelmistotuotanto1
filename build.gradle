@@ -8,11 +8,6 @@ buildscript {
         def nav_version = "2.5.3"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
-
-    //Mail juttu
-    ext {
-        java_mail_version = "1.6.7"
-    }
 }
 //Safeargs Päättyy--
 plugins {

@@ -12,6 +12,17 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/bt_paluu_th_pelivalinemuokkaus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="32dp"
+            android:minHeight="48dp"
+            android:text="@string/bt_palaa_th_pelivaline_muokkaus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/bt_poistaPeliv_th_pelivaline_muokkaus"
             android:layout_width="155dp"
             android:layout_height="48dp"
