@@ -49,15 +49,15 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="413dp"
-            android:layout_height="75dp"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/processbar1"
+            android:id="@+id/imageView17"
+            android:layout_width="412dp"
+            android:layout_height="89dp"
+            android:src="@drawable/progressbar1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btVahvista_toimipFrag" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
