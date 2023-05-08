@@ -14,8 +14,8 @@ public class th_kyselyt {
         System.out.println("Uusi hinta: " + muokattavanTiedot.valineHinta);
         try (PreparedStatement statement = connection.prepareStatement("""
                 UPDATE `varausjarjestelma`.`pelivalineet` 
-                SET `Valinenimi`= ?, `ValineHinta`= ?'
-                WHERE  `PelivalineID`= ?;
+                SET `Valinenimi` = ?, `ValineHinta` = ?
+                WHERE  `PelivalineID` = ?
                 """)){
             statement.setString(1,muokattavanTiedot.pelivalineNimi);
             statement.setString(2,muokattavanTiedot.valineHinta);
