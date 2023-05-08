@@ -30,10 +30,6 @@ public class LaskuMuuttujat {
         this.kentanNimi = kentanNimi;
     }
 
-    public String getKentta() {
-        return kentanNimi;
-    }
-
     public String getVarauksenAjankohta() {
         return varauksenAjankohta;
     }

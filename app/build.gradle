@@ -8,6 +8,13 @@ android {
     namespace 'com.oh.time4play'
     compileSdk 33
 
+    //Tää oli siihen mailiin liittyvä
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{NOTICE.md,LICENSE.md}'
+        }
+    }
+
     defaultConfig {
         applicationId "com.oh.time4play"
         minSdk 31
@@ -57,7 +64,7 @@ dependencies {
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.2.3'
 
     // Mail jutut
-    implementation 'com.sun.mail:android-mail:1.6.4'
+    implementation 'com.sun.mail:android-mail:1.6.7'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'

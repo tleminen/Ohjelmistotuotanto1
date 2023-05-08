@@ -45,10 +45,10 @@ public class Maksun_Kyselyt {
             try (PreparedStatement statement3 = yhdistaSystemTietokantaan.prepareStatement("""
                     SELECT VarausID
                         FROM `varausjarjestelma`.`varaus`
-                        WHERE `VarauksenPVM` LIKE = ?
-                        AND `VarauksenAika` = ?
+                        WHERE `VarauksenPVM` LIKE ?
+                        AND `VarauksenAika` LIKE ?
                         AND `KenttaID` = ?
-                        AND `email` = ?
+                        AND `email` LIKE ?
                     """)) {
                 statement3.setString(1,valittuPVM);
                 statement3.setInt(2,valittuAika);

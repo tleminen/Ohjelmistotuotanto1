@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.oh.time4play.maksuikkunaFragmentDirections;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -21,16 +20,12 @@ import java.util.List;
 import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-
-import kotlinx.coroutines.GlobalScope;
-
 
 public class maksuikkunaFragment extends Fragment {
 
     Asiakas_Muuttujat asiakas;
-    LaskuMuuttujat lasku;
+    LaskuMuuttujat lasku = new LaskuMuuttujat();
 
 
     private String kayttajatunnus;
@@ -118,10 +113,11 @@ public class maksuikkunaFragment extends Fragment {
         laskunMuodostus();
 
         btVahvista.setOnClickListener(e -> {
-            if (rbPaperilasku.isSelected() | rbSahkopostiLasku.isSelected()) {
-                if (rbPaperilasku.isSelected()) {
+            if (rbPaperilasku.isChecked() || rbSahkopostiLasku.isChecked()) {
+                System.out.println("Lasku valittu");
+                if (rbPaperilasku.isChecked()) {
                     lasku.setValittuMaksutapa(1);
-                } else if (rbSahkopostiLasku.isSelected()) {
+                } else if (rbSahkopostiLasku.isChecked()) {
                     lasku.setValittuMaksutapa(2);
                 }
                 Thread t2 = new Thread(() -> {
@@ -130,6 +126,7 @@ public class maksuikkunaFragment extends Fragment {
                             varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt);
                             if (varausOnnistui) {
                                 teeLasku(lasku);
+                                System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
                                 com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
                                 Navigation.findNavController(view).navigate(action);
                             } else {
@@ -189,6 +186,7 @@ public class maksuikkunaFragment extends Fragment {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Lasku muodostettu");
     }
 
     private void puraLisapalvelut(String valitutPelivalineet) {
@@ -238,12 +236,13 @@ public class maksuikkunaFragment extends Fragment {
                 + valittuLasku.getVarauksenAjankohta() + "\nVaraukseen kuuluu: \n\t" + valittuLasku.getKentanNimi() + "\n\t" + valittuLasku.getValitutLisapalvelut() + "\n\nTilausken loppusumma on: "
                 + valittuLasku.getLoppuSumma() + "\n\nOlkaa hyvä ja maksakaa se tilinumerollemme FI12 3456 7890 1234 56\tmaksuaika 14vrk\tviite: "+ valittuLasku.getAsiakkaanNimi() + "\n\nTerveisin,\nPallopojulit Oy";
 
-        Authenticator auth = new EmailServices.UserPassAuthenticator("yourUser", "yourPass");
+        Authenticator auth = new EmailServices.UserPassAuthenticator("pallopojulit@mail.com", "palloSalasana");
         List to = List.of(new InternetAddress(valittuLasku.getAsiakkaanEmail()));
-        Address from = new InternetAddress("from@example.com");
+        Address from = new InternetAddress("pallopojulit@mail.com");
         EmailServices.Email email = new EmailServices.Email(auth, to, from, "Lasku", laskunSisalto);
-        EmailServices emailService = new EmailServices("yourSmtpServer", 587);
+        EmailServices emailService = new EmailServices("smtp.mail.com", 587);
         emailService.send(email);
+        System.out.println("Lasku lähetetty");
     }
 
     private String laskeKokonaisSumma() {
