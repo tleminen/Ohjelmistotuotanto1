@@ -289,6 +289,9 @@
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_raportti"
             app:destination="@id/raportti" />
+        <action
+            android:id="@+id/action_toimipisteen_hallintaFragment_to_laskutusFragment"
+            app:destination="@id/laskutusFragment" />
     </fragment>
     <fragment
         android:id="@+id/th_kentta_lisaysFragment"
@@ -439,6 +442,21 @@
         tools:layout="@layout/fragment_raportti" >
         <action
             android:id="@+id/action_raportti_to_toimipisteen_hallintaFragment"
+            app:destination="@id/toimipisteen_hallintaFragment" />
+        <argument
+            android:name="KirjautunutKayttaja"
+            app:argType="string" />
+        <argument
+            android:name="KirjautunutSalasana"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/laskutusFragment"
+        android:name="com.oh.time4play.LaskutusFragment"
+        android:label="fragment_laskutus"
+        tools:layout="@layout/fragment_laskutus" >
+        <action
+            android:id="@+id/action_laskutusFragment_to_toimipisteen_hallintaFragment"
             app:destination="@id/toimipisteen_hallintaFragment" />
         <argument
             android:name="KirjautunutKayttaja"

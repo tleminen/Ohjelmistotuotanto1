@@ -120,11 +120,11 @@
     <string name="tv_toimipisteenHallinta_otsikko">Toimipisteen hallinta</string>
     <string name="bt_toimipisteenHallinta_lisaaKentta">Lisää kenttä</string>
     <string name="bt_toimipisteenHallinta_muokkaaKenttaa">Muokkaa kenttää</string>
-    <string name="bt_toimipisteenHallinta_uusiPelivaline">Uusi peliväline</string>
+    <string name="bt_toimipisteenHallinta_uusiPelivaline">Lisää peliväline</string>
     <string name="bt_toimipisteenHallinta_muokkaaPelivalineita">Muokkaa pelivälineitä</string>
     <string name="bt_toimipisteenHallinta_poistu">Poistu</string>
-    <string name="bt_toimipisteenhallinta_raportti">Pyydä raportti</string>
-    
+    <string name="bt_toimipisteenhallinta_raportti">Raportit</string>
+    <string name="bt_toimipisteenhallinta_laskuta">Laskutus</string>
 
     <!-- Loppuikkuna -->
     <string name="tv_loppuikkunaKiitosTeksti">Kiitoksia asioinnista!</string>
@@ -146,7 +146,7 @@
     <!-- kentta -->
     <string name="tv_kenttaValitse">Valitse kenttä</string>
     <string name="bt_kenttaVahvista">Vahvista</string>
-    
+
     <!-- raportti -->
     <string name="tv_raportti_Otsikko">Raportti</string>
     <string name="et_raportti_PVMAlku">VVVV-KK-PP</string>
@@ -155,6 +155,11 @@
     <string name="bt_raportti_Paluu">Palaa takaisin</string>
     <string name="tv_raportti_Alku">AlkuPVM</string>
     <string name="tv_raportti_Loppu">LoppuPVM</string>
+
+    <!-- Laskutus -->
+    <string name="text_Otsikko_Laskutus">Laskutus</string>
+    <string name="bt_Paluu_laskutus">Palaa takaisin ilman muutoksia</string>
+    <string name="bt_Tallenna_laskutus">Merkitse kaikki laskutetuiksi</string>
 
 
 </resources>
