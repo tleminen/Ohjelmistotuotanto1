@@ -15,12 +15,6 @@ import android.widget.TextView;
 
 
 import java.sql.SQLException;
-import java.util.List;
-
-import javax.mail.Address;
-import javax.mail.Authenticator;
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
 
 public class maksuikkunaFragment extends Fragment {
 
@@ -125,7 +119,6 @@ public class maksuikkunaFragment extends Fragment {
                         try {
                             varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt);
                             if (varausOnnistui) {
-                                teeLasku(lasku);
                                 System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
                                 com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
                                 Navigation.findNavController(view).navigate(action);
@@ -134,8 +127,6 @@ public class maksuikkunaFragment extends Fragment {
                             }
                         } catch (SQLException e1) {
                             throw new RuntimeException(e1);
-                        } catch (MessagingException ex) {
-                            throw new RuntimeException(ex);
                         }
                         try {
                             Tietokantayhteys.katkaiseYhteysTietokantaan();
@@ -227,10 +218,6 @@ public class maksuikkunaFragment extends Fragment {
             }
         }
         lisapalveluTotHinta = total;
-    }
-
-    private void teeLasku(LaskuMuuttujat valittuLasku) throws MessagingException {
-
     }
 
     private String laskeKokonaisSumma() {
