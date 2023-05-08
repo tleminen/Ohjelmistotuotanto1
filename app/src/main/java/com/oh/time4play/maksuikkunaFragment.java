@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 
@@ -60,6 +61,7 @@ public class maksuikkunaFragment extends Fragment {
 
         TextView tvSumma = view.findViewById(R.id.tv_summa_maksuikkuna);
         TextView tvEmailOsoite = view.findViewById(R.id.tv_sahkopostiAsiakkaan_maksuikkuna);
+        TextView tvYhteenveto = view.findViewById(R.id.tvYhteenvetoMaksuikkuna);
 
         EditText etNimi = view.findViewById(R.id.pt_nimiAsiakkaan_maksuikkuna);
         EditText etOsoite = view.findViewById(R.id.pt_osoiteAsiakkaan_maksuikkuna);
@@ -100,11 +102,13 @@ public class maksuikkunaFragment extends Fragment {
 
         puraLisapalvelut(valitutLisapalvelut);
         loppuSumma = laskeKokonaisSumma();
-        tvSumma.setText(loppuSumma);
+        tvSumma.setText(loppuSumma + "€");
         tvEmailOsoite.setText(kayttajatunnus);
 
         //Muodostetaan LaskuMuuttujat
         laskunMuodostus();
+
+        tvYhteenveto.setText("Varattu kenttä: " + lasku.getKentanNimi() + "\nVarauksen aika: " + valittuPVM + " klo: " + valittuAika + "\n" + lisaPalvelutLaskulle);
 
         btVahvista.setOnClickListener(e -> {
             if (rbPaperilasku.isChecked() || rbSahkopostiLasku.isChecked()) {
