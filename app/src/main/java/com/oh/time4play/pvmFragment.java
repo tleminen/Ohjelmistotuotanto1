@@ -52,6 +52,10 @@ public class pvmFragment extends Fragment {
         });
 
                 Vahvista.setOnClickListener(e -> {
+                    int day = Integer.parseInt(paiva);
+                    if (day < 10){
+                        paiva = "0"+paiva;
+                    }
                     valittupvm = vuosi + "-" + kuukausi + "-" + paiva;
                     System.out.println(valittupvm.toString());
                     if (TennisNappula.isChecked() | SulkapalloNappula.isChecked()) {
@@ -61,6 +65,7 @@ public class pvmFragment extends Fragment {
                             valittulaji = "Sulkapallo";
                         }
                     }
+
                     pvmFragmentDirections.ActionPvmFragmentToKenttaFragment action = pvmFragmentDirections.actionPvmFragmentToKenttaFragment(kayttajatunnus, salasana, valittuToimipiste, valittupvm, valittulaji);
                     Navigation.findNavController(view).navigate(action);
                 });
