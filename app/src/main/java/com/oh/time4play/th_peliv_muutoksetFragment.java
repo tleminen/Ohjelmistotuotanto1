@@ -55,7 +55,7 @@ public class th_peliv_muutoksetFragment extends Fragment {
         Thread t1 = new Thread(() -> {
             try {
                 try {
-                    itemArrayList = th_kyselyt.getLajinPelivalineet(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana), valittuLaji);
+                    itemArrayList = th_kyselyt.getLajinPelivalineet(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuLaji);
 
                 } catch (SQLException e) {
                     throw new RuntimeException(e);

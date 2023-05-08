@@ -46,7 +46,7 @@ public class th_pelivaline_muokkausFragment extends Fragment {
         Thread t1 = new Thread(() -> {
             try {
                 try {
-                    pelivaline = th_kyselyt.getPelivaline(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus, salasana), valittuPelivaline);
+                    pelivaline = th_kyselyt.getPelivaline(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPelivaline);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
