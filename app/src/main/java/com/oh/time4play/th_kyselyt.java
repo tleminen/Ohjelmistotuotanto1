@@ -210,8 +210,8 @@ public class th_kyselyt {
             return itemArrayList;
         }
     }
-    public static void setLisaaUusiPelivaline(Connection connection, Pelivaline_muuttujat lisattavaValine) {
-        System.out.println("Lisätään uusi kenttä tietokantaan...");
+    public static void setLisaaUusiPelivaline(Connection connection, Pelivaline_muuttujat lisattavaValine) throws SQLException {
+        System.out.println("Lisätään uusi peliväline tietokantaan...");
         try (PreparedStatement statement2 = connection.prepareStatement("""
                 INSERT INTO `varausjarjestelma`.`Pelivalineet` (`ValineNimi`, `ValineHinta`)
                 VALUES (?, ?);
@@ -220,9 +220,53 @@ public class th_kyselyt {
             statement2.setString(2, lisattavaValine.valineHinta);
             statement2.executeUpdate();
             System.out.println("Toimipisteen tiedot lisätty tietokantaan.");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
+
+        System.out.println("Haetaan lisätyn pelivälineen ID...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT PelivalineID
+                    FROM Pelivalineet
+                    WHERE ValineNimi LIKE ?
+                    AND ValineHinta LIKE ?                
+                """)) {
+            statement.setString(1,lisattavaValine.pelivalineNimi);
+            statement.setString(2,lisattavaValine.valineHinta);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                lisattavaValine.pelivalineID = resultSet.getInt("PelivalineID");
+            }
+        }
+
+        System.out.println("Haetaan lajin mukaiset kentät... ");
+        ArrayList<Integer> kentat = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT KenttaID
+                    FROM kentat
+                    WHERE LajiTunnus LIKE ?
+                """)) {
+            statement.setString(1,lisattavaValine.lajiTunnus);
+            ResultSet resultSet1 = statement.executeQuery();
+            while (resultSet1.next()) {
+                kentat.add(resultSet1.getInt("KenttaID"));
+                System.out.println("Kenttiä joihin laji lisätään löytyi!");
+            }
+        }
+        System.out.println("Seuraavaksi lisätään pelivälineen linkitys kenttiin...");
+        if (kentat.size() != 0) {
+            System.out.println("Kenttiä on olemassa");
+            for (int i: kentat) {
+                try (PreparedStatement statement3 = connection.prepareStatement("""
+                        INSERT INTO `varausjarjestelma`.`saatavilla` (`KenttaID`, `PelivalineID`) 
+                            VALUES (?, ?)                       
+                        """)){
+                    statement3.setInt(1,i);
+                    statement3.setInt(2,lisattavaValine.pelivalineID);
+                    statement3.executeUpdate();
+                }
+                System.out.println("Lisätty pelivälineID: " + lisattavaValine.pelivalineID + " kenttään: " + i);
+            }
+        }
+        System.out.println("Lisäys suoritettu!");
     }
 
     public static Kentta_Muuttujat getKentta(Connection yhdistaTietokantaan, int valittukentta) throws SQLException {

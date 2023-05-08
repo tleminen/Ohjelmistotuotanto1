@@ -31,13 +31,13 @@
             android:hint="@string/et_valineNimi_th_pelivaline_lisays"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="@color/black"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_pelivaline_lisays"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.04000002" />
 
         <EditText
             android:id="@+id/et_valineHinta_th_pelivaline_lisays"
@@ -53,6 +53,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_valineNimi_th_pelivaline_lisays" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_valineHinta_th_pelivaline_lisays">
+
+            <RadioButton
+                android:id="@+id/rbTennis_lisays_pelivaline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/rb_tennis_th_muokattava_laji" />
+
+            <RadioButton
+                android:id="@+id/rbSulkapallo_lisays_pelivaline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/rb_sulkapallo_th_muokattava_laji" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/bt_lisaaPelivalinePainike_th_pelivaline_lisays"
@@ -83,20 +106,20 @@
             android:layout_width="168dp"
             android:layout_height="301dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="104dp"
             android:src="@drawable/sulkapallo"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75" />
 
         <ImageView
             android:id="@+id/imageView11"
             android:layout_width="164dp"
             android:layout_height="232dp"
-            android:layout_marginBottom="80dp"
             android:src="@drawable/tennispallo"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
             app:layout_constraintEnd_toStartOf="@+id/imageView10"
-            app:layout_constraintHorizontal_bias="0.914"
+            app:layout_constraintHorizontal_bias="0.68"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

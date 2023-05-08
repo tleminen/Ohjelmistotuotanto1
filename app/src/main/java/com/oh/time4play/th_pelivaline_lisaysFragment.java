@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -30,29 +31,41 @@ public class th_pelivaline_lisaysFragment extends Fragment {
         Button lisaapelivaline = view.findViewById(R.id.bt_lisaaPelivalinePainike_th_pelivaline_lisays);
         Button poistu = view.findViewById(R.id.bt_poistuPainike_th_pelivaline_lisays);
 
+        RadioButton rbTennis = view.findViewById(R.id.rbTennis_lisays_pelivaline);
+        RadioButton rbSulis = view.findViewById(R.id.rbSulkapallo_lisays_pelivaline);
+
         lisaapelivaline.setOnClickListener(e->{
-            String nimi = valinenimi.getText().toString();
-            String hinta = valinehinta.getText().toString();
-            Pelivaline_muuttujat lisattavaValine = new Pelivaline_muuttujat(nimi,hinta);
-
-            Thread t1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
-                        th_kyselyt.setLisaaUusiPelivaline(connection, lisattavaValine);
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
-                    }
+            if (rbSulis.isChecked() | rbTennis.isChecked()) {
+                String valittuLaji = "";
+                if (rbSulis.isChecked()) {
+                    valittuLaji = "Sulkapallo";
+                } else if (rbTennis.isChecked()) {
+                    valittuLaji = "Tennis";
                 }
-            });
-            try {
-                t1.start();
-                t1.join();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }
+                String nimi = valinenimi.getText().toString();
+                String hinta = valinehinta.getText().toString();
+                Pelivaline_muuttujat lisattavaValine = new Pelivaline_muuttujat(nimi, hinta, valittuLaji);
 
+                Thread t1 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                            th_kyselyt.setLisaaUusiPelivaline(connection, lisattavaValine);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                });
+                try {
+                    t1.start();
+                    t1.join();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+                th_pelivaline_lisaysFragmentDirections.ActionThPelivalineLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_pelivaline_lisaysFragmentDirections.actionThPelivalineLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
+                Navigation.findNavController(view).navigate(action);
+            }
         });
 
         poistu.setOnClickListener(e->{

@@ -2,6 +2,7 @@ package com.oh.time4play;
 
 public class Pelivaline_muuttujat {
     protected int pelivalineID;
+    protected String lajiTunnus;
     protected String pelivalineNimi;
     protected String valineHinta;
     protected boolean valittu = false;
@@ -14,8 +15,9 @@ public class Pelivaline_muuttujat {
         this.valineHinta = valineHinta;
     }
 
-    public Pelivaline_muuttujat(String nimi, String hinta) {
+    public Pelivaline_muuttujat(String nimi, String hinta, String valittuLajitunnus) {
         this.pelivalineNimi = nimi;
         this.valineHinta = hinta;
+        this.lajiTunnus = valittuLajitunnus;
     }
 }

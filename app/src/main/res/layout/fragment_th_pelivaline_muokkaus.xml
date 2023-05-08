@@ -26,22 +26,23 @@
             android:id="@+id/bt_poistaPeliv_th_pelivaline_muokkaus"
             android:layout_width="155dp"
             android:layout_height="48dp"
-            android:layout_marginTop="50dp"
-            android:minHeight="48dp"
             android:background="@drawable/btn_teema4"
+            android:minHeight="48dp"
             android:text="@string/bt_poistaPeliv_th_pelivaline_muokkaus"
+            app:layout_constraintBottom_toTopOf="@+id/bt_vahvista_th_pelivaline_muokkaus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_pelivHinta_th_pelivaline_muokkaus" />
+            app:layout_constraintTop_toBottomOf="@+id/et_pelivHinta_th_pelivaline_muokkaus"
+            app:layout_constraintVertical_bias="0.3" />
 
         <Button
             android:id="@+id/bt_vahvista_th_pelivaline_muokkaus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_teema3"
-            android:minHeight="48dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/btn_teema3"
+            android:minHeight="48dp"
             android:text="@string/bt_vahvista_th_pelivaline_muokkaus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -53,13 +54,13 @@
             android:ems="10"
             android:hint="@string/et_pelivNimi_th_pelivaline_muokkaus"
             android:inputType="text"
-            android:textColorHint="@color/black"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_th_pelivaline_muokkaus"
             app:layout_constraintVertical_bias="0.144" />
 
         <EditText
