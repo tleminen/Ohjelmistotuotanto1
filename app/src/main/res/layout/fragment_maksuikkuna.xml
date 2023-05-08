@@ -59,6 +59,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvYhteenvetoMaksuikkuna" />
 
@@ -66,14 +67,13 @@
             android:id="@+id/tv_summa_maksuikkuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="summa"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_yhteensaTeksti_maksuikkuna" />
+            app:layout_constraintStart_toStartOf="@+id/tv_yhteensaTeksti_maksuikkuna"
+            app:layout_constraintTop_toTopOf="@+id/tv_yhteensaTeksti_maksuikkuna" />
 
         <TextView
             android:id="@+id/tv_sahkopostiAsiakkaan_maksuikkuna"
@@ -92,7 +92,7 @@
             android:id="@+id/pt_nimiAsiakkaan_maksuikkuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/pt_nimiAsiakkaan_maksuikkuna"
             android:inputType="text"
@@ -107,7 +107,7 @@
             android:id="@+id/pt_osoiteAsiakkaan_maksuikkuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="@string/pt_osoiteAsiakkaan_maksuikkuna"
             android:inputType="text"
@@ -137,10 +137,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginBottom="68dp"
             android:background="@drawable/btn_teema5"
             android:text="@string/bt_vahvistaPainike_maksuikkuna"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imageView20"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -148,10 +147,9 @@
             android:layout_width="204dp"
             android:layout_height="48dp"
             android:layout_marginEnd="28dp"
-            android:layout_marginBottom="68dp"
             android:background="@drawable/btn_teema5"
             android:text="@string/bt_vahvistaNappulaUudetTiedot_maksuikkuna"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imageView20"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
@@ -170,8 +168,7 @@
             android:src="@drawable/progressbar6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_vahvistaNappulaUudetTiedot_maksuikkuna" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

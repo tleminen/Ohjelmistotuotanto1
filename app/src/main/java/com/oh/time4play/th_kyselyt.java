@@ -201,7 +201,7 @@ public class th_kyselyt {
         ArrayList<Pelivaline_muuttujat> itemArrayList = new ArrayList<>();
         System.out.println("Lukee dataa... getAllKentat");
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
-                SELECT pelivalineet.PelivalineID, ValineNimi, ValineHinta
+                SELECT DISTINCT pelivalineet.PelivalineID, ValineNimi, ValineHinta
                     FROM pelivalineet, saatavilla, kentat
                     WHERE kentat.LajiTunnus LIKE ?
                     AND kentat.KenttaID = saatavilla.KenttaID
