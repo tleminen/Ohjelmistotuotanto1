@@ -28,6 +28,7 @@ public class ToimipFragment extends Fragment {
 
     public static void setValittuToimipiste(String valittu) {
         ToimipFragment.valittuToimipiste = valittu;
+
     }
 
     public ToimipFragment() {super(R.layout.fragment_toimip);}
