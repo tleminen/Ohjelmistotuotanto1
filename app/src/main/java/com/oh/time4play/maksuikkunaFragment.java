@@ -229,20 +229,8 @@ public class maksuikkunaFragment extends Fragment {
         lisapalveluTotHinta = total;
     }
 
-    //TODO MÄÄRITTELE SÄHKÖPOSTIPALVELIN JNE. JA TESTAA TOKI TOIMINTA MYÖS
     private void teeLasku(LaskuMuuttujat valittuLasku) throws MessagingException {
-        String laskunSisalto = "Sisältö";
-        laskunSisalto = "Hyvä " + valittuLasku.getAsiakkaanNimi() + " tässä laskunne koskien varausta toimipisteessämme: " + valittuLasku.getToimipisteenNimi() + "\nTervetuloa pelaamaan "
-                + valittuLasku.getVarauksenAjankohta() + "\nVaraukseen kuuluu: \n\t" + valittuLasku.getKentanNimi() + "\n\t" + valittuLasku.getValitutLisapalvelut() + "\n\nTilausken loppusumma on: "
-                + valittuLasku.getLoppuSumma() + "\n\nOlkaa hyvä ja maksakaa se tilinumerollemme FI12 3456 7890 1234 56\tmaksuaika 14vrk\tviite: "+ valittuLasku.getAsiakkaanNimi() + "\n\nTerveisin,\nPallopojulit Oy";
 
-        Authenticator auth = new EmailServices.UserPassAuthenticator("pallopojulit@mail.com", "palloSalasana");
-        List to = List.of(new InternetAddress(valittuLasku.getAsiakkaanEmail()));
-        Address from = new InternetAddress("pallopojulit@mail.com");
-        EmailServices.Email email = new EmailServices.Email(auth, to, from, "Lasku", laskunSisalto);
-        EmailServices emailService = new EmailServices("smtp.mail.com", 587);
-        emailService.send(email);
-        System.out.println("Lasku lähetetty");
     }
 
     private String laskeKokonaisSumma() {
