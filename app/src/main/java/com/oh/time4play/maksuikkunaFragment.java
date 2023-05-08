@@ -11,16 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 
 import java.sql.SQLException;
-import java.util.List;
-
-import javax.mail.Address;
-import javax.mail.Authenticator;
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
 
 public class maksuikkunaFragment extends Fragment {
 
@@ -66,6 +61,7 @@ public class maksuikkunaFragment extends Fragment {
 
         TextView tvSumma = view.findViewById(R.id.tv_summa_maksuikkuna);
         TextView tvEmailOsoite = view.findViewById(R.id.tv_sahkopostiAsiakkaan_maksuikkuna);
+        TextView tvYhteenveto = view.findViewById(R.id.tvYhteenvetoMaksuikkuna);
 
         EditText etNimi = view.findViewById(R.id.pt_nimiAsiakkaan_maksuikkuna);
         EditText etOsoite = view.findViewById(R.id.pt_osoiteAsiakkaan_maksuikkuna);
@@ -106,11 +102,13 @@ public class maksuikkunaFragment extends Fragment {
 
         puraLisapalvelut(valitutLisapalvelut);
         loppuSumma = laskeKokonaisSumma();
-        tvSumma.setText(loppuSumma);
+        tvSumma.setText(loppuSumma + "€");
         tvEmailOsoite.setText(kayttajatunnus);
 
         //Muodostetaan LaskuMuuttujat
         laskunMuodostus();
+
+        tvYhteenveto.setText("Varattu kenttä: " + lasku.getKentanNimi() + "\nVarauksen aika: " + valittuPVM + " klo: " + valittuAika + "\n" + lisaPalvelutLaskulle);
 
         btVahvista.setOnClickListener(e -> {
             if (rbPaperilasku.isChecked() || rbSahkopostiLasku.isChecked()) {
@@ -124,18 +122,8 @@ public class maksuikkunaFragment extends Fragment {
                     try {
                         try {
                             varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt);
-                            if (varausOnnistui) {
-                                teeLasku(lasku);
-                                System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
-                                com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
-                                Navigation.findNavController(view).navigate(action);
-                            } else {
-                                System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
-                            }
                         } catch (SQLException e1) {
                             throw new RuntimeException(e1);
-                        } catch (MessagingException ex) {
-                            throw new RuntimeException(ex);
                         }
                         try {
                             Tietokantayhteys.katkaiseYhteysTietokantaan();
@@ -152,6 +140,13 @@ public class maksuikkunaFragment extends Fragment {
                     t2.join();
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
+                }
+                if (varausOnnistui) {
+                    System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
+                    Navigation.findNavController(view).navigate(action);
+                } else {
+                    System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
                 }
             }
         });
@@ -227,22 +222,6 @@ public class maksuikkunaFragment extends Fragment {
             }
         }
         lisapalveluTotHinta = total;
-    }
-
-    //TODO MÄÄRITTELE SÄHKÖPOSTIPALVELIN JNE. JA TESTAA TOKI TOIMINTA MYÖS
-    private void teeLasku(LaskuMuuttujat valittuLasku) throws MessagingException {
-        String laskunSisalto = "Sisältö";
-        laskunSisalto = "Hyvä " + valittuLasku.getAsiakkaanNimi() + " tässä laskunne koskien varausta toimipisteessämme: " + valittuLasku.getToimipisteenNimi() + "\nTervetuloa pelaamaan "
-                + valittuLasku.getVarauksenAjankohta() + "\nVaraukseen kuuluu: \n\t" + valittuLasku.getKentanNimi() + "\n\t" + valittuLasku.getValitutLisapalvelut() + "\n\nTilausken loppusumma on: "
-                + valittuLasku.getLoppuSumma() + "\n\nOlkaa hyvä ja maksakaa se tilinumerollemme FI12 3456 7890 1234 56\tmaksuaika 14vrk\tviite: "+ valittuLasku.getAsiakkaanNimi() + "\n\nTerveisin,\nPallopojulit Oy";
-
-        Authenticator auth = new EmailServices.UserPassAuthenticator("pallopojulit@mail.com", "palloSalasana");
-        List to = List.of(new InternetAddress(valittuLasku.getAsiakkaanEmail()));
-        Address from = new InternetAddress("pallopojulit@mail.com");
-        EmailServices.Email email = new EmailServices.Email(auth, to, from, "Lasku", laskunSisalto);
-        EmailServices emailService = new EmailServices("smtp.mail.com", 587);
-        emailService.send(email);
-        System.out.println("Lasku lähetetty");
     }
 
     private String laskeKokonaisSumma() {

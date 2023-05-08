@@ -56,6 +56,9 @@ public class pvmFragment extends Fragment {
                     if (day < 10){
                         paiva = "0"+paiva;
                     }
+                    if (Integer.parseInt(kuukausi) < 10) {
+                        kuukausi = "0" + kuukausi;
+                    }
                     valittupvm = vuosi + "-" + kuukausi + "-" + paiva;
                     System.out.println(valittupvm.toString());
                     if (TennisNappula.isChecked() | SulkapalloNappula.isChecked()) {
