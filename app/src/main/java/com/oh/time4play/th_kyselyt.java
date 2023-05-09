@@ -24,10 +24,29 @@ public class th_kyselyt {
         }
     }
 
-    public static void poistaPelivaline(Connection connection, int poistettavaPelivalineID) {
+    public static void poistaPelivaline(Connection connection, int poistettavaPelivalineID) throws SQLException {
+        System.out.println("Poistetaan peliväline ensin kuuluu -taulusta...");
+        try (PreparedStatement statement1 = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`kuuluu` 
+                    WHERE `PelivalineID` = ?
+                """)) {
+            statement1.setInt(1,poistettavaPelivalineID);
+            statement1.executeUpdate();
+        }
+
+        System.out.println("Poistetaan peliväline saatavilla -taulusta...");
+        try (PreparedStatement statement1 = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`saatavilla` 
+                    WHERE `PelivalineID` = ?
+                """)) {
+            statement1.setInt(1,poistettavaPelivalineID);
+            statement1.executeUpdate();
+        }
+
         System.out.println("Poistetaan peliväline jonka PelivalineID: " + poistettavaPelivalineID + "...");
         try (PreparedStatement statement = connection.prepareStatement("""
-                DELETE FROM `varausjarjestelma`.`pelivalineet` WHERE PelivalineID =?;
+                DELETE FROM `varausjarjestelma`.`pelivalineet` 
+                WHERE PelivalineID = ?;
                 """)) {
             statement.setInt(1,poistettavaPelivalineID);
             statement.executeUpdate();

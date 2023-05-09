@@ -93,7 +93,8 @@ public class th_pelivaline_muokkausFragment extends Fragment {
             } catch (InterruptedException e2) {
                 throw new RuntimeException(e2);
             }
-            th_kentta_muokkausFragmentDirections.ActionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment action = th_kentta_muokkausFragmentDirections.actionThKenttaMuokkausFragment2ToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+
+            com.oh.time4play.th_pelivaline_muokkausFragmentDirections.ActionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment action = th_pelivaline_muokkausFragmentDirections.actionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
 
