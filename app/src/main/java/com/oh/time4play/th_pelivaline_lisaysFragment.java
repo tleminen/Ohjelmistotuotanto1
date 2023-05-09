@@ -35,7 +35,7 @@ public class th_pelivaline_lisaysFragment extends Fragment {
         RadioButton rbSulis = view.findViewById(R.id.rbSulkapallo_lisays_pelivaline);
 
         lisaapelivaline.setOnClickListener(e->{
-            if (rbSulis.isChecked() | rbTennis.isChecked()) {
+            if (rbSulis.isChecked() | rbTennis.isChecked() && !valinehinta.getText().toString().equals("") && !valinenimi.getText().toString().equals("")) {
                 String valittuLaji = "";
                 if (rbSulis.isChecked()) {
                     valittuLaji = "Sulkapallo";
