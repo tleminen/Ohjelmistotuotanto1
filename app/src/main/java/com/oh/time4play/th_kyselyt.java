@@ -182,9 +182,23 @@ public class th_kyselyt {
      * @param poistettavaKenttaID Poistettavan kentan KenttaID
      */
     public static void poistaKentta(Connection connection, int poistettavaKenttaID) {
+        System.out.println("Poistetaan yhteys pelivälineiden saatavuuteen");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`saatavilla` 
+                    WHERE KenttaID =?;
+                """)) {
+            statement.setInt(1,poistettavaKenttaID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
         System.out.println("Poistetaan toimipiste jonka kenttaID: " + poistettavaKenttaID + "...");
         try (PreparedStatement statement = connection.prepareStatement("""
-                DELETE FROM `varausjarjestelma`.`kentat` WHERE KenttaID =?;
+                DELETE FROM `varausjarjestelma`.`kentat` 
+                    WHERE KenttaID =?;
                 """)) {
             statement.setInt(1,poistettavaKenttaID);
             statement.executeUpdate();
