@@ -45,11 +45,11 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
     public void onBindViewHolder(@NonNull th_peliv_muutoksetListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(peliv_muutoksetListener);
-
         holder.checkBox.setClickable(false);
 
         holder.textView.setText(localDataset.get(position).pelivalineNimi);
     }
+
 
     @Override
     public int getItemCount() {return localDataset.size();}
