@@ -20,9 +20,6 @@ public class SystemKyselyt {
 
         Connection tietokantayhteys = Tietokantayhteys.yhdistaSystemTietokantaan();
 
-        //TODO Tähän lisätään tarkastus onko asiakasta jo olemassa
-        // KirjautumisKyselyt.getOnkoRooliAsiakas(tietokantayhteys,loginTunnus);
-
         System.out.println("Lisätään asiakkaan tiedot tietokantaan..:");
         try (PreparedStatement statement = tietokantayhteys.prepareStatement("""
                 INSERT INTO asiakas (email, osoite, Asiakasnimi)
