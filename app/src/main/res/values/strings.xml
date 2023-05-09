@@ -155,6 +155,7 @@
     <string name="bt_raportti_Paluu">Palaa takaisin</string>
     <string name="tv_raportti_Alku">AlkuPVM</string>
     <string name="tv_raportti_Loppu">LoppuPVM</string>
+    <string name="text_bt_avoimetLaskut">Avoimet laskut</string>
 
     <!-- Laskutus -->
     <string name="text_Otsikko_Laskutus">Laskutus</string>

@@ -40,6 +40,7 @@ public class Raportti extends Fragment {
 
         Button btVahvista = view.findViewById(R.id.bt_raportti_Vahvista);
         Button btPaluu = view.findViewById(R.id.bt_raportti_Loppu);
+        Button btAvoimet = view.findViewById(R.id.btRaportti_AvoimetLaskut);
 
         TextView tvRaporttiTeksti = view.findViewById(R.id.tv_raporttiTulostus);
 
@@ -69,7 +70,11 @@ public class Raportti extends Fragment {
 
         });
 
-        btPaluu.setOnClickListener(e ->{
+        btAvoimet.setOnClickListener(e -> {
+
+        });
+
+        btPaluu.setOnClickListener(e -> {
             RaporttiDirections.ActionRaporttiToToimipisteenHallintaFragment action = com.oh.time4play.RaporttiDirections.actionRaporttiToToimipisteenHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });

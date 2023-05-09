@@ -63,7 +63,7 @@ public class Toimip_ListAdapter extends RecyclerView.Adapter<Toimip_ListAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
 
-            checkBox = (CheckBox) itemView.findViewById(R.id.cb_pelivMuutoksetValinta);
+            checkBox = (CheckBox) itemView.findViewById(R.id.cb_Toimip_itemValinta);
             textView = (TextView) itemView.findViewById(R.id.twToimip_ItemPaikkaKu);
             textView2 = (TextView) itemView.findViewById(R.id.twToimip_ItemNimi);
         }

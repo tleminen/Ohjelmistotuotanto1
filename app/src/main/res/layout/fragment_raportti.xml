@@ -74,13 +74,13 @@
             android:id="@+id/bt_raportti_Loppu"
             android:layout_width="126dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/btn_teema3"
             android:minHeight="48dp"
             android:text="@string/bt_raportti_Paluu"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tv_raporttiTulostus"
@@ -114,5 +114,16 @@
             app:layout_constraintEnd_toStartOf="@+id/et_raporttiLoppuPVM"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/et_raporttiLoppuPVM" />
+
+        <Button
+            android:id="@+id/btRaportti_AvoimetLaskut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/teal_700"
+            android:text="@string/text_bt_avoimetLaskut"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
