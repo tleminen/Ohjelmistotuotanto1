@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,7 +34,6 @@ public class ToimipFragment extends Fragment {
     }
 
     public ToimipFragment() {super(R.layout.fragment_toimip);}
-
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan

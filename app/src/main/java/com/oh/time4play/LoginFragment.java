@@ -65,7 +65,6 @@ public class LoginFragment extends Fragment {
                 });
                 t1.start();
 
-
                 //Seuraavaksi kokeillaan onko rooli toimipistevastaava
                 System.out.println("Kokeillaan rooli toimipistevastaava");
                 Thread t2 = new Thread(new Runnable() {
@@ -81,7 +80,6 @@ public class LoginFragment extends Fragment {
                 });
                 t2.start();
 
-
                 //Lopuksi testataan onko rooli toimipisteiden hallinnoitsija
                 System.out.println("Kokeillaan onko rooli toimipisteidenhallinnoitsija");
                 Thread t3 = new Thread(new Runnable() {
@@ -96,7 +94,6 @@ public class LoginFragment extends Fragment {
                     }
                 });
                 t3.start();
-
 
                 try {
                     t1.join();

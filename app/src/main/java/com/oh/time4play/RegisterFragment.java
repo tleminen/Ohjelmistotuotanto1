@@ -2,6 +2,7 @@ package com.oh.time4play;
 
 import android.os.Bundle;
 
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -13,7 +14,12 @@ import android.widget.EditText;
 
 import com.oh.time4play.RegisterFragmentDirections;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.sql.SQLException;
+
+import kotlin.jvm.internal.Intrinsics;
 
 /**
  * Toteuttaa uuden asiakkaan rekisteröitymisen
@@ -71,8 +77,6 @@ public class RegisterFragment extends Fragment {
                 Navigation.findNavController(view).navigate(action);
             }
         });
-
-
 
         return view;
     }
