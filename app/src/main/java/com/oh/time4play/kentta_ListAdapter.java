@@ -48,6 +48,8 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
     public void onBindViewHolder(@NonNull kentta_ListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Kentta_Listener);
+        holder.tKenttaHinta.setText(localDataset.get(position).kentanHinta + "€");
+        holder.tKenttaNimi.setText(localDataset.get(position).nimi);
 
         holder.t0.setBackgroundColor(variValinta(localDataset.get(position).getKlo00()));
         holder.t1.setBackgroundColor(variValinta(localDataset.get(position).getKlo01()));
@@ -80,6 +82,8 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
+        public final TextView tKenttaNimi;
+        public final TextView tKenttaHinta;
         public final TextView t0;
         public final TextView t1;
         public final TextView t2;
@@ -108,6 +112,8 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
 
+            tKenttaNimi = (TextView) itemView.findViewById(R.id.tv_kenttaItem_KenttaNimi);
+            tKenttaHinta = (TextView) itemView.findViewById(R.id.tv_KenttaItem_Hinta);
             t0 = (TextView) itemView.findViewById(R.id.kellonaikaKLO0);
             t1 = (TextView) itemView.findViewById(R.id.kellonaikaKLO1);
             t2 = (TextView) itemView.findViewById(R.id.kellonaikaKLO2);
