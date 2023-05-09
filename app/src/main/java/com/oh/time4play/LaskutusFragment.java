@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class LaskutusFragment extends Fragment {
     ArrayList<LaskuMuuttujat> laskuta = new ArrayList<>();
-
+    ArrayList<LaskuMuuttujat> laskutaPosti = new ArrayList<>();
 
     public LaskutusFragment() {
         // Required empty public constructor
@@ -40,6 +40,8 @@ public class LaskutusFragment extends Fragment {
 
         TextView tvPrintti = view.findViewById(R.id.tvLaskuttamattomat);
 
+        //Ensin sähköpostitse laskutettavat
+
         Thread t1 = new Thread(() -> {
             Connection connection;
             try {
@@ -57,14 +59,55 @@ public class LaskutusFragment extends Fragment {
             throw new RuntimeException(ex);
         }
 
-        String printti = "\tSähköpostitse laskutettavat:\n\n";
+        String printti = "\tSähköpostitse laskutettavat:\n";
         for (LaskuMuuttujat lasku: laskuta) {
             printti += "\n---------------------\n" + lasku.getVarauksenAjankohta() + "\nKentta: " + lasku.getKentanNimi() + "\nSähköpostiosoite: " + lasku.getAsiakkaanEmail() + lasku.getValitutLisapalvelut() + "Loppusumma: " + lasku.getLaskutettavaSumma() + "€\n";
+        }
+
+        //Seuraavaksi postitse laskutettavat
+        Thread t2 = new Thread(() -> {
+            Connection connection;
+            try {
+                connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                laskutaPosti = Raportti_kyselyt.getLocalPostiLaskut(connection, kayttajatunnus);
+                laskutaPosti = Raportti_kyselyt.addAsiakkaanTiedot(connection,laskutaPosti);
+                Tietokantayhteys.katkaiseYhteysTietokantaan();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        t2.start();
+        try {
+            t2.join();
+        } catch (InterruptedException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        printti += "\n\n\tPostitse laskutettavat:\n";
+        for (LaskuMuuttujat lasku: laskutaPosti) {
+            printti += "\n---------------------\n" + lasku.getVarauksenAjankohta() + "\nKentta: " + lasku.getKentanNimi() + "\nAsiakkaan nimi: " + lasku.getAsiakkaanNimi() + "\nSähköpostiosoite: " + lasku.getAsiakkaanEmail() + "\nOsoite: " + lasku.getAsiakkaanOsoite() + lasku.getValitutLisapalvelut() + "Loppusumma: " + lasku.getLaskutettavaSumma() + "€\n";
         }
         tvPrintti.setText(printti);
 
         //Lisää tähän maksujen muokkaus
         btVahvistaLaskutetuiksi.setOnClickListener(e -> {
+            Thread t3 = new Thread(() -> {
+                Connection connection;
+                try {
+                    connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                    Raportti_kyselyt.setLaskutettu(connection, laskuta);
+                    Raportti_kyselyt.setLaskutettu(connection, laskutaPosti);
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            t3.start();
+            try {
+                t3.join();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
             com.oh.time4play.LaskutusFragmentDirections.ActionLaskutusFragmentToToimipisteenHallintaFragment action = com.oh.time4play.LaskutusFragmentDirections.actionLaskutusFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
