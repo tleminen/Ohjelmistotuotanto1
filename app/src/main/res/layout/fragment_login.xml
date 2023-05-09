@@ -103,11 +103,11 @@
             android:id="@+id/imageView3"
             android:layout_width="302dp"
             android:layout_height="275dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="28dp"
             android:src="@drawable/pelaajat"
             app:layout_constraintBottom_toTopOf="@+id/etSahkoposti"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.66"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

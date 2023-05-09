@@ -49,7 +49,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_kenttaValitseKenttaTeksti"
-            app:layout_constraintVertical_bias="0.286" />
+            app:layout_constraintVertical_bias="0.204" />
 
         <ImageView
             android:id="@+id/imageView16"
