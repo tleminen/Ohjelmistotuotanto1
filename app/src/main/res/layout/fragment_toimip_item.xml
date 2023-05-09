@@ -3,26 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".ToimipItem" >
+    tools:context=".ToimipItem"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/twToimip_ItemPaikkaKu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Toimipisteen paikkakunta" />
+        android:text="Toimipisteen paikkakunta  " />
 
     <TextView
         android:id="@+id/twToimip_ItemNimi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Toimipisteen nimi" />
+        android:text=" Toimipisteen nimi" />
 
     <CheckBox
         android:id="@+id/cb_Toimip_itemValinta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minWidth="48dp"
         android:minHeight="48dp" />
 </LinearLayout>
