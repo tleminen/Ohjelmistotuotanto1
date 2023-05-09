@@ -81,4 +81,8 @@ public class Maksun_Kyselyt {
             return true;
         }
     }
+
+    //TODO LISÄÄ KÄYTTÄJÄN UPDATE
+    public static void updateAsiakas(Connection yhdistaSystemTietokantaan, String kayttajatunnus, String toString, String toString1) {
+    }
 }
