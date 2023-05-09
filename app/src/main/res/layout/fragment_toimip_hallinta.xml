@@ -16,12 +16,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/tw_Otsikko_toimip_hallinta"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/linearLayout2"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/et_tpHal_poistettavaAsiakas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/twOtsikko_toimip_hallinta">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rwToimipisteidenHallinnointi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -33,10 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/twOtsikko_toimip_hallinta">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rwToimipisteidenHallinnointi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <EditText
@@ -47,10 +57,10 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/et_anna_poistettava_asiakas"
-            android:textColorHint="@color/black"
             android:inputType="text"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/bt_tpHal_poistaAsiakas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -109,14 +119,14 @@
             android:id="@+id/bt_tpHal_poistaAsiakas"
             android:layout_width="124dp"
             android:layout_height="48dp"
-            android:minHeight="48dp"
             android:background="@drawable/btn_teema4"
+            android:minHeight="48dp"
             android:text="@string/bt_poista_asiakas"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-            app:layout_constraintVertical_bias="0.89" />
+            app:layout_constraintVertical_bias="0.97" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
