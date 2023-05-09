@@ -55,6 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_valineNimi_th_pelivaline_lisays" />
 
         <RadioGroup
+            android:id="@+id/radioGroup5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -121,5 +122,16 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView10"
             app:layout_constraintHorizontal_bias="0.68"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPelivalineLisays_Varoitus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

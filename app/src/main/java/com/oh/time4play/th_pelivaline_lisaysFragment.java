@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,6 +29,10 @@ public class th_pelivaline_lisaysFragment extends Fragment {
         EditText valinenimi = view.findViewById(R.id.et_valineNimi_th_pelivaline_lisays);
         EditText valinehinta = view.findViewById(R.id.et_valineHinta_th_pelivaline_lisays);
 
+        TextView tvVaroitus = view.findViewById(R.id.tvPelivalineLisays_Varoitus);
+
+        tvVaroitus.setVisibility(View.INVISIBLE);
+
         Button lisaapelivaline = view.findViewById(R.id.bt_lisaaPelivalinePainike_th_pelivaline_lisays);
         Button poistu = view.findViewById(R.id.bt_poistuPainike_th_pelivaline_lisays);
 
@@ -36,6 +41,7 @@ public class th_pelivaline_lisaysFragment extends Fragment {
 
         lisaapelivaline.setOnClickListener(e->{
             if (rbSulis.isChecked() | rbTennis.isChecked() && !valinehinta.getText().toString().equals("") && !valinenimi.getText().toString().equals("")) {
+                tvVaroitus.setVisibility(View.INVISIBLE);
                 String valittuLaji = "";
                 if (rbSulis.isChecked()) {
                     valittuLaji = "Sulkapallo";
@@ -65,6 +71,9 @@ public class th_pelivaline_lisaysFragment extends Fragment {
                 }
                 th_pelivaline_lisaysFragmentDirections.ActionThPelivalineLisaysFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_pelivaline_lisaysFragmentDirections.actionThPelivalineLisaysFragmentToToimipisteenHallintaFragment(kayttajatunnus,salasana);
                 Navigation.findNavController(view).navigate(action);
+            } else {
+                tvVaroitus.setText(R.string.text_th_pelivaline_lisays_Varoitus);
+                tvVaroitus.setVisibility(View.VISIBLE);
             }
         });
 

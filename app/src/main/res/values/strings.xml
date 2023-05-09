@@ -74,6 +74,7 @@
     <string name="et_valineHinta_th_pelivaline_lisays">Hinta</string>
     <string name="bt_lisaaPelivalinePainike_th_pelivaline_lisays">Lisää peliväline</string>
     <string name="bt_poistuPainike_th_pelivaline_lisays">Poistu</string>
+    <string name="text_th_pelivaline_lisays_Varoitus">Anna kaikki tiedot.</string>
 
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
