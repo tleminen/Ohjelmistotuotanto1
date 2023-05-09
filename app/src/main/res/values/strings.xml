@@ -80,6 +80,8 @@
     <string name="et_text_syotasapo_Login">Syötä Sähköpostiosoite</string>
     <string name="bt_text_Kirjaudu_Login">Kirjaudu</string>
     <string name="bt_text_Rekisteroidt_Login">Rekisteröidy</string>
+    <string name="text_tvLogin_varoitus">Käyttäjätunnus tai salasana puuttuu!</string>
+    <string name="text_tvLogin_vaaratKirjautumistiedot">Käyttäjätunnus tai salasana virheellinen.</string>
 
     <!-- Register -->
     <string name="et_text_Salasana_Register">Anna salasana</string>
