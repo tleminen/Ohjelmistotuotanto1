@@ -52,7 +52,7 @@ public class pvmFragment extends Fragment {
         });
 
                 Vahvista.setOnClickListener(e -> {
-                    if (paiva != null) {
+                    if (paiva != null && TennisNappula.isChecked() | SulkapalloNappula.isChecked()) {
                         int day = Integer.parseInt(paiva);
                         if (day < 10) {
                             paiva = "0" + paiva;
