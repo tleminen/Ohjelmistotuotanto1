@@ -46,6 +46,8 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(peliv_muutoksetListener);
 
+        holder.checkBox.setClickable(false);
+
         holder.textView.setText(localDataset.get(position).pelivalineNimi);
     }
 
@@ -55,9 +57,12 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView textView;
+        public final CheckBox checkBox;
 
         public ViewHolder(View itemView) {
             super(itemView);
+
+            checkBox = (CheckBox) itemView.findViewById(R.id.cb_pelivMuutoksetValinta);
 
             textView = (TextView) itemView.findViewById(R.id.tv_pelivnimi_th_peliv_muutokset);
         }
