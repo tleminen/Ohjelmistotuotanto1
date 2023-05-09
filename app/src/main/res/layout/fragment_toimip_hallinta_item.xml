@@ -22,4 +22,10 @@
         android:minHeight="48dp"
         android:text="Toimipisteen nimi" />
 
+    <CheckBox
+        android:id="@+id/cbToimip_HallintaItemValinta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp" />
+
 </LinearLayout>
