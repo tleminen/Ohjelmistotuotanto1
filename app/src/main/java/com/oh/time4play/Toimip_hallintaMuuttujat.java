@@ -15,6 +15,7 @@ public class Toimip_hallintaMuuttujat {
     public String Salasana = "";
     public String Kaupunki = "-";
     public String ToimipisteVastaava = "";
+    protected boolean valittu = false;
 
     public Toimip_hallintaMuuttujat(String kaupunki, String nimi, String toimipisteVastaava) {
         this.Kaupunki = kaupunki;
