@@ -67,6 +67,7 @@
     <string name="bt_poistaPeliv_th_pelivaline_muokkaus">Poista peliväline</string>
     <string name="bt_vahvista_th_pelivaline_muokkaus">Vahvista muutokset</string>
     <string name="bt_palaa_th_pelivaline_muokkaus">Paluu</string>
+    <string name="text_tvVaroitus_pelivaline_muokkaus">Ei tyhjiä kenttiä sallittu</string>
 
     <!-- th_pelivaline_lisays -->
     <string name="tv_otsikko_th_pelivaline_lisays">Lisää uusi peliväline</string>

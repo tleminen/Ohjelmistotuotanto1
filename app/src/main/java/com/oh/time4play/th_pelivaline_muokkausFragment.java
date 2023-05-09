@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.sql.SQLException;
 
@@ -35,9 +36,11 @@ public class th_pelivaline_muokkausFragment extends Fragment {
         String salasana = th_pelivaline_muokkausFragmentArgs.fromBundle(getArguments()).getKirjautunuSalasana();
         int valittuPelivaline = th_pelivaline_muokkausFragmentArgs.fromBundle(getArguments()).getValittuPelivalineID();
 
-
         EditText pelivalineNimi = view.findViewById(R.id.et_pelivNimi_th_pelivaline_muokkaus);
         EditText pelivalineHinta = view.findViewById(R.id.et_pelivHinta_th_pelivaline_muokkaus);
+
+        TextView tvVaroitus = view.findViewById(R.id.tv_th_pelivaline_muokkaus_Varoitus);
+        tvVaroitus.setVisibility(View.INVISIBLE);
 
         Button btPoistaPelivaline = view.findViewById(R.id.bt_poistaPeliv_th_pelivaline_muokkaus);
         Button btVahvista = view.findViewById(R.id.bt_vahvista_th_pelivaline_muokkaus);
@@ -99,34 +102,40 @@ public class th_pelivaline_muokkausFragment extends Fragment {
         });
 
         btVahvista.setOnClickListener(e -> {
+            tvVaroitus.setVisibility(View.INVISIBLE);
+            if (!pelivalineNimi.getText().toString().equals("") && !pelivalineHinta.getText().toString().equals("")) {
 
-            pelivaline.pelivalineNimi = pelivalineNimi.getText().toString();
-            pelivaline.valineHinta = pelivalineHinta.getText().toString();
+                pelivaline.pelivalineNimi = pelivalineNimi.getText().toString();
+                pelivaline.valineHinta = pelivalineHinta.getText().toString();
 
-            Thread t3 = new Thread(() -> {
+                Thread t3 = new Thread(() -> {
+                    try {
+                        try {
+                            th_kyselyt.updatePelivaline(Tietokantayhteys.yhdistaSystemTietokantaan(), pelivaline);
+                        } catch (SQLException e3) {
+                            throw new RuntimeException(e3);
+                        }
+                        try {
+                            Tietokantayhteys.katkaiseYhteysTietokantaan();
+                        } catch (SQLException e3) {
+                            throw new RuntimeException(e3);
+                        }
+                    } catch (RuntimeException e3) {
+                        throw new RuntimeException(e3);
+                    }
+                });
+                t3.start();
                 try {
-                    try {
-                        th_kyselyt.updatePelivaline(Tietokantayhteys.yhdistaSystemTietokantaan(), pelivaline);
-                    } catch (SQLException e3) {
-                        throw new RuntimeException(e3);
-                    }
-                    try {
-                        Tietokantayhteys.katkaiseYhteysTietokantaan();
-                    } catch (SQLException e3) {
-                        throw new RuntimeException(e3);
-                    }
-                } catch (RuntimeException e3) {
+                    t3.join();
+                } catch (InterruptedException e3) {
                     throw new RuntimeException(e3);
                 }
-            });
-            t3.start();
-            try {
-                t3.join();
-            } catch (InterruptedException e3) {
-                throw new RuntimeException(e3);
+                th_pelivaline_muokkausFragmentDirections.ActionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_pelivaline_muokkausFragmentDirections.actionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment(kayttajatunnus, salasana);
+                Navigation.findNavController(view).navigate(action);
+            } else {
+                tvVaroitus.setText(R.string.text_tvVaroitus_pelivaline_muokkaus);
+                tvVaroitus.setVisibility(View.VISIBLE);
             }
-            th_pelivaline_muokkausFragmentDirections.ActionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_pelivaline_muokkausFragmentDirections.actionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment(kayttajatunnus, salasana);
-            Navigation.findNavController(view).navigate(action);
         });
 
         btPaluu.setOnClickListener(e-> {
