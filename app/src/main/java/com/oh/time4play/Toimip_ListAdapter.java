@@ -45,6 +45,8 @@ public class Toimip_ListAdapter extends RecyclerView.Adapter<Toimip_ListAdapter.
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Toimip_Listener);
 
+        holder.checkBox.setClickable(false);
+
         holder.textView.setText(localDataset.get(position).Kaupunki);
         holder.textView2.setText(localDataset.get(position).Nimi);
     }
@@ -56,10 +58,12 @@ public class Toimip_ListAdapter extends RecyclerView.Adapter<Toimip_ListAdapter.
 
         public final TextView textView;
         public final TextView textView2;
+        public final CheckBox checkBox;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
+            checkBox = (CheckBox) itemView.findViewById(R.id.cb_pelivMuutoksetValinta);
             textView = (TextView) itemView.findViewById(R.id.twToimip_ItemPaikkaKu);
             textView2 = (TextView) itemView.findViewById(R.id.twToimip_ItemNimi);
         }
