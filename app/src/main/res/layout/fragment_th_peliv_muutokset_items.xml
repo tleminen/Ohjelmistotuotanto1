@@ -17,5 +17,11 @@
             android:minHeight="48dp"
             android:text="Välinenimi" />
 
+        <CheckBox
+            android:id="@+id/cb_pelivMuutoksetValinta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
     </LinearLayout>
 </FrameLayout>

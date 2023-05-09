@@ -3,6 +3,7 @@ package com.oh.time4play;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,13 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
+            CheckBox checkBox = v.findViewById(R.id.cb_pelivMuutoksetValinta);
+            if (checkBox.isChecked()) { checkBox.setChecked(false);
+            } else {
+                checkBox.setChecked(true);
+            }
+            th_peliv_muutoksetListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
+
             System.out.println(position);
             th_peliv_muutoksetFragment.setValittuPelivaline(th_peliv_muutoksetListAdapter.localDataset.get(position).pelivalineID);
             System.out.println("valittu: "+ localDataset.get(position).pelivalineID);
