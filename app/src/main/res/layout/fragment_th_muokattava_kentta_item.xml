@@ -3,26 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:padding="8dp"
     tools:context=".th_muokattava_kentta_item">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:minHeight="48dp">
 
         <TextView
             android:id="@+id/tv_thMuokattavaKenttaItemLaji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:text="Lajitunnus" />
 
         <TextView
             android:id="@+id/tv_thMuokattavaKenttaItemNimi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:text="Nimi" />
     </LinearLayout>
 
