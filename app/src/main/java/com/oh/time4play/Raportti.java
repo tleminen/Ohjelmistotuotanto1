@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 public class Raportti extends Fragment {
 
+    public String laskut;
+
     public String raportti;
 
     public Raportti() {
@@ -72,6 +74,23 @@ public class Raportti extends Fragment {
 
         btAvoimet.setOnClickListener(e -> {
 
+            Thread t1 = new Thread(() -> {
+                Connection connection;
+                try {
+                    connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                    laskut = Raportti_kyselyt.getAvoimetLaskut(connection, kayttajatunnus);
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            t1.start();
+            try {
+                t1.join();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+            tvRaporttiTeksti.setText(laskut);
         });
 
         btPaluu.setOnClickListener(e -> {
