@@ -14,13 +14,14 @@ import android.widget.Button;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ToimipFragment extends Fragment {
 
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 
-    public static String valittuToimipiste;
+    public static String valittuToimipiste = "ei";
 
     public static String getValittuToimipiste() {
         return valittuToimipiste;
@@ -73,7 +74,7 @@ public class ToimipFragment extends Fragment {
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         btVahvista.setOnClickListener(e -> {
-            if (valittuToimipiste != null) {
+            if (!Objects.equals(valittuToimipiste, "ei")) {
             com.oh.time4play.ToimipFragmentDirections.ActionToimipFragmentToPvmFragment action = com.oh.time4play.ToimipFragmentDirections.actionToimipFragmentToPvmFragment(kayttajatunnus,salasana,ToimipFragment.valittuToimipiste);
             Navigation.findNavController(view).navigate(action); }
         });
