@@ -62,7 +62,7 @@
 
         <ImageView
             android:id="@+id/imageView16"
-            android:layout_width="430dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:src="@drawable/progressbar3"
             app:layout_constraintBottom_toBottomOf="parent"

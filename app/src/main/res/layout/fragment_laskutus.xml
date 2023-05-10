@@ -74,7 +74,7 @@
 
     <ImageView
         android:id="@+id/imageView33"
-        android:layout_width="410dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:src="@drawable/th_progressbar6"
         app:layout_constraintBottom_toBottomOf="parent"

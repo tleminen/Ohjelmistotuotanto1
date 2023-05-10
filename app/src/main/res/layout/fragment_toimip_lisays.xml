@@ -114,7 +114,7 @@
 
         <ImageView
             android:id="@+id/imageView35"
-            android:layout_width="410dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
             android:src="@drawable/toimp_progressbar1"
             app:layout_constraintBottom_toBottomOf="parent"
