@@ -115,16 +115,96 @@ public class Toimip_hallinta_kyselyt {
      * @param connection Tarvitsee yhteyden, jolla on DELETE oikeus toimipiste -tauluun
      * @param poistettavaNimi Poistettavan toimipisteen Toimipistevastaava
      */
-    //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN
-    public static void poistaToimipiste(Connection connection, String poistettavaNimi) {
+    public static void poistaToimipiste(Connection connection, String poistettavaNimi) throws SQLException {
         System.out.println("Poistetaan toimipiste jonka Toimipistevastaava: " + poistettavaNimi);
+
+        ArrayList<Integer> poistettavatKentat = new ArrayList<>();
+        ArrayList<Integer> poistettavatVaraukset = new ArrayList<>();
+
+        System.out.println("Valitaan poistettavat kentät...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT KenttaID
+                    FROM kentat
+                    WHERE Toimipistevastaava = ?              
+                """)) {
+            statement.setString(1,poistettavaNimi);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("Löytyi kenttä");
+                poistettavatKentat.add(resultSet.getInt("KenttaID"));
+            }
+        }
+
+        System.out.println("Valitaan poistettavat varaukset...");
+        for (int kenttaID: poistettavatKentat) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    SELECT VarausID
+                        FROM varaus
+                        WHERE KenttaID = ?
+                    """)) {
+                statement.setInt(1,kenttaID);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    System.out.println("Löytyi varaus");
+                    poistettavatVaraukset.add(resultSet.getInt("VarausID"));
+                }
+            }
+        }
+
+        System.out.println("Poistetaan kuuluu taulusta varaukset...");
+        for (int varausID: poistettavatVaraukset) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`kuuluu` WHERE VarausID = ?
+                    """)) {
+                statement.setInt(1,varausID);
+                statement.executeUpdate();
+            }
+        }
+
+        System.out.println("Poistetaan saatavilla taulusta riippuvuudet kentästä...");
+        for (int kenttaID : poistettavatKentat) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`saatavilla` WHERE KenttaID = ?
+                """)) {
+                statement.setInt(1,kenttaID);
+                statement.executeUpdate();
+            }
+        }
+
+        System.out.println("Poistetaan varaukset...");
+        for (int varausID : poistettavatVaraukset) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`varaus` WHERE VarausID = ? 
+                    """)) {
+                statement.setInt(1,varausID);
+                statement.executeUpdate();
+            }
+        }
+
+        System.out.println("Poistetaan kentat");
+        for (int kenttaID : poistettavatKentat) {
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`kentat` WHERE KenttaID = ?
+                    """)) {
+                statement.setInt(1,kenttaID);
+                statement.executeUpdate();
+            }
+        }
+
+        System.out.println("Poistetaan toimipiste...");
         try (PreparedStatement statement7 = connection.prepareStatement("""
                 DELETE FROM `varausjarjestelma`.`toimipiste` WHERE Toimipistevastaava =?;
                 """)) {
             statement7.setString(1,poistettavaNimi);
             statement7.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        }
+
+        System.out.println("Poistetaan kirjautumistunnus...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                DROP USER ? @'%';
+                """)) {
+            statement.setString(1,poistettavaNimi);
+            statement.executeUpdate();
         }
     }
 
