@@ -20,7 +20,7 @@
             android:text="@string/tw_tpTiedotTeksti_Muokkaus"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="#411a66"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,14 +33,15 @@
             android:ems="10"
             android:hint="@string/et_tpMuokkausNimi"
             android:inputType="text"
-            android:textColorHint="@color/black"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/bt_tpMuokkausNappula"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tw_tpMuokkausTeksti"
-            app:layout_constraintVertical_bias="0.45" />
+            app:layout_constraintVertical_bias="0.35" />
 
         <EditText
             android:id="@+id/et_tpMuokkausKaupunki"
@@ -75,6 +76,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#743d9e"
             app:layout_constraintBottom_toTopOf="@+id/et_tpMuokkausNimi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

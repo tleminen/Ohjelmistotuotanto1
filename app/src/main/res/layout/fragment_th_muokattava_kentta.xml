@@ -19,7 +19,7 @@
             android:minHeight="48dp"
             android:text="@string/tv_thMuokkausKenttaOtsikko"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="#1d4978"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
