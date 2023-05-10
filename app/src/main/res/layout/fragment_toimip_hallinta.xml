@@ -30,13 +30,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/et_tpHal_poistettavaAsiakas"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_AsiakasHallinta_Toimip_Hallinta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/twOtsikko_toimip_hallinta"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toBottomOf="@+id/twOtsikko_toimip_hallinta">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rwToimipisteidenHallinnointi"
@@ -55,22 +54,6 @@
             app:layout_constraintTop_toBottomOf="@+id/twOtsikko_toimip_hallinta">
 
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/et_tpHal_poistettavaAsiakas"
-            android:layout_width="0dp"
-            android:layout_height="53dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/et_anna_poistettava_asiakas"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textAlignment="center"
-            android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/bt_tpHal_poistaAsiakas"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -123,19 +106,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_tpHal_poistaAsiakas"
-            android:layout_width="124dp"
-            android:layout_height="48dp"
-            android:background="@drawable/btn_teema4"
-            android:minHeight="48dp"
-            android:text="@string/bt_poista_asiakas"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-            app:layout_constraintVertical_bias="0.97" />
-
         <ImageView
             android:id="@+id/imageView34"
             android:layout_width="410dp"
@@ -145,17 +115,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvHuomioToimip_hallinta"
+        <Button
+            android:id="@+id/bt_AsiakasHallinta_Toimip_Hallinta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="#25E91E"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_tpHal_poistettavaAsiakas"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_teema3"
+            android:padding="8dp"
+            android:text="@string/text_bt_AsiakasHallinta_toimip_hallinta"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -15,6 +15,13 @@ public class Asiakas_Muuttujat {
         this.osoite = osoite;
     }
 
+    public Asiakas_Muuttujat(String email, String asiakasNimi, String rooli, String osoite) {
+        this.email = email;
+        this.asiakasNimi = asiakasNimi;
+        this.rooli = rooli;
+        this.osoite = osoite;
+    }
+
     public String getEmail() {
         return email;
     }

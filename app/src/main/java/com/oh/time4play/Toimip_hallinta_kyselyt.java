@@ -284,4 +284,18 @@ public class Toimip_hallinta_kyselyt {
             statement.executeUpdate();
         }
     }
+
+    public static ArrayList<Asiakas_Muuttujat> getAllAsiakkaat(Connection yhdistaTietokantaan) throws SQLException {
+        ArrayList<Asiakas_Muuttujat> asiakkaat = new ArrayList<>();
+        try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
+                SELECT *
+                    FROM asiakas
+                """)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                asiakkaat.add(new Asiakas_Muuttujat(resultSet.getString("email"),resultSet.getString("Asiakasnimi"),resultSet.getString("Rooli"),resultSet.getString("Osoite")));
+            }
+        }
+        return asiakkaat;
+    }
 }

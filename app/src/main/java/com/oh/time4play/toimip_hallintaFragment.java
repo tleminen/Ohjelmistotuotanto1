@@ -55,10 +55,7 @@ public class toimip_hallintaFragment extends Fragment {
 
         Button btPoistuTp = view.findViewById(R.id.btPoistuToimip_hallinta);
 
-        Button btPoistaAsiakas = view.findViewById(R.id.bt_tpHal_poistaAsiakas);
-        EditText etPoistettavaAsiakas = view.findViewById(R.id.et_tpHal_poistettavaAsiakas);
-        TextView tvHuomio = view.findViewById(R.id.tvHuomioToimip_hallinta);
-        tvHuomio.setVisibility(View.INVISIBLE);
+        Button btAsiakashallinta = view.findViewById(R.id.bt_AsiakasHallinta_Toimip_Hallinta);
 
         //RecycleView Toimipisteiden listaamiseen
         RecyclerView myRecycleView = view.findViewById(R.id.rwToimipisteidenHallinnointi);
@@ -93,44 +90,12 @@ public class toimip_hallintaFragment extends Fragment {
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-        //Asiakas hallinta (Asiakkaan poistaminen)
-        btPoistaAsiakas.setOnClickListener(e -> {
-            tvHuomio.setVisibility(View.INVISIBLE);
-            if (!etPoistettavaAsiakas.getText().toString().equals("")) {
-                String poistettavaAsiakas = etPoistettavaAsiakas.getText().toString();
-
-                Thread t2 = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
-                            muutettu = Toimip_hallinta_kyselyt.poistaAsiakas(connection, poistettavaAsiakas);
-                            Tietokantayhteys.katkaiseYhteysTietokantaan();
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    }
-                });
-                t2.start();
-                try {
-                    t2.join();
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
-                if (muutettu ==1 ){
-                tvHuomio.setText("Asiakas: " + poistettavaAsiakas + " poistettu!");
-                tvHuomio.setTextColor(Color.GREEN);
-                } else {
-                    tvHuomio.setText("Asiakasta: " + poistettavaAsiakas + " ei poistettu!\nTarkasta syöttämäsi tiedot");
-                    tvHuomio.setTextColor(Color.RED);
-                }
-
-                tvHuomio.setVisibility(View.VISIBLE);
-                etPoistettavaAsiakas.setText(null);
-            }
+        //Siirtymät nappuloiden mukaan
+        btAsiakashallinta.setOnClickListener(e -> {
+            com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToAsiakasHallinta action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToAsiakasHallinta(kayttajatunnus,salasana);
+            Navigation.findNavController(view).navigate(action);
         });
 
-        //Siirtymät nappuloiden mukaan
         btLisaaTp.setOnClickListener(e -> {
             com.oh.time4play.toimip_hallintaFragmentDirections.ActionToimipHallintaFragmentToToimipLisaysFragment action = com.oh.time4play.toimip_hallintaFragmentDirections.actionToimipHallintaFragmentToToimipLisaysFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
