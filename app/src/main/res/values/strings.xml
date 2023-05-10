@@ -10,7 +10,6 @@
     <!-- Toimipisteen hallinta -->
     <string name="tv_th_Otsikko">Valitse toimipiste</string>
 
-
     <!-- toimip_hallinta -->
     <string name="bt_text_Lisaa_toimipiste">Lisää</string>
     <string name="bt_text_Muokkaa_toimipiste">Muokkaa</string>
@@ -171,5 +170,7 @@
     <string name="bt_Paluu_laskutus">Palaa takaisin ilman muutoksia</string>
     <string name="bt_Tallenna_laskutus">Merkitse kaikki laskutetuiksi</string>
 
+    <!-- AsiakasHallinta -->
+    <string name="text_Otsikko_asiakashallinta">Asiakashallinta</string>
 
 </resources>

@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@+id/et_AsHallinta_poistettavaAsiakas2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tv_Otsikko_AsiakasHallinta">
 
         <TextView
             android:id="@+id/tvAsiakasLista_AsiakasHallinta"
@@ -76,4 +76,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <TextView
+        android:id="@+id/tv_Otsikko_AsiakasHallinta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:minHeight="48dp"
+        android:text="@string/text_Otsikko_asiakashallinta"
+        android:textAlignment="center"
+        android:textColor="#411a66"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
