@@ -212,19 +212,23 @@ public class Toimip_hallinta_kyselyt {
 
     /**
      * Poistaa asiakkaan
-     * @param connection Tarvitsee yhteyden jolla on DELETE oikeus asiakas -tauluun
+     *
+     * @param connection      Tarvitsee yhteyden jolla on DELETE oikeus asiakas -tauluun
      * @param asiakkaanTunnus Saa parametrikseen poistettavan asiakkaan sähköpostiosoitteen.
+     * @return
      */
-    public static void poistaAsiakas(Connection connection, String asiakkaanTunnus) {
+    public static int poistaAsiakas(Connection connection, String asiakkaanTunnus) {
+        int muutettu;
         System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus);
         try (PreparedStatement statement7 = connection.prepareStatement("""
                 DELETE FROM `varausjarjestelma`.`asiakas` WHERE  `email`= ?; 
                 """)) {
             statement7.setString(1,asiakkaanTunnus);
-            statement7.executeUpdate();
+            muutettu = statement7.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return muutettu;
     }
 
     /**
