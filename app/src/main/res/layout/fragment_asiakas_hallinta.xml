@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AsiakasHallinta">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_AsHallinta_poistettavaAsiakas2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvAsiakasLista_AsiakasHallinta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_Paluu_AsiakasHallinta"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/btn_teema8"
+        android:minHeight="48dp"
+        android:text="@string/bt_palaa_th_pelivaline_muokkaus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/bt_PoistaAsiakas_AsiakasHallinta"
+        android:layout_width="124dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/btn_teema4"
+        android:minHeight="48dp"
+        android:text="@string/bt_poista_asiakas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_AsHallinta_poistettavaAsiakas2"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/et_anna_poistettava_asiakas"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/bt_PoistaAsiakas_AsiakasHallinta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHuomioAsiakasHallinta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textColor="#25E91E"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_AsHallinta_poistettavaAsiakas2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

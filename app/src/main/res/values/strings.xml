@@ -19,6 +19,7 @@
     <string name="tw_Otsikko_toimip_hallinta">Toimipisteiden hallinnointi</string>
     <string name="et_anna_poistettava_asiakas">Poistettava asiakas</string>
     <string name="bt_poista_asiakas">Poista asiakas</string>
+    <string name="text_bt_AsiakasHallinta_toimip_hallinta">Asiakashallinta</string>
 
     <!-- toimp_lisays -->
     <string name="tw_tpTiedotTeksti">Anna uuden toimipisteen tiedot</string>
