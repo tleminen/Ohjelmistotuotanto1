@@ -38,7 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_otsikko_toimipisteen_hallinta"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.052" />
 
         <Button
             android:id="@+id/bt_muokkaaKenttaa_toimipisteen_hallinta"
@@ -84,10 +84,10 @@
             android:id="@+id/bt_poistu_toimipisteen_hallinta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="68dp"
             android:background="@drawable/btn_teema3"
+            android:minHeight="48dp"
             android:text="@string/bt_toimipisteenHallinta_poistu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -105,17 +105,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_muokkaaPelivalineita_toimipisteen_hallinta" />
 
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="286dp"
-            android:layout_height="199dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/pelaajat2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <Button
             android:id="@+id/bt_laskutus_toimipisteen_hallinta"
             android:layout_width="wrap_content"
@@ -126,6 +115,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_raportti_toimipisteen_hallinta" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="410dp"
+            android:layout_height="70dp"
+            android:src="@drawable/th_progressbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

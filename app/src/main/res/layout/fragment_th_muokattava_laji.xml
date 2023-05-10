@@ -62,8 +62,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="104dp"
-            android:layout_height="69dp"
+            android:layout_width="105dp"
+            android:layout_height="70dp"
             android:layout_marginBottom="42dp"
             android:src="@drawable/tennispallo"
             app:layout_constraintBottom_toBottomOf="@+id/radioGroup2"
@@ -73,7 +73,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="86dp"
+            android:layout_width="85dp"
             android:layout_height="67dp"
             android:layout_marginTop="46dp"
             android:layout_marginEnd="84dp"

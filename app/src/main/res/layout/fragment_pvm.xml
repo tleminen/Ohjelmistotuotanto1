@@ -41,7 +41,6 @@
             android:id="@+id/rg_lajinValinta_pvm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:minHeight="48dp"
-                android:text="@string/rb_PVM_Tennis"
-                android:textAlignment="center" />
+                android:text="@string/rb_PVM_Tennis" />
 
             <RadioButton
                 android:id="@+id/rb_PVM_Sulkapallo"
@@ -62,8 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:minHeight="48dp"
-                android:text="@string/rb_PVM_Sulkapallo"
-                android:textAlignment="center" />
+                android:text="@string/rb_PVM_Sulkapallo" />
 
         </RadioGroup>
 
@@ -97,9 +94,9 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="101dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="48dp"
+            android:layout_width="105dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="52dp"
             android:layout_marginEnd="64dp"
             android:src="@drawable/tennispallo"
             app:layout_constraintEnd_toEndOf="@+id/rg_lajinValinta_pvm"
@@ -107,10 +104,10 @@
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="101dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="104dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="85dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="84dp"
             android:src="@drawable/sulkapallo"
             app:layout_constraintEnd_toEndOf="@+id/rg_lajinValinta_pvm"
             app:layout_constraintTop_toBottomOf="@+id/cvPVM" />
