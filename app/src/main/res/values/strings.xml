@@ -67,6 +67,7 @@
     <string name="bt_poistaPeliv_th_pelivaline_muokkaus">Poista peliväline</string>
     <string name="bt_vahvista_th_pelivaline_muokkaus">Vahvista muutokset</string>
     <string name="bt_palaa_th_pelivaline_muokkaus">Paluu</string>
+    <string name="text_tvVaroitus_pelivaline_muokkaus">Ei tyhjiä kenttiä sallittu</string>
 
     <!-- th_pelivaline_lisays -->
     <string name="tv_otsikko_th_pelivaline_lisays">Lisää uusi peliväline</string>
@@ -74,12 +75,15 @@
     <string name="et_valineHinta_th_pelivaline_lisays">Hinta</string>
     <string name="bt_lisaaPelivalinePainike_th_pelivaline_lisays">Lisää peliväline</string>
     <string name="bt_poistuPainike_th_pelivaline_lisays">Poistu</string>
+    <string name="text_th_pelivaline_lisays_Varoitus">Anna kaikki tiedot.</string>
 
     <!-- Login -->
     <string name="et_text_Salasana_Login">Salasana</string>
     <string name="et_text_syotasapo_Login">Syötä Sähköpostiosoite</string>
     <string name="bt_text_Kirjaudu_Login">Kirjaudu</string>
     <string name="bt_text_Rekisteroidt_Login">Rekisteröidy</string>
+    <string name="text_tvLogin_varoitus">Käyttäjätunnus tai salasana puuttuu!</string>
+    <string name="text_tvLogin_vaaratKirjautumistiedot">Käyttäjätunnus tai salasana virheellinen.</string>
 
     <!-- Register -->
     <string name="et_text_Salasana_Register">Anna salasana</string>
@@ -155,6 +159,7 @@
     <string name="bt_raportti_Paluu">Palaa takaisin</string>
     <string name="tv_raportti_Alku">AlkuPVM</string>
     <string name="tv_raportti_Loppu">LoppuPVM</string>
+    <string name="text_bt_avoimetLaskut">Avoimet laskut</string>
 
     <!-- Laskutus -->
     <string name="text_Otsikko_Laskutus">Laskutus</string>

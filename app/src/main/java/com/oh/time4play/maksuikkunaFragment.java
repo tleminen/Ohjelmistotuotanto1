@@ -15,6 +15,8 @@ import android.widget.TextClock;
 import android.widget.TextView;
 
 
+import com.oh.time4play.maksuikkunaFragmentDirections;
+
 import java.sql.SQLException;
 
 public class maksuikkunaFragment extends Fragment {
@@ -110,7 +112,8 @@ public class maksuikkunaFragment extends Fragment {
 
         tvYhteenveto.setText("Varattu kenttä: " + lasku.getKentanNimi() + "\nVarauksen aika: " + valittuPVM + " klo: " + valittuAika + "\n" + lisaPalvelutLaskulle);
 
-        btVahvista.setOnClickListener(e -> {
+        btVahvista.setOnClickListener(e ->
+        {
             if (rbPaperilasku.isChecked() || rbSahkopostiLasku.isChecked()) {
                 System.out.println("Lasku valittu");
                 if (rbPaperilasku.isChecked()) {
@@ -147,6 +150,50 @@ public class maksuikkunaFragment extends Fragment {
                     Navigation.findNavController(view).navigate(action);
                 } else {
                     System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
+                }
+            }
+        });
+
+        btVahvistaJaTallenna.setOnClickListener(e -> {
+            if (rbPaperilasku.isChecked() || rbSahkopostiLasku.isChecked()) {
+                System.out.println("Lasku valittu");
+                if (rbPaperilasku.isChecked()) {
+                    lasku.setValittuMaksutapa(2);
+                } else if (rbSahkopostiLasku.isChecked()) {
+                    lasku.setValittuMaksutapa(3);
+                }
+                Thread t3 = new Thread(() -> {
+                    try {
+                        try {
+                            Maksun_Kyselyt.updateAsiakas(Tietokantayhteys.yhdistaSystemTietokantaan(),kayttajatunnus,etOsoite.getText().toString(),etNimi.getText().toString());
+                            varausOnnistui = Maksun_Kyselyt.teeVaraus(Tietokantayhteys.yhdistaSystemTietokantaan(), valittuPVM, valittuAika,valittuKentta,kayttajatunnus,pelivalineIDt,lasku.getValittuMaksutapa());
+                        } catch (SQLException e1) {
+                            throw new RuntimeException(e1);
+                        }
+                        try {
+                            Tietokantayhteys.katkaiseYhteysTietokantaan();
+                        } catch (SQLException e1) {
+                            throw new RuntimeException(e1);
+                        }
+                    } catch (RuntimeException e1) {
+                        throw new RuntimeException(e1);
+                    }
+                });
+
+                t3.start();
+                try {
+                    t3.join();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+                if (varausOnnistui) {
+                    System.out.println("Varaus tehty, siirrytään loppufragmenttiin");
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
+                    Navigation.findNavController(view).navigate(action);
+                } else {
+                    System.out.println("VARAUS EPÄONNISTUI");
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment("Valitettavasti varaus epäonnistui. Yritä uudelleen.");
+                    Navigation.findNavController(view).navigate(action);
                 }
             }
         });

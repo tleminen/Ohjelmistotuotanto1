@@ -110,5 +110,15 @@
             app:layout_constraintHorizontal_bias="0.66"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/tvLogin_Varoitus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSalasana" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

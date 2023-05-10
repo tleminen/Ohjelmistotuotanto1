@@ -13,23 +13,32 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@android:anim/slide_out_right"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_loginFragment_to_toimipFragment"
             app:destination="@id/toimipFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_exit_anim" />
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/loginFragment" />
         <action
             android:id="@+id/action_loginFragment_to_toimip_hallintaFragment"
-            app:destination="@id/toimip_hallintaFragment" />
+            app:destination="@id/toimip_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_loginFragment_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="tultiinLopusta"
             app:argType="boolean"
@@ -43,10 +52,10 @@
         <action
             android:id="@+id/action_registerFragment_to_toimipFragment"
             app:destination="@id/toimipFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_exit_anim" />
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
     </fragment>
     <fragment
         android:id="@+id/toimipFragment"
@@ -55,7 +64,11 @@
         tools:layout="@layout/fragment_toimip" >
         <action
             android:id="@+id/action_toimipFragment_to_pvmFragment"
-            app:destination="@id/pvmFragment" />
+            app:destination="@id/pvmFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -70,7 +83,12 @@
         tools:layout="@layout/fragment_pvm" >
         <action
             android:id="@+id/action_pvmFragment_to_kenttaFragment"
-            app:destination="@id/kenttaFragment" />
+            app:destination="@id/kenttaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipFragment" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -88,7 +106,12 @@
         tools:layout="@layout/fragment_kentta" >
         <action
             android:id="@+id/action_kenttaFragment_to_kellonaikaValintaFragment"
-            app:destination="@id/kellonaikaValintaFragment" />
+            app:destination="@id/kellonaikaValintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipFragment" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -112,7 +135,12 @@
         tools:layout="@layout/fragment_pelivalineet" >
         <action
             android:id="@+id/action_pelivalineetFragment_to_maksuikkunaFragment"
-            app:destination="@id/maksuikkunaFragment" />
+            app:destination="@id/maksuikkunaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipFragment" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -145,7 +173,12 @@
         tools:layout="@layout/fragment_maksuikkuna" >
         <action
             android:id="@+id/action_maksuikkunaFragment_to_loppuikkunaFragment"
-            app:destination="@id/loppuikkunaFragment" />
+            app:destination="@id/loppuikkunaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/loginFragment" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -181,7 +214,12 @@
         tools:layout="@layout/fragment_loppuikkuna" >
         <action
             android:id="@+id/action_loppuikkunaFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/loginFragment" />
         <argument
             android:name="MistaTanneTultiin"
             app:argType="string" />
@@ -193,18 +231,33 @@
         tools:layout="@layout/fragment_toimip_hallinta" >
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_loppuikkunaFragment"
-            app:destination="@id/loppuikkunaFragment" />
+            app:destination="@id/loppuikkunaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/loginFragment" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_lisaysFragment"
             app:destination="@id/toimip_lisaysFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_muokkausFragment"
-            app:destination="@id/toimip_muokkausFragment" />
+            app:destination="@id/toimip_muokkausFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_poistoFragment"
-            app:destination="@id/toimip_poistoFragment" />
+            app:destination="@id/toimip_poistoFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -219,7 +272,11 @@
         tools:layout="@layout/fragment_toimip_lisays" >
         <action
             android:id="@+id/action_toimip_lisaysFragment_to_toimip_hallintaFragment"
-            app:destination="@id/toimip_hallintaFragment" />
+            app:destination="@id/toimip_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -234,7 +291,11 @@
         tools:layout="@layout/fragment_toimip_muokkaus" >
         <action
             android:id="@+id/action_toimip_muokkausFragment_to_toimip_hallintaFragment"
-            app:destination="@id/toimip_hallintaFragment" />
+            app:destination="@id/toimip_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument android:name="KirjautunutKayttaja"
             app:argType="string" />
         <argument
@@ -251,7 +312,11 @@
         tools:layout="@layout/fragment_toimip_poisto" >
         <action
             android:id="@+id/action_toimip_poistoFragment_to_toimip_hallintaFragment"
-            app:destination="@id/toimip_hallintaFragment" />
+            app:destination="@id/toimip_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="PoistettavaToimipisteNimi"
             app:argType="string" />
@@ -269,29 +334,58 @@
         tools:layout="@layout/fragment_toimipisteen_hallinta" >
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_th_kentta_lisaysFragment"
-            app:destination="@id/th_kentta_lisaysFragment" />
+            app:destination="@id/th_kentta_lisaysFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_th_pelivaline_lisaysFragment"
-            app:destination="@id/th_pelivaline_lisaysFragment" />
+            app:destination="@id/th_pelivaline_lisaysFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_th_muokattava_kenttaFragment"
-            app:destination="@id/th_muokattava_kenttaFragment" />
+            app:destination="@id/th_muokattava_kenttaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_loppuikkunaFragment"
-            app:destination="@id/loppuikkunaFragment" />
+            app:destination="@id/loppuikkunaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/loginFragment" />
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_th_muokattava_lajiFragment"
-            app:destination="@id/th_muokattava_lajiFragment" />
+            app:destination="@id/th_muokattava_lajiFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument android:name="KirjautunutKayttaja"
             app:argType="string" />
         <argument android:name="KirjautunutSalasana"
             app:argType="string" />
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_raportti"
-            app:destination="@id/raportti" />
+            app:destination="@id/raportti"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <action
             android:id="@+id/action_toimipisteen_hallintaFragment_to_laskutusFragment"
-            app:destination="@id/laskutusFragment" />
+            app:destination="@id/laskutusFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
     </fragment>
     <fragment
         android:id="@+id/th_kentta_lisaysFragment"
@@ -300,7 +394,11 @@
         tools:layout="@layout/fragment_th_kentta_lisays" >
         <action
             android:id="@+id/action_th_kentta_lisaysFragment_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument android:name="KirjautunutKayttaja"
             app:argType="string" />
         <argument
@@ -314,7 +412,11 @@
         tools:layout="@layout/fragment_th_pelivaline_lisays" >
         <action
             android:id="@+id/action_th_pelivaline_lisaysFragment_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -329,7 +431,11 @@
         tools:layout="@layout/fragment_th_kentta_muokkaus" >
         <action
             android:id="@+id/action_th_kentta_muokkausFragment2_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunuKayttaja"
             app:argType="string" />
@@ -347,7 +453,11 @@
         tools:layout="@layout/fragment_th_muokattava_kentta" >
         <action
             android:id="@+id/action_th_muokattava_kenttaFragment_to_th_kentta_muokkausFragment2"
-            app:destination="@id/th_kentta_muokkausFragment2" />
+            app:destination="@id/th_kentta_muokkausFragment2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -362,7 +472,11 @@
         tools:layout="@layout/fragment_th_muokattava_laji" >
         <action
             android:id="@+id/action_th_muokattava_lajiFragment_to_th_peliv_muutoksetFragment"
-            app:destination="@id/th_peliv_muutoksetFragment" />
+            app:destination="@id/th_peliv_muutoksetFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -377,7 +491,11 @@
         tools:layout="@layout/fragment_th_peliv_muutokset" >
         <action
             android:id="@+id/action_th_peliv_muutoksetFragment_to_th_pelivaline_muokkausFragment"
-            app:destination="@id/th_pelivaline_muokkausFragment" />
+            app:destination="@id/th_pelivaline_muokkausFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument android:name="KirjautunutKayttaja"
             app:argType="string" />
         <argument
@@ -394,7 +512,11 @@
         tools:layout="@layout/fragment_th_pelivaline_muokkaus" >
         <action
             android:id="@+id/action_th_pelivaline_muokkausFragment_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -412,7 +534,12 @@
         tools:layout="@layout/fragment_kellonaika_valinta" >
         <action
             android:id="@+id/action_kellonaikaValintaFragment_to_pelivalineetFragment"
-            app:destination="@id/pelivalineetFragment" />
+            app:destination="@id/pelivalineetFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipFragment" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -442,7 +569,11 @@
         tools:layout="@layout/fragment_raportti" >
         <action
             android:id="@+id/action_raportti_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -457,7 +588,11 @@
         tools:layout="@layout/fragment_laskutus" >
         <action
             android:id="@+id/action_laskutusFragment_to_toimipisteen_hallintaFragment"
-            app:destination="@id/toimipisteen_hallintaFragment" />
+            app:destination="@id/toimipisteen_hallintaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/taaksepain" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />

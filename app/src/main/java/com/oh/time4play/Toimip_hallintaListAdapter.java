@@ -3,6 +3,7 @@ package com.oh.time4play;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,12 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
+            CheckBox checkBox = v.findViewById(R.id.cbToimip_HallintaItemValinta);
+            if (checkBox.isChecked()) { checkBox.setChecked(false);
+            } else {
+                checkBox.setChecked(true);
+            }
+            Toimip_hallintaListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
             System.out.println(position);
             toimip_hallintaFragment.setValittuToimipiste(Toimip_hallintaListAdapter.localDataset.get(position).ToimipisteVastaava);
             System.out.println("valittu: "+ localDataset.get(position).ToimipisteVastaava);
@@ -39,6 +46,8 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Toimip_hallintaListener);
 
+        holder.checkBox.setClickable(false);
+
         holder.textView.setText(localDataset.get(position).Kaupunki);
         holder.textView2.setText(localDataset.get(position).Nimi);
     }
@@ -50,10 +59,12 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
 
         public final TextView textView;
         public final TextView textView2;
+        public final CheckBox checkBox;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
+            checkBox = (CheckBox) itemView.findViewById(R.id.cbToimip_HallintaItemValinta);
             textView = (TextView) itemView.findViewById(R.id.twToimip_HallintaItemPaikka);
             textView2 = (TextView) itemView.findViewById(R.id.twToimip_HallintaItemNimi);
         }

@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 public class Raportti extends Fragment {
 
+    public String laskut;
+
     public String raportti;
 
     public Raportti() {
@@ -40,6 +42,7 @@ public class Raportti extends Fragment {
 
         Button btVahvista = view.findViewById(R.id.bt_raportti_Vahvista);
         Button btPaluu = view.findViewById(R.id.bt_raportti_Loppu);
+        Button btAvoimet = view.findViewById(R.id.btRaportti_AvoimetLaskut);
 
         TextView tvRaporttiTeksti = view.findViewById(R.id.tv_raporttiTulostus);
 
@@ -69,7 +72,28 @@ public class Raportti extends Fragment {
 
         });
 
-        btPaluu.setOnClickListener(e ->{
+        btAvoimet.setOnClickListener(e -> {
+
+            Thread t1 = new Thread(() -> {
+                Connection connection;
+                try {
+                    connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                    laskut = Raportti_kyselyt.getAvoimetLaskut(connection, kayttajatunnus);
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            t1.start();
+            try {
+                t1.join();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+            tvRaporttiTeksti.setText(laskut);
+        });
+
+        btPaluu.setOnClickListener(e -> {
             RaporttiDirections.ActionRaporttiToToimipisteenHallintaFragment action = com.oh.time4play.RaporttiDirections.actionRaporttiToToimipisteenHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });

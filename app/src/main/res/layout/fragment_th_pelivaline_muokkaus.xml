@@ -103,6 +103,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_th_pelivaline_muokkaus_Varoitus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_pelivHinta_th_pelivaline_muokkaus" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -81,4 +81,16 @@ public class Maksun_Kyselyt {
             return true;
         }
     }
+
+    public static void updateAsiakas(Connection yhdistaSystemTietokantaan, String kayttajatunnus, String osoite, String nimi) throws SQLException {
+        try (PreparedStatement statement = yhdistaSystemTietokantaan.prepareStatement("""
+                UPDATE `varausjarjestelma`.`asiakas` 
+                    SET `Osoite`= ?, `Asiakasnimi`= ? WHERE  `email` LIKE ?
+                """)) {
+            statement.setString(1,osoite);
+            statement.setString(2,nimi);
+            statement.setString(3,kayttajatunnus);
+            statement.executeUpdate();
+        }
+    }
 }

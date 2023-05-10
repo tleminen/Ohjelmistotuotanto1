@@ -2,6 +2,7 @@ package com.oh.time4play;
 
 import android.os.Bundle;
 
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -13,7 +14,12 @@ import android.widget.EditText;
 
 import com.oh.time4play.RegisterFragmentDirections;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.sql.SQLException;
+
+import kotlin.jvm.internal.Intrinsics;
 
 /**
  * Toteuttaa uuden asiakkaan rekisteröitymisen
@@ -40,38 +46,37 @@ public class RegisterFragment extends Fragment {
         EditText etNimi = view.findViewById(R.id.etNimi_Register);
 
         Rekisteroidy.setOnClickListener(e -> {
-            String kayttaja = etkayttajatunnus.getText().toString();
-            String salasana = etsalasana.getText().toString();
-            String osoite = etosoite.getText().toString();
-            String nimi = etNimi.getText().toString();
-            Thread t1 = new Thread(new Runnable(){
-                @Override
-                public void run() {
-                    try {
+            if (!etkayttajatunnus.getText().toString().equals("") && !etsalasana.getText().toString().equals("") && !etosoite.getText().toString().equals("") && !etNimi.getText().toString().equals("")) {
+                String kayttaja = etkayttajatunnus.getText().toString();
+                String salasana = etsalasana.getText().toString();
+                String osoite = etosoite.getText().toString();
+                String nimi = etNimi.getText().toString();
+                Thread t1 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
                         try {
-                            muutettu = SystemKyselyt.setUusiAsiakas(kayttaja,salasana,osoite,nimi);
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
+                            try {
+                                muutettu = SystemKyselyt.setUusiAsiakas(kayttaja, salasana, osoite, nimi);
+                            } catch (SQLException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
                         }
                     }
-                    catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
+                });
+                t1.start();
+                try {
+                    System.out.println(muutettu);
+                    t1.join();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
                 }
-            });
-            t1.start();
-            try {
-                System.out.println(muutettu);
-                t1.join();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
+                //Navigoidaan käyttäen safeArgs
+                com.oh.time4play.RegisterFragmentDirections.ActionRegisterFragmentToToimipFragment action = com.oh.time4play.RegisterFragmentDirections.actionRegisterFragmentToToimipFragment(kayttaja, salasana);
+                Navigation.findNavController(view).navigate(action);
             }
-            //Navigoidaan käyttäen safeArgs
-            com.oh.time4play.RegisterFragmentDirections.ActionRegisterFragmentToToimipFragment action = com.oh.time4play.RegisterFragmentDirections.actionRegisterFragmentToToimipFragment(kayttaja,salasana);
-            Navigation.findNavController(view).navigate(action);
         });
-
-
 
         return view;
     }

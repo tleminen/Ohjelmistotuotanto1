@@ -5,7 +5,6 @@
     android:id="@+id/ivKenttaSelection"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     tools:minHeight="48dp">
 
     <TextView
@@ -13,13 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Toimipisteen paikkakunta" />
+        android:text="Toimipisteen paikkakunta  " />
 
     <TextView
         android:id="@+id/twToimip_HallintaItemNimi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Toimipisteen nimi" />
+        android:text=" Toimipisteen nimi" />
+
+    <CheckBox
+        android:id="@+id/cbToimip_HallintaItemValinta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:minHeight="48dp" />
 
 </LinearLayout>

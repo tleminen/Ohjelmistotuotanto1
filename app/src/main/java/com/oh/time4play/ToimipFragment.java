@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,13 +15,14 @@ import android.widget.Button;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ToimipFragment extends Fragment {
 
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 
-    public static String valittuToimipiste;
+    public static String valittuToimipiste = "ei";
 
     public static String getValittuToimipiste() {
         return valittuToimipiste;
@@ -32,7 +34,6 @@ public class ToimipFragment extends Fragment {
     }
 
     public ToimipFragment() {super(R.layout.fragment_toimip);}
-
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         //Haetaan navigaation actionista bundle joka sisältää käyttäjätunnuksen ja salasanan
@@ -73,7 +74,7 @@ public class ToimipFragment extends Fragment {
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         btVahvista.setOnClickListener(e -> {
-            if (valittuToimipiste != null) {
+            if (!Objects.equals(valittuToimipiste, "ei")) {
             com.oh.time4play.ToimipFragmentDirections.ActionToimipFragmentToPvmFragment action = com.oh.time4play.ToimipFragmentDirections.actionToimipFragmentToPvmFragment(kayttajatunnus,salasana,ToimipFragment.valittuToimipiste);
             Navigation.findNavController(view).navigate(action); }
         });
