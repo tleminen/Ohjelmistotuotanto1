@@ -20,15 +20,14 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
         public void onClick(View v) {
             int position = (int) v.getTag();
             CheckBox checkBox = v.findViewById(R.id.cb_pelivMuutoksetValinta);
-            if (checkBox.isChecked()) { checkBox.setChecked(false);
-            } else {
-                checkBox.setChecked(true);
-            }
-            th_peliv_muutoksetListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
+            checkBox.setChecked(true);
+            th_peliv_muutoksetFragment.valittupositio = position;
 
+            th_peliv_muutoksetListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
             System.out.println(position);
             th_peliv_muutoksetFragment.setValittuPelivaline(th_peliv_muutoksetListAdapter.localDataset.get(position).pelivalineID);
             System.out.println("valittu: "+ localDataset.get(position).pelivalineID);
+            notifyDataSetChanged();
         }
     };
 
@@ -45,7 +44,11 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
     public void onBindViewHolder(@NonNull th_peliv_muutoksetListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(peliv_muutoksetListener);
+
         holder.checkBox.setClickable(false);
+        if (th_peliv_muutoksetFragment.valittupositio != position) {
+            holder.checkBox.setChecked(false);
+        }
 
         holder.textView.setText(localDataset.get(position).pelivalineNimi);
     }

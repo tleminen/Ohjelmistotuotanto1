@@ -21,14 +21,14 @@ public class Toimip_ListAdapter extends RecyclerView.Adapter<Toimip_ListAdapter.
         public void onClick(View v) {
             int position = (int) v.getTag();
             CheckBox checkBox = v.findViewById(R.id.cb_Toimip_itemValinta);
-            if (checkBox.isChecked()) { checkBox.setChecked(false);
-            } else {
-                checkBox.setChecked(true);
-            }
+           checkBox.setChecked(true);
+           ToimipFragment.valittupositio = position;
+
             Toimip_ListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
             System.out.println(position);
             ToimipFragment.setValittuToimipiste(localDataset.get(position).ToimipisteVastaava);
             System.out.println("valittu: "+ localDataset.get(position).ToimipisteVastaava);
+            notifyDataSetChanged();
         }
     };
 
@@ -46,6 +46,9 @@ public class Toimip_ListAdapter extends RecyclerView.Adapter<Toimip_ListAdapter.
         holder.itemView.setOnClickListener(Toimip_Listener);
 
         holder.checkBox.setClickable(false);
+        if (ToimipFragment.valittupositio != position) {
+            holder.checkBox.setChecked(false);
+        }
 
         holder.textView.setText(localDataset.get(position).Kaupunki);
         holder.textView2.setText(localDataset.get(position).Nimi);
