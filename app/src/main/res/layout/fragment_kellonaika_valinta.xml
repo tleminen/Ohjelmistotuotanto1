@@ -8,6 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -52,18 +53,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="01:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="01:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="02:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="02:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -76,27 +77,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="03:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="03:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="04:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="04:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="05:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="05:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -109,27 +110,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="06:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="06:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="07:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="07:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="08:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="08:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,27 +143,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="09:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="09:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="10:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="10:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="11:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="11:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -175,27 +176,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="12:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="12:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="13:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="13:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="14:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="14:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -208,27 +209,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="15:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="15:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="16:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="16:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="17:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="17:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -241,27 +242,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="18:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="18:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="19:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="19:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="20:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="20:00" />
             </LinearLayout>
 
             <LinearLayout
@@ -274,40 +275,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="21:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="21:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="22:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="22:00" />
 
                 <TextView
                     android:id="@+id/tv_KellonAikaValKLO23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_vertical"
                     android:minHeight="48dp"
-                    android:text="23:00"
-                    android:gravity="center|center_vertical" />
+                    android:text="23:00" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView18"
-        android:layout_width="417dp"
-        android:layout_height="86dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="430dp"
+        android:layout_height="80dp"
         android:src="@drawable/progressbar4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
