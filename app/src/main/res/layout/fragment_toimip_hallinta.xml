@@ -73,6 +73,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="68dp"
             android:gravity="bottom|center"
             android:orientation="horizontal"
             android:padding="5dp"
@@ -84,18 +85,18 @@
                 android:id="@+id/btLisaaToimipiste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:background="@drawable/btn_teema"
                 android:layout_marginHorizontal="2dp"
+                android:background="@drawable/btn_teema"
+                android:minHeight="48dp"
                 android:text="@string/bt_text_Lisaa_toimipiste" />
 
             <Button
                 android:id="@+id/btMuokkaaToimipiste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:background="@drawable/btn_teema2"
                 android:layout_marginHorizontal="2dp"
+                android:background="@drawable/btn_teema2"
+                android:minHeight="48dp"
                 android:padding="10dp"
                 android:text="@string/bt_text_Muokkaa_toimipiste" />
 
@@ -103,18 +104,18 @@
                 android:id="@+id/btPoistaToimipiste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:background="@drawable/btn_teema4"
                 android:layout_marginHorizontal="2dp"
+                android:background="@drawable/btn_teema4"
+                android:minHeight="48dp"
                 android:text="@string/bt_text_Poista_toimipiste" />
 
             <Button
                 android:id="@+id/btPoistuToimip_hallinta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:background="@drawable/btn_teema3"
                 android:layout_marginHorizontal="2dp"
+                android:background="@drawable/btn_teema3"
+                android:minHeight="48dp"
                 android:text="@string/bt_text_Poistu_toimipiste" />
 
         </LinearLayout>
@@ -131,6 +132,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linearLayout2"
             app:layout_constraintVertical_bias="0.97" />
+
+        <ImageView
+            android:id="@+id/imageView34"
+            android:layout_width="410dp"
+            android:layout_height="70dp"
+            android:src="@drawable/toimp_progressbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
