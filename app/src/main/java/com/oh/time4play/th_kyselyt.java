@@ -108,14 +108,17 @@ public class th_kyselyt {
             }
         }
 
-        System.out.println("Haetaan tietokannasta pelivälineet jotka liittyvät lajiin...");
+        System.out.println("Haetaan tietokannasta pelivälineet jotka liittyvät lajiin ja toimipisteeseen...");
         ArrayList<Integer> linkitettavatPelivalineIDt = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("""
-                SELECT PelivalineID
-                    FROM pelivalineet
+                SELECT DISTINCT PelivalineID
+                    FROM saatavilla, kentat
                     WHERE LajiTunnus LIKE ?
+                    AND Toimipistevastaava LIKE ?
+                    AND kentat.KenttaID = saatavilla.KenttaID
                 """)) {
             statement.setString(1,lisattavaKe.lajitunnus);
+            statement.setString(2,lisattavaKe.toimipistevastaava);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 linkitettavatPelivalineIDt.add(resultSet.getInt("PelivalineID"));
@@ -242,7 +245,7 @@ public class th_kyselyt {
                     AND saatavilla.PelivalineID = pelivalineet.PelivalineID
                 """)) {
             statement.setString(1, valittuLaji);
-            statement.setString(1,toimipistevastaava);
+            statement.setString(2,toimipistevastaava);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 itemArrayList.add(new Pelivaline_muuttujat(resultSet.getInt("pelivalineet.PelivalineID"), resultSet.getString("ValineNimi"), resultSet.getString("ValineHinta")));
