@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="68dp"
-            android:background="@drawable/btn_teema3"
+            android:background="@drawable/btn_teema7"
             android:text="@string/bt_thKentta_MuokkausPalaa"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

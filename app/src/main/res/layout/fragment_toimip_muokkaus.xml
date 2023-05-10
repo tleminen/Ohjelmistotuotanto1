@@ -62,7 +62,7 @@
             android:layout_width="168dp"
             android:layout_height="48dp"
             android:layout_marginBottom="92dp"
-            android:background="@drawable/btn_teema2"
+            android:background="@drawable/btn_teema3"
             android:minHeight="48dp"
             android:text="@string/bt_tpMuutoksetNappi"
             app:layout_constraintBottom_toBottomOf="parent"

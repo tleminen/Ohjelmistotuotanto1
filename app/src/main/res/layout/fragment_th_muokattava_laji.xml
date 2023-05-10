@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="68dp"
-            android:background="@drawable/btn_teema3"
+            android:background="@drawable/btn_teema2"
             android:minHeight="48dp"
             android:text="@string/bt_vahvista_th_muokattava_laji"
             app:layout_constraintBottom_toBottomOf="parent"

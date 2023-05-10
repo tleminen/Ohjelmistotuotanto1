@@ -91,7 +91,7 @@
             android:id="@+id/bt_tpLisaysToimipiste"
             android:layout_width="131dp"
             android:layout_height="48dp"
-            android:background="@drawable/btn_teema2"
+            android:background="@drawable/btn_teema3"
             android:minHeight="48dp"
             android:text="@string/bt_tpLisaaNappi"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -106,7 +106,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="68dp"
-            android:background="@drawable/btn_teema3"
+            android:background="@drawable/btn_teema8"
+            android:text="PALUU"
             android:hint="@string/bt_tpLisaysPaluu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
