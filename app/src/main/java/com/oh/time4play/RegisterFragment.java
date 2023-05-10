@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.oh.time4play.RegisterFragmentDirections;
 
@@ -39,6 +40,8 @@ public class RegisterFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
         Button Rekisteroidy = view.findViewById(R.id.btTeeRekisterointi);
+        TextView tvVirhe = view.findViewById(R.id.tvVirhe_RegisterFragment);
+        tvVirhe.setVisibility(View.INVISIBLE);
 
         EditText etkayttajatunnus = view.findViewById(R.id.etAnnaSahkopostiosoite);
         EditText etsalasana = view.findViewById(R.id.etAnnaSalasana);
@@ -46,6 +49,7 @@ public class RegisterFragment extends Fragment {
         EditText etNimi = view.findViewById(R.id.etNimi_Register);
 
         Rekisteroidy.setOnClickListener(e -> {
+            tvVirhe.setVisibility(View.INVISIBLE);
             if (!etkayttajatunnus.getText().toString().equals("") && !etsalasana.getText().toString().equals("") && !etosoite.getText().toString().equals("") && !etNimi.getText().toString().equals("")) {
                 String kayttaja = etkayttajatunnus.getText().toString();
                 String salasana = etsalasana.getText().toString();
@@ -67,14 +71,16 @@ public class RegisterFragment extends Fragment {
                 });
                 t1.start();
                 try {
-                    System.out.println(muutettu);
                     t1.join();
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
                 }
-                //Navigoidaan käyttäen safeArgs
-                com.oh.time4play.RegisterFragmentDirections.ActionRegisterFragmentToToimipFragment action = com.oh.time4play.RegisterFragmentDirections.actionRegisterFragmentToToimipFragment(kayttaja, salasana);
-                Navigation.findNavController(view).navigate(action);
+                System.out.println(muutettu);
+                if (muutettu) {
+                    //Navigoidaan käyttäen safeArgs
+                    com.oh.time4play.RegisterFragmentDirections.ActionRegisterFragmentToToimipFragment action = com.oh.time4play.RegisterFragmentDirections.actionRegisterFragmentToToimipFragment(kayttaja, salasana);
+                    Navigation.findNavController(view).navigate(action);
+                } else tvVirhe.setVisibility(View.VISIBLE);
             }
         });
 
