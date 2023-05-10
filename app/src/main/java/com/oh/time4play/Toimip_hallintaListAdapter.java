@@ -21,14 +21,13 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         public void onClick(View v) {
             int position = (int) v.getTag();
             CheckBox checkBox = v.findViewById(R.id.cbToimip_HallintaItemValinta);
-            if (checkBox.isChecked()) { checkBox.setChecked(false);
-            } else {
-                checkBox.setChecked(true);
-            }
+            checkBox.setChecked(true);
+            toimip_hallintaFragment.valittuPositio = position;
+
             Toimip_hallintaListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
-            System.out.println(position);
             toimip_hallintaFragment.setValittuToimipiste(Toimip_hallintaListAdapter.localDataset.get(position).ToimipisteVastaava);
             System.out.println("valittu: "+ localDataset.get(position).ToimipisteVastaava);
+            notifyDataSetChanged();
         }
     };
 
@@ -47,7 +46,9 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         holder.itemView.setOnClickListener(Toimip_hallintaListener);
 
         holder.checkBox.setClickable(false);
-
+        if (toimip_hallintaFragment.valittuPositio != position) {
+            holder.checkBox.setChecked(false);
+        }
         holder.textView.setText(localDataset.get(position).Kaupunki);
         holder.textView2.setText(localDataset.get(position).Nimi);
     }
@@ -60,6 +61,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         public final TextView textView;
         public final TextView textView2;
         public final CheckBox checkBox;
+
 
         public ViewHolder(View itemView) {
             super(itemView);

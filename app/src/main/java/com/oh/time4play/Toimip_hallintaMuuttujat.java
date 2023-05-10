@@ -1,6 +1,10 @@
 package com.oh.time4play;
 
+import java.util.ArrayList;
+
 public class Toimip_hallintaMuuttujat {
+
+
 
     public Toimip_hallintaMuuttujat() {
     }
@@ -11,6 +15,7 @@ public class Toimip_hallintaMuuttujat {
         this.ToimipisteVastaava = toimipisteVastaava;
         this.Salasana = salasana;
     }
+    public static ArrayList<Boolean> checked;
     public String Nimi = "-";
     public String Salasana = "";
     public String Kaupunki = "-";

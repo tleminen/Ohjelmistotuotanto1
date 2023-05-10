@@ -26,6 +26,7 @@ public class toimip_hallintaFragment extends Fragment {
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 
     public static String valittuToimipiste;
+    public static int valittuPositio;
 
     public static String getValittuToimipiste() {
         return valittuToimipiste;
@@ -33,7 +34,6 @@ public class toimip_hallintaFragment extends Fragment {
 
     public static void setValittuToimipiste(String valittuToimipiste) {
         toimip_hallintaFragment.valittuToimipiste = valittuToimipiste;
-        System.out.println(valittuToimipiste);
     }
 
     public toimip_hallintaFragment() {super(R.layout.fragment_toimip_hallinta);}
