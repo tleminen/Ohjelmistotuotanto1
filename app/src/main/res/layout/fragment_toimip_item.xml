@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
+        android:paddingLeft="5dp"
         android:text="Toimipisteen paikkakunta  " />
 
     <TextView
@@ -18,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text=" Toimipisteen nimi" />
+        android:paddingLeft="8dp"
+        android:text="Toimipisteen nimi" />
 
     <CheckBox
         android:id="@+id/cb_Toimip_itemValinta"
