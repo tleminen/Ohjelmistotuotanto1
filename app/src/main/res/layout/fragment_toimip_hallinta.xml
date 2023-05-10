@@ -14,7 +14,7 @@
             android:id="@+id/twOtsikko_toimip_hallinta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:text="@string/tw_Otsikko_toimip_hallinta"
             android:textColor="@color/black"
             android:textSize="25sp"
