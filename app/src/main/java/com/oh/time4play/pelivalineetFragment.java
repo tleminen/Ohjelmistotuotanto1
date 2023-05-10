@@ -38,6 +38,7 @@ public class pelivalineetFragment extends Fragment {
         int valittuKentta = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuKentta();
         int valittuAika = pelivalineetFragmentArgs.fromBundle(getArguments()).getValittuKellonaika();
         String kentanHinta = pelivalineetFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
+
         valitutPelivalineet = "";
 
         Button btSeuraava = view.findViewById(R.id.bt_Pelivaline_Seuraava);
@@ -48,7 +49,7 @@ public class pelivalineetFragment extends Fragment {
         Thread t1 = new Thread(() -> {
             try {
                 try {
-                    itemArrayList = th_kyselyt.getLajinPelivalineet(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana), valittuLaji);
+                    itemArrayList = th_kyselyt.getLajinPelivalineet(Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana), valittuLaji, valittuToimipiste);
 
                 } catch (SQLException e) {
                     throw new RuntimeException(e);

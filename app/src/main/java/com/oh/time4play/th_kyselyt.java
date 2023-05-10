@@ -230,17 +230,19 @@ public class th_kyselyt {
         }
     }
 
-    public static ArrayList<Pelivaline_muuttujat> getLajinPelivalineet(Connection yhdistaTietokantaan, String valittuLaji) throws SQLException {
+    public static ArrayList<Pelivaline_muuttujat> getLajinPelivalineet(Connection yhdistaTietokantaan, String valittuLaji, String toimipistevastaava) throws SQLException {
         ArrayList<Pelivaline_muuttujat> itemArrayList = new ArrayList<>();
         System.out.println("Lukee dataa... getAllKentat");
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
                 SELECT DISTINCT pelivalineet.PelivalineID, ValineNimi, ValineHinta
                     FROM pelivalineet, saatavilla, kentat
                     WHERE kentat.LajiTunnus LIKE ?
+                    AND Toimipistevastaava LIKE ?
                     AND kentat.KenttaID = saatavilla.KenttaID
                     AND saatavilla.PelivalineID = pelivalineet.PelivalineID
                 """)) {
             statement.setString(1, valittuLaji);
+            statement.setString(1,toimipistevastaava);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 itemArrayList.add(new Pelivaline_muuttujat(resultSet.getInt("pelivalineet.PelivalineID"), resultSet.getString("ValineNimi"), resultSet.getString("ValineHinta")));
