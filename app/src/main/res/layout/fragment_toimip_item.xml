@@ -9,9 +9,10 @@
 
     <TextView
         android:id="@+id/twToimip_ItemNimi"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
+        android:paddingLeft="8dp"
         android:text="Toimipisteen nimi" />
 
     <TextView
@@ -24,7 +25,7 @@
 
     <CheckBox
         android:id="@+id/cb_Toimip_itemValinta"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="48dp"
         android:minHeight="48dp" />
