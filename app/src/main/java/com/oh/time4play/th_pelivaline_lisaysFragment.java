@@ -57,7 +57,7 @@ public class th_pelivaline_lisaysFragment extends Fragment {
                     public void run() {
                         try {
                             Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
-                            th_kyselyt.setLisaaUusiPelivaline(connection, lisattavaValine);
+                            th_kyselyt.setLisaaUusiPelivaline(connection, lisattavaValine,kayttajatunnus);
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
                         }

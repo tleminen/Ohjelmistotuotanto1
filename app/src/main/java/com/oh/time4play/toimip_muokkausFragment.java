@@ -67,27 +67,29 @@ public class toimip_muokkausFragment extends Fragment {
         muokattavanNimi.setText(muokattavanTiedot.ToimipisteVastaava);
 
         tpVahvistaMuutos.setOnClickListener(e ->{
-            muokattavanTiedot.setNimi(tpNimi.getText().toString());
-            muokattavanTiedot.setKaupunki(tpKaupunki.getText().toString());
-            Thread t2 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Connection connection = Tietokantayhteys.yhdistaTietokantaan(kirjautunutKayttaja,kirjautunutSalasana);
-                        Toimip_hallinta_kyselyt.updateToimipiste(connection,muokattavanTiedot);
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+            if (!tpNimi.getText().toString().equals("") && !tpKaupunki.getText().toString().equals("")) {
+                muokattavanTiedot.setNimi(tpNimi.getText().toString());
+                muokattavanTiedot.setKaupunki(tpKaupunki.getText().toString());
+                Thread t2 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Connection connection = Tietokantayhteys.yhdistaTietokantaan(kirjautunutKayttaja, kirjautunutSalasana);
+                            Toimip_hallinta_kyselyt.updateToimipiste(connection, muokattavanTiedot);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     }
+                });
+                t2.start();
+                try {
+                    t2.join();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
                 }
-            });
-            t2.start();
-            try {
-                t2.join();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
+                com.oh.time4play.toimip_muokkausFragmentDirections.ActionToimipMuokkausFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_muokkausFragmentDirections.actionToimipMuokkausFragmentToToimipHallintaFragment(kirjautunutKayttaja, kirjautunutSalasana);
+                Navigation.findNavController(view).navigate(action);
             }
-            com.oh.time4play.toimip_muokkausFragmentDirections.ActionToimipMuokkausFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_muokkausFragmentDirections.actionToimipMuokkausFragmentToToimipHallintaFragment(kirjautunutKayttaja,kirjautunutSalasana);
-            Navigation.findNavController(view).navigate(action);
         });
 
         return view;

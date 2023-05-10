@@ -289,7 +289,7 @@ public class th_kyselyt {
             return itemArrayList;
         }
     }
-    public static void setLisaaUusiPelivaline(Connection connection, Pelivaline_muuttujat lisattavaValine) throws SQLException {
+    public static void setLisaaUusiPelivaline(Connection connection, Pelivaline_muuttujat lisattavaValine, String toimipiste) throws SQLException {
         System.out.println("Lisätään uusi peliväline tietokantaan...");
         try (PreparedStatement statement2 = connection.prepareStatement("""
                 INSERT INTO `varausjarjestelma`.`Pelivalineet` (`ValineNimi`, `ValineHinta`, `LajiTunnus`)
@@ -325,8 +325,10 @@ public class th_kyselyt {
                 SELECT KenttaID
                     FROM kentat
                     WHERE LajiTunnus LIKE ?
+                    AND Toimipistevastaava LIKE ?
                 """)) {
             statement.setString(1,lisattavaValine.lajiTunnus);
+            statement.setString(2,toimipiste);
             ResultSet resultSet1 = statement.executeQuery();
             while (resultSet1.next()) {
                 kentat.add(resultSet1.getInt("KenttaID"));

@@ -45,7 +45,7 @@ public class toimip_poistoFragment extends Fragment {
                 public void run() {
                     Connection connection = null;
                     try {
-                        connection = Tietokantayhteys.yhdistaTietokantaan(kayttajatunnus,salasana);
+                        connection = Tietokantayhteys.yhdistaSystemTietokantaan();
                         Toimip_hallinta_kyselyt.poistaToimipiste(connection,poistettava);
                         connection.close();
                     } catch (SQLException ex) {

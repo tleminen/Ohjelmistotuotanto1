@@ -120,7 +120,7 @@ public class LoginFragment extends Fragment {
                         Navigation.findNavController(view).navigate(action);
                     }
                     case 0 -> {
-                        System.out.println("Login failed... Tee tänne errorMessage homma");
+                        System.out.println("Login failed...");
                         tvVaroitus.setText(R.string.text_tvLogin_vaaratKirjautumistiedot);
                         tvVaroitus.setVisibility(View.VISIBLE);
                         btLogin.setEnabled(true);

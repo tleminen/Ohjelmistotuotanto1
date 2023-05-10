@@ -50,31 +50,33 @@ public class toimip_lisaysFragment extends Fragment {
         });
 
         lisaatp.setOnClickListener(e -> {
-            String nimi = tpNimi.getText().toString();
-            String uusiSalasana = tpSalasana.getText().toString();
-            String kaupunki = tpKaupunki.getText().toString();
-            String vastaava = tpVastaava.getText().toString();
-            Toimip_hallintaMuuttujat lisattavaTp = new Toimip_hallintaMuuttujat(nimi,kaupunki,vastaava,uusiSalasana);
+            if (!tpNimi.getText().toString().equals("") && !tpKaupunki.getText().toString().equals("") && !tpVastaava.getText().toString().equals("") && !tpSalasana.getText().toString().equals("")) {
+                String nimi = tpNimi.getText().toString();
+                String uusiSalasana = tpSalasana.getText().toString();
+                String kaupunki = tpKaupunki.getText().toString();
+                String vastaava = tpVastaava.getText().toString();
+                Toimip_hallintaMuuttujat lisattavaTp = new Toimip_hallintaMuuttujat(nimi, kaupunki, vastaava, uusiSalasana);
 
-            Thread t1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
-                        Toimip_hallinta_kyselyt.setLisaaUusiToimipiste(connection, lisattavaTp);
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
+                Thread t1 = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Connection connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                            Toimip_hallinta_kyselyt.setLisaaUusiToimipiste(connection, lisattavaTp);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     }
+                });
+                try {
+                    t1.start();
+                    t1.join();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
                 }
-            });
-            try {
-                t1.start();
-                t1.join();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
+                com.oh.time4play.toimip_lisaysFragmentDirections.ActionToimipLisaysFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_lisaysFragmentDirections.actionToimipLisaysFragmentToToimipHallintaFragment(kayttajatunnus, salasana);
+                Navigation.findNavController(view).navigate(action);
             }
-            com.oh.time4play.toimip_lisaysFragmentDirections.ActionToimipLisaysFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_lisaysFragmentDirections.actionToimipLisaysFragmentToToimipHallintaFragment(kayttajatunnus,salasana);
-            Navigation.findNavController(view).navigate(action);
         });
 
         return view;
