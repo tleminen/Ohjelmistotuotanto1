@@ -244,21 +244,24 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/taaksepain" />
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipisteen_hallintaFragment" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_muokkausFragment"
             app:destination="@id/toimip_muokkausFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/taaksepain" />
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipisteen_hallintaFragment" />
         <action
             android:id="@+id/action_toimip_hallintaFragment_to_toimip_poistoFragment"
             app:destination="@id/toimip_poistoFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/taaksepain" />
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipisteen_hallintaFragment" />
         <argument
             android:name="KirjautunutKayttaja"
             app:argType="string" />
@@ -296,7 +299,8 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/taaksepain" />
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipisteen_hallintaFragment" />
         <argument android:name="KirjautunutKayttaja"
             app:argType="string" />
         <argument
@@ -317,7 +321,8 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/taaksepain" />
+            app:popExitAnim="@anim/taaksepain"
+            app:popUpTo="@id/toimipisteen_hallintaFragment" />
         <argument
             android:name="PoistettavaToimipisteNimi"
             app:argType="string" />

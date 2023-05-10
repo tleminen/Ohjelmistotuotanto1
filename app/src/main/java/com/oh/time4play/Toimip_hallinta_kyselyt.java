@@ -208,26 +208,31 @@ public class Toimip_hallinta_kyselyt {
         }
     }
 
-    //TODO POISTA MYÖS KIRJAUTUJAN TIEDOT ELI DROP USER TAI JOTAIN ja myös varmistus onko avoimia laskuja vois olla ok.
-
     /**
      * Poistaa asiakkaan
-     *
      * @param connection      Tarvitsee yhteyden jolla on DELETE oikeus asiakas -tauluun
      * @param asiakkaanTunnus Saa parametrikseen poistettavan asiakkaan sähköpostiosoitteen.
      * @return
      */
-    public static int poistaAsiakas(Connection connection, String asiakkaanTunnus) {
+    public static int poistaAsiakas(Connection connection, String asiakkaanTunnus) throws SQLException {
         int muutettu;
-        System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus);
+        System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus + " ...");
         try (PreparedStatement statement7 = connection.prepareStatement("""
                 DELETE FROM `varausjarjestelma`.`asiakas` WHERE  `email`= ?; 
                 """)) {
             statement7.setString(1,asiakkaanTunnus);
             muutettu = statement7.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
+
+        System.out.println("Poistetaan myös Asiakkaan kirjautumistunnukset...");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                DROP USER ? @'%';
+                """)) {
+            statement.setString(1,asiakkaanTunnus);
+            int muutos = statement.executeUpdate();
+            System.out.println("Asiakkaan kirjautumistunnukset poistettu: " + muutos);
+        }
+
         return muutettu;
     }
 
