@@ -38,7 +38,7 @@
         android:id="@+id/bt_Paluu_Laskutus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="68dp"
         android:background="@drawable/btn_teema3"
         android:minHeight="48dp"
         android:text="@string/bt_Paluu_laskutus"
@@ -71,5 +71,14 @@
                 android:text="TextView" />
         </LinearLayout>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="410dp"
+        android:layout_height="70dp"
+        android:src="@drawable/th_progressbar6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

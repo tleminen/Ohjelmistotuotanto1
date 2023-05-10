@@ -73,9 +73,9 @@
         <Button
             android:id="@+id/bt_raportti_Loppu"
             android:layout_width="126dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="68dp"
             android:background="@drawable/btn_teema3"
             android:minHeight="48dp"
             android:text="@string/bt_raportti_Paluu"
@@ -127,13 +127,22 @@
 
         <Button
             android:id="@+id/btRaportti_AvoimetLaskut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="122dp"
+            android:layout_height="48dp"
             android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
-            android:background="@color/teal_700"
+            android:layout_marginBottom="68dp"
+            android:background="@drawable/btn_teema6"
             android:text="@string/text_bt_avoimetLaskut"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView32"
+            android:layout_width="410dp"
+            android:layout_height="70dp"
+            android:src="@drawable/th_progressbar5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
