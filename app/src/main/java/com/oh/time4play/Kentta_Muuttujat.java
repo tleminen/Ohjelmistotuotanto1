@@ -23,6 +23,7 @@ public class Kentta_Muuttujat {
     protected String lajitunnus;
     protected String kentanHinta;
     protected String toimipistevastaava;
+    protected boolean valittu = false;
 
     public int getKenttaID() {
         return kenttaID;
