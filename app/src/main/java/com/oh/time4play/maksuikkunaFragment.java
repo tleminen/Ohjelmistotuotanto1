@@ -110,7 +110,9 @@ public class maksuikkunaFragment extends Fragment {
         //Muodostetaan LaskuMuuttujat
         laskunMuodostus();
 
-        tvYhteenveto.setText("Varattu kenttä: " + lasku.getKentanNimi() + " " + lasku.getKentanHinta() + "€" + "\nVarauksen aika: " + valittuPVM + " klo: " + valittuAika + "\n" + lisaPalvelutLaskulle);
+        String printti = "";
+        printti = "Varattu kenttä: " + lasku.getKentanNimi() + " " + lasku.getKentanHinta() + "€" + "\nVarauksen aika: " + valittuPVM + " klo: " + valittuAika + "\n" + lisaPalvelutLaskulle;
+        tvYhteenveto.setText(printti);
 
         btVahvista.setOnClickListener(e ->
         {
