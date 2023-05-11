@@ -124,23 +124,23 @@
             android:id="@+id/imageView25"
             android:layout_width="105dp"
             android:layout_height="70dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="36dp"
             android:src="@drawable/tennispallo"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroup4"
             app:layout_constraintEnd_toEndOf="@+id/radioGroup4"
-            app:layout_constraintHorizontal_bias="0.604"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_thKenttaMuokkausTeksti" />
+            app:layout_constraintHorizontal_bias="0.59"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView26"
             android:layout_width="85dp"
             android:layout_height="67dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="44dp"
             android:src="@drawable/sulkapallo"
             app:layout_constraintEnd_toEndOf="@+id/radioGroup4"
-            app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_thKenttaMuokkausTeksti" />
+            app:layout_constraintTop_toTopOf="@+id/radioGroup4" />
 
         <ImageView
             android:id="@+id/imageView27"
