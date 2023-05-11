@@ -166,7 +166,7 @@ public class th_kyselyt {
                 FROM kentat
                 WHERE  `toimipistevastaava` LIKE ?
                 AND LajiTunnus LIKE ?
-                ORDER BY LajiTunnus
+                ORDER BY LajiTunnus, Kenttanimi
                 """)) {
             statement.setString(1, vastaava);
             statement.setString(2,laji);
