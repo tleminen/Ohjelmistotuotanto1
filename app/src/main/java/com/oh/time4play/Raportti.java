@@ -26,8 +26,6 @@ public class Raportti extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,7 +65,6 @@ public class Raportti extends Fragment {
                 throw new RuntimeException(ex);
             }
 
-            //lisää tähän
             tvRaporttiTeksti.setText(raportti);
 
         });

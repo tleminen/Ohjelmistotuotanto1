@@ -23,7 +23,7 @@ public class Raportti_kyselyt {
             statement.setString(2,alkupvm);
             statement.setString(3,loppupvm);
             ResultSet resultSet = statement.executeQuery();
-            System.out.println("Varausrapostti luotu");
+            System.out.println("Varausraportti luotu");
             while (resultSet.next()) {
                 System.out.println("Oli resultsetissä raporttia");
                 raportti += resultSet.getInt("VarausID") + "\t|\t" + resultSet.getString("VarauksenPVM") + "\t|\t" + resultSet.getString("VarauksenAika") + ":00" + "\t|\t" + resultSet.getString("kentat.Kenttanimi") + "\t|\t" + resultSet.getString("email") + "\n";
@@ -193,7 +193,7 @@ public class Raportti_kyselyt {
         }
 
         for (LaskuMuuttujat laskuja: laskut) {
-            avoimetLaskut += "VarausID: " + laskuja.getVarausID() + " | Varauksen ajankohta:\t" + laskuja.getVarauksenAjankohta() + "\nNimi: " + laskuja.getAsiakkaanNimi() + " | Sähköpostiosoite:\t" + laskuja.getAsiakkaanEmail() + "\nOsoite: " + laskuja.getAsiakkaanOsoite() + "\nLoppusumma: " + laskuja.getLaskutettavaSumma() + "\n-------------------\n";
+            avoimetLaskut += "VarausID: " + laskuja.getVarausID() + " | Varauksen ajankohta: " + laskuja.getVarauksenAjankohta() + ":00\nNimi: " + laskuja.getAsiakkaanNimi() + " | Sähköpostiosoite: " + laskuja.getAsiakkaanEmail() + "\nOsoite: " + laskuja.getAsiakkaanOsoite() + "\nLoppusumma: " + laskuja.getLaskutettavaSumma() + "\n-------------------\n";
         }
         return avoimetLaskut;
     }
