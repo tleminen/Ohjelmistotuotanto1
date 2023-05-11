@@ -47,6 +47,7 @@ public class th_muokattava_kentta_ListAdapter extends RecyclerView.Adapter<th_mu
         holder.itemView.setOnClickListener(Kentta_muokkaus_Listener);
 
         holder.checkBox.setClickable(false);
+        holder.checkBox.setChecked(true);
         if (th_muokattava_kenttaFragment.valittupositio != position) {
             holder.checkBox.setChecked(false);
         }

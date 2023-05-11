@@ -21,7 +21,7 @@ public class th_muokattava_kenttaFragment extends Fragment {
     public ArrayList<Kentta_Muuttujat> itemArrayList; //
 
     private static int valittuKentta = -1;
-    public static int valittupositio;
+    public static int valittupositio = -1;
 
     public static int getValittuKentta() {
         return valittuKentta;
