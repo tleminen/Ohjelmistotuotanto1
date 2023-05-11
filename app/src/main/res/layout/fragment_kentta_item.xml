@@ -133,6 +133,16 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/kellonaikaKLO8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
+                    android:text="08:00"
+                    android:textAlignment="center" />
+
+                <TextView
                     android:id="@+id/kellonaikaKLO9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -153,16 +163,6 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="34dp"
-                    android:padding="4dp"
-                    android:text="08:00"
-                    android:textAlignment="center" />
-
-                <TextView
                     android:id="@+id/kellonaikaKLO11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -179,16 +179,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kentta_itemsKLO13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="34dp"
-                    android:padding="4dp"
-                    android:text="13:00"
-                    android:textAlignment="center" />
-
-                <TextView
                     android:id="@+id/kellonaikaKLO12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -196,6 +186,16 @@
                     android:minHeight="34dp"
                     android:padding="4dp"
                     android:text="12:00"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/kentta_itemsKLO13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
+                    android:text="13:00"
                     android:textAlignment="center" />
 
                 <TextView
@@ -245,16 +245,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="34dp"
-                    android:padding="4dp"
-                    android:text="19:00"
-                    android:textAlignment="center" />
-
-                <TextView
                     android:id="@+id/kellonaikaKLO18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -265,13 +255,13 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO21"
+                    android:id="@+id/kellonaikaKLO19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:minHeight="34dp"
                     android:padding="4dp"
-                    android:text="21:00"
+                    android:text="19:00"
                     android:textAlignment="center" />
 
                 <TextView
@@ -285,13 +275,13 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/kellonaikaKLO23"
+                    android:id="@+id/kellonaikaKLO21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:minHeight="34dp"
                     android:padding="4dp"
-                    android:text="23:00"
+                    android:text="21:00"
                     android:textAlignment="center" />
 
                 <TextView
@@ -303,19 +293,16 @@
                     android:padding="4dp"
                     android:text="22:00"
                     android:textAlignment="center" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/kellonaikaKLO23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="34dp"
+                    android:padding="4dp"
+                    android:text="23:00"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 

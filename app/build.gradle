@@ -8,12 +8,6 @@ android {
     namespace 'com.oh.time4play'
     compileSdk 33
 
-    //Tää oli siihen mailiin liittyvä
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{NOTICE.md,LICENSE.md}'
-        }
-    }
 
     defaultConfig {
         applicationId "com.oh.time4play"

@@ -184,8 +184,55 @@ public class th_kyselyt {
      * @param connection Tietokantayhteysolio jolla oikeus DELETE taululle "kentat"
      * @param poistettavaKenttaID Poistettavan kentan KenttaID
      */
-    public static void poistaKentta(Connection connection, int poistettavaKenttaID) {
+    public static void poistaKentta(Connection connection, int poistettavaKenttaID) throws SQLException {
+        ArrayList<Integer> poistettavaVarausID = new ArrayList<>();
+
         System.out.println("Poistetaan yhteys pelivälineiden saatavuuteen");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                DELETE FROM `varausjarjestelma`.`saatavilla` 
+                    WHERE KenttaID =?;
+                """)) {
+            statement.setInt(1,poistettavaKenttaID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Poistetaan kentän yhteys varaukseen\nEnsin poistetaan kenttään liittyvään varaukseen liittyvät pelivälineet:");
+
+        try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT VarausID
+                    FROM varaus
+                    WHERE KenttaID = ?
+                """)) {
+            statement.setInt(1,poistettavaKenttaID);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                poistettavaVarausID.add(resultSet.getInt("VarausID"));
+            }
+        }
+
+
+        for (int varausID: poistettavaVarausID) {
+            System.out.println("Poistetaan VarausID:n linkitys kuuluu -taulusta...");
+            try (PreparedStatement statement1 = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`kuuluu` 
+                        WHERE `VarausID` = ?
+                    """)) {
+                statement1.setInt(1, varausID);
+                statement1.executeUpdate();
+            }
+        }
+
+        System.out.println("Poistetaan varaukset jotka linkittyvät kenttään");
+        try (PreparedStatement statement = connection.prepareStatement("""
+                 DELETE FROM `varausjarjestelma`.`varaus` 
+                        WHERE `KenttaID` = ?
+                """)) {
+            statement.setInt(1,poistettavaKenttaID);
+            statement.executeUpdate();
+        }
+
         try (PreparedStatement statement = connection.prepareStatement("""
                 DELETE FROM `varausjarjestelma`.`saatavilla` 
                     WHERE KenttaID =?;
@@ -198,7 +245,7 @@ public class th_kyselyt {
 
 
 
-        System.out.println("Poistetaan toimipiste jonka kenttaID: " + poistettavaKenttaID + "...");
+        System.out.println("Poistetaan kentta jonka kenttaID: " + poistettavaKenttaID + "...");
         try (PreparedStatement statement = connection.prepareStatement("""
                 DELETE FROM `varausjarjestelma`.`kentat` 
                     WHERE KenttaID =?;
