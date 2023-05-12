@@ -22,11 +22,10 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
         public void onClick(View v) {
             int position = (int) v.getTag();
             CheckBox checkBox = v.findViewById(R.id.cbOsta_pelivaline_items);
-            if (checkBox.isChecked()) { checkBox.setChecked(false);
-            } else {
-                checkBox.setChecked(true);
-            }
+            checkBox.setChecked(true);
+            pelivalineetFragment.valittupositio = position;
             PelivalineetListAdapter.localDataset.get(position).valittu = checkBox.isChecked();
+            notifyDataSetChanged();
         }
     };
 
@@ -42,6 +41,11 @@ public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetLi
     public void onBindViewHolder(@NonNull PelivalineetListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(pelivListener);
+
+        holder.checkBox.setChecked(true);
+        if (pelivalineetFragment.valittupositio != position) {
+            holder.checkBox.setChecked(false);
+        }
 
         holder.checkBox.setClickable(false);
 

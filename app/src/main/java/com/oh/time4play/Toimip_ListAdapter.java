@@ -45,6 +45,7 @@ public class Toimip_ListAdapter extends RecyclerView.Adapter<Toimip_ListAdapter.
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Toimip_Listener);
 
+        holder.checkBox.setChecked(true);
         holder.checkBox.setClickable(false);
         if (ToimipFragment.valittupositio != position) {
             holder.checkBox.setChecked(false);

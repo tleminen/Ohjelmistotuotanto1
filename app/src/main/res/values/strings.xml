@@ -23,7 +23,7 @@
     <string name="tw_tpTiedotTeksti">Anna uuden toimipisteen tiedot</string>
     <string name="et_tpLisaysNimi">Toimipisteen Nimi</string>
     <string name="et_tpKaupunki">Toimipisteen kaupunki</string>
-    <string name="et_tpVastaava">Toimipistevastaava</string>
+    <string name="et_tpVastaava">Toimipistevastaavan email</string>
     <string name="et_tpLisaysSalasana">Uusi salasana</string>
     <string name="bt_tpLisaaNappi">Lisää toimipiste</string>
     <string name="bt_tpLisaysPaluu">Paluu</string>

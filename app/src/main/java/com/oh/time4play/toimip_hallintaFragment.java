@@ -28,7 +28,7 @@ public class toimip_hallintaFragment extends Fragment {
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 
     public static String valittuToimipiste;
-    public static int valittuPositio;
+    public static int valittuPositio = -1;
     int muutettu = 0;
 
     public static String getValittuToimipiste() {

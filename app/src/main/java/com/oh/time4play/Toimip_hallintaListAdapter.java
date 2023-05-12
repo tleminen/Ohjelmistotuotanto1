@@ -45,7 +45,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
     public void onBindViewHolder(@NonNull Toimip_hallintaListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Toimip_hallintaListener);
-
+        holder.checkBox.setChecked(true);
         holder.checkBox.setClickable(false);
         if (toimip_hallintaFragment.valittuPositio != position) {
             holder.checkBox.setChecked(false);

@@ -29,7 +29,7 @@
 
         <EditText
             android:id="@+id/et_tpLisaysNimi"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:ems="10"
@@ -44,7 +44,7 @@
 
         <EditText
             android:id="@+id/et_tpLisays_Sal"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:ems="10"
@@ -59,23 +59,23 @@
 
         <EditText
             android:id="@+id/et_tpLisaysKaupunki"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:ems="10"
             android:hint="@string/et_tpKaupunki"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="@color/black"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/et_tpLisaysVastaava"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/et_tpLisaysVastaava"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="300dp"
+            android:layout_height="51dp"
             android:ems="10"
             android:hint="@string/et_tpVastaava"
             android:inputType="text"

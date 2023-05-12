@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class pelivalineetFragment extends Fragment {
 
+    public static int valittupositio = -1;
     private ArrayList<Pelivaline_muuttujat> itemArrayList;
     public static String valitutPelivalineet = "";
 

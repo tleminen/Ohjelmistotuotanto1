@@ -23,7 +23,7 @@ public class th_peliv_muutoksetFragment extends Fragment {
     public ArrayList<Pelivaline_muuttujat> itemArrayList; //
 
     private static int valittuPelivaline = -1;
-    public static int valittupositio;
+    public static int valittupositio = -1;
 
     public static int getValittuPelivaline() {
         return valittuPelivaline;
