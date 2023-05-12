@@ -47,7 +47,7 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         holder.checkBox.setClickable(false);
         if (toimip_hallintaFragment.valittuPositio != position) {
             holder.checkBox.setChecked(false);
-        }
+        } else {toimip_hallintaFragment.valittuPositio = -1;}
         holder.textView.setText(localDataset.get(position).Kaupunki);
         holder.textView2.setText(localDataset.get(position).Nimi);
     }
