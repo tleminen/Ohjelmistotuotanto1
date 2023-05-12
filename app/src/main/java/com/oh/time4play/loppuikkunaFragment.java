@@ -1,6 +1,7 @@
 package com.oh.time4play;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -26,10 +27,14 @@ public class loppuikkunaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_loppuikkuna,container,false);
 
         String tultiin = loppuikkunaFragmentArgs.fromBundle(getArguments()).getMistaTanneTultiin();
+        boolean varausOnnistui = loppuikkunaFragmentArgs.fromBundle(getArguments()).getVarausOnnistui();
 
         TextView textView = view.findViewById(R.id.tvkenelleTervehdys);
 
         textView.setText("Nähdään " +tultiin + "!");
+        if (!varausOnnistui) {
+            textView.setTextColor(Color.RED);
+        }
 
         view.setOnClickListener(onClickListener);
 

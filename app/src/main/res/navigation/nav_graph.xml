@@ -224,6 +224,9 @@
         <argument
             android:name="MistaTanneTultiin"
             app:argType="string" />
+        <argument
+            android:name="VarausOnnistui"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/toimip_hallintaFragment"

@@ -148,10 +148,12 @@ public class maksuikkunaFragment extends Fragment {
                 }
                 if (varausOnnistui) {
                     System.out.println("Lasku tehty, siirrytään loppufragmenttiin");
-                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(asiakas.getAsiakasNimi(),true);
                     Navigation.findNavController(view).navigate(action);
                 } else {
-                    System.out.println("VARAUS EPÄONNISTUI, TEE TÄNNE VIRHEENKÄSITTELY ELI VARMAAN PALUU ALKUUN");
+                    System.out.println("VARAUS EPÄONNISTUI");
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(asiakas.getAsiakasNimi() + "!\nValitettavasti varaus epäonnistui. Yritä uudelleen.",false);
+                    Navigation.findNavController(view).navigate(action);
                 }
             }
         });
@@ -190,11 +192,11 @@ public class maksuikkunaFragment extends Fragment {
                 }
                 if (varausOnnistui) {
                     System.out.println("Varaus tehty, siirrytään loppufragmenttiin");
-                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus);
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment(kayttajatunnus,true);
                     Navigation.findNavController(view).navigate(action);
                 } else {
                     System.out.println("VARAUS EPÄONNISTUI");
-                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment("Valitettavasti varaus epäonnistui. Yritä uudelleen.");
+                    com.oh.time4play.maksuikkunaFragmentDirections.ActionMaksuikkunaFragmentToLoppuikkunaFragment action = com.oh.time4play.maksuikkunaFragmentDirections.actionMaksuikkunaFragmentToLoppuikkunaFragment("Valitettavasti varaus epäonnistui. Yritä uudelleen.",false);
                     Navigation.findNavController(view).navigate(action);
                 }
             }
