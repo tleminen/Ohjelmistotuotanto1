@@ -39,7 +39,6 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
         return new th_peliv_muutoksetListAdapter.ViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull th_peliv_muutoksetListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
@@ -53,7 +52,6 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
 
         holder.textView.setText(localDataset.get(position).pelivalineNimi);
     }
-
 
     @Override
     public int getItemCount() {return localDataset.size();}

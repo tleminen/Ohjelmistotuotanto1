@@ -40,7 +40,6 @@ public class th_muokattava_kentta_ListAdapter extends RecyclerView.Adapter<th_mu
         return new ViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull th_muokattava_kentta_ListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
@@ -60,7 +59,6 @@ public class th_muokattava_kentta_ListAdapter extends RecyclerView.Adapter<th_mu
     public int getItemCount() {return localDataset.size();}
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
 
         public final TextView textView;
         public final TextView textView2;

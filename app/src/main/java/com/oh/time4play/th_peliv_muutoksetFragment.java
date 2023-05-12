@@ -34,9 +34,7 @@ public class th_peliv_muutoksetFragment extends Fragment {
         System.out.println(valinta);
     }
 
-
     public th_peliv_muutoksetFragment() {super(R.layout.fragment_th_peliv_muutokset);}
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

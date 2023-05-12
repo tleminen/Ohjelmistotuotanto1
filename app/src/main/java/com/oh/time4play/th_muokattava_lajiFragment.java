@@ -11,18 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
-import com.oh.time4play.th_muokattava_lajiFragmentDirections;
-
-import java.util.ArrayList;
-
 public class th_muokattava_lajiFragment extends Fragment {
-
 
     public th_muokattava_lajiFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

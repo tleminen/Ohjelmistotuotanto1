@@ -15,7 +15,6 @@ import android.widget.RadioButton;
 import java.sql.SQLException;
 import java.util.Objects;
 
-
 public class th_kentta_muokkausFragment extends Fragment {
 
     Kentta_Muuttujat kentta;

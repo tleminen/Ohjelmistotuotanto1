@@ -13,8 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.oh.time4play.AsiakasHallintaDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;

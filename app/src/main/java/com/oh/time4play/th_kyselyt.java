@@ -212,7 +212,6 @@ public class th_kyselyt {
             }
         }
 
-
         for (int varausID: poistettavaVarausID) {
             System.out.println("Poistetaan VarausID:n linkitys kuuluu -taulusta...");
             try (PreparedStatement statement1 = connection.prepareStatement("""
@@ -242,8 +241,6 @@ public class th_kyselyt {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
 
         System.out.println("Poistetaan kentta jonka kenttaID: " + poistettavaKenttaID + "...");
         try (PreparedStatement statement = connection.prepareStatement("""

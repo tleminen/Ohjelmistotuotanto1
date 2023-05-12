@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.oh.time4play.toimipisteen_hallintaFragmentDirections;
-
-
 public class toimipisteen_hallintaFragment extends Fragment {
 
     public toimipisteen_hallintaFragment() {super(R.layout.fragment_toimipisteen_hallinta);}
@@ -69,7 +66,6 @@ public class toimipisteen_hallintaFragment extends Fragment {
             com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToLaskutusFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToLaskutusFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });
-
         return view;
     }
 }

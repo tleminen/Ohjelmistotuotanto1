@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.oh.time4play.toimip_poistoFragmentDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -59,7 +57,6 @@ public class toimip_poistoFragment extends Fragment {
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-
             com.oh.time4play.toimip_poistoFragmentDirections.ActionToimipPoistoFragmentToToimipHallintaFragment action = com.oh.time4play.toimip_poistoFragmentDirections.actionToimipPoistoFragmentToToimipHallintaFragment(kayttajatunnus,salasana);
             Navigation.findNavController(view).navigate(action);
         });

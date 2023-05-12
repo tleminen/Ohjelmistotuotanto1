@@ -1,7 +1,6 @@
 package com.oh.time4play;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,13 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.ThemedSpinnerAdapter;
 
-import com.oh.time4play.toimip_hallintaFragmentDirections;
-
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -29,7 +22,6 @@ public class toimip_hallintaFragment extends Fragment {
 
     public static String valittuToimipiste;
     public static int valittuPositio = -1;
-    int muutettu = 0;
 
     public static String getValittuToimipiste() {
         return valittuToimipiste;
@@ -85,10 +77,8 @@ public class toimip_hallintaFragment extends Fragment {
             throw new RuntimeException(e);
         }
 
-
         myRecycleView.setAdapter(new Toimip_hallintaListAdapter(itemArrayList));
         myRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         //Siirtymät nappuloiden mukaan
         btAsiakashallinta.setOnClickListener(e -> {

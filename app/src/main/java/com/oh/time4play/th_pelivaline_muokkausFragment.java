@@ -20,7 +20,6 @@ public class th_pelivaline_muokkausFragment extends Fragment {
     Pelivaline_muuttujat pelivaline;
 
 
-
     public th_pelivaline_muokkausFragment() {
         // Required empty public constructor
     }
@@ -142,7 +141,6 @@ public class th_pelivaline_muokkausFragment extends Fragment {
             th_pelivaline_muokkausFragmentDirections.ActionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment action = com.oh.time4play.th_pelivaline_muokkausFragmentDirections.actionThPelivalineMuokkausFragmentToToimipisteenHallintaFragment(kayttajatunnus, salasana);
             Navigation.findNavController(view).navigate(action);
         });
-
 
         return view;
     }

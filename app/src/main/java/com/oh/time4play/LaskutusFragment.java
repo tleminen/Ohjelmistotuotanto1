@@ -11,12 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.oh.time4play.LaskutusFragmentDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 
 public class LaskutusFragment extends Fragment {
     ArrayList<LaskuMuuttujat> laskuta = new ArrayList<>();
@@ -25,7 +22,6 @@ public class LaskutusFragment extends Fragment {
     public LaskutusFragment() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -2,7 +2,6 @@ package com.oh.time4play;
 
 import android.os.Bundle;
 
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -13,19 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.oh.time4play.RegisterFragmentDirections;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.sql.SQLException;
-
-import kotlin.jvm.internal.Intrinsics;
 
 /**
  * Toteuttaa uuden asiakkaan rekisteröitymisen
- * Puuttuu vieä tarkistus, että kaikissa kentissä on syötetty dataa ja, että asiakas on varmasti uusi!
- * V0.8
+ * V1.0
  */
 public class RegisterFragment extends Fragment {
     boolean muutettu = false;

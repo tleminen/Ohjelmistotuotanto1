@@ -116,7 +116,6 @@ public class SystemKyselyt {
             muutosOnnistui = true;
 
             tietokantayhteys.close();
-
         }
         return muutosOnnistui;
     }

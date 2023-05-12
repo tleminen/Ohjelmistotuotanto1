@@ -8,11 +8,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextClock;
 import android.widget.TextView;
-
-import com.oh.time4play.kellonaikaValintaFragmentDirections;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

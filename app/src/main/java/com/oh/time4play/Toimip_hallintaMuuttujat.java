@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class Toimip_hallintaMuuttujat {
 
-
-
     public Toimip_hallintaMuuttujat() {
     }
 

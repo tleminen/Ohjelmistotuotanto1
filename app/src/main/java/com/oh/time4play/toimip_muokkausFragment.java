@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.oh.time4play.toimip_muokkausFragmentDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -91,7 +89,6 @@ public class toimip_muokkausFragment extends Fragment {
                 Navigation.findNavController(view).navigate(action);
             }
         });
-
         return view;
     }
 }

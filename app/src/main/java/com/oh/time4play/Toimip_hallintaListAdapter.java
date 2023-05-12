@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,7 +38,6 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
 
         return new ViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull Toimip_hallintaListAdapter.ViewHolder holder, int position) {

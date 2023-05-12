@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import com.oh.time4play.th_kentta_lisaysFragmentDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -74,7 +72,6 @@ public class th_kentta_lisaysFragment extends Fragment {
                 Navigation.findNavController(view).navigate(action);
             }
         });
-
         return view;
     }
 }

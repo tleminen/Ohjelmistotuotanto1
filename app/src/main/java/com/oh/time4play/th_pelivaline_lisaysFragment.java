@@ -82,9 +82,6 @@ public class th_pelivaline_lisaysFragment extends Fragment {
             Navigation.findNavController(view).navigate(action);
         });
 
-
-
-
         return view;
     }
 }

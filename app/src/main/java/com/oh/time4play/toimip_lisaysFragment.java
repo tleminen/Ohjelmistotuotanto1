@@ -11,20 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.oh.time4play.toimip_lisaysFragmentDirections;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * Aloitettu ohjelmointi, pitää tarkastella vielä se lisäyskysely, eli siis tehdä se ja katsoa, että toimii
- */
 public class toimip_lisaysFragment extends Fragment {
 
     public toimip_lisaysFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
