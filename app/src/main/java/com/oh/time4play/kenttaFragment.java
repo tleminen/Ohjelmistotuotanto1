@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class kenttaFragment extends Fragment {
 
+    public static int valittuPositio = -1;
     private static String valitunKentanHinta;
 
     public kenttaFragment() {

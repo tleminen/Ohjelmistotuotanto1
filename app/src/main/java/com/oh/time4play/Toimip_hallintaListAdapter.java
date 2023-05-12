@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -62,10 +63,8 @@ public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hall
         public final TextView textView2;
         public final CheckBox checkBox;
 
-
         public ViewHolder(View itemView) {
             super(itemView);
-
             checkBox = (CheckBox) itemView.findViewById(R.id.cbToimip_HallintaItemValinta);
             textView = (TextView) itemView.findViewById(R.id.twToimip_HallintaItemPaikka);
             textView2 = (TextView) itemView.findViewById(R.id.twToimip_HallintaItemNimi);

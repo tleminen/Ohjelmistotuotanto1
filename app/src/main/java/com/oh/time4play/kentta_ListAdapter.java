@@ -1,15 +1,19 @@
 package com.oh.time4play;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.compose.ui.graphics.Color;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.ViewHolder>  {
 
@@ -25,13 +29,18 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
     }
 
     View.OnClickListener Kentta_Listener = new View.OnClickListener() {
+        @SuppressLint("ResourceAsColor")
         @Override
         public void onClick(View v) {
             int position = (int) v.getTag();
+
+            kenttaFragment.valittuPositio = position;
+
             System.out.println(position);
             kenttaFragment.setValittuKentta(kentta_ListAdapter.localDataset.get(position).kenttaID);
             kenttaFragment.setValitunKentanHinta(kentta_ListAdapter.localDataset.get(position).kentanHinta);
             System.out.println("valittu: "+ localDataset.get(position).kenttaID);
+            notifyDataSetChanged();
         }
     };
 
@@ -44,12 +53,18 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
     }
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull kentta_ListAdapter.ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(Kentta_Listener);
         holder.tKenttaHinta.setText(localDataset.get(position).kentanHinta + "€");
         holder.tKenttaNimi.setText(localDataset.get(position).nimi);
+
+        holder.linearLayout.setBackgroundColor(R.color.vihrea_valittu);
+        if (kenttaFragment.valittuPositio != position) {
+            holder.linearLayout.setBackgroundColor(Color.TRANSPARENT);
+        }
 
         holder.t0.setBackgroundColor(variValinta(localDataset.get(position).getKlo00()));
         holder.t1.setBackgroundColor(variValinta(localDataset.get(position).getKlo01()));
@@ -84,6 +99,7 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
 
         public final TextView tKenttaNimi;
         public final TextView tKenttaHinta;
+        public final LinearLayout linearLayout;
         public final TextView t0;
         public final TextView t1;
         public final TextView t2;
@@ -112,6 +128,7 @@ public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
 
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.ll_kentta);
             tKenttaNimi = (TextView) itemView.findViewById(R.id.tv_kenttaItem_KenttaNimi);
             tKenttaHinta = (TextView) itemView.findViewById(R.id.tv_KenttaItem_Hinta);
             t0 = (TextView) itemView.findViewById(R.id.kellonaikaKLO0);
