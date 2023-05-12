@@ -102,7 +102,7 @@ public class th_kentta_muokkausFragment extends Fragment {
         });
 
         btVahvista.setOnClickListener(e -> {
-            if (rbSulkapallo.isChecked() | rbTennis.isChecked()) {
+            if (rbSulkapallo.isChecked() | rbTennis.isChecked() && !tuntihinta.getText().toString().equals("") && !kentannimi.getText().toString().equals("")) {
                 kentta.kentanHinta = tuntihinta.getText().toString();
                 if (rbSulkapallo.isChecked()) {
                     kentta.lajitunnus = "Sulkapallo";

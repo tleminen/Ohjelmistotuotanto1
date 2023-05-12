@@ -56,7 +56,7 @@ public class toimipisteen_hallintaFragment extends Fragment {
         });
 
         tpPoistu.setOnClickListener(e -> {
-            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToLoppuikkunaFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToLoppuikkunaFragment(kayttajatunnus);
+            com.oh.time4play.toimipisteen_hallintaFragmentDirections.ActionToimipisteenHallintaFragmentToLoppuikkunaFragment action = com.oh.time4play.toimipisteen_hallintaFragmentDirections.actionToimipisteenHallintaFragmentToLoppuikkunaFragment(kayttajatunnus,true);
             Navigation.findNavController(view).navigate(action);
         });
 

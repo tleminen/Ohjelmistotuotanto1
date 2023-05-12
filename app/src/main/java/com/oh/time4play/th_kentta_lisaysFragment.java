@@ -41,7 +41,7 @@ public class th_kentta_lisaysFragment extends Fragment {
         Button lisaaKentta = view.findViewById(R.id.btLisaaKentta);
 
         lisaaKentta.setOnClickListener(e -> {
-            if (rbSulkapallo.isChecked() | rbTennis.isChecked()) {
+            if (rbSulkapallo.isChecked() | rbTennis.isChecked() && !keNimi.getText().toString().equals("") && !keHinta.getText().toString().equals("")) {
                 String lajitunnus = "";
                 if(rbSulkapallo.isChecked()) {
                     lajitunnus = "Sulkapallo";

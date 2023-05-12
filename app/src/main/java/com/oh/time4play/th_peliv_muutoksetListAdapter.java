@@ -45,6 +45,7 @@ public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(peliv_muutoksetListener);
 
+        holder.checkBox.setChecked(true);
         holder.checkBox.setClickable(false);
         if (th_peliv_muutoksetFragment.valittupositio != position) {
             holder.checkBox.setChecked(false);
