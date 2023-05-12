@@ -69,8 +69,9 @@
             android:textAlignment="center"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+            app:layout_constraintTop_toBottomOf="@+id/etKentanNimi_kenttaLisa" />
 
         <EditText
             android:id="@+id/etKentanNimi_kenttaLisa"
@@ -80,12 +81,12 @@
             android:ems="10"
             android:hint="@string/et_text_kentanNimi_kenttaLisays"
             android:inputType="text"
-            android:textColorHint="@color/black"
             android:minHeight="48dp"
             android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etTuntihinta_kenttaLisa" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
 
         <Button
             android:id="@+id/btLisaaKentta"
