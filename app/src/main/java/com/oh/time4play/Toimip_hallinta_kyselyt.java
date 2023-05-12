@@ -215,24 +215,77 @@ public class Toimip_hallinta_kyselyt {
      * @return
      */
     public static int poistaAsiakas(Connection connection, String asiakkaanTunnus) throws SQLException {
-        int muutettu;
-        System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus + " ...");
-        try (PreparedStatement statement7 = connection.prepareStatement("""
-                DELETE FROM `varausjarjestelma`.`asiakas` WHERE  `email`= ?; 
-                """)) {
-            statement7.setString(1,asiakkaanTunnus);
-            muutettu = statement7.executeUpdate();
-        }
+        int muutettu = 0;
+        boolean loytyi = false;
+        ArrayList<Integer> poistettavatVaraukset = new ArrayList<>();
 
-        System.out.println("Poistetaan myös Asiakkaan kirjautumistunnukset...");
+        System.out.println("Testataan menikö email oikein...");
+
         try (PreparedStatement statement = connection.prepareStatement("""
-                DROP USER ? @'%';
+                SELECT email
+                    FROM asiakas
+                    WHERE email LIKE ?
                 """)) {
             statement.setString(1,asiakkaanTunnus);
-            int muutos = statement.executeUpdate();
-            System.out.println("Asiakkaan kirjautumistunnukset poistettu: " + muutos);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                loytyi = true;
+                System.out.println("Asiakas löytyi tunnuksella: " + asiakkaanTunnus);
+            }
         }
 
+        if (loytyi) {
+            System.out.println("Valitaan poistettavat varaukset...");
+            try (PreparedStatement statement = connection.prepareStatement("""
+                SELECT VarausID
+                    FROM varaus
+                    WHERE email = ?
+                """)) {
+                statement.setString(1,asiakkaanTunnus);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    System.out.println("Löytyi varaus");
+                    poistettavatVaraukset.add(resultSet.getInt("VarausID"));
+                }
+            }
+
+            System.out.println("Poistetaan kuuluu taulusta varaukset...");
+            for (int varausID: poistettavatVaraukset) {
+                try (PreparedStatement statement = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`kuuluu` WHERE VarausID = ?
+                    """)) {
+                    statement.setInt(1,varausID);
+                    statement.executeUpdate();
+                }
+            }
+
+            System.out.println("Poistetaan varaukset...");
+            for (int varausID : poistettavatVaraukset) {
+                try (PreparedStatement statement = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`varaus` WHERE VarausID = ? 
+                    """)) {
+                    statement.setInt(1,varausID);
+                    statement.executeUpdate();
+                }
+            }
+
+            System.out.println("Poistetaan Asiakas tunnuksella: " + asiakkaanTunnus + " ...");
+            try (PreparedStatement statement7 = connection.prepareStatement("""
+                    DELETE FROM `varausjarjestelma`.`asiakas` WHERE  `email`= ?; 
+                    """)) {
+                statement7.setString(1, asiakkaanTunnus);
+                muutettu = statement7.executeUpdate();
+            }
+
+            System.out.println("Poistetaan myös Asiakkaan kirjautumistunnukset...");
+            try (PreparedStatement statement = connection.prepareStatement("""
+                    DROP USER ? @'%';
+                    """)) {
+                statement.setString(1, asiakkaanTunnus);
+                int muutos = statement.executeUpdate();
+                System.out.println("Asiakkaan kirjautumistunnukset poistettu: " + muutos);
+            }
+        }
         return muutettu;
     }
 
@@ -290,6 +343,7 @@ public class Toimip_hallinta_kyselyt {
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
                 SELECT *
                     FROM asiakas
+                    ORDER BY Rooli, Asiakasnimi
                 """)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
