@@ -1,5 +1,8 @@
 package com.oh.time4play;
 
+/**
+ * Varausraportti olio sisältää varauksien tiedot, käytetään varauksien käsittelyssä
+ */
 public class Varaus_Raportti_Muuttujat {
     int varausID;
     String varauksenPVM;

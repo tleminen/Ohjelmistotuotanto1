@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * kentta_ListAdapter toteuttaa kenttaFragments RecycleViewin adapterin
+ */
 public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.ViewHolder>  {
 
     public static ArrayList<Kentta_Muuttujat> localDataset;

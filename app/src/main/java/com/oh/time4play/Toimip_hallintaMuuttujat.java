@@ -2,6 +2,9 @@ package com.oh.time4play;
 
 import java.util.ArrayList;
 
+/**
+ * Toimip_hallintaolio sisältää toimipisteiden tiedot, käytetään toimipisteiden käsittelyssä
+ */
 public class Toimip_hallintaMuuttujat {
 
     public Toimip_hallintaMuuttujat() {

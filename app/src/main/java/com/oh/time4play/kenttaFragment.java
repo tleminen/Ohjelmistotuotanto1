@@ -15,6 +15,9 @@ import android.widget.Button;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ *kenttaFragment toteuttaa varausten lisäykset kenttiin
+ */
 public class kenttaFragment extends Fragment {
 
     public static int valittuPositio = -1;

@@ -1,5 +1,8 @@
 package com.oh.time4play;
 
+/**
+ * Kenttaolio sisältää kenttien tiedot, käytetään kenttien käsittelyssä
+ */
 public class Kentta_Muuttujat {
     public Kentta_Muuttujat() {}
 

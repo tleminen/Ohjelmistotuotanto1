@@ -1,5 +1,8 @@
 package com.oh.time4play;
 
+/**
+ * Laskuolio sisältää laskujen tiedot, käytetään laskujen käsittelyssä
+ */
 public class LaskuMuuttujat {
     private int varausID;
     private String asiakkaanNimi;
