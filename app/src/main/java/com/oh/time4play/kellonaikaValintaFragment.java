@@ -13,7 +13,9 @@ import android.widget.TextView;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+/**
+ * kellonaikaValintaFragment toteuttaa asiakkaan kellonajanvalinnan varausta tehdessä
+ */
 public class kellonaikaValintaFragment extends Fragment {
     static final int varattuVari = 0xFF883200;
     private int valittuAika;

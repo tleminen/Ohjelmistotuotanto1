@@ -17,6 +17,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * AsiakasHallinta toteuttaa asiakkaiden tietojen näyttämisen ja poistamisen
+ */
 public class AsiakasHallinta extends Fragment {
 
     int muutettu = 0;
