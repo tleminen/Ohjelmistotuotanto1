@@ -15,6 +15,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * LaskutusFragment toteuttaa laskutuksen
+ */
 public class LaskutusFragment extends Fragment {
     ArrayList<LaskuMuuttujat> laskuta = new ArrayList<>();
     ArrayList<LaskuMuuttujat> laskutaPosti = new ArrayList<>();
