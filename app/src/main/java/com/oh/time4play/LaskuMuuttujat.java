@@ -7,13 +7,13 @@ public class LaskuMuuttujat {
     private int varausID;
     private String asiakkaanNimi;
     private String valitutLisapalvelut;
-    private int lisapalveluHinta = 0;
+    private double lisapalveluHinta = 0;
     private String loppuSumma;
     private int valittuMaksutapa;
     private String asiakkaanEmail;
     private String asiakkaanOsoite;
     private String toimipisteenNimi;
-    private int kentanHinta;
+    private double kentanHinta;
     private String kentanNimi;
     private String varauksenAjankohta;
 
@@ -28,19 +28,19 @@ public class LaskuMuuttujat {
         this.varausID = varausID;
     }
 
-    public int getKentanHinta() {
+    public double getKentanHinta() {
         return kentanHinta;
     }
 
-    public void setKentanHinta(int kentanHinta) {
+    public void setKentanHinta(double kentanHinta) {
         this.kentanHinta = kentanHinta;
     }
 
-    public LaskuMuuttujat(int varausID, String varauksenPVM, int varauksenAika, String email, String kenttaHinta, String kenttanimi) {
+    public LaskuMuuttujat(int varausID, String varauksenPVM, int varauksenAika, String email, double kenttaHinta, String kenttanimi) {
         this.varausID = varausID;
         this.varauksenAjankohta = varauksenPVM + " klo: " + varauksenAika;
         this.asiakkaanEmail = email;
-        this.kentanHinta = Integer.parseInt(kenttaHinta);
+        this.kentanHinta = kenttaHinta;
         this.kentanNimi = kenttanimi;
     }
 
@@ -119,10 +119,11 @@ public class LaskuMuuttujat {
     }
 
     public void addLisapalveluHinta(String valineHinta) {
-        this.lisapalveluHinta += Integer.parseInt(valineHinta);
+        valineHinta = valineHinta.replace(",",".");
+        this.lisapalveluHinta += Double.parseDouble(valineHinta);
     }
 
-    public int getLaskutettavaSumma() {
+    public double getLaskutettavaSumma() {
         return kentanHinta + lisapalveluHinta;
     }
 }

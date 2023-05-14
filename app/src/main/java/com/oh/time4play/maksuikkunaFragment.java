@@ -32,7 +32,7 @@ public class maksuikkunaFragment extends Fragment {
     private String lisaPalvelutLaskulle = "";
     private String loppuSumma;
     private String kenttaHinta;
-    private int lisapalveluTotHinta;
+    private double lisapalveluTotHinta;
     private int [] pelivalineIDt;
     public maksuikkunaFragment() {
         // Required empty public constructor
@@ -49,8 +49,9 @@ public class maksuikkunaFragment extends Fragment {
         valittuKentta = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValittuKentta();
         valittuAika = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValittuKellonaika();
         valitutLisapalvelut = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitutLisapalvelut();
-        kenttaHinta = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
         pelivalineIDt = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitutPelivalineIDt();
+        kenttaHinta = maksuikkunaFragmentArgs.fromBundle(getArguments()).getValitunKentanHinta();
+        kenttaHinta = kenttaHinta.replace(",",".");
 
         View view = inflater.inflate(R.layout.fragment_maksuikkuna, container, false);
 
@@ -210,7 +211,7 @@ public class maksuikkunaFragment extends Fragment {
         lasku.setValitutLisapalvelut(lisaPalvelutLaskulle);
         lasku.setAsiakkaanEmail(kayttajatunnus);
         lasku.setAsiakkaanOsoite(asiakas.getOsoite());
-        lasku.setKentanHinta(Integer.parseInt(kenttaHinta));
+        lasku.setKentanHinta(Double.parseDouble(kenttaHinta));
 
         Thread t3 = new Thread(new Runnable() {
             @Override
@@ -245,7 +246,7 @@ public class maksuikkunaFragment extends Fragment {
         boolean readHinta = false;
         String hinta = "";
         String valine = "";
-        int total = 0;
+        double total = 0;
 
         for (int i = 0; i < valitutPelivalineet.length(); i++) {
             switch (valitutLisapalvelut.charAt(i)) {
@@ -263,7 +264,8 @@ public class maksuikkunaFragment extends Fragment {
                     readHinta = false;
                     System.out.println("Lisäpalvelun hinta: " + hinta);
                     lisaPalvelutLaskulle += hinta + "€\n";
-                    total += Integer.parseInt(hinta);
+                    hinta = hinta.replace(",",".");
+                    total += Double.parseDouble(hinta);
                     hinta = "";
                 }
                 default -> {
@@ -285,8 +287,8 @@ public class maksuikkunaFragment extends Fragment {
      */
 
     private String laskeKokonaisSumma() {
-        int summa = 0;
-        summa += Integer.parseInt(kenttaHinta);
+        double summa = 0;
+        summa += Double.parseDouble(kenttaHinta);
         summa += lisapalveluTotHinta;
         return String.valueOf(summa);
     }

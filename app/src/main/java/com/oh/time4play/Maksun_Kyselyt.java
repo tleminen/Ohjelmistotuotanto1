@@ -105,6 +105,7 @@ public class Maksun_Kyselyt {
                             """)) {
                         statement2.setInt(1, varausID);
                         statement2.setInt(2, pelivalineIDt[i]);
+                        statement2.executeUpdate();
                     }
                     i++;
                 }
