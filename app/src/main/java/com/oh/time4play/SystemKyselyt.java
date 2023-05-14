@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * SystemKyselyt toteuttaa uuden asiakkaan luomisen ja tietokantaoikeuksien myöntämisen asiakkaalle
+ */
 public class SystemKyselyt {
 
     /**

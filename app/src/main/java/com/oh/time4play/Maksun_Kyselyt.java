@@ -37,8 +37,8 @@ public class Maksun_Kyselyt {
      * @param kayttajatunnus käyttäjätunnus
      * @param pelivalineIDt pelivälineiden ID
      * @param valittuMaksutapa valittu maksutapa
-     * @return
-     * @throws SQLException
+     * @return palauttaa false, mikäli kentälle on jo tehty varausta samalle ajalle
+     * @throws SQLException sisältää tietokantakyselyitä
      */
 
     public static boolean teeVaraus(Connection yhdistaSystemTietokantaan, String valittuPVM, int valittuAika, int valittuKentta, String kayttajatunnus, int[] pelivalineIDt, int valittuMaksutapa) throws SQLException {
@@ -119,7 +119,7 @@ public class Maksun_Kyselyt {
      * @param kayttajatunnus asiakkaan käyttäjätunnus
      * @param osoite asiakkaan osoite
      * @param nimi asiakkaan nimi
-     * @throws SQLException
+     * @throws SQLException palauttaa tietokantakyselyitä
      */
     public static void updateAsiakas(Connection yhdistaSystemTietokantaan, String kayttajatunnus, String osoite, String nimi) throws SQLException {
         try (PreparedStatement statement = yhdistaSystemTietokantaan.prepareStatement("""

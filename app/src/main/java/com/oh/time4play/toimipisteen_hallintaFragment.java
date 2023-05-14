@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 /**
- * toimipisteen_hallintaFragment toteuttaa toimipisteen kenttien ja pelivälineiden lisäämistä sekä muokkaamista, ja mahdollisuuden raporttien ja laskutusten katsomiseen
+ * toimipisteen_hallintaFragment toteuttaa alkuvalikon paikalliselle ylläpitäjälle
  */
 public class toimipisteen_hallintaFragment extends Fragment {
 

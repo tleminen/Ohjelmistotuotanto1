@@ -16,7 +16,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * toimip_muokkausFragment toteuttaa toimipisteen nimen ja kaupungin muokkaamisen
+ * toimip_muokkausFragment toteuttaa toimipisteen nimen ja kaupungin muokkaamisen toimipisteiden hallinnoitsijalle
  */
 public class toimip_muokkausFragment extends Fragment {
 

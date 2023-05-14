@@ -1,5 +1,8 @@
 package com.oh.time4play;
 
+/**
+ *varausajatoliota käytetään apuna asettamaan kenttaFragmentissa varattuja aikoja punaisiksi näkymään
+ */
 public class VarausAjat {
     private int kenttaID;
     private int varausAika;

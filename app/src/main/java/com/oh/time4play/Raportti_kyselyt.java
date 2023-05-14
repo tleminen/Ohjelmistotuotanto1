@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * toteuttaa RaporttiFragmentin tarvitsemat kyselyt
+ */
 public class Raportti_kyselyt {
 
     public static String getLocalVarausraportti(Connection connection, String kayttajatunnus, String alkupvm, String loppupvm) throws SQLException {

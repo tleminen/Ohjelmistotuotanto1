@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import java.sql.SQLException;
 
+/**
+ *
+ */
 public class maksuikkunaFragment extends Fragment {
 
     Asiakas_Muuttujat asiakas;
@@ -283,7 +286,7 @@ public class maksuikkunaFragment extends Fragment {
 
     /**
      * laskee varauksen kokonaissumman
-     * @return
+     * @return palauttaa kokonaissumman string oliona
      */
 
     private String laskeKokonaisSumma() {
