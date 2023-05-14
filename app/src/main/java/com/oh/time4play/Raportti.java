@@ -17,7 +17,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 /**
- * RaporttiFragment toteuttaa raportin hakemisen halutulta päivämäärältä ja siitä voi katsoa avoimia laskuja
+ * RaporttiFragment toteuttaa raportin hakemisen halutulta aikaväliltä tai kuluvalta päivältä
+ * näkymässä myös avoimien laskujen hakeminen
  */
 public class Raportti extends Fragment {
 

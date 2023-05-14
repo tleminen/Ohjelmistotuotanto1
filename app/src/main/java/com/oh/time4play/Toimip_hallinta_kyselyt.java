@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * toimipisteen hallintaan liittyvät kyselyt
+ * toimipisteiden hallinnointiin liittyvät kyselyt
  */
 public class Toimip_hallinta_kyselyt {
 
