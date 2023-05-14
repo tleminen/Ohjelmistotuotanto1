@@ -214,7 +214,7 @@ public class Toimip_hallinta_kyselyt {
      * Poistaa asiakkaan
      * @param connection      Tarvitsee yhteyden jolla on DELETE oikeus asiakas -tauluun
      * @param asiakkaanTunnus Saa parametrikseen poistettavan asiakkaan sähköpostiosoitteen.
-     * @return
+     * @return palauttaa true, mikäli tietokannasta ei löydy annettua vastaavaa sähköpostiosoitetta
      */
     public static int poistaAsiakas(Connection connection, String asiakkaanTunnus) throws SQLException {
         int muutettu = 0;
@@ -340,6 +340,12 @@ public class Toimip_hallinta_kyselyt {
         }
     }
 
+    /**
+     * Metodi toteuttaa tietokantaan kyselyn asiakkaista
+     * @param yhdistaTietokantaan tietokantayhteys
+     * @return palauttaa tietokannasta kaikki asiakkaat
+     * @throws SQLException sisältää SQL kyselyt
+     */
     public static ArrayList<Asiakas_Muuttujat> getAllAsiakkaat(Connection yhdistaTietokantaan) throws SQLException {
         ArrayList<Asiakas_Muuttujat> asiakkaat = new ArrayList<>();
         try (PreparedStatement statement = yhdistaTietokantaan.prepareStatement("""
