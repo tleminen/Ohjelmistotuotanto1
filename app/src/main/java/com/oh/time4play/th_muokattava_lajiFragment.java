@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+/**
+ * th_muokattava_lajiFragment toteuttaa halutun lajin muokattavan pelivälineen valitsemisen
+ */
 public class th_muokattava_lajiFragment extends Fragment {
 
     public th_muokattava_lajiFragment() {
