@@ -46,7 +46,7 @@ public class Raportti_kyselyt {
             statement.setString(1,kayttajatunnus);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),resultSet.getString("kenttaHinta"),resultSet.getString("Kenttanimi")));
+                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),Double.parseDouble(resultSet.getString("kenttaHinta").replace(",",".")),resultSet.getString("Kenttanimi")));
             }
         }
 
@@ -83,7 +83,7 @@ public class Raportti_kyselyt {
             statement.setString(1,kayttajatunnus);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),resultSet.getString("kenttaHinta"),resultSet.getString("Kenttanimi")));
+                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),Double.parseDouble(resultSet.getString("kenttaHinta").replace(",",".")),resultSet.getString("Kenttanimi")));
             }
         }
 
@@ -155,7 +155,7 @@ public class Raportti_kyselyt {
             statement.setString(1,kayttajatunnus);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),resultSet.getString("kenttaHinta"),resultSet.getString("Kenttanimi")));
+                laskut.add(new LaskuMuuttujat(resultSet.getInt("VarausID"),resultSet.getString("VarauksenPVM"),resultSet.getInt("VarauksenAika"),resultSet.getString("email"),Double.parseDouble(resultSet.getString("kenttaHinta").replace(",",".")),resultSet.getString("Kenttanimi")));
             }
         }
 
