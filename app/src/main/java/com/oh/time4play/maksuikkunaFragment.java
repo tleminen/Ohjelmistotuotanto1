@@ -238,7 +238,7 @@ public class maksuikkunaFragment extends Fragment {
 
     /**
      * purkaa edellisestä fragmentista stringinä tulleet lisäpalvelut yksittäisiin ja erottelee hinnan
-     * @param valitutPelivalineet
+     * @param valitutPelivalineet valitut pelivälineet
      */
     private void puraLisapalvelut(String valitutPelivalineet) {
         System.out.println("Lisäpalvelujen String purkuun tuli: " + valitutLisapalvelut);
