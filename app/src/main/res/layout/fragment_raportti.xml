@@ -67,7 +67,7 @@
             android:minHeight="48dp"
             android:text="@string/bt_raportti_Vahvista"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btTamaPaivaRaportti"
             app:layout_constraintTop_toBottomOf="@+id/et_raporttiLoppuPVM" />
 
         <Button
@@ -99,6 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:paddingBottom="20dp"
                 android:text="-" />
         </ScrollView>
 
@@ -144,5 +145,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btTamaPaivaRaportti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_teema2"
+            android:minHeight="48dp"
+            android:text="@string/text_bt_tamaPaiva"
+            app:layout_constraintEnd_toStartOf="@+id/bt_raportti_Vahvista"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_raporttiLoppuPVM" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
