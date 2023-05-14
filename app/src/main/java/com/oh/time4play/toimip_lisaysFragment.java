@@ -14,6 +14,9 @@ import android.widget.EditText;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * toimip_lisaysFragment toteuttaa uuden toimipisteen tietojen lisäämisen
+ */
 public class toimip_lisaysFragment extends Fragment {
 
     public toimip_lisaysFragment() {

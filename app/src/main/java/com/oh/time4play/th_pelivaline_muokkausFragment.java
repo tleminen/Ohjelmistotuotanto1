@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import java.sql.SQLException;
 
-
+/**
+ * th_pelivaline_muokkausFragment toteuttaa pelivälineen nimen ja hinnan muokkauksen tai poiston
+ */
 public class th_pelivaline_muokkausFragment extends Fragment {
 
     Pelivaline_muuttujat pelivaline;

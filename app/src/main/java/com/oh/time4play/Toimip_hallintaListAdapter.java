@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * Toimip_hallintaListAdapter toteuttaa toimip_hallintaFragment RecycleViewin adapterin
+ */
 public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
     public static ArrayList<Toimip_hallintaMuuttujat> localDataset;
 

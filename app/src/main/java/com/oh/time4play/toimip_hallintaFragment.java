@@ -16,7 +16,9 @@ import android.widget.Button;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+/**
+ * toimip_hallintaFragment toteuttaa toimipisteiden asiakashallinnan, lisäämisen, poistamisen sekä muokkaamisen
+ */
 public class toimip_hallintaFragment extends Fragment {
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //
 

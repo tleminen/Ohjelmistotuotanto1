@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * toimipisteen hallintaan liittyvät kyselyt
+ */
 public class Toimip_hallinta_kyselyt {
 
     /**

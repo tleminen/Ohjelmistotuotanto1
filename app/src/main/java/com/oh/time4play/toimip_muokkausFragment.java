@@ -15,6 +15,9 @@ import android.widget.TextView;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * toimip_muokkausFragment toteuttaa toimipisteen nimen ja kaupungin muokkaamisen
+ */
 public class toimip_muokkausFragment extends Fragment {
 
     static Toimip_hallintaMuuttujat muokattavanTiedot;
