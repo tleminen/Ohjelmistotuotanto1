@@ -158,11 +158,12 @@
     <string name="tv_raportti_Otsikko">Raportti</string>
     <string name="et_raportti_PVMAlku">VVVV-KK-PP</string>
     <string name="et_raportti_PVMLoppu">VVVV-KK-PP</string>
-    <string name="bt_raportti_Vahvista">Vahvista</string>
+    <string name="bt_raportti_Vahvista">Hae raportti</string>
     <string name="bt_raportti_Paluu">Palaa takaisin</string>
     <string name="tv_raportti_Alku">AlkuPVM</string>
     <string name="tv_raportti_Loppu">LoppuPVM</string>
     <string name="text_bt_avoimetLaskut">Avoimet laskut</string>
+    <string name="text_bt_tamaPaiva">Tänään</string>
 
     <!-- Laskutus -->
     <string name="text_Otsikko_Laskutus">Laskutus</string>

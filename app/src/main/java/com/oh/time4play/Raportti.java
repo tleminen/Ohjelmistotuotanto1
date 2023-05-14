@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 /**
  * RaporttiFragment toteuttaa raportin hakemisen halutulta päivämäärältä ja siitä voi katsoa avoimia laskuja
@@ -43,8 +44,32 @@ public class Raportti extends Fragment {
         Button btVahvista = view.findViewById(R.id.bt_raportti_Vahvista);
         Button btPaluu = view.findViewById(R.id.bt_raportti_Loppu);
         Button btAvoimet = view.findViewById(R.id.btRaportti_AvoimetLaskut);
+        Button btTanaan = view.findViewById(R.id.btTamaPaivaRaportti);
 
         TextView tvRaporttiTeksti = view.findViewById(R.id.tv_raporttiTulostus);
+
+        btTanaan.setOnClickListener(e -> {
+            String tanaan = String.valueOf(LocalDate.now());
+            System.out.println(tanaan);
+            Thread t1 = new Thread(() -> {
+                Connection connection;
+                try {
+                    connection = Tietokantayhteys.yhdistaSystemTietokantaan();
+                    raportti = Raportti_kyselyt.getLocalVarausraportti(connection, kayttajatunnus, tanaan, tanaan);
+                    Tietokantayhteys.katkaiseYhteysTietokantaan();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            t1.start();
+            try {
+                t1.join();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            tvRaporttiTeksti.setText(raportti);
+        });
 
         btVahvista.setOnClickListener(e->{
             String alkupvm = etalkupvm.getText().toString();
