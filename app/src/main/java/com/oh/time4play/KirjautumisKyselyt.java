@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * luokka sisältää kyselyitä joilla varmennetaan käyttäjän rooli, se palauttaa 0, mikäli käyttäjää ei löydy
+ */
 public class KirjautumisKyselyt {
     public static int getRooli() {
         return rooli;

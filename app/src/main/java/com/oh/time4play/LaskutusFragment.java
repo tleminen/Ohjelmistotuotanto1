@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * LaskutusFragment toteuttaa laskutuksen
+ * LaskutusFragment koostaa laskut laskutyypin mukaan ja mahdollistaa niiden asettamisen laskutetuiksi
  */
 public class LaskutusFragment extends Fragment {
     ArrayList<LaskuMuuttujat> laskuta = new ArrayList<>();

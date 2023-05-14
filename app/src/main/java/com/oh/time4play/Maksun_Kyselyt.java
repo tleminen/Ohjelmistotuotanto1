@@ -5,6 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * maksuikkunaan liittyvät kyselyt
+ */
+
 public class Maksun_Kyselyt {
 
     public static Asiakas_Muuttujat getAsiakas(Connection yhdistaTietokantaan, String kayttajatunnus) throws SQLException {
@@ -23,6 +27,19 @@ public class Maksun_Kyselyt {
             return asiakasMuuttuja;
             }
     }
+
+    /**
+     * tekee tietokantaan varauksen, mikäli samalla ajalla ja kentällä ei ole jo varausta
+     * @param yhdistaSystemTietokantaan tietokantayhteys
+     * @param valittuPVM valittu päivämäärä
+     * @param valittuAika valittu aika
+     * @param valittuKentta valittu kenttä
+     * @param kayttajatunnus käyttäjätunnus
+     * @param pelivalineIDt pelivälineiden ID
+     * @param valittuMaksutapa valittu maksutapa
+     * @return
+     * @throws SQLException
+     */
 
     public static boolean teeVaraus(Connection yhdistaSystemTietokantaan, String valittuPVM, int valittuAika, int valittuKentta, String kayttajatunnus, int[] pelivalineIDt, int valittuMaksutapa) throws SQLException {
         boolean onnistui = true;
@@ -95,6 +112,14 @@ public class Maksun_Kyselyt {
         } return onnistui;
     }
 
+    /**
+     * päivittää asiakkaan tiedot
+     * @param yhdistaSystemTietokantaan tietokantayhteys
+     * @param kayttajatunnus asiakkaan käyttäjätunnus
+     * @param osoite asiakkaan osoite
+     * @param nimi asiakkaan nimi
+     * @throws SQLException
+     */
     public static void updateAsiakas(Connection yhdistaSystemTietokantaan, String kayttajatunnus, String osoite, String nimi) throws SQLException {
         try (PreparedStatement statement = yhdistaSystemTietokantaan.prepareStatement("""
                 UPDATE `varausjarjestelma`.`asiakas` 

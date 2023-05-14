@@ -201,6 +201,9 @@ public class maksuikkunaFragment extends Fragment {
         return view;
     }
 
+    /**
+     * asettaa laskun olioon laskun tiedot
+     */
     private void laskunMuodostus() {
         lasku.setAsiakkaanNimi(asiakas.getAsiakasNimi());
         lasku.setLoppuSumma(loppuSumma);
@@ -232,6 +235,10 @@ public class maksuikkunaFragment extends Fragment {
         System.out.println("Lasku muodostettu");
     }
 
+    /**
+     * purkaa edellisestä fragmentista stringinä tulleet lisäpalvelut yksittäisiin ja erottelee hinnan
+     * @param valitutPelivalineet
+     */
     private void puraLisapalvelut(String valitutPelivalineet) {
         System.out.println("Lisäpalvelujen String purkuun tuli: " + valitutLisapalvelut);
         boolean readValine = false;
@@ -271,6 +278,11 @@ public class maksuikkunaFragment extends Fragment {
         }
         lisapalveluTotHinta = total;
     }
+
+    /**
+     * laskee varauksen kokonaissumman
+     * @return
+     */
 
     private String laskeKokonaisSumma() {
         int summa = 0;

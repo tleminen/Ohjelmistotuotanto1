@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * loppuikkunaFragment sisältää loppunäkymän ja köyttäjän siirtämisen alkunäkymään, asettaa tekstin käyttäjän mukaisesti ja kertoo, mikäli varaus on epäonnistunut
+ */
 public class loppuikkunaFragment extends Fragment {
 
     public loppuikkunaFragment() {
