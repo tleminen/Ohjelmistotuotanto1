@@ -16,6 +16,9 @@ import android.widget.TextView;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * th_pelivaline_lisaysFragment toteuttaa uuden pelivälineen nimen ja hinnan lisäämisen
+ */
 public class th_pelivaline_lisaysFragment extends Fragment {
 
     @Override
