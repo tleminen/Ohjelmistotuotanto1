@@ -15,7 +15,9 @@ import android.widget.Button;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+/**
+ *
+ */
 public class th_muokattava_kenttaFragment extends Fragment {
 
     public ArrayList<Kentta_Muuttujat> itemArrayList; //

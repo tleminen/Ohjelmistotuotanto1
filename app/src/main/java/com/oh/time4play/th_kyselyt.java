@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * kenttiin, varauksiin ja pelivälineisiin liittyvät kyselyt
+ */
 public class th_kyselyt {
 
     public static void updatePelivaline(Connection connection, Pelivaline_muuttujat muokattavanTiedot) throws SQLException {
