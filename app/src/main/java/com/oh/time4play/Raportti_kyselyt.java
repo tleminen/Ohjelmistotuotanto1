@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Raportti_kyselyt {
 
     public static String getLocalVarausraportti(Connection connection, String kayttajatunnus, String alkupvm, String loppupvm) throws SQLException {
-        String raportti = "ID\t|\tPVM\t|\tAlkamisaika\t|\tKenttä\t|\tAsiakkaan email\n";
+        String raportti = "ID\t|\tPVM\t|\tAlkamisaika\t|\nKenttä\t|\tAsiakkaan email\n----------------\n";
         System.out.println("Luodaan varausraportti...");
         try (PreparedStatement statement = connection.prepareStatement("""
                 SELECT VarausID, VarauksenPVM, VarauksenAika, kentat.Kenttanimi, email
@@ -26,7 +26,19 @@ public class Raportti_kyselyt {
             System.out.println("Varausraportti luotu");
             while (resultSet.next()) {
                 System.out.println("Oli resultsetissä raporttia");
-                raportti += resultSet.getInt("VarausID") + "\t|\t" + resultSet.getString("VarauksenPVM") + "\t|\t" + resultSet.getString("VarauksenAika") + ":00" + "\t|\t" + resultSet.getString("kentat.Kenttanimi") + "\t|\t" + resultSet.getString("email") + "\n";
+                raportti += "------------\n" + resultSet.getInt("VarausID") + "\t|\t" + resultSet.getString("VarauksenPVM") + "\t|\t" + resultSet.getString("VarauksenAika") + ":00" + "\t|\n" + resultSet.getString("kentat.Kenttanimi") + "\t|\t" + resultSet.getString("email") + "\n";
+                try (PreparedStatement statement1 = connection.prepareStatement("""
+                        SELECT ValineNimi
+                        	FROM kuuluu, pelivalineet
+                        	WHERE kuuluu.PelivalineID = pelivalineet.PelivalineID
+                        	AND varausID = ?
+                        """)) {
+                    statement1.setInt(1,resultSet.getInt("VarausID"));
+                    ResultSet resultSet1 = statement1.executeQuery();
+                    while (resultSet1.next()) {
+                        raportti += "Lisämyynti: " + resultSet1.getString("ValineNimi") + "\n";
+                    }
+                }
             }
             return raportti;
         }
@@ -193,7 +205,7 @@ public class Raportti_kyselyt {
         }
 
         for (LaskuMuuttujat laskuja: laskut) {
-            avoimetLaskut += "VarausID: " + laskuja.getVarausID() + " | Varauksen ajankohta: " + laskuja.getVarauksenAjankohta() + ":00\nNimi: " + laskuja.getAsiakkaanNimi() + " | Sähköpostiosoite: " + laskuja.getAsiakkaanEmail() + "\nOsoite: " + laskuja.getAsiakkaanOsoite() + "\nLoppusumma: " + laskuja.getLaskutettavaSumma() + "\n-------------------\n";
+            avoimetLaskut += "VarausID: " + laskuja.getVarausID() + " | Varauksen ajankohta: " + laskuja.getVarauksenAjankohta() + ":00\nNimi: " + laskuja.getAsiakkaanNimi() + "\nSähköpostiosoite: " + laskuja.getAsiakkaanEmail() + "\nOsoite: " + laskuja.getAsiakkaanOsoite() + "\nLoppusumma: " + laskuja.getLaskutettavaSumma() + "\n-------------------\n";
         }
         return avoimetLaskut;
     }
