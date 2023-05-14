@@ -10,8 +10,7 @@ import java.sql.SQLException;
 public class Tietokantayhteys {
     private static Connection yhteys;
     /**
-     * Tänne tehdään tietokantayhteyden muodostaminen
-     *
+     * tietokantayhteyden muodostaminen
      * @return palauttaa tietokantayhteyden
      */
     public static Connection yhdistaTietokantaan(String kayttajatunnus,String salasana) throws SQLException {
@@ -25,7 +24,7 @@ public class Tietokantayhteys {
     }
 
     /**
-     * tänne tehdään System-käyttäjän yhdistäminen tietokantaan
+     * System-käyttäjän yhdistäminen tietokantaan
      * SystemKäyttäjä voi lisätä uusia käyttäjiä ja hakea laskutustietoja
      * @return palauttaa tietokantayhteyden
      */
@@ -39,7 +38,7 @@ public class Tietokantayhteys {
     }
 
     /**
-     * Tänne tehdään tietokantayhteyden katkaiseminen
+     * Tietokantayhteyden katkaiseminen
      */
     public static void katkaiseYhteysTietokantaan() throws SQLException {
         System.out.println("\tTietokantayhteys katkaistaan...");
