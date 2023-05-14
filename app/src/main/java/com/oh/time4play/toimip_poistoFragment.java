@@ -14,6 +14,9 @@ import android.widget.TextView;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * toimip_poistoFragment toteuttaa toimipisteen poistamisen
+ */
 public class toimip_poistoFragment extends Fragment {
 
     public toimip_poistoFragment() {

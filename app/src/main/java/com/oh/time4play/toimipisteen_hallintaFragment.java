@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+/**
+ * toimipisteen_hallintaFragment toteuttaa toimipisteen kenttien ja pelivälineiden lisäämistä sekä muokkaamista, ja mahdollisuuden raporttien ja laskutusten katsomiseen
+ */
 public class toimipisteen_hallintaFragment extends Fragment {
 
     public toimipisteen_hallintaFragment() {super(R.layout.fragment_toimipisteen_hallinta);}
