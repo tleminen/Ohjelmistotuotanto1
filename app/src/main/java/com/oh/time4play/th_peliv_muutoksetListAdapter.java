@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * th_peliv_muutoksetListAdapter toteuttaa th_peliv_muutoksetFragment RecycleViewin adapterin
+ */
 public class th_peliv_muutoksetListAdapter extends RecyclerView.Adapter<th_peliv_muutoksetListAdapter.ViewHolder> {
     public static ArrayList<Pelivaline_muuttujat> localDataset;
     public th_peliv_muutoksetListAdapter(ArrayList<Pelivaline_muuttujat> dataset) {localDataset=dataset;}

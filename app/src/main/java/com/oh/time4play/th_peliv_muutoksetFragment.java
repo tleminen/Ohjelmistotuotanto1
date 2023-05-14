@@ -18,6 +18,9 @@ import com.oh.time4play.th_peliv_muutoksetFragmentDirections;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * th_peliv_muutoksetFragment toteuttaa halutun muokattavan pelivälineen valitsemisen
+ */
 public class th_peliv_muutoksetFragment extends Fragment {
 
     public ArrayList<Pelivaline_muuttujat> itemArrayList; //

@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ *th_muokattava_kenttaFragment toteuttaa halutun muokattavan kentän valitsemisen
  */
 public class th_muokattava_kenttaFragment extends Fragment {
 
