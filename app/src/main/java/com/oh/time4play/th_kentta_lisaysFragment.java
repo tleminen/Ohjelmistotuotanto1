@@ -15,6 +15,9 @@ import android.widget.RadioButton;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * th_kentta_lisaysFragment toteuttaa uuden kentän ja tuntihinnan lisäyksen
+ */
 public class th_kentta_lisaysFragment extends Fragment {
 
     public th_kentta_lisaysFragment() {

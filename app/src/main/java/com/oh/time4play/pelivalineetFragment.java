@@ -15,6 +15,9 @@ import android.widget.Button;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * pelivalineetFragmentissa valitaan ostettavat tai vuokrattavat pelivälineet
+ */
 public class pelivalineetFragment extends Fragment {
     private ArrayList<Pelivaline_muuttujat> itemArrayList;
     public static String valitutPelivalineet = "";

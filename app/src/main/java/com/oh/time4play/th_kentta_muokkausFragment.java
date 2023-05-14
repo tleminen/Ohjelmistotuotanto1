@@ -15,6 +15,9 @@ import android.widget.RadioButton;
 import java.sql.SQLException;
 import java.util.Objects;
 
+/**
+ * th_kentta_muokkaus toteuttaa tuntihinnan ja kentän nimen joko poiston tai muokkauksen
+ */
 public class th_kentta_muokkausFragment extends Fragment {
 
     Kentta_Muuttujat kentta;

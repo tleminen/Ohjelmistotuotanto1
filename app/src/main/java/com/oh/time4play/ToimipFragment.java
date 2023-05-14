@@ -16,6 +16,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * ToimipFragment toteuttaa toimipisteen valitsemisen
+ */
 public class ToimipFragment extends Fragment {
 
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //

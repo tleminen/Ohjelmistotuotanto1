@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * PelivalineetListAdapter toteuttaa PelivalineetFragment RecycleViewin adapterin
+ */
 public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetListAdapter.ViewHolder>{
     public static ArrayList<Pelivaline_muuttujat> localDataset;
     public PelivalineetListAdapter(ArrayList<Pelivaline_muuttujat> dataset) {localDataset=dataset;}

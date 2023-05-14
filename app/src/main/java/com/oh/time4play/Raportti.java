@@ -15,6 +15,9 @@ import android.widget.TextView;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * RaporttiFragment toteuttaa raportin hakemisen halutulta päivämäärältä ja siitä voi katsoa avoimia laskuja
+ */
 public class Raportti extends Fragment {
 
     public String laskut;
