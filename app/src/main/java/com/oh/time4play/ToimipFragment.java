@@ -77,6 +77,7 @@ public class ToimipFragment extends Fragment {
         btVahvista.setOnClickListener(e -> {
             if (!Objects.equals(valittuToimipiste, "ei")) {
             com.oh.time4play.ToimipFragmentDirections.ActionToimipFragmentToPvmFragment action = com.oh.time4play.ToimipFragmentDirections.actionToimipFragmentToPvmFragment(kayttajatunnus,salasana,ToimipFragment.valittuToimipiste);
+            valittupositio = -1;
             Navigation.findNavController(view).navigate(action); }
         });
 
