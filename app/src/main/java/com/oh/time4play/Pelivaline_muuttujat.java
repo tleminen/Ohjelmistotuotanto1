@@ -2,6 +2,7 @@ package com.oh.time4play;
 
 /**
  * Pelivalineolio sisältää pelivälineiden tiedot, käytetään pelivälineiden käsittelyssä
+ * @version 1.0
  */
 public class Pelivaline_muuttujat {
     protected int pelivalineID;

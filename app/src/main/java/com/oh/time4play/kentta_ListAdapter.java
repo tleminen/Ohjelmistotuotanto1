@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * kentta_ListAdapter toteuttaa kenttaFragments RecycleViewin adapterin
+ * @version 1.0
  */
 public class kentta_ListAdapter extends RecyclerView.Adapter<kentta_ListAdapter.ViewHolder>  {
 

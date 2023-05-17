@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 /**
  * th_peliv_muutoksetFragment toteuttaa halutun muokattavan pelivälineen valitsemisen
+ * @version 1.0
  */
 public class th_peliv_muutoksetFragment extends Fragment {
 

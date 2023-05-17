@@ -16,7 +16,8 @@ import android.widget.TextView;
 import java.sql.SQLException;
 
 /**
- *maksuikkunaFragment toteuttaa tilauksen vahvistamisen, laskun muodostamiseen ja varauksen syöttämisen tietokantaan
+ * maksuikkunaFragment toteuttaa tilauksen vahvistamisen, laskun muodostamiseen ja varauksen syöttämisen tietokantaan
+ * @version 1.0
  */
 public class maksuikkunaFragment extends Fragment {
 

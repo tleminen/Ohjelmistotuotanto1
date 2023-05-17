@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 /**
  * PelivalineetListAdapter toteuttaa PelivalineetFragment RecycleViewin adapterin
+ * @version 1.0
  */
 public class PelivalineetListAdapter extends RecyclerView.Adapter<PelivalineetListAdapter.ViewHolder>{
     public static ArrayList<Pelivaline_muuttujat> localDataset;

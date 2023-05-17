@@ -16,6 +16,7 @@ import java.sql.SQLException;
 
 /**
  * toimip_lisaysFragment toteuttaa uuden toimipisteen tietojen lisäämisen
+ * @version 1.0
  */
 public class toimip_lisaysFragment extends Fragment {
 

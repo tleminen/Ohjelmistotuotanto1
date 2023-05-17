@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 /**
  * maksuikkunaan liittyvät kyselyt
+ * @version 1.0
  */
 
 public class Maksun_Kyselyt {

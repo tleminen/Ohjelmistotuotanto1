@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 /**
  * luokka sisältää kyselyitä joilla varmennetaan käyttäjän rooli, se palauttaa 0, mikäli käyttäjää ei löydy
+ * @version 1.0
  */
 public class KirjautumisKyselyt {
     public static int getRooli() {

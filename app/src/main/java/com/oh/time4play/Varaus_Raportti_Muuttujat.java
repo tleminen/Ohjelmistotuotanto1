@@ -2,6 +2,7 @@ package com.oh.time4play;
 
 /**
  * Varausraporttiolio, käytetään varauksien käsittelyssä
+ * @version 1.0
  */
 public class Varaus_Raportti_Muuttujat {
     int varausID;

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * kellonaikaValintaFragment toteuttaa asiakkaan kellonajanvalinnan varausta tehdessä
+ * @version 1.0
  */
 public class kellonaikaValintaFragment extends Fragment {
     static final int varattuVari = 0xFF883200;

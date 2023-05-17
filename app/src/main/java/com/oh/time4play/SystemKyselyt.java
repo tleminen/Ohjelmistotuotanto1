@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 /**
  * SystemKyselyt toteuttaa uuden asiakkaan luomisen ja tietokantaoikeuksien myöntämisen asiakkaalle
+ * @version 1.0
  */
 public class SystemKyselyt {
 

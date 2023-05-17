@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * toteuttaa RaporttiFragmentin tarvitsemat kyselyt
+ * @version 1.0
  */
 public class Raportti_kyselyt {
 

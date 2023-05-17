@@ -17,6 +17,7 @@ import java.sql.SQLException;
 
 /**
  * toimip_muokkausFragment toteuttaa toimipisteen nimen ja kaupungin muokkaamisen toimipisteiden hallinnoitsijalle
+ * @version 1.0
  */
 public class toimip_muokkausFragment extends Fragment {
 

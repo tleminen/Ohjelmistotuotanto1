@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /**
  * ToimipFragment toteuttaa toimipisteen valitsemisen
+ * @version 1.0
  */
 public class ToimipFragment extends Fragment {
 

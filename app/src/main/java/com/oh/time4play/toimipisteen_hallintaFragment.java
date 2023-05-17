@@ -12,6 +12,7 @@ import android.widget.Button;
 
 /**
  * toimipisteen_hallintaFragment toteuttaa alkuvalikon paikalliselle ylläpitäjälle
+ * @version 1.0
  */
 public class toimipisteen_hallintaFragment extends Fragment {
 

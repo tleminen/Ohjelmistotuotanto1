@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 /**
  * LaskutusFragment koostaa laskut laskutyypin mukaan ja mahdollistaa niiden asettamisen laskutetuiksi
+ * @version 1.0
  */
 public class LaskutusFragment extends Fragment {
     ArrayList<LaskuMuuttujat> laskuta = new ArrayList<>();

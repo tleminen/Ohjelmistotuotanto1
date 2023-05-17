@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 /**
  * pelivalineetFragmentissa valitaan ostettavat tai vuokrattavat pelivälineet
+ * @version 1.0
  */
 public class pelivalineetFragment extends Fragment {
     private ArrayList<Pelivaline_muuttujat> itemArrayList;

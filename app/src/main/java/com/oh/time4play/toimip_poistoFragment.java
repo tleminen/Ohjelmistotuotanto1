@@ -16,6 +16,7 @@ import java.sql.SQLException;
 
 /**
  * toimip_poistoFragment toteuttaa toimipisteen poistamisen
+ * @version 1.0
  */
 public class toimip_poistoFragment extends Fragment {
 

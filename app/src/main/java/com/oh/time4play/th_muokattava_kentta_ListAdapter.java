@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * th_muokattava_kentta_ListAdapter toteuttaa th_muokattava_kenttaFragment RecycleViewin adapterin
+ * @version 1.0
  */
 public class th_muokattava_kentta_ListAdapter extends RecyclerView.Adapter<th_muokattava_kentta_ListAdapter.ViewHolder> {
     public static ArrayList<Kentta_Muuttujat> localDataset;

@@ -16,6 +16,7 @@ import java.sql.SQLException;
 
 /**
  * th_pelivaline_muokkausFragment toteuttaa pelivälineen nimen ja hinnan muokkauksen tai poiston
+ * @version 1.0
  */
 public class th_pelivaline_muokkausFragment extends Fragment {
 

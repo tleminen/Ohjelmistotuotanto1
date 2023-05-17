@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 /**
  * AsiakasHallinta toteuttaa asiakkaiden tietojen näyttämisen ja poistamisen
+ * @version 1.0
  */
 public class AsiakasHallinta extends Fragment {
 

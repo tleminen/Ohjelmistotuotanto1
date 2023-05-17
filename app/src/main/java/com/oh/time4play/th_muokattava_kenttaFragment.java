@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 /**
  *th_muokattava_kenttaFragment toteuttaa halutun muokattavan kentän valitsemisen
+ * @version 1.0
  */
 public class th_muokattava_kenttaFragment extends Fragment {
 

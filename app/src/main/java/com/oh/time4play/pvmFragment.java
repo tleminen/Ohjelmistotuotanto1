@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 
 /**
  * pvmFragment toteuttaa asiakkaan valitseman päivämäärän valitsemisen ja pelattavan lajin valitsemisen
+ * @version 1.0
  */
 public class pvmFragment extends Fragment {
     public String valittupvm;

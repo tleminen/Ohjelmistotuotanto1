@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 /**
  * Toteuttaa uuden asiakkaan rekisteröitymisen
- * V1.0
+ * @version 1.0
  */
 public class RegisterFragment extends Fragment {
     boolean muutettu = false;

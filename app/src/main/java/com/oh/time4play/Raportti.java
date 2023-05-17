@@ -19,6 +19,7 @@ import java.time.LocalDate;
 /**
  * RaporttiFragment toteuttaa raportin hakemisen halutulta aikaväliltä tai kuluvalta päivältä
  * näkymässä myös avoimien laskujen hakeminen
+ * @version 1.0
  */
 public class Raportti extends Fragment {
 

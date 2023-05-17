@@ -16,7 +16,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *kenttaFragment toteuttaa varausten lisäykset kenttiin
+ * kenttaFragment toteuttaa varausten lisäykset kenttiin
+ * @version 1.0
  */
 public class kenttaFragment extends Fragment {
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Toimip_hallintaolio, käytetään toimipisteiden käsittelyssä
+ * @version 1.0
  */
 public class Toimip_hallintaMuuttujat {
 

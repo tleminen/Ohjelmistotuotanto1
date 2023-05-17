@@ -2,6 +2,7 @@ package com.oh.time4play;
 
 /**
  * Asiakasolio sisältää asiakkaan tiedot, käytetään asiakkaan käsittelyssä
+ * @version 1.0
  */
 public class Asiakas_Muuttujat {
     private String email;

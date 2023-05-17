@@ -17,6 +17,7 @@ import java.sql.SQLException;
 
 /**
  * th_kentta_lisaysFragment toteuttaa uuden kentän ja tuntihinnan lisäyksen
+ * @version 1.0
  */
 public class th_kentta_lisaysFragment extends Fragment {
 

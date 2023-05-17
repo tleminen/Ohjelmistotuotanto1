@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 /**
  * Login fragment sisältää kirjautumisnäkymän
- * V1.0
+ * @version 1.0
  */
 public class LoginFragment extends Fragment {
 

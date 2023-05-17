@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * toimipisteiden hallinnointiin liittyvät kyselyt
+ * @version 1.0
  */
 public class Toimip_hallinta_kyselyt {
 

@@ -17,6 +17,7 @@ import java.util.Objects;
 
 /**
  * th_kentta_muokkaus toteuttaa tuntihinnan ja kentän nimen joko poiston tai muokkauksen
+ * @version 1.0
  */
 public class th_kentta_muokkausFragment extends Fragment {
 

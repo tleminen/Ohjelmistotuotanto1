@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 /**
  * toimip_hallintaFragment toteuttaa toimipisteiden asiakashallinnan, lisäämisen, poistamisen sekä muokkaamisen
+ * @version 1.0
  */
 public class toimip_hallintaFragment extends Fragment {
     public ArrayList<Toimip_hallintaMuuttujat> itemArrayList; //

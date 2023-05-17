@@ -18,6 +18,7 @@ import java.sql.SQLException;
 
 /**
  * th_pelivaline_lisaysFragment toteuttaa uuden pelivälineen nimen ja hinnan lisäämisen
+ * @version 1.0
  */
 public class th_pelivaline_lisaysFragment extends Fragment {
 

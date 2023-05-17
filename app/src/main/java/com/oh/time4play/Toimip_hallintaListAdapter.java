@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * Toimip_hallintaListAdapter toteuttaa toimip_hallintaFragment RecycleViewin adapterin
+ * @version 1.0
  */
 public class Toimip_hallintaListAdapter extends RecyclerView.Adapter<Toimip_hallintaListAdapter.ViewHolder> {
     public static ArrayList<Toimip_hallintaMuuttujat> localDataset;

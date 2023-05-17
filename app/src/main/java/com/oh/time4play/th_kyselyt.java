@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * kenttiin, varauksiin ja pelivälineisiin liittyvät kyselyt
+ * @version 1.0
  */
 public class th_kyselyt {
 

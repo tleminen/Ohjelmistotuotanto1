@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 /**
  * Tietokantayhteyden muodostaminen
+ * @version 1.0
  */
 public class Tietokantayhteys {
     private static Connection yhteys;
@@ -25,7 +26,7 @@ public class Tietokantayhteys {
 
     /**
      * System-käyttäjän yhdistäminen tietokantaan
-     * SystemKäyttäjä voi lisätä uusia käyttäjiä ja hakea laskutustietoja
+     * SystemKäyttäjä voi lisätä uusia käyttäjiä ja hakea laskutustietoja. System-käyttäjä voi luoda uusia kirjautumisoikeuksia.
      * @return palauttaa tietokantayhteyden
      */
     public static Connection yhdistaSystemTietokantaan() throws SQLException {
